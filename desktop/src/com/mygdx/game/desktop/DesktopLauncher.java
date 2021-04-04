@@ -7,6 +7,9 @@ import com.mygdx.game.Tutor;
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
+		config.title = "RAM Tutor";
+		config.width = 1600;
+		config.height = 900;
 		new LwjglApplication(new Tutor(), config);
 	}
 }
