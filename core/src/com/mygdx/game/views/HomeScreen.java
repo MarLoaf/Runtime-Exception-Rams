@@ -117,7 +117,9 @@ public class HomeScreen implements Screen {
 		stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
 		stage.draw();
 	}
-
+	
+	
+	
 	@Override
 	public void resize(int width, int height) {
 		stage.getViewport().update(width, height, true);

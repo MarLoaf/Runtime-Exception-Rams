@@ -98,7 +98,9 @@ public class LoginScreen implements Screen {
         Label username = new Label("Username:", skin);
         Label password = new Label("Password:", skin);
 		TextField usernameText = new TextField("", skin);
+		usernameText.setMessageText("Enter username...");
 		TextField passwordText = new TextField("", skin);
+		passwordText.setMessageText("Enter password...");
 		ImageTextButton login = new ImageTextButton("Log in", skin, "green");
 		ImageTextButton forgotPassword = new ImageTextButton("Forgot Password", skin);
 		ImageTextButton createAccount = new ImageTextButton("Create Account", skin);
