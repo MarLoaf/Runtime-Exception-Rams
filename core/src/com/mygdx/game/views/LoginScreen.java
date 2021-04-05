@@ -33,7 +33,7 @@ public class LoginScreen implements Screen {
 		table.setFillParent(true);
 		//table.setDebug(true); remove // for guides around table elements (red lines)
 		stage.addActor(table);
-		Skin skin = new Skin(Gdx.files.internal("skin/test.json")) {
+		Skin skin = new Skin(Gdx.files.internal("skin/tutorSkin.json")) {
             //Override json loader to process FreeType fonts from skin JSON
             @Override
             protected Json getJsonLoader(final FileHandle skinFile) {
