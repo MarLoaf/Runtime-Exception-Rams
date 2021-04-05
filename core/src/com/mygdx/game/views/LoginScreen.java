@@ -99,10 +99,10 @@ public class LoginScreen implements Screen {
         Label password = new Label("Password:", skin);
 		TextField usernameText = new TextField("", skin);
 		TextField passwordText = new TextField("", skin);
-		ImageTextButton login = new ImageTextButton("Log in", skin);
+		ImageTextButton login = new ImageTextButton("Log in", skin, "green");
 		ImageTextButton forgotPassword = new ImageTextButton("Forgot Password", skin);
 		ImageTextButton createAccount = new ImageTextButton("Create Account", skin);
-		ImageTextButton exit = new ImageTextButton("Exit", skin);
+		ImageTextButton exit = new ImageTextButton("Exit", skin, "pink");
 		username.setAlignment(Align.center);
 		usernameText.setAlignment(Align.center);
 		password.setAlignment(Align.center);
