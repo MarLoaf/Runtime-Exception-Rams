@@ -4,8 +4,10 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFontParameter;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.Hinting;
@@ -13,6 +15,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
@@ -22,9 +25,13 @@ public class LoginScreen implements Screen {
 
 	private Tutor parent;
 	private Stage stage;
+	private SpriteBatch batch;
+	private Texture backgroundTexture;
 	
 	public LoginScreen(Tutor tutor) {
 		parent = tutor;
+		batch = new SpriteBatch();
+		backgroundTexture = new Texture(Gdx.files.internal("images/background.png"));
 		stage = new Stage(new ScreenViewport());
 		Gdx.input.setInputProcessor(stage);
 		stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1/30f));
@@ -78,9 +85,23 @@ public class LoginScreen implements Screen {
                 return json;
             }
         };
-		ImageTextButton login = new ImageTextButton("Login", skin);
+		TextField usernameText = new TextField("Username", skin);
+		TextField passwordText = new TextField("Password", skin);
+		ImageTextButton login = new ImageTextButton("Log in", skin);
+		ImageTextButton forgotPassword = new ImageTextButton("Forgot Password", skin);
+		ImageTextButton createAccount = new ImageTextButton("Create Account", skin);
+		ImageTextButton exit = new ImageTextButton("Exit", skin);
+		table.add(usernameText).fillX().uniformX();
+		table.row().pad(10, 0, 10, 0);
+		table.add(passwordText).fillX().uniformX();
+		table.row();
 		table.add(login).fillX().uniformX();
 		table.row().pad(10, 0, 10, 0);
+		table.add(forgotPassword).fillX().uniformX();
+		table.row();
+		table.add(createAccount).fillX().uniformX();
+		table.row().pad(10, 0, 10, 0);
+		table.add(exit).fillX().uniformX();
 	}
 
 	@Override
@@ -91,8 +112,11 @@ public class LoginScreen implements Screen {
 
 	@Override
 	public void render(float delta) {
-		Gdx.gl.glClearColor(0f, 0f, 0f, 1);
+		Gdx.gl.glClearColor(.1f, .12f, .16f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		batch.begin();
+		batch.draw(backgroundTexture, 0, 0);
+		batch.end();
 		stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
 		stage.draw();
 	}
