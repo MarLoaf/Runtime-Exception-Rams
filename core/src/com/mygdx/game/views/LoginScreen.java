@@ -14,6 +14,7 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.Hinting;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
@@ -92,25 +93,33 @@ public class LoginScreen implements Screen {
                 return json;
             }
         };
+        //creating different buttons/textfields/labels
+        Label username = new Label("Username:", skin);
+        Label password = new Label("Password:", skin);
 		TextField usernameText = new TextField("Username", skin);
 		TextField passwordText = new TextField("Password", skin);
 		ImageTextButton login = new ImageTextButton("Log in", skin);
 		ImageTextButton forgotPassword = new ImageTextButton("Forgot Password", skin);
 		ImageTextButton createAccount = new ImageTextButton("Create Account", skin);
 		ImageTextButton exit = new ImageTextButton("Exit", skin);
-		table.add(usernameText).fillX().uniformX();
+		username.setAlignment(Align.center);
 		usernameText.setAlignment(Align.center);
-		table.row().pad(10, 0, 10, 0);
-		table.add(passwordText).fillX().uniformX();
+		password.setAlignment(Align.center);
 		passwordText.setAlignment(Align.center);
+		//layout:
 		table.row();
+		table.add(username).fillX().uniformX();
+		table.add(usernameText).fillX().uniformX();
+		table.row().pad(10, 0, 10, 0);
+		table.add(password).fillX().uniformX();
+		table.add(passwordText).fillX().uniformX();
 		table.add(login).fillX().uniformX();
-		table.row().pad(10, 0, 10, 0);
+		table.row().pad(10, 0, 10, 10);
 		table.add(forgotPassword).fillX().uniformX();
-		table.row();
 		table.add(createAccount).fillX().uniformX();
-		table.row().pad(10, 0, 10, 0);
+		table.row();
 		table.add(exit).fillX().uniformX();
+		//adding button functionality
 		exit.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
