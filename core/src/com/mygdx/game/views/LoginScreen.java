@@ -108,18 +108,18 @@ public class LoginScreen implements Screen {
 		password.setAlignment(Align.center);
 		passwordText.setAlignment(Align.center);
 		//layout:
-		table.row().pad(0, 0, 10, 0);
-		table.add(username).fillX().uniformX();
-		table.add(usernameText).fillX().uniformX();
-		table.row().pad(0, 0, 10, 0);
-		table.add(password).fillX().uniformX();
-		table.add(passwordText).fillX().uniformX();
+		table.row();
+		table.add(username).fillX().uniformX().pad(0, 0, 0, 5);
+		table.add(usernameText).fillX().uniformX().pad(0, 5, 0, 0);
+		table.row().pad(10, 0, 10, 0);
+		table.add(password).fillX().uniformX().pad(10, 0, 10, 5);
+		table.add(passwordText).fillX().uniformX().pad(10, 5, 10, 0);
 		table.row().pad(0, 0, 10, 0).colspan(2);
 		table.add(login).fillX().uniformX();
-		table.row().pad(0, 0, 10, 0);
-		table.add(forgotPassword).fillX().uniformX();
-		table.add(createAccount).fillX().uniformX();
-		table.row().colspan(2);
+		table.row();
+		table.add(forgotPassword).fillX().uniformX().pad(0, 0, 0, 5);
+		table.add(createAccount).fillX().uniformX().pad(0, 5, 0, 0);
+		table.row().pad(10, 0, 0, 0).colspan(2);
 		table.add(exit).fillX().uniformX();
 		//adding button functionality
 		exit.addListener(new ChangeListener() {
