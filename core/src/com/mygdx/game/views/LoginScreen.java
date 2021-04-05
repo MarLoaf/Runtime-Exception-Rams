@@ -113,6 +113,7 @@ public class LoginScreen implements Screen {
 		table.row().pad(10, 0, 10, 0);
 		table.add(password).fillX().uniformX();
 		table.add(passwordText).fillX().uniformX();
+		table.row();
 		table.add(login).fillX().uniformX();
 		table.row().pad(10, 0, 10, 10);
 		table.add(forgotPassword).fillX().uniformX();
