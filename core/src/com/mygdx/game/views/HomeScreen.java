@@ -11,13 +11,20 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFontParameter;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.Hinting;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextField;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.mygdx.game.Tutor;
+import com.badlogic.gdx.scenes.scene2d.ui.SelectBox;
 
 public class HomeScreen implements Screen {
 
@@ -88,8 +95,18 @@ public class HomeScreen implements Screen {
 		Table table = new Table();
 		table.setFillParent(true);
 		stage.addActor(table);
+		
+		final SelectBox gradeSelectBox = new SelectBox(skin);
+		String[] gradeOptions = {"Topic", "Kindergarten", "1st Grade", "2nd Grade", "3rd Grade", "4th Grade"};
+		gradeSelectBox.setItems(gradeOptions);
+		table.add(gradeSelectBox).fillX();
+		
+		
+		final SelectBox topicSelectBox = new SelectBox(skin);
+		final SelectBox lessonSelectBox = new SelectBox(skin);
+		
+		
 	}
-
 	@Override
 	public void render(float delta) {
 		Gdx.gl.glClearColor(.1f, .12f, .16f, 1);
