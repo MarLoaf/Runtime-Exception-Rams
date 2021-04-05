@@ -31,6 +31,8 @@ public class LoginScreen implements Screen {
 	private Stage stage;
 	private SpriteBatch batch;
 	private Texture backgroundTexture;
+	private boolean correctUsername;
+	private boolean correctPassword;
 	
 	public LoginScreen(Tutor tutor) {
 		parent = tutor;
@@ -40,6 +42,8 @@ public class LoginScreen implements Screen {
 		Gdx.input.setInputProcessor(stage);
 		stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1/30f));
 		stage.draw();
+		correctUsername = false;
+		correctPassword = false;
 	}
 
 	@Override
@@ -101,6 +105,8 @@ public class LoginScreen implements Screen {
 		usernameText.setMessageText("Enter username...");
 		TextField passwordText = new TextField("", skin);
 		passwordText.setMessageText("Enter password...");
+		passwordText.setPasswordCharacter('*');
+		passwordText.setPasswordMode(true);
 		ImageTextButton login = new ImageTextButton("Log in", skin, "green");
 		ImageTextButton forgotPassword = new ImageTextButton("Forgot Password", skin);
 		ImageTextButton createAccount = new ImageTextButton("Create Account", skin);
@@ -124,16 +130,28 @@ public class LoginScreen implements Screen {
 		table.row().pad(10, 0, 0, 0).colspan(2);
 		table.add(exit).fillX().uniformX();
 		//adding button functionality
-		exit.addListener(new ChangeListener() {
+		usernameText.setTextFieldListener(new TextField.TextFieldListener() {
 			@Override
-			public void changed(ChangeEvent event, Actor actor) {
-				Gdx.app.exit();
+			public void keyTyped(TextField textField, char c) {
+				if (textField.getText().equals("Username")) {
+					correctUsername = true;
+				}
+			}
+		});
+		passwordText.setTextFieldListener(new TextField.TextFieldListener() {
+			@Override
+			public void keyTyped(TextField textField, char c) {
+				if (textField.getText().equals("Password")) {
+					correctPassword = true;
+				}
 			}
 		});
 		login.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-				parent.changeScreen(Tutor.HOME);
+				if (correctUsername && correctPassword) {
+					parent.changeScreen(Tutor.HOME);
+				}
 			}
 		});
 		forgotPassword.addListener(new ChangeListener() {
@@ -146,6 +164,12 @@ public class LoginScreen implements Screen {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
 				parent.changeScreen(Tutor.CREATEACCOUNT);
+			}
+		});
+		exit.addListener(new ChangeListener() {
+			@Override
+			public void changed(ChangeEvent event, Actor actor) {
+				Gdx.app.exit();
 			}
 		});
 	}
