@@ -38,10 +38,7 @@ public class ResultsScreen implements Screen {
 
 	@Override
 	public void show() {
-		Table table = new Table();
-		table.setFillParent(true);
-		//table.setDebug(true); remove // for guides around table elements (red lines)
-		stage.addActor(table);
+		//skin stuff - ignore
 		Skin skin = new Skin(Gdx.files.internal("skin/tutorSkin.json")) {
             //Override json loader to process FreeType fonts from skin JSON
             @Override
@@ -87,6 +84,10 @@ public class ResultsScreen implements Screen {
                 return json;
             }
         };
+        //making tables
+		Table table = new Table();
+		table.setFillParent(true);
+		stage.addActor(table);
 	}
 
 	@Override
