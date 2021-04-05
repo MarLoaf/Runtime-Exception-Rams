@@ -36,6 +36,10 @@ public class LoginScreen implements Screen {
 		Gdx.input.setInputProcessor(stage);
 		stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1/30f));
 		stage.draw();
+	}
+
+	@Override
+	public void show() {
 		Table table = new Table();
 		table.setFillParent(true);
 		//table.setDebug(true); remove // for guides around table elements (red lines)
@@ -102,12 +106,7 @@ public class LoginScreen implements Screen {
 		table.add(createAccount).fillX().uniformX();
 		table.row().pad(10, 0, 10, 0);
 		table.add(exit).fillX().uniformX();
-	}
-
-	@Override
-	public void show() {
-		// TODO Auto-generated method stub
-		
+		//exit.addListener(new ChangeListener);
 	}
 
 	@Override
