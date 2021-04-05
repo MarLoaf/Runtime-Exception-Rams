@@ -18,6 +18,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
@@ -98,8 +99,10 @@ public class LoginScreen implements Screen {
 		ImageTextButton createAccount = new ImageTextButton("Create Account", skin);
 		ImageTextButton exit = new ImageTextButton("Exit", skin);
 		table.add(usernameText).fillX().uniformX();
+		usernameText.setAlignment(Align.center);
 		table.row().pad(10, 0, 10, 0);
 		table.add(passwordText).fillX().uniformX();
+		passwordText.setAlignment(Align.center);
 		table.row();
 		table.add(login).fillX().uniformX();
 		table.row().pad(10, 0, 10, 0);
