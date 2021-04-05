@@ -114,6 +114,12 @@ public class LoginScreen implements Screen {
 				Gdx.app.exit();
 			}
 		});
+		login.addListener(new ChangeListener() {
+			@Override
+			public void changed(ChangeEvent event, Actor actor) {
+				parent.changeScreen(Tutor.HOME);
+			}
+		});
 	}
 
 	@Override
