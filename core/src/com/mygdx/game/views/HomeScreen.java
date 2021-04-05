@@ -90,7 +90,7 @@ public class HomeScreen implements Screen {
 
                 return json;
             }
-        };
+		};
         //making tables
 		Table table = new Table();
 		table.setFillParent(true);
@@ -98,12 +98,10 @@ public class HomeScreen implements Screen {
 		
 		final SelectBox gradeSelectBox = new SelectBox(skin);
 		String[] gradeOptions = {"Topic", "Kindergarten", "1st Grade", "2nd Grade", "3rd Grade", "4th Grade"};
+		table.row();
 		gradeSelectBox.setItems(gradeOptions);
-		table.add(gradeSelectBox).fillX();
+		table.add(gradeSelectBox);
 		
-		
-		final SelectBox topicSelectBox = new SelectBox(skin);
-		final SelectBox lessonSelectBox = new SelectBox(skin);
 		
 		
 	}
