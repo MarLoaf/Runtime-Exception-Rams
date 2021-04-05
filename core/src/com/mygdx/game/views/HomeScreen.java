@@ -95,15 +95,21 @@ public class HomeScreen implements Screen {
 		Table table = new Table();
 		table.setFillParent(true);
 		stage.addActor(table);
-		
-		final SelectBox gradeSelectBox = new SelectBox(skin);
-		String[] gradeOptions = {"Topic", "Kindergarten", "1st Grade", "2nd Grade", "3rd Grade", "4th Grade"};
-		table.row();
+		//creating objects
+		final SelectBox<String> gradeSelectBox = new SelectBox<String>(skin);
+		String[] gradeOptions = {"Kindergarten", "1st Grade", "2nd Grade", "3rd Grade", "4th Grade"};
 		gradeSelectBox.setItems(gradeOptions);
+		final SelectBox<String> topicSelectBox = new SelectBox<String>(skin);
+		String[] topicOptions = {"Topic 1", "Topic 2", "Topic 3", "Topic 4"};
+		topicSelectBox.setItems(topicOptions);
+		final SelectBox<String> lessonSelectBox = new SelectBox<String>(skin);
+		String[] lessonOptions = {"Tutorial", "Practice", "Test", "Exam"};
+		lessonSelectBox.setItems(lessonOptions);
+		//layout:
+		table.row();
 		table.add(gradeSelectBox);
-		
-		
-		
+		table.add(topicSelectBox);
+		table.add(lessonSelectBox);
 	}
 	@Override
 	public void render(float delta) {
