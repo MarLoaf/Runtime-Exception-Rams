@@ -12,6 +12,7 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFontParameter;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.Hinting;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -91,9 +92,12 @@ public class ProblemEntryScreen implements Screen {
 		stage.addActor(table);
 		//creating actors
         Label description = new Label("You're about to begin a set of practice problems, click Begin to start the problems", skin);
+		ImageTextButton begin = new ImageTextButton("Begin", skin, "green");
         //layout
 		table.row();
-		table.add(description).fillX().uniformX().pad(0, 0, 0, 0);
+		table.add(description).fillX().uniformX();
+		table.row().pad(10, 0, 0, 0);
+		table.add(begin);
 	}
 
 	@Override
