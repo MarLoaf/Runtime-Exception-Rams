@@ -91,7 +91,10 @@ public class ProblemEntryScreen implements Screen {
 		table.setFillParent(true);
 		stage.addActor(table);
 		//creating actors
-        Label description = new Label("You're about to begin a set of practice problems, click Begin to ", skin);
+        Label description = new Label("You're about to begin a set of practice problems, click Begin to start the problems", skin);
+        //layout
+		table.row();
+		table.add(description).fillX().uniformX().pad(0, 0, 0, 0);
 	}
 
 	@Override
