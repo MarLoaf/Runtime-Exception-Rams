@@ -33,7 +33,6 @@ public class ProblemEntryScreen implements Screen {
 		batch = new SpriteBatch();
 		backgroundTexture = new Texture(Gdx.files.internal("images/background.png"));
 		stage = new Stage(new ScreenViewport());
-		Gdx.input.setInputProcessor(stage);
 		stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1/30f));
 		stage.draw();
 	}
@@ -104,6 +103,7 @@ public class ProblemEntryScreen implements Screen {
 		batch.begin();
 		batch.draw(backgroundTexture, 0, 0);
 		batch.end();
+		Gdx.input.setInputProcessor(stage);
 		stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
 		stage.draw();
 	}
