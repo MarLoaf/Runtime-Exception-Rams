@@ -26,6 +26,7 @@ import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.mygdx.game.Tutor;
 import com.badlogic.gdx.scenes.scene2d.ui.SelectBox;
+import java.util.Date;
 
 public class HomeScreen implements Screen {
 
@@ -99,25 +100,30 @@ public class HomeScreen implements Screen {
 		final SelectBox<String> gradeSelectBox = new SelectBox<String>(skin);
 		String[] gradeOptions = {"Kindergarten", "1st Grade", "2nd Grade", "3rd Grade", "4th Grade"};
 		gradeSelectBox.setItems(gradeOptions);
+		gradeSelectBox.setAlignment(Align.center);
 		final SelectBox<String> topicSelectBox = new SelectBox<String>(skin);
 		String[] topicOptions = {"Topic 1", "Topic 2", "Topic 3", "Topic 4"};
 		topicSelectBox.setItems(topicOptions);
+		topicSelectBox.setAlignment(Align.center);
 		final SelectBox<String> lessonSelectBox = new SelectBox<String>(skin);
 		String[] lessonOptions = {"Tutorial", "Practice", "Test", "Exam"};
 		lessonSelectBox.setItems(lessonOptions);
+		lessonSelectBox.setAlignment(Align.center);
+		ImageTextButton begin = new ImageTextButton("Begin", skin, "green");
 		
 		Label userInfo = new Label("Student: John Smith", skin);
 		ImageTextButton logout = new ImageTextButton("Log out", skin, "pink");
 		//layout:
-		table.add(userInfo).width(Gdx.graphics.getWidth()/4);
-		table.add(logout).width(Gdx.graphics.getWidth()/4);
-		table.row();
-		table.add(gradeSelectBox).width(Gdx.graphics.getWidth()/4);
-		table.add(topicSelectBox).width(Gdx.graphics.getWidth()/4);
-		table.add(lessonSelectBox).width(Gdx.graphics.getWidth()/4);
-
-		
-		System.out.println(Gdx.graphics.getWidth());
+		table.top();
+		table.add();
+		table.add();
+		table.add(userInfo).pad(10, 0, 5, 10).width(Gdx.graphics.getWidth()/4);
+		table.add(logout).pad(10, 5, 10, 0).width(Gdx.graphics.getWidth()/4);
+		table.row().padTop(100);
+		table.add(gradeSelectBox).pad(10, 0, 10, 5).width(Gdx.graphics.getWidth()/6);
+		table.add(topicSelectBox).pad(10, 5, 10, 5).width(Gdx.graphics.getWidth()/6);
+		table.add(lessonSelectBox).pad(10, 5, 10, 5).width(Gdx.graphics.getWidth()/6);
+		table.add(begin).pad(10, 5, 10, 0).width(Gdx.graphics.getWidth()/6);
 
 		logout.addListener(new ChangeListener() {
 			@Override
