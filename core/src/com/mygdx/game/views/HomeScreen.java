@@ -13,6 +13,7 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFont
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.Hinting;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -110,6 +111,15 @@ public class HomeScreen implements Screen {
 		Label userInfo = new Label("Student: John Smith", skin);
 		userInfo.setAlignment(Align.center);
 		ImageTextButton logout = new ImageTextButton("Log out", skin, "pink");
+		Image Ruby = new Image(new Texture(Gdx.files.internal("images/ruby.png")));
+		Image Diamond = new Image(new Texture(Gdx.files.internal("images/diamond.png")));
+		Image Iron = new Image(new Texture(Gdx.files.internal("images/iron.png")));
+		Label achievement1 = new Label("addition", skin);
+		achievement1.setAlignment(Align.center);
+		Label achievement2 = new Label("multiplication", skin);
+		achievement2.setAlignment(Align.center);
+		Label achievement3 = new Label("division", skin);
+		achievement3.setAlignment(Align.center);
 		//layout:
 		table.top();
 		table.row();
@@ -118,11 +128,26 @@ public class HomeScreen implements Screen {
 		table.add(userInfo).fillX().uniformX().pad(0, 0, 100, 5).width(Gdx.graphics.getWidth()/4);
 		table.add(logout).fillX().uniformX().pad(0, 5, 100, 10).width(Gdx.graphics.getWidth()/4);
 		table.row();
-		table.add(gradeSelectBox).fillX().uniformX().pad(0, 10, 0, 5).width(Gdx.graphics.getWidth()/5);
-		table.add(topicSelectBox).fillX().uniformX().pad(0, 5, 0, 5).width(Gdx.graphics.getWidth()/5);
-		table.add(lessonSelectBox).fillX().uniformX().pad(0, 5, 0, 5).width(Gdx.graphics.getWidth()/5);
-		table.add(begin).fillX().uniformX().pad(0, 5, 0, 10).width(Gdx.graphics.getWidth()/5);
-
+		table.add(gradeSelectBox).fillX().uniformX().pad(0, 10, 100, 5).width(Gdx.graphics.getWidth()/5);
+		table.add(topicSelectBox).fillX().uniformX().pad(0, 5, 100, 5).width(Gdx.graphics.getWidth()/5);
+		table.add(lessonSelectBox).fillX().uniformX().pad(0, 5, 100, 5).width(Gdx.graphics.getWidth()/5);
+		table.add(begin).fillX().uniformX().pad(0, 5, 100, 10).width(Gdx.graphics.getWidth()/5);
+		table.row();
+		table.add();
+		table.add();
+		table.add(Ruby).pad(0, 0, 10, 5);
+		table.add(achievement1).pad(0, 5, 10, 0).width(Gdx.graphics.getWidth()/5);
+		table.row();
+		table.add();
+		table.add();
+		table.add(Diamond).pad(0, 0, 10, 5);
+		table.add(achievement2).pad(0, 5, 10, 0).width(Gdx.graphics.getWidth()/5);
+		table.row();
+		table.add();
+		table.add();
+		table.add(Iron).pad(0, 0, 0, 5);
+		table.add(achievement3).pad(0, 5, 0, 0).width(Gdx.graphics.getWidth()/5);
+		//adding button functionality
 		logout.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
