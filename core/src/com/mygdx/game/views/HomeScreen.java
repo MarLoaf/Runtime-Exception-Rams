@@ -105,11 +105,23 @@ public class HomeScreen implements Screen {
 		final SelectBox<String> lessonSelectBox = new SelectBox<String>(skin);
 		String[] lessonOptions = {"Tutorial", "Practice", "Test", "Exam"};
 		lessonSelectBox.setItems(lessonOptions);
+		
+		Label userInfo = new Label("Student: John Smith", skin);
+		ImageTextButton exit = new ImageTextButton("Exit", skin, "pink");
 		//layout:
+		table.add(userInfo).width(Gdx.graphics.getWidth()/4);
+		table.add(exit).width(Gdx.graphics.getWidth()/4);
 		table.row();
-		table.add(gradeSelectBox);
-		table.add(topicSelectBox);
-		table.add(lessonSelectBox);
+		table.row();
+		table.row();
+		table.add(gradeSelectBox).width(Gdx.graphics.getWidth()/4);
+		table.add(topicSelectBox).width(Gdx.graphics.getWidth()/4);
+		table.add(lessonSelectBox).width(Gdx.graphics.getWidth()/4);
+
+		
+		System.out.println(Gdx.graphics.getWidth());
+		
+		
 	}
 	@Override
 	public void render(float delta) {
