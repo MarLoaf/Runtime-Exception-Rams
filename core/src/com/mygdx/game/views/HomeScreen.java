@@ -110,25 +110,32 @@ public class HomeScreen implements Screen {
 		lessonSelectBox.setItems(lessonOptions);
 		lessonSelectBox.setAlignment(Align.center);
 		ImageTextButton begin = new ImageTextButton("Begin", skin, "green");
-		
 		Label userInfo = new Label("Student: John Smith", skin);
+		userInfo.setAlignment(Align.center);
 		ImageTextButton logout = new ImageTextButton("Log out", skin, "pink");
 		//layout:
 		table.top();
+		table.row();
 		table.add();
 		table.add();
-		table.add(userInfo).pad(10, 0, 5, 10).width(Gdx.graphics.getWidth()/4);
-		table.add(logout).pad(10, 5, 10, 0).width(Gdx.graphics.getWidth()/4);
-		table.row().padTop(100);
-		table.add(gradeSelectBox).pad(10, 0, 10, 5).width(Gdx.graphics.getWidth()/6);
-		table.add(topicSelectBox).pad(10, 5, 10, 5).width(Gdx.graphics.getWidth()/6);
-		table.add(lessonSelectBox).pad(10, 5, 10, 5).width(Gdx.graphics.getWidth()/6);
-		table.add(begin).pad(10, 5, 10, 0).width(Gdx.graphics.getWidth()/6);
+		table.add(userInfo).pad(10, 0, 100, 5).width(Gdx.graphics.getWidth()/4);
+		table.add(logout).pad(10, 5, 100, 0).width(Gdx.graphics.getWidth()/4);
+		table.row().pad(0, 0, 10, 0);
+		table.add(gradeSelectBox).pad(0, 10, 0, 5).width(Gdx.graphics.getWidth()/6);
+		table.add(topicSelectBox).pad(0, 5, 0, 5).width(Gdx.graphics.getWidth()/6);
+		table.add(lessonSelectBox).pad(0, 5, 0, 5).width(Gdx.graphics.getWidth()/6);
+		table.add(begin).pad(0, 5, 0, 10).width(Gdx.graphics.getWidth()/6);
 
 		logout.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
 				parent.changeScreen(Tutor.LOGIN);
+			}
+		});
+		begin.addListener(new ChangeListener() {
+			@Override
+			public void changed(ChangeEvent event, Actor actor) {
+				parent.changeScreen(Tutor.PROBLEMENTRY);
 			}
 		});
 	}
