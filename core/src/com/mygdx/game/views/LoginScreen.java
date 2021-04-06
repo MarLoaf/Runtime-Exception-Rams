@@ -152,6 +152,7 @@ public class LoginScreen implements Screen {
 				if (correctUsername && correctPassword) {
 					parent.changeScreen(Tutor.HOME);
 				}
+				parent.changeScreen(Tutor.HOME); // TODO remove to get username and password check
 			}
 		});
 		forgotPassword.addListener(new ChangeListener() {
