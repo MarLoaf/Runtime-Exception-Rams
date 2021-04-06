@@ -19,6 +19,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
@@ -107,10 +108,10 @@ public class HomeScreen implements Screen {
 		lessonSelectBox.setItems(lessonOptions);
 		
 		Label userInfo = new Label("Student: John Smith", skin);
-		ImageTextButton exit = new ImageTextButton("Exit", skin, "pink");
+		ImageTextButton logout = new ImageTextButton("Log out", skin, "pink");
 		//layout:
 		table.add(userInfo).width(Gdx.graphics.getWidth()/4);
-		table.add(exit).width(Gdx.graphics.getWidth()/4);
+		table.add(logout).width(Gdx.graphics.getWidth()/4);
 		table.row();
 		table.add(gradeSelectBox).width(Gdx.graphics.getWidth()/4);
 		table.add(topicSelectBox).width(Gdx.graphics.getWidth()/4);
@@ -118,8 +119,13 @@ public class HomeScreen implements Screen {
 
 		
 		System.out.println(Gdx.graphics.getWidth());
-		
-		
+
+		logout.addListener(new ChangeListener() {
+			@Override
+			public void changed(ChangeEvent event, Actor actor) {
+				parent.changeScreen(Tutor.LOGIN);
+			}
+		});
 	}
 	@Override
 	public void render(float delta) {
