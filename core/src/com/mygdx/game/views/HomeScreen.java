@@ -116,15 +116,15 @@ public class HomeScreen implements Screen {
 		//layout:
 		table.top();
 		table.row();
-		table.add();
-		table.add();
-		table.add(userInfo).pad(10, 0, 100, 5).width(Gdx.graphics.getWidth()/4);
-		table.add(logout).pad(10, 5, 100, 0).width(Gdx.graphics.getWidth()/4);
-		table.row().pad(0, 0, 10, 0);
-		table.add(gradeSelectBox).pad(0, 10, 0, 5).width(Gdx.graphics.getWidth()/6);
-		table.add(topicSelectBox).pad(0, 5, 0, 5).width(Gdx.graphics.getWidth()/6);
-		table.add(lessonSelectBox).pad(0, 5, 0, 5).width(Gdx.graphics.getWidth()/6);
-		table.add(begin).pad(0, 5, 0, 10).width(Gdx.graphics.getWidth()/6);
+		table.add().width(Gdx.graphics.getWidth()/5);
+		table.add().width(Gdx.graphics.getWidth()/5);
+		table.add(userInfo).fillX().uniformX().pad(0, 0, 100, 5).width(Gdx.graphics.getWidth()/4);
+		table.add(logout).fillX().uniformX().pad(0, 5, 100, 10).width(Gdx.graphics.getWidth()/4);
+		table.row();
+		table.add(gradeSelectBox).fillX().uniformX().pad(0, 10, 0, 5).width(Gdx.graphics.getWidth()/5);
+		table.add(topicSelectBox).fillX().uniformX().pad(0, 5, 0, 5).width(Gdx.graphics.getWidth()/5);
+		table.add(lessonSelectBox).fillX().uniformX().pad(0, 5, 0, 5).width(Gdx.graphics.getWidth()/5);
+		table.add(begin).fillX().uniformX().pad(0, 5, 0, 10).width(Gdx.graphics.getWidth()/5);
 
 		logout.addListener(new ChangeListener() {
 			@Override
