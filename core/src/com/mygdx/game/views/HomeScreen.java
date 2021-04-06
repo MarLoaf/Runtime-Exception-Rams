@@ -116,8 +116,8 @@ public class HomeScreen implements Screen {
 		//layout:
 		table.top();
 		table.row();
-		table.add().width(Gdx.graphics.getWidth()/5);
-		table.add().width(Gdx.graphics.getWidth()/5);
+		table.add();
+		table.add();
 		table.add(userInfo).fillX().uniformX().pad(0, 0, 100, 5).width(Gdx.graphics.getWidth()/4);
 		table.add(logout).fillX().uniformX().pad(0, 5, 100, 10).width(Gdx.graphics.getWidth()/4);
 		table.row();
