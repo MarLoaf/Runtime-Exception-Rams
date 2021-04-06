@@ -98,16 +98,13 @@ public class HomeScreen implements Screen {
 		stage.addActor(table);
 		//creating objects
 		final SelectBox<String> gradeSelectBox = new SelectBox<String>(skin);
-		String[] gradeOptions = {"Kindergarten", "1st Grade", "2nd Grade", "3rd Grade", "4th Grade"};
-		gradeSelectBox.setItems(gradeOptions);
+		gradeSelectBox.setItems("Kindergarten", "1st Grade", "2nd Grade", "3rd Grade", "4th Grade");
 		gradeSelectBox.setAlignment(Align.center);
 		final SelectBox<String> topicSelectBox = new SelectBox<String>(skin);
-		String[] topicOptions = {"Topic 1", "Topic 2", "Topic 3", "Topic 4"};
-		topicSelectBox.setItems(topicOptions);
+		topicSelectBox.setItems("Topic 1", "Topic 2", "Topic 3", "Topic 4");
 		topicSelectBox.setAlignment(Align.center);
 		final SelectBox<String> lessonSelectBox = new SelectBox<String>(skin);
-		String[] lessonOptions = {"Tutorial", "Practice", "Test", "Exam"};
-		lessonSelectBox.setItems(lessonOptions);
+		lessonSelectBox.setItems("Tutorial", "Practice", "Test", "Exam");
 		lessonSelectBox.setAlignment(Align.center);
 		ImageTextButton begin = new ImageTextButton("Begin", skin, "green");
 		Label userInfo = new Label("Student: John Smith", skin);
