@@ -145,17 +145,17 @@ public class HomeScreen implements Screen {
 		table.row();
 		table.add(Iron1).pad(0, 0, 0, 5).align(Align.right);
 		table.add(ironFractions).pad(0, 5, 10, 5).width(Gdx.graphics.getWidth()/5).align(Align.right);
-		table.add(Ruby).pad(0, 0, 10, 5).align(Align.center);
+		table.add(Ruby).pad(0, 0, 10, 5).align(Align.right);
 		table.add(achievement1).pad(0, 5, 10, 0).width(Gdx.graphics.getWidth()/5).align(Align.left);
 		table.row();
 		table.add(Iron2).pad(0, 0, 0, 5).align(Align.right);
 		table.add(ironGraphing).pad(0, 5, 10, 5).width(Gdx.graphics.getWidth()/5).align(Align.right);
-		table.add(Diamond).pad(0, 0, 10, 5).align(Align.center);
+		table.add(Diamond).pad(0, 0, 10, 5).align(Align.right);
 		table.add(achievement2).pad(0, 5, 10, 0).width(Gdx.graphics.getWidth()/5).align(Align.left);
 		table.row();
 		table.add();
 		table.add();
-		table.add(Iron).pad(0, 0, 0, 5).align(Align.center);
+		table.add(Iron).pad(0, 0, 0, 5).align(Align.right);
 		table.add(achievement3).pad(0, 5, 0, 0).width(Gdx.graphics.getWidth()/5).align(Align.left);
 		//adding button functionality
 		logout.addListener(new ChangeListener() {

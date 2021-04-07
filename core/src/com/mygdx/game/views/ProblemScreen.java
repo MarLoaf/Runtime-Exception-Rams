@@ -111,6 +111,8 @@ public class ProblemScreen implements Screen {
 		table.setFillParent(true);
 		stage.addActor(table);
 		//creating actors
+		Label userInfo = new Label("Student: John Smith", skin);
+		userInfo.setAlignment(Align.center);
         problem = new Label("", skin, "noBackground");
         problem.setText(problemText);
         problem.setAlignment(Align.center);
@@ -120,14 +122,24 @@ public class ProblemScreen implements Screen {
 		ImageTextButton next = new ImageTextButton("Next", skin, "green");
 		ImageTextButton back = new ImageTextButton("Back", skin, "pink");
         //layout
+		table.top();
 		table.row();
-		table.add(back).fillX().uniformX();
-		table.row().pad(10, 0, 0, 0);
-		table.add(problem).fillX().uniformX();
-		table.row().pad(10, 0, 0, 0);
-		table.add(answer).fillX().uniformX();
-		table.row().pad(10, 0, 0, 0);
-		table.add(next).fillX().uniformX();
+		table.add();
+		table.add();
+		table.add(userInfo).fillX().uniformX().pad(10, 0, 270, 5).width(Gdx.graphics.getWidth()/5);
+		table.add(back).fillX().uniformX().pad(10, 5, 270, 10).width(Gdx.graphics.getWidth()/5);
+		table.row();
+		table.add();
+		table.add();
+		table.add(problem).colspan(2).fillX().uniformX().width(Gdx.graphics.getWidth()/4);
+		table.row();
+		table.add();
+		table.add();
+		table.add(answer).colspan(2).pad(10, 0, 0, 0).fillX().uniformX().width(Gdx.graphics.getWidth()/4);
+		table.row();
+		table.add();
+		table.add();
+		table.add(next).colspan(2).pad(10, 0, 0, 0).fillX().uniformX().width(Gdx.graphics.getWidth()/4);
 		//adding button functionality
 		answer.setTextFieldListener(new TextField.TextFieldListener() {
 			@Override
