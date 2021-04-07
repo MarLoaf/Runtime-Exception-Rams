@@ -11,9 +11,15 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFontParameter;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.Hinting;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
+import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
@@ -25,6 +31,7 @@ public class ResultsScreen implements Screen {
 	private Stage stage;
 	private SpriteBatch batch;
 	private Texture backgroundTexture;
+	private String message;
 	
 	public ResultsScreen(Tutor tutor) {
 		parent = tutor;
@@ -33,6 +40,7 @@ public class ResultsScreen implements Screen {
 		stage = new Stage(new ScreenViewport());
 		stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1/30f));
 		stage.draw();
+		message = "You got " + parent.answerCounter + " problems correct!";
 	}
 
 	@Override
@@ -87,6 +95,24 @@ public class ResultsScreen implements Screen {
 		Table table = new Table();
 		table.setFillParent(true);
 		stage.addActor(table);
+		//creating actors
+        Label resultText = new Label("", skin);
+        resultText.setText(message);
+        resultText.setAlignment(Align.center);
+		ImageTextButton back = new ImageTextButton("Back", skin, "pink");
+        //layout
+		table.row();
+		table.add(back);
+		table.row().pad(10, 0, 0, 0);
+		table.add(resultText).fillX().uniformX();
+		//adding button functionality
+		back.addListener(new ChangeListener() {
+			@Override
+			public void changed(ChangeEvent event, Actor actor) {
+				parent.answerCounter = 0;
+				parent.changeScreen(Tutor.HOME);
+			}
+		});
 	}
 
 	@Override

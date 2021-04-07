@@ -27,6 +27,8 @@ public class Tutor extends Game {
 	private ResultsScreen resultsScreen;
 	private TutorialScreen tutorialScreen;
 	
+	public int answerCounter = 0;
+	
 	public final static int ACHIEVEMENTS = 0;
 	public final static int CREATEACCOUNT = 1;
 	public final static int HOME = 2;
@@ -71,7 +73,8 @@ public class Tutor extends Game {
 			this.setScreen(problemEntryScreen);
 			break;
 		case PROBLEM:
-			if(problemScreen == null) problemScreen = new ProblemScreen(this);
+			//if(problemScreen == null) 
+			problemScreen = new ProblemScreen(this);
 			this.setScreen(problemScreen);
 			break;
 		case RECOVERACC:
@@ -79,7 +82,8 @@ public class Tutor extends Game {
 			this.setScreen(recoverAccountScreen);
 			break;
 		case RESULTS:
-			if(resultsScreen == null) resultsScreen = new ResultsScreen(this);
+			//if(resultsScreen == null)
+			resultsScreen = new ResultsScreen(this);
 			this.setScreen(resultsScreen);
 			break;
 		case TUTORIAL:

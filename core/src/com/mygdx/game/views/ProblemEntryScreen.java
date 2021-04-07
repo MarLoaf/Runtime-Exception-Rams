@@ -114,6 +114,12 @@ public class ProblemEntryScreen implements Screen {
 				parent.changeScreen(Tutor.HOME);
 			}
 		});
+		begin.addListener(new ChangeListener() {
+			@Override
+			public void changed(ChangeEvent event, Actor actor) {
+				parent.changeScreen(Tutor.PROBLEM);
+			}
+		});
 	}
 
 	@Override
