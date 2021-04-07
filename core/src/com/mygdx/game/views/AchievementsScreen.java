@@ -90,10 +90,6 @@ public class AchievementsScreen implements Screen {
                 return json;
             }
         };
-//<<<<<<< Updated upstream
-     
-//=======
-      
 		//making tables
 		Table table = new Table();
 		table.setFillParent(true);
@@ -114,7 +110,6 @@ public class AchievementsScreen implements Screen {
 		Label achievement1 = new Label("Addition", skin, "noBackground");
 		Label achievement2 = new Label("Subtraction", skin, "noBackground");
 		Label achievement3 = new Label("Division", skin, "noBackground");
-	
 		ImageTextButton achiemeventsButton = new ImageTextButton("My Achievements", skin);
 		//layout:
 		table.top();
@@ -150,10 +145,6 @@ public class AchievementsScreen implements Screen {
 		table.add(Iron).pad(5).align(Align.right);
 		table.add(achievement3).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
 		//adding button functionality
-		
-		
-//>>>>>>> Stashed changes
-//adding button functionality
 		back.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
