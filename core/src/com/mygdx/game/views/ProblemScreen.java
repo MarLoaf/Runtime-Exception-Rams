@@ -14,6 +14,7 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.Hinting;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
+import com.badlogic.gdx.scenes.scene2d.ui.ButtonGroup;
 import com.badlogic.gdx.scenes.scene2d.ui.CheckBox;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -119,6 +120,10 @@ public class ProblemScreen implements Screen {
 		wrongAnswer0 = new CheckBox("", skin);
 		wrongAnswer1 = new CheckBox("", skin);
 		wrongAnswer2 = new CheckBox("", skin);
+		ButtonGroup<CheckBox> answersGroup = new ButtonGroup<CheckBox>(rightAnswer, wrongAnswer0, wrongAnswer1, wrongAnswer2);
+		answersGroup.setMaxCheckCount(1);
+		answersGroup.setMinCheckCount(0);
+		answersGroup.setUncheckLast(true);
 		if (parent.problems[parent.problemNumber].getWrongAnswers()!=null) {
 			wrongAnswer0.setText(parent.problems[parent.problemNumber].getWrongAnswers()[0]);
 			wrongAnswer1.setText(parent.problems[parent.problemNumber].getWrongAnswers()[1]);
@@ -161,36 +166,24 @@ public class ProblemScreen implements Screen {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
 				correctAnswersCheck = true;
-				wrongAnswer0.setChecked(false);
-				wrongAnswer1.setChecked(false);
-				wrongAnswer2.setChecked(false);
 			}
 		});
 		wrongAnswer0.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
 				correctAnswersCheck = false;
-				rightAnswer.setChecked(false);
-				wrongAnswer1.setChecked(false);
-				wrongAnswer2.setChecked(false);
 			}
 		});
 		wrongAnswer1.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
 				correctAnswersCheck = false;
-				rightAnswer.setChecked(false);
-				wrongAnswer0.setChecked(false);
-				wrongAnswer2.setChecked(false);
 			}
 		});
 		wrongAnswer2.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
 				correctAnswersCheck = false;
-				rightAnswer.setChecked(false);
-				wrongAnswer0.setChecked(false);
-				wrongAnswer1.setChecked(false);
 			}
 		});
 		next.addListener(new ChangeListener() {
