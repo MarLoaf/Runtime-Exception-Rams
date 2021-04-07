@@ -157,6 +157,42 @@ public class ProblemScreen implements Screen {
 				}
 			}
 		});
+		rightAnswer.addListener(new ChangeListener() {
+			@Override
+			public void changed(ChangeEvent event, Actor actor) {
+				correctAnswersCheck = true;
+				wrongAnswer0.setChecked(false);
+				wrongAnswer1.setChecked(false);
+				wrongAnswer2.setChecked(false);
+			}
+		});
+		wrongAnswer0.addListener(new ChangeListener() {
+			@Override
+			public void changed(ChangeEvent event, Actor actor) {
+				correctAnswersCheck = false;
+				rightAnswer.setChecked(false);
+				wrongAnswer1.setChecked(false);
+				wrongAnswer2.setChecked(false);
+			}
+		});
+		wrongAnswer1.addListener(new ChangeListener() {
+			@Override
+			public void changed(ChangeEvent event, Actor actor) {
+				correctAnswersCheck = false;
+				rightAnswer.setChecked(false);
+				wrongAnswer0.setChecked(false);
+				wrongAnswer2.setChecked(false);
+			}
+		});
+		wrongAnswer2.addListener(new ChangeListener() {
+			@Override
+			public void changed(ChangeEvent event, Actor actor) {
+				correctAnswersCheck = false;
+				rightAnswer.setChecked(false);
+				wrongAnswer0.setChecked(false);
+				wrongAnswer1.setChecked(false);
+			}
+		});
 		next.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
