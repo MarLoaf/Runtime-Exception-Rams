@@ -14,10 +14,14 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.Hinting;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.SelectBox;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
+import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
@@ -91,16 +95,60 @@ public class CreateAccountScreen implements Screen {
 		Table table = new Table();
 		table.setFillParent(true);
 		stage.addActor(table);
+		
+		 
         //creating different buttons/textfields/labels
+		final SelectBox<String> secretQuestionBox = new SelectBox<String>(skin);
+		secretQuestionBox.setItems("Secret Question","What's your favorite color?", "Your first pet's name?", "What's your mother's maiden name?");
+		secretQuestionBox.setAlignment(Align.center);
+		
+		Label username = new Label("Username:", skin);
+	    Label password = new Label("Password:", skin);
+	    Label fullname = new Label("Fullname:", skin);
+	    Label secretAnswer = new Label("Secret Answer:", skin);
+	    TextField usernameText = new TextField("", skin);
+	    TextField passwordText = new TextField("", skin);
+	    TextField fullnameText = new TextField("", skin);
+	    TextField secretAnswerText = new TextField("", skin);
+	    secretAnswerText.setMessageText("Enter Answer...");
 		ImageTextButton back = new ImageTextButton("Back", skin, "pink");
+		ImageTextButton createAccount = new ImageTextButton("Create Account", skin,"green");
+		username.setAlignment(Align.center);
+		usernameText.setAlignment(Align.center);
+		password.setAlignment(Align.center);
+		passwordText.setAlignment(Align.center);
+		fullname.setAlignment(Align.center);
+		fullnameText.setAlignment(Align.center);
+		secretAnswerText.setAlignment(Align.center);
 		//layout:
 		table.top();
-		table.add(back);
+		table.add(back).pad(5,-100,0,0).width(Gdx.graphics.getWidth()/9).height(Gdx.graphics.getHeight()/9).align(Align.topLeft);
+		table.row();
+		table.add(username).fillX().uniformX().pad(5).padLeft(50).padTop(50);
+		table.add(usernameText).fillX().uniformX().pad(5).padTop(50);
+		table.row();
+		table.add(password).fillX().uniformX().pad(5).padLeft(50);
+		table.add(passwordText).fillX().uniformX().pad(5);
+		table.row();
+		table.add(fullname).fillX().uniformX().pad(5).padLeft(50);
+		table.add(fullnameText).fillX().uniformX().pad(5);
+		table.row();
+		table.add(secretQuestionBox).fillX().uniformX().pad(5).padLeft(50);
+		table.add(secretAnswerText).fillX().uniformX().pad(5);
+		table.row();
+		table.row().colspan(2);
+		table.add(createAccount).pad(50).padTop(20).width(Gdx.graphics.getWidth()/6).align(Align.center|Align.bottom);
 		//adding button functionality
 		back.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
 				parent.changeScreen(Tutor.LOGIN);
+			}
+		});
+		createAccount.addListener(new ChangeListener() {
+			@Override
+			public void changed(ChangeEvent event, Actor actor) {
+				parent.changeScreen(Tutor.HOME);
 			}
 		});
 	}
