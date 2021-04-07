@@ -13,6 +13,7 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFont
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.Hinting;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -110,7 +111,7 @@ public class HomeScreen implements Screen {
 		ImageTextButton begin = new ImageTextButton("Begin", skin, "green");
 		Label userInfo = new Label("Student: John Smith", skin);
 		userInfo.setAlignment(Align.center);
-		ImageTextButton logout = new ImageTextButton("Log out", skin, "pink");
+		Button logout = new Button(skin, "Exit");
 		Image Iron1 = new Image(new Texture(Gdx.files.internal("images/iron.png")));
 		Image Iron2 = new Image(new Texture(Gdx.files.internal("images/iron.png")));
 		Image Ruby = new Image(new Texture(Gdx.files.internal("images/ruby.png")));
@@ -131,7 +132,7 @@ public class HomeScreen implements Screen {
 		table.add();
 		table.add();
 		table.add(userInfo).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
-		table.add(logout).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
+		table.add(logout).uniformX().pad(5).padBottom(100);
 		table.row();
 		table.add(gradeSelectBox).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
 		table.add(topicSelectBox).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);

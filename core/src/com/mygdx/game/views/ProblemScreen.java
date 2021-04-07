@@ -13,6 +13,7 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFont
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.Hinting;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -121,14 +122,14 @@ public class ProblemScreen implements Screen {
 		answer.setMessageText("Answer...");
 		answer.setAlignment(Align.center);
 		ImageTextButton next = new ImageTextButton("Next", skin, "green");
-		ImageTextButton back = new ImageTextButton("Back", skin, "pink");
+		Button back = new Button(skin, "Exit");
         //layout
 		table.top();
 		table.row();
 		table.add().fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
 		table.add().fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
 		table.add(userInfo).fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
-		table.add(back).fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
+		table.add(back).uniformX().pad(5).padBottom(270);
 		table.row();
 		table.add();
 		table.add(problem).colspan(2).fillX().uniformX().width(Gdx.graphics.getWidth()/4);

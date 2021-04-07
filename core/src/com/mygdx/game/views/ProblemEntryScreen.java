@@ -13,6 +13,7 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFont
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.Hinting;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
@@ -20,6 +21,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
+import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
@@ -94,19 +96,28 @@ public class ProblemEntryScreen implements Screen {
 		table.setFillParent(true);
 		stage.addActor(table);
 		//creating actors
+		Label userInfo = new Label("Student: John Smith", skin);
+		userInfo.setAlignment(Align.center);
         Label description1 = new Label("You're about to begin a set of practice problems", skin, "noBackground");
         Label description2 = new Label("click Begin to start the problems", skin, "noBackground");
 		ImageTextButton begin = new ImageTextButton("Begin", skin, "green");
-		ImageTextButton back = new ImageTextButton("Back", skin, "pink");
+		Button back = new Button(skin, "Exit");
         //layout
+		table.top();
 		table.row();
-		table.add(back).pad(5);
+		table.add().fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
+		table.add().fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
+		table.add(userInfo).fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
+		table.add(back).uniformX().pad(5).padBottom(270);
 		table.row();
-		table.add(description1).fillX().uniformX().pad(5);
+		table.add();
+		table.add(description1).colspan(2).fillX().uniformX().pad(5);
 		table.row();
-		table.add(description2).fillX().uniformX().pad(5);
+		table.add();
+		table.add(description2).colspan(2).fillX().uniformX().pad(5);
 		table.row();
-		table.add(begin).pad(5);
+		table.add();
+		table.add(begin).colspan(2).pad(5).width(Gdx.graphics.getWidth()/4);
 		//adding button functionality
 		back.addListener(new ChangeListener() {
 			@Override

@@ -13,6 +13,7 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFont
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.Hinting;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -102,7 +103,7 @@ public class ResultsScreen implements Screen {
         Label resultText = new Label("", skin);
         resultText.setText(message);
         resultText.setAlignment(Align.center);
-		ImageTextButton back = new ImageTextButton("Back", skin, "pink");
+		Button back = new Button(skin, "Exit");
 		Image Ruby = new Image(new Texture(Gdx.files.internal("images/ruby.png")));
 		Image Diamond = new Image(new Texture(Gdx.files.internal("images/diamond.png")));
 		Image Iron = new Image(new Texture(Gdx.files.internal("images/iron.png")));
@@ -112,7 +113,7 @@ public class ResultsScreen implements Screen {
 		table.add().fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
 		table.add().fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
 		table.add(userInfo).fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
-		table.add(back).fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
+		table.add(back).uniformX().pad(5).padBottom(270);
 		table.row();
 		table.add();
 		table.add(resultText).colspan(2).fillX().uniformX().width(Gdx.graphics.getWidth()/4);
