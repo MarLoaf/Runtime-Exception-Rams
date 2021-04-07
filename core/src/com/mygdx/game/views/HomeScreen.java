@@ -114,12 +114,16 @@ public class HomeScreen implements Screen {
 		Image Ruby = new Image(new Texture(Gdx.files.internal("images/ruby.png")));
 		Image Diamond = new Image(new Texture(Gdx.files.internal("images/diamond.png")));
 		Image Iron = new Image(new Texture(Gdx.files.internal("images/iron.png")));
-		Label achievement1 = new Label("addition", skin);
+		Label achievement1 = new Label("Ruby Addition", skin, "noBackground");
 		achievement1.setAlignment(Align.center);
-		Label achievement2 = new Label("multiplication", skin);
+		Label achievement2 = new Label("Diamond Subtraction", skin, "noBackground");
 		achievement2.setAlignment(Align.center);
-		Label achievement3 = new Label("division", skin);
+		Label achievement3 = new Label("Iron Division", skin, "noBackground");
 		achievement3.setAlignment(Align.center);
+		Label latestAchievements = new Label("Latest Achivements:", skin);
+		Label greatestAchievements = new Label("Greatest Achievements:", skin);
+		Label ironFractions = new Label("Iron Fractions", skin, "noBackground");
+		Label ironGraphing = new Label("Iron Graphing", skin, "noBackground");
 		//layout:
 		table.top();
 		table.row();
@@ -134,19 +138,24 @@ public class HomeScreen implements Screen {
 		table.add(begin).fillX().uniformX().pad(0, 5, 100, 10).width(Gdx.graphics.getWidth()/5);
 		table.row();
 		table.add();
+		table.add(latestAchievements).width(Gdx.graphics.getWidth()/4).align(Align.left);
 		table.add();
-		table.add(Ruby).pad(0, 0, 10, 5);
-		table.add(achievement1).pad(0, 5, 10, 0).width(Gdx.graphics.getWidth()/5);
+		table.add(greatestAchievements).width(Gdx.graphics.getWidth()/4).align(Align.left);
+		table.row();
+		table.add(Iron).pad(0, 0, 0, 5).align(Align.right);
+		table.add(ironFractions).pad(0, 5, 10, 5).width(Gdx.graphics.getWidth()/5).align(Align.right);
+		table.add(Ruby).pad(0, 0, 10, 5).align(Align.center);
+		table.add(achievement1).pad(0, 5, 10, 0).width(Gdx.graphics.getWidth()/5).align(Align.left);
+		table.row();
+		table.add(Iron).pad(0, 0, 0, 5).align(Align.right);
+		table.add(ironGraphing).pad(0, 5, 10, 5).width(Gdx.graphics.getWidth()/5).align(Align.right);
+		table.add(Diamond).pad(0, 0, 10, 5).align(Align.center);
+		table.add(achievement2).pad(0, 5, 10, 0).width(Gdx.graphics.getWidth()/5).align(Align.left);
 		table.row();
 		table.add();
 		table.add();
-		table.add(Diamond).pad(0, 0, 10, 5);
-		table.add(achievement2).pad(0, 5, 10, 0).width(Gdx.graphics.getWidth()/5);
-		table.row();
-		table.add();
-		table.add();
-		table.add(Iron).pad(0, 0, 0, 5);
-		table.add(achievement3).pad(0, 5, 0, 0).width(Gdx.graphics.getWidth()/5);
+		table.add(Iron).pad(0, 0, 0, 5).align(Align.center);
+		table.add(achievement3).pad(0, 5, 0, 0).width(Gdx.graphics.getWidth()/5).align(Align.left);
 		//adding button functionality
 		logout.addListener(new ChangeListener() {
 			@Override
