@@ -122,8 +122,6 @@ public class ProblemScreen implements Screen {
 		answer.setAlignment(Align.center);
 		ImageTextButton next = new ImageTextButton("Next", skin, "green");
 		ImageTextButton back = new ImageTextButton("Back", skin, "pink");
-		ImageTextButton back1 = new ImageTextButton("Back1", skin, "pink");
-		ImageTextButton back2 = new ImageTextButton("Back1", skin, "pink");
         //layout
 		table.top();
 		table.row();
