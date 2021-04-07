@@ -113,7 +113,9 @@ public class HomeScreen implements Screen {
 		userInfo.setAlignment(Align.center);
 		Button logout = new Button(skin, "Exit");
 		Image Iron1 = new Image(new Texture(Gdx.files.internal("images/iron.png")));
-		Image Iron2 = new Image(new Texture(Gdx.files.internal("images/iron.png")));
+		Image AdditionIron = new Image(new Texture(Gdx.files.internal("images/iron.png")));
+		Image AdditionDiamond = new Image(new Texture(Gdx.files.internal("images/diamond.png")));
+		Image AdditionRuby = new Image(new Texture(Gdx.files.internal("images/ruby.png")));
 		Image Ruby = new Image(new Texture(Gdx.files.internal("images/ruby.png")));
 		Image Diamond = new Image(new Texture(Gdx.files.internal("images/diamond.png")));
 		Image Iron = new Image(new Texture(Gdx.files.internal("images/iron.png")));
@@ -124,8 +126,8 @@ public class HomeScreen implements Screen {
 		latestAchievements.setAlignment(Align.center);
 		Label greatestAchievements = new Label("Greatest Achievements:", skin);
 		greatestAchievements.setAlignment(Align.center);
-		Label ironFractions = new Label("Fractions", skin, "noBackground");
-		Label ironGraphing = new Label("Graphing", skin, "noBackground");
+		Label fractions = new Label("Fractions", skin, "noBackground");
+		Label addition = new Label("Addition", skin, "noBackground");
 		//layout:
 		table.top();
 		table.row();
@@ -145,12 +147,23 @@ public class HomeScreen implements Screen {
 		table.add(greatestAchievements).width(Gdx.graphics.getWidth()/5).align(Align.center);
 		table.row();
 		table.add(Iron1).pad(5).align(Align.right);
-		table.add(ironFractions).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.right);
+		table.add(fractions).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.right);
 		table.add(Ruby).pad(5).align(Align.right);
 		table.add(achievement1).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
 		table.row();
-		table.add(Iron2).pad(5).align(Align.right);
-		table.add(ironGraphing).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.right);
+		if (parent.additionAchievement == 1) {
+			table.add(AdditionIron).pad(5).align(Align.right);
+			table.add(addition).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.right);
+		} else if (parent.additionAchievement == 2) {
+			table.add(AdditionDiamond).pad(5).align(Align.right);
+			table.add(addition).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.right);
+		} else if (parent.additionAchievement == 3) {
+			table.add(AdditionRuby).pad(5).align(Align.right);
+			table.add(addition).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.right);
+		}else {
+			table.add();
+			table.add();
+		}
 		table.add(Diamond).pad(5).align(Align.right);
 		table.add(achievement2).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
 		table.row();

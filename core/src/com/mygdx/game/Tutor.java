@@ -29,6 +29,7 @@ public class Tutor extends Game {
 	
 	public int answerCounter = 0;
 	public int problemNumber = 0;
+	public int additionAchievement = 0;
 	
 	public final static int ACHIEVEMENTS = 0;
 	public final static int CREATEACCOUNT = 1;
@@ -58,7 +59,8 @@ public class Tutor extends Game {
 			this.setScreen(createAccountScreen);
 			break;
 		case HOME:
-			if(homeScreen == null) homeScreen = new HomeScreen(this);
+			//if(homeScreen == null)
+			homeScreen = new HomeScreen(this);
 			this.setScreen(homeScreen);
 			break;
 		case LOGIN:
