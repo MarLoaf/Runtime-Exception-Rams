@@ -111,6 +111,8 @@ public class HomeScreen implements Screen {
 		Label userInfo = new Label("Student: John Smith", skin);
 		userInfo.setAlignment(Align.center);
 		ImageTextButton logout = new ImageTextButton("Log out", skin, "pink");
+		Image Iron1 = new Image(new Texture(Gdx.files.internal("images/iron.png")));
+		Image Iron2 = new Image(new Texture(Gdx.files.internal("images/iron.png")));
 		Image Ruby = new Image(new Texture(Gdx.files.internal("images/ruby.png")));
 		Image Diamond = new Image(new Texture(Gdx.files.internal("images/diamond.png")));
 		Image Iron = new Image(new Texture(Gdx.files.internal("images/iron.png")));
@@ -141,12 +143,12 @@ public class HomeScreen implements Screen {
 		table.add();
 		table.add(greatestAchievements).width(Gdx.graphics.getWidth()/5).align(Align.center);
 		table.row();
-		table.add(Iron).pad(0, 0, 0, 5).align(Align.right);
+		table.add(Iron1).pad(0, 0, 0, 5).align(Align.right);
 		table.add(ironFractions).pad(0, 5, 10, 5).width(Gdx.graphics.getWidth()/5).align(Align.right);
 		table.add(Ruby).pad(0, 0, 10, 5).align(Align.center);
 		table.add(achievement1).pad(0, 5, 10, 0).width(Gdx.graphics.getWidth()/5).align(Align.left);
 		table.row();
-		table.add(Iron).pad(0, 0, 0, 5).align(Align.right);
+		table.add(Iron2).pad(0, 0, 0, 5).align(Align.right);
 		table.add(ironGraphing).pad(0, 5, 10, 5).width(Gdx.graphics.getWidth()/5).align(Align.right);
 		table.add(Diamond).pad(0, 0, 10, 5).align(Align.center);
 		table.add(achievement2).pad(0, 5, 10, 0).width(Gdx.graphics.getWidth()/5).align(Align.left);
