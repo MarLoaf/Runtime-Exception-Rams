@@ -20,7 +20,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
-import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
@@ -120,6 +119,7 @@ public class ResultsScreen implements Screen {
 		table.add(resultText).colspan(2).fillX().uniformX().width(Gdx.graphics.getWidth()/4);
 		table.row();
 		table.add();
+		if (parent.additionAchievement < parent.answerCounter) parent.additionAchievement = parent.answerCounter;
 		if (parent.answerCounter == 1) {
 			table.add(Iron).colspan(2).uniformX();
 		}else if (parent.answerCounter == 2) {
