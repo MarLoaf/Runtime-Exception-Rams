@@ -94,6 +94,7 @@ public class CreateAccountScreen implements Screen {
         //creating different buttons/textfields/labels
 		ImageTextButton back = new ImageTextButton("Back", skin, "pink");
 		//layout:
+		table.top();
 		table.add(back);
 		//adding button functionality
 		back.addListener(new ChangeListener() {
