@@ -11,14 +11,17 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFontParameter;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.Hinting;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.SelectBox;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-<<<<<<< HEAD
-=======
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.Align;
->>>>>>> 8149ab327bac3c50dce8f2d8243e41160ca2f407
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
@@ -43,10 +46,6 @@ public class HomeScreen implements Screen {
 
 	@Override
 	public void show() {
-		Table table = new Table();
-		table.setFillParent(true);
-		//table.setDebug(true); remove // for guides around table elements (red lines)
-		stage.addActor(table);
 		Skin skin = new Skin(Gdx.files.internal("skin/tutorSkin.json")) {
             //Override json loader to process FreeType fonts from skin JSON
             @Override
@@ -92,10 +91,7 @@ public class HomeScreen implements Screen {
 
                 return json;
             }
-<<<<<<< HEAD
         };
-=======
-		};
         //making tables
 		Table table = new Table();
 		table.setFillParent(true);
@@ -187,16 +183,12 @@ public class HomeScreen implements Screen {
 				parent.changeScreen(Tutor.PROBLEMENTRY);
 			}
 		});
-<<<<<<< Updated upstream
->>>>>>> 8149ab327bac3c50dce8f2d8243e41160ca2f407
-=======
 		achiemeventsButton.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
 				parent.changeScreen(Tutor.ACHIEVEMENTS);
 			}
 		});
->>>>>>> Stashed changes
 	}
 
 	@Override
