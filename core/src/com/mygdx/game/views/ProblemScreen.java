@@ -14,6 +14,7 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.Hinting;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
+import com.badlogic.gdx.scenes.scene2d.ui.CheckBox;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -32,11 +33,13 @@ public class ProblemScreen implements Screen {
 	private Stage stage;
 	private SpriteBatch batch;
 	private Texture backgroundTexture;
-	private String problemText;
-	private String correctAnswer;
 	private boolean correctAnswersCheck;
     private Label problem;
 	private TextField answer;
+	private CheckBox rightAnswer;
+	private CheckBox wrongAnswer0;
+	private CheckBox wrongAnswer1;
+	private CheckBox wrongAnswer2;
 	
 	public ProblemScreen(Tutor tutor) {
 		parent = tutor;
@@ -45,16 +48,7 @@ public class ProblemScreen implements Screen {
 		stage = new Stage(new ScreenViewport());
 		stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1/30f));
 		stage.draw();
-		if (parent.problemNumber == 0) {
-			problemText = "5 + 3 = ?";
-			correctAnswer = "8";
-		}else if (parent.problemNumber == 1) {
-			problemText = "2 + 2 = ?";
-			correctAnswer = "4";
-		}else if (parent.problemNumber == 2) {
-			problemText = "3 + 2 = ?";
-			correctAnswer = "5";
-		}
+		//setting up the problem
 		correctAnswersCheck = false;
 	}
 
@@ -114,13 +108,22 @@ public class ProblemScreen implements Screen {
 		Label userInfo = new Label("Student: John Smith", skin);
 		userInfo.setAlignment(Align.center);
         problem = new Label("", skin, "noBackground");
-        problem.setText(problemText);
+        problem.setText(parent.problems[parent.problemNumber].getProblemText());
         problem.setAlignment(Align.center);
 		answer = new TextField("", skin);
 		answer.setMessageText("Answer...");
 		answer.setAlignment(Align.center);
 		ImageTextButton next = new ImageTextButton("Next", skin, "green");
 		Button back = new Button(skin, "Exit");
+		rightAnswer = new CheckBox(parent.problems[parent.problemNumber].getCorrectAnswer(), skin);
+		wrongAnswer0 = new CheckBox("", skin);
+		wrongAnswer1 = new CheckBox("", skin);
+		wrongAnswer2 = new CheckBox("", skin);
+		if (parent.problems[parent.problemNumber].getWrongAnswers()!=null) {
+			wrongAnswer0.setText(parent.problems[parent.problemNumber].getWrongAnswers()[0]);
+			wrongAnswer1.setText(parent.problems[parent.problemNumber].getWrongAnswers()[1]);
+			wrongAnswer2.setText(parent.problems[parent.problemNumber].getWrongAnswers()[2]);
+		}
         //layout
 		table.top();
 		table.row();
@@ -141,7 +144,7 @@ public class ProblemScreen implements Screen {
 		answer.setTextFieldListener(new TextField.TextFieldListener() {
 			@Override
 			public void keyTyped(TextField textField, char c) {
-				if (textField.getText().equals(correctAnswer)) {
+				if (textField.getText().equals(parent.problems[parent.problemNumber].getCorrectAnswer())) {
 					correctAnswersCheck = true;
 				}
 			}
@@ -153,19 +156,19 @@ public class ProblemScreen implements Screen {
 					parent.answerCounter++;
 					correctAnswersCheck = false;
 				}
-				if (parent.problemNumber == 0) {
-					problemText = "2 + 2 = ?";
-					correctAnswer = "4";
-					parent.problemNumber++;
-				}else if (parent.problemNumber == 1) {
-					problemText = "3 + 2 = ?";
-					correctAnswer = "5";
-					parent.problemNumber++;
-				}else if (parent.problemNumber == 2) {
+				if (parent.problemNumber == 2) {
 					parent.problemNumber = 0;
 					parent.changeScreen(Tutor.RESULTS);
 				}
-		        problem.setText(problemText);
+				else parent.problemNumber++;
+				//setting up the next problem
+				rightAnswer.setText(parent.problems[parent.problemNumber].getCorrectAnswer());
+				if (parent.problems[parent.problemNumber].getWrongAnswers()!=null) {
+					wrongAnswer0.setText(parent.problems[parent.problemNumber].getWrongAnswers()[0]);
+					wrongAnswer1.setText(parent.problems[parent.problemNumber].getWrongAnswers()[1]);
+					wrongAnswer2.setText(parent.problems[parent.problemNumber].getWrongAnswers()[2]);
+				}
+		        problem.setText(parent.problems[parent.problemNumber].getProblemText());
 				answer.setText("");
 			}
 		});
