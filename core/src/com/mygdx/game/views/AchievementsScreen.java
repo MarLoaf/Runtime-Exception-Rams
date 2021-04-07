@@ -120,7 +120,7 @@ public class AchievementsScreen implements Screen {
 		table.row();
 		table.row();
 		table.add();
-		table.add(Iron1).pad(5).align(Align.right);
+		//table.add(Iron1).pad(5).align(Align.right);
 		table.add(Ruby).pad(5).align(Align.right);
 		table.add(achievement1).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
 		table.row();
