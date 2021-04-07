@@ -8,10 +8,8 @@ public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 		config.title = "RAM Tutor";
-		//config.width = 1920;
-		config.width = LwjglApplicationConfiguration.getDesktopDisplayMode().width;
-		//config.height = 1080;
-		config.height = LwjglApplicationConfiguration.getDesktopDisplayMode().height;
+		config.width = 1920;
+		config.height = 1080;
 		config.fullscreen = true;
 		new LwjglApplication(new Tutor(), config);
 	}
