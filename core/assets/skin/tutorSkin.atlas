@@ -4,93 +4,121 @@ size: 2048,2048
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
+ArrowLeft
+  rotate: false
+  xy: 1666, 1664
+  size: 248, 248
+  orig: 248, 248
+  offset: 0, 0
+  index: -1
+ArrowLeftPressed
+  rotate: false
+  xy: 1, 839
+  size: 248, 248
+  orig: 248, 248
+  offset: 0, 0
+  index: -1
+ArrowRight
+  rotate: false
+  xy: 1, 1089
+  size: 248, 248
+  orig: 248, 248
+  offset: 0, 0
+  index: -1
+ArrowRightPressed
+  rotate: false
+  xy: 251, 1089
+  size: 248, 248
+  orig: 248, 248
+  offset: 0, 0
+  index: -1
 BlueButton
   rotate: false
-  xy: 1, 1554
+  xy: 1, 1799
   size: 553, 113
   orig: 553, 113
   offset: 0, 0
   index: -1
 BlueButtonPressed
   rotate: false
-  xy: 1, 1439
+  xy: 1, 1684
   size: 553, 113
   orig: 553, 113
   offset: 0, 0
   index: -1
 GreenButton
   rotate: false
-  xy: 556, 1439
+  xy: 556, 1684
   size: 553, 113
   orig: 553, 113
   offset: 0, 0
   index: -1
 GreenButtonPressed
   rotate: false
-  xy: 1111, 1554
+  xy: 1111, 1799
   size: 553, 113
   orig: 553, 113
   offset: 0, 0
   index: -1
 OrangeButton
   rotate: false
-  xy: 1, 1209
+  xy: 1, 1454
   size: 553, 113
   orig: 553, 113
   offset: 0, 0
   index: -1
 OrangeButtonPressed
   rotate: false
-  xy: 556, 1324
+  xy: 556, 1569
   size: 553, 113
   orig: 553, 113
   offset: 0, 0
   index: -1
 PinkButton
   rotate: false
-  xy: 1111, 1439
+  xy: 1111, 1684
   size: 553, 113
   orig: 553, 113
   offset: 0, 0
   index: -1
 PinkButtonPressed
   rotate: false
-  xy: 1, 1094
+  xy: 1, 1339
   size: 553, 113
   orig: 553, 113
   offset: 0, 0
   index: -1
 PurpleButton
   rotate: false
-  xy: 1, 1324
+  xy: 1, 1569
   size: 553, 113
   orig: 553, 113
   offset: 0, 0
   index: -1
 PurpleButtonPressed
   rotate: false
-  xy: 556, 1554
+  xy: 556, 1799
   size: 553, 113
   orig: 553, 113
   offset: 0, 0
   index: -1
 TextCursor
   rotate: false
-  xy: 1666, 1564
+  xy: 556, 1349
   size: 3, 103
   orig: 3, 103
   offset: 0, 0
   index: -1
 YellowButton
   rotate: false
-  xy: 556, 1209
+  xy: 556, 1454
   size: 553, 113
   orig: 553, 113
   offset: 0, 0
   index: -1
 YellowButtonPressed
   rotate: false
-  xy: 1111, 1324
+  xy: 1111, 1569
   size: 553, 113
   orig: 553, 113
   offset: 0, 0
