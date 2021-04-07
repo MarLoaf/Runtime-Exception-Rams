@@ -30,6 +30,7 @@ public class Tutor extends Game {
 	public int answerCounter = 0;
 	public int problemNumber = 0;
 	public int additionAchievement = 0;
+	public Problem[] problems = {new Problem("5 + 3 = ?", "8"), new Problem("2 + 2 = ?", "4"), new Problem("3 + 2 = ?", "5", new String[] {"4","3","6"})};
 	
 	public final static int ACHIEVEMENTS = 0;
 	public final static int CREATEACCOUNT = 1;
