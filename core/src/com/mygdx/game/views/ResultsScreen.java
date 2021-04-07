@@ -13,6 +13,7 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFont
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.Hinting;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -102,6 +103,9 @@ public class ResultsScreen implements Screen {
         resultText.setText(message);
         resultText.setAlignment(Align.center);
 		ImageTextButton back = new ImageTextButton("Back", skin, "pink");
+		Image Ruby = new Image(new Texture(Gdx.files.internal("images/ruby.png")));
+		Image Diamond = new Image(new Texture(Gdx.files.internal("images/diamond.png")));
+		Image Iron = new Image(new Texture(Gdx.files.internal("images/iron.png")));
         //layout
 		table.top();
 		table.row();
@@ -112,6 +116,15 @@ public class ResultsScreen implements Screen {
 		table.row();
 		table.add();
 		table.add(resultText).colspan(2).fillX().uniformX().width(Gdx.graphics.getWidth()/4);
+		table.row();
+		table.add();
+		if (parent.answerCounter == 1) {
+			table.add(Iron).colspan(2).uniformX();
+		}else if (parent.answerCounter == 2) {
+			table.add(Diamond).colspan(2).uniformX();
+		}else if (parent.answerCounter == 3) {
+			table.add(Ruby).colspan(2).uniformX();
+		}
 		//adding button functionality
 		back.addListener(new ChangeListener() {
 			@Override
