@@ -109,7 +109,6 @@ public class ResultsScreen implements Screen {
 		Image Iron = new Image(new Texture(Gdx.files.internal("images/iron.png")));
         //layout
 		table.top();
-		aewf
 		table.row();
 		table.add().fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
 		table.add().fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
