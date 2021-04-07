@@ -138,9 +138,9 @@ public class HomeScreen implements Screen {
 		table.add(begin).fillX().uniformX().pad(0, 5, 100, 10).width(Gdx.graphics.getWidth()/5);
 		table.row();
 		table.add();
-		table.add(latestAchievements).width(Gdx.graphics.getWidth()/4).align(Align.left);
+		table.add(latestAchievements).width(Gdx.graphics.getWidth()/4).align(Align.center);
 		table.add();
-		table.add(greatestAchievements).width(Gdx.graphics.getWidth()/4).align(Align.left);
+		table.add(greatestAchievements).width(Gdx.graphics.getWidth()/4).align(Align.center);
 		table.row();
 		table.add(Iron).pad(0, 0, 0, 5).align(Align.right);
 		table.add(ironFractions).pad(0, 5, 10, 5).width(Gdx.graphics.getWidth()/5).align(Align.right);
