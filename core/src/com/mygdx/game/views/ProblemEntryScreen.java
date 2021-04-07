@@ -94,14 +94,17 @@ public class ProblemEntryScreen implements Screen {
 		table.setFillParent(true);
 		stage.addActor(table);
 		//creating actors
-        Label description = new Label("You're about to begin a set of practice problems, click Begin to start the problems", skin);
+        Label description1 = new Label("You're about to begin a set of practice problems", skin, "noBackground");
+        Label description2 = new Label("click Begin to start the problems", skin, "noBackground");
 		ImageTextButton begin = new ImageTextButton("Begin", skin, "green");
 		ImageTextButton back = new ImageTextButton("Back", skin, "pink");
         //layout
 		table.row();
 		table.add(back);
 		table.row().pad(10, 0, 0, 0);
-		table.add(description).fillX().uniformX();
+		table.add(description1).fillX().uniformX();
+		table.row().pad(0, 0, 0, 0);
+		table.add(description2).fillX().uniformX();
 		table.row().pad(10, 0, 0, 0);
 		table.add(begin);
 		//adding button functionality
