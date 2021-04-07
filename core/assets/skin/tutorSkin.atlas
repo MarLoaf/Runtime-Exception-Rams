@@ -6,133 +6,147 @@ filter: Linear,Linear
 repeat: none
 ArrowLeft
   rotate: false
-  xy: 1666, 1669
+  xy: 1666, 1707
   size: 248, 248
   orig: 248, 248
   offset: 0, 0
   index: -1
 ArrowLeftPressed
   rotate: false
-  xy: 1, 844
+  xy: 1, 882
   size: 248, 248
   orig: 248, 248
   offset: 0, 0
   index: -1
 ArrowRight
   rotate: false
-  xy: 1, 1094
+  xy: 1, 1132
   size: 248, 248
   orig: 248, 248
   offset: 0, 0
   index: -1
 ArrowRightPressed
   rotate: false
-  xy: 251, 1094
+  xy: 251, 1132
   size: 248, 248
   orig: 248, 248
   offset: 0, 0
   index: -1
 BlueButton
   rotate: false
-  xy: 1, 1804
+  xy: 1, 1842
   size: 553, 113
   orig: 553, 113
   offset: 0, 0
   index: -1
 BlueButtonPressed
   rotate: false
-  xy: 1, 1689
+  xy: 1, 1727
   size: 553, 113
   orig: 553, 113
   offset: 0, 0
   index: -1
+CheckBox
+  rotate: false
+  xy: 1916, 1914
+  size: 41, 41
+  orig: 41, 41
+  offset: 0, 0
+  index: -1
+CheckBoxPressed
+  rotate: false
+  xy: 1666, 1664
+  size: 41, 41
+  orig: 41, 41
+  offset: 0, 0
+  index: -1
 ExitButton
   rotate: false
-  xy: 556, 1344
+  xy: 556, 1382
   size: 113, 113
   orig: 113, 113
   offset: 0, 0
   index: -1
 ExitButtonPressed
   rotate: false
-  xy: 1111, 1459
+  xy: 1111, 1497
   size: 113, 113
   orig: 113, 113
   offset: 0, 0
   index: -1
 GreenButton
   rotate: false
-  xy: 556, 1689
+  xy: 556, 1727
   size: 553, 113
   orig: 553, 113
   offset: 0, 0
   index: -1
 GreenButtonPressed
   rotate: false
-  xy: 1111, 1804
+  xy: 1111, 1842
   size: 553, 113
   orig: 553, 113
   offset: 0, 0
   index: -1
 OrangeButton
   rotate: false
-  xy: 1, 1459
+  xy: 1, 1497
   size: 553, 113
   orig: 553, 113
   offset: 0, 0
   index: -1
 OrangeButtonPressed
   rotate: false
-  xy: 556, 1574
+  xy: 556, 1612
   size: 553, 113
   orig: 553, 113
   offset: 0, 0
   index: -1
 PinkButton
   rotate: false
-  xy: 1111, 1689
+  xy: 1111, 1727
   size: 553, 113
   orig: 553, 113
   offset: 0, 0
   index: -1
 PinkButtonPressed
   rotate: false
-  xy: 1, 1344
+  xy: 1, 1382
   size: 553, 113
   orig: 553, 113
   offset: 0, 0
   index: -1
 PurpleButton
   rotate: false
-  xy: 1, 1574
+  xy: 1, 1612
   size: 553, 113
   orig: 553, 113
   offset: 0, 0
   index: -1
 PurpleButtonPressed
   rotate: false
-  xy: 556, 1804
+  xy: 556, 1842
   size: 553, 113
   orig: 553, 113
   offset: 0, 0
   index: -1
 TextCursor
   rotate: false
-  xy: 1916, 1814
+  xy: 1, 777
   size: 3, 103
   orig: 3, 103
   offset: 0, 0
   index: -1
 YellowButton
   rotate: false
-  xy: 556, 1459
+  xy: 556, 1497
   size: 553, 113
   orig: 553, 113
   offset: 0, 0
   index: -1
 YellowButtonPressed
   rotate: false
-  xy: 1111, 1574
+  xy: 1111, 1612
   size: 553, 113
   orig: 553, 113
   offset: 0, 0
