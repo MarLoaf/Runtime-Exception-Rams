@@ -193,7 +193,7 @@ public class ProblemScreen implements Screen {
 					parent.answerCounter++;
 					correctAnswersCheck = false;
 				}
-				if (parent.problemNumber == 2) {
+				if (parent.problemNumber == parent.problems.length-1) {
 					parent.problemNumber = 0;
 					parent.changeScreen(Tutor.RESULTS);
 				}else {
