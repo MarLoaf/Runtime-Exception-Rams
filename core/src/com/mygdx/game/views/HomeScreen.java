@@ -130,10 +130,11 @@ public class HomeScreen implements Screen {
 		greatestAchievements.setAlignment(Align.center);
 		Label fractions = new Label("Fractions", skin, "noBackground");
 		Label addition = new Label("Addition", skin, "noBackground");
+		ImageTextButton achiemeventsButton = new ImageTextButton("My Achievements", skin);
 		//layout:
 		table.top();
 		table.row();
-		table.add();
+		table.add(achiemeventsButton).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
 		table.add();
 		table.add(userInfo).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
 		table.add(logout).uniformX().pad(5).padBottom(100);
@@ -186,7 +187,16 @@ public class HomeScreen implements Screen {
 				parent.changeScreen(Tutor.PROBLEMENTRY);
 			}
 		});
+<<<<<<< Updated upstream
 >>>>>>> 8149ab327bac3c50dce8f2d8243e41160ca2f407
+=======
+		achiemeventsButton.addListener(new ChangeListener() {
+			@Override
+			public void changed(ChangeEvent event, Actor actor) {
+				parent.changeScreen(Tutor.ACHIEVEMENTS);
+			}
+		});
+>>>>>>> Stashed changes
 	}
 
 	@Override
