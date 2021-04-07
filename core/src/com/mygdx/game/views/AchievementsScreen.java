@@ -90,16 +90,9 @@ public class AchievementsScreen implements Screen {
                 return json;
             }
         };
-<<<<<<< Updated upstream
-        //making tables
-		Table table = new Table();
-		table.setFillParent(true);
-		stage.addActor(table);
-        //creating different buttons/textfields/labels
-		ImageTextButton back = new ImageTextButton("Back", skin, "pink");
-		//layout:
-		table.add(back);
-=======
+//<<<<<<< Updated upstream
+     
+//=======
       
 		//making tables
 				Table table = new Table();
@@ -159,7 +152,7 @@ public class AchievementsScreen implements Screen {
 				//adding button functionality
 				
 				
->>>>>>> Stashed changes
+//>>>>>>> Stashed changes
 		//adding button functionality
 		back.addListener(new ChangeListener() {
 			@Override
