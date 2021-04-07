@@ -134,12 +134,20 @@ public class ProblemScreen implements Screen {
 		table.row();
 		table.add();
 		table.add(problem).colspan(2).fillX().uniformX().width(Gdx.graphics.getWidth()/4);
+		if (parent.problems[parent.problemNumber].getWrongAnswers()!=null) {
+			table.row();
+			table.add(rightAnswer).pad(5).fillX().uniformX();
+			table.add(wrongAnswer0).pad(5).fillX().uniformX();
+			table.add(wrongAnswer1).pad(5).fillX().uniformX();
+			table.add(wrongAnswer2).pad(5).fillX().uniformX();
+		}else {
+			table.row();
+			table.add();
+			table.add(answer).colspan(2).pad(5).fillX().uniformX().width(Gdx.graphics.getWidth()/4);
+		}
 		table.row();
 		table.add();
-		table.add(answer).colspan(2).pad(10, 0, 0, 0).fillX().uniformX().width(Gdx.graphics.getWidth()/4);
-		table.row();
-		table.add();
-		table.add(next).colspan(2).pad(10, 0, 0, 0).fillX().uniformX().width(Gdx.graphics.getWidth()/4);
+		table.add(next).colspan(2).pad(5).fillX().uniformX().width(Gdx.graphics.getWidth()/4);
 		//adding button functionality
 		answer.setTextFieldListener(new TextField.TextFieldListener() {
 			@Override
@@ -159,17 +167,10 @@ public class ProblemScreen implements Screen {
 				if (parent.problemNumber == 2) {
 					parent.problemNumber = 0;
 					parent.changeScreen(Tutor.RESULTS);
+				}else {
+					parent.problemNumber++;
+					parent.changeScreen(Tutor.PROBLEM);
 				}
-				else parent.problemNumber++;
-				//setting up the next problem
-				rightAnswer.setText(parent.problems[parent.problemNumber].getCorrectAnswer());
-				if (parent.problems[parent.problemNumber].getWrongAnswers()!=null) {
-					wrongAnswer0.setText(parent.problems[parent.problemNumber].getWrongAnswers()[0]);
-					wrongAnswer1.setText(parent.problems[parent.problemNumber].getWrongAnswers()[1]);
-					wrongAnswer2.setText(parent.problems[parent.problemNumber].getWrongAnswers()[2]);
-				}
-		        problem.setText(parent.problems[parent.problemNumber].getProblemText());
-				answer.setText("");
 			}
 		});
 		back.addListener(new ChangeListener() {

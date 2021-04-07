@@ -107,6 +107,9 @@ public class HomeScreen implements Screen {
 		lessonSelectBox.setItems("Tutorial", "Practice", "Test", "Exam");
 		lessonSelectBox.setAlignment(Align.center);
 		ImageTextButton begin = new ImageTextButton("Begin", skin, "green");
+		if(parent.problemNumber!=0) {
+			begin.setText("Continue");
+		}
 		Label userInfo = new Label("Student: John Smith", skin);
 		userInfo.setAlignment(Align.center);
 		Button logout = new Button(skin, "Exit");
@@ -180,7 +183,8 @@ public class HomeScreen implements Screen {
 		begin.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-				parent.changeScreen(Tutor.PROBLEMENTRY);
+				if (parent.problemNumber == 0) parent.changeScreen(Tutor.PROBLEMENTRY);
+				else parent.changeScreen(Tutor.PROBLEM);
 			}
 		});
 		achiemeventsButton.addListener(new ChangeListener() {

@@ -116,7 +116,7 @@ public class ResultsScreen implements Screen {
 		table.add(back).uniformX().pad(5).padBottom(270);
 		table.row();
 		table.add();
-		table.add(resultText).colspan(2).fillX().uniformX().width(Gdx.graphics.getWidth()/4);
+		table.add(resultText).colspan(2).pad(5).fillX().uniformX().width(Gdx.graphics.getWidth()/4);
 		table.row();
 		table.add();
 		if (parent.additionAchievement < parent.answerCounter) parent.additionAchievement = parent.answerCounter;
