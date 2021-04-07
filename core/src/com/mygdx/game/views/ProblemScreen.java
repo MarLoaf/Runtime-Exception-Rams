@@ -147,9 +147,6 @@ public class ProblemScreen implements Screen {
 					correctAnswer = "5";
 					problemNumber++;
 				}else if (problemNumber == 2) {
-					problemNumber = 0;
-					problemText = "5 + 3 = ?";
-					correctAnswer = "8";
 					parent.changeScreen(Tutor.RESULTS);
 				}
 		        problem.setText(problemText);
