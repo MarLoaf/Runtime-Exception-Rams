@@ -104,6 +104,7 @@ public class ResultsScreen implements Screen {
         resultText.setText(message);
         resultText.setAlignment(Align.center);
 		Button back = new Button(skin, "Exit");
+		ImageTextButton ok = new ImageTextButton("OK", skin, "green");
 		Image Ruby = new Image(new Texture(Gdx.files.internal("images/ruby.png")));
 		Image Diamond = new Image(new Texture(Gdx.files.internal("images/diamond.png")));
 		Image Iron = new Image(new Texture(Gdx.files.internal("images/iron.png")));
@@ -126,8 +127,18 @@ public class ResultsScreen implements Screen {
 		}else if (parent.answerCounter == 3) {
 			table.add(Ruby).colspan(2).uniformX();
 		}
+		table.row();
+		table.add();
+		table.add(ok).colspan(2).pad(5).width(Gdx.graphics.getWidth()/4);
 		//adding button functionality
 		back.addListener(new ChangeListener() {
+			@Override
+			public void changed(ChangeEvent event, Actor actor) {
+				parent.answerCounter = 0;
+				parent.changeScreen(Tutor.HOME);
+			}
+		});
+		ok.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
 				parent.answerCounter = 0;
