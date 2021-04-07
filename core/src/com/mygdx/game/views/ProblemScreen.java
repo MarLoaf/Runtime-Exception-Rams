@@ -35,8 +35,6 @@ public class ProblemScreen implements Screen {
 	private String problemText;
 	private String correctAnswer;
 	private boolean correctAnswersCheck;
-	public int correctAnswersCounter;
-	private int problemNumber;
     private Label problem;
 	private TextField answer;
 	
@@ -47,11 +45,17 @@ public class ProblemScreen implements Screen {
 		stage = new Stage(new ScreenViewport());
 		stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1/30f));
 		stage.draw();
-		problemText = "5 + 3 = ?";
-		correctAnswer = "8";
+		if (parent.problemNumber == 0) {
+			problemText = "5 + 3 = ?";
+			correctAnswer = "8";
+		}else if (parent.problemNumber == 1) {
+			problemText = "2 + 2 = ?";
+			correctAnswer = "4";
+		}else if (parent.problemNumber == 2) {
+			problemText = "3 + 2 = ?";
+			correctAnswer = "5";
+		}
 		correctAnswersCheck = false;
-		correctAnswersCounter = 0;
-		problemNumber = 0;
 	}
 
 	@Override
@@ -114,8 +118,10 @@ public class ProblemScreen implements Screen {
 		answer.setMessageText("Answer...");
 		answer.setAlignment(Align.center);
 		ImageTextButton next = new ImageTextButton("Next", skin, "green");
+		ImageTextButton back = new ImageTextButton("Back", skin, "pink");
         //layout
 		table.row();
+		table.add(back).fillX().uniformX();
 		table.row().pad(10, 0, 0, 0);
 		table.add(problem).fillX().uniformX();
 		table.row().pad(10, 0, 0, 0);
@@ -136,22 +142,28 @@ public class ProblemScreen implements Screen {
 			public void changed(ChangeEvent event, Actor actor) {
 				if (correctAnswersCheck) {
 					parent.answerCounter++;
-					correctAnswersCounter++;
 					correctAnswersCheck = false;
 				}
-				if (problemNumber == 0) {
+				if (parent.problemNumber == 0) {
 					problemText = "2 + 2 = ?";
 					correctAnswer = "4";
-					problemNumber++;
-				}else if (problemNumber == 1) {
+					parent.problemNumber++;
+				}else if (parent.problemNumber == 1) {
 					problemText = "3 + 2 = ?";
 					correctAnswer = "5";
-					problemNumber++;
-				}else if (problemNumber == 2) {
+					parent.problemNumber++;
+				}else if (parent.problemNumber == 2) {
+					parent.problemNumber = 0;
 					parent.changeScreen(Tutor.RESULTS);
 				}
 		        problem.setText(problemText);
 				answer.setText("");
+			}
+		});
+		back.addListener(new ChangeListener() {
+			@Override
+			public void changed(ChangeEvent event, Actor actor) {
+				parent.changeScreen(Tutor.HOME);
 			}
 		});
 	}

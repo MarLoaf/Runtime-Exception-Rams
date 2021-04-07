@@ -28,6 +28,7 @@ public class Tutor extends Game {
 	private TutorialScreen tutorialScreen;
 	
 	public int answerCounter = 0;
+	public int problemNumber = 0;
 	
 	public final static int ACHIEVEMENTS = 0;
 	public final static int CREATEACCOUNT = 1;
