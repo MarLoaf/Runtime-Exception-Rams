@@ -38,6 +38,7 @@ public class ProblemScreen implements Screen {
 	public int correctAnswersCounter;
 	private int problemNumber;
     private Label problem;
+	private TextField answer;
 	
 	public ProblemScreen(Tutor tutor) {
 		parent = tutor;
@@ -109,7 +110,7 @@ public class ProblemScreen implements Screen {
         problem = new Label("", skin, "noBackground");
         problem.setText(problemText);
         problem.setAlignment(Align.center);
-		TextField answer = new TextField("", skin);
+		answer = new TextField("", skin);
 		answer.setMessageText("Answer...");
 		answer.setAlignment(Align.center);
 		ImageTextButton next = new ImageTextButton("Next", skin, "green");
@@ -150,7 +151,7 @@ public class ProblemScreen implements Screen {
 					parent.changeScreen(Tutor.RESULTS);
 				}
 		        problem.setText(problemText);
-		        System.out.println(parent.answerCounter);
+				answer.setText("");
 			}
 		});
 	}
