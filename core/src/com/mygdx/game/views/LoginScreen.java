@@ -116,18 +116,18 @@ public class LoginScreen implements Screen {
 		passwordText.setAlignment(Align.center);
 		//layout:
 		table.row();
-		table.add(username).fillX().uniformX().pad(0, 0, 0, 5);
-		table.add(usernameText).fillX().uniformX().pad(0, 5, 0, 0);
-		table.row().pad(10, 0, 10, 0);
-		table.add(password).fillX().uniformX().pad(10, 0, 10, 5);
-		table.add(passwordText).fillX().uniformX().pad(10, 5, 10, 0);
-		table.row().pad(0, 0, 10, 0).colspan(2);
-		table.add(login).fillX().uniformX();
+		table.add(username).fillX().uniformX().pad(5);
+		table.add(usernameText).fillX().uniformX().pad(5);
 		table.row();
-		table.add(forgotPassword).fillX().uniformX().pad(0, 0, 0, 5);
-		table.add(createAccount).fillX().uniformX().pad(0, 5, 0, 0);
-		table.row().pad(10, 0, 0, 0).colspan(2);
-		table.add(exit).fillX().uniformX();
+		table.add(password).fillX().uniformX().pad(5);
+		table.add(passwordText).fillX().uniformX().pad(5);
+		table.row().colspan(2);
+		table.add(login).fillX().uniformX().pad(5);
+		table.row();
+		table.add(forgotPassword).fillX().uniformX().pad(5);
+		table.add(createAccount).fillX().uniformX().pad(5);
+		table.row().colspan(2);
+		table.add(exit).fillX().uniformX().pad(5);
 		//adding button functionality
 		usernameText.setTextFieldListener(new TextField.TextFieldListener() {
 			@Override

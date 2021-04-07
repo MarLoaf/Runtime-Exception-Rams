@@ -100,13 +100,13 @@ public class ProblemEntryScreen implements Screen {
 		ImageTextButton back = new ImageTextButton("Back", skin, "pink");
         //layout
 		table.row();
-		table.add(back);
-		table.row().pad(10, 0, 0, 0);
-		table.add(description1).fillX().uniformX();
-		table.row().pad(0, 0, 0, 0);
-		table.add(description2).fillX().uniformX();
-		table.row().pad(10, 0, 0, 0);
-		table.add(begin);
+		table.add(back).pad(5);
+		table.row();
+		table.add(description1).fillX().uniformX().pad(5);
+		table.row();
+		table.add(description2).fillX().uniformX().pad(5);
+		table.row();
+		table.add(begin).pad(5);
 		//adding button functionality
 		back.addListener(new ChangeListener() {
 			@Override

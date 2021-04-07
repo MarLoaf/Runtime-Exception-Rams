@@ -125,10 +125,10 @@ public class ProblemScreen implements Screen {
         //layout
 		table.top();
 		table.row();
-		table.add().fillX().uniformX().pad(10, 10, 270, 5).width(Gdx.graphics.getWidth()/5);
-		table.add().fillX().uniformX().pad(10, 5, 270, 5).width(Gdx.graphics.getWidth()/5);
-		table.add(userInfo).fillX().uniformX().pad(10, 5, 270, 5).width(Gdx.graphics.getWidth()/5);
-		table.add(back).fillX().uniformX().pad(10, 5, 270, 10).width(Gdx.graphics.getWidth()/5);
+		table.add().fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
+		table.add().fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
+		table.add(userInfo).fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
+		table.add(back).fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
 		table.row();
 		table.add();
 		table.add(problem).colspan(2).fillX().uniformX().width(Gdx.graphics.getWidth()/4);
