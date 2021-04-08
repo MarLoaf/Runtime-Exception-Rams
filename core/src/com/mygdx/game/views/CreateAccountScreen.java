@@ -13,6 +13,7 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFont
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.Hinting;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.SelectBox;
@@ -20,7 +21,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
-import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
@@ -95,17 +95,13 @@ public class CreateAccountScreen implements Screen {
 		Table table = new Table();
 		table.setFillParent(true);
 		stage.addActor(table);
-		
-		 
-        //creating different buttons/textfields/labels
+		//creating different buttons/textfields/labels
 		final SelectBox<String> secretQuestionBox = new SelectBox<String>(skin);
 		secretQuestionBox.setItems("Secret Question","What's your favorite color?", "What's the name of your first pet?", "What's your mother's maiden name?");
 		secretQuestionBox.setAlignment(Align.center);
-		
 		Label username = new Label("Username:", skin);
 	    Label password = new Label("Password:", skin);
 	    Label fullname = new Label("Fullname:", skin);
-	    Label secretAnswer = new Label("Secret Answer:", skin);
 	    TextField usernameText = new TextField("", skin);
 	    usernameText.setMessageText("Enter username...");
 	    TextField passwordText = new TextField("", skin);
@@ -114,7 +110,7 @@ public class CreateAccountScreen implements Screen {
 	    fullnameText.setMessageText("Enter Your Fullname...");
 	    TextField secretAnswerText = new TextField("", skin);
 	    secretAnswerText.setMessageText("Enter Answer...");
-		ImageTextButton back = new ImageTextButton("Back", skin, "pink");
+		Button back = new Button(skin, "Exit");
 		ImageTextButton createAccount = new ImageTextButton("Create Account", skin,"green");
 		username.setAlignment(Align.center);
 		usernameText.setAlignment(Align.center);
@@ -124,24 +120,31 @@ public class CreateAccountScreen implements Screen {
 		fullnameText.setAlignment(Align.center);
 		secretAnswerText.setAlignment(Align.center);
 		//layout:
-		table.center();
-		table.row().colspan(2);
-		table.add(back).pad(5).padLeft(1250).padTop(50).width(Gdx.graphics.getWidth()/9).height(Gdx.graphics.getHeight()/9).align(Align.center);
+		table.top();
 		table.row();
-		table.add(username).fillX().uniformX().pad(5).padLeft(140).padRight(30).padTop(30);
-		table.add(usernameText).fillX().uniformX().pad(5).padTop(30).padRight(50).padLeft(-20);
+		table.add().fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
+		table.add().fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
+		table.add().fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
+		table.add(back).uniformX().pad(5).padBottom(100);
 		table.row();
-		table.add(password).fillX().uniformX().pad(5).padLeft(140).padRight(30);
-		table.add(passwordText).fillX().uniformX().pad(5).padRight(50).padLeft(-20);
+		table.add();
+		table.add(username).fillX().uniformX().pad(5);
+		table.add(usernameText).fillX().uniformX().pad(5);
 		table.row();
-		table.add(fullname).fillX().uniformX().pad(5).padLeft(140).padRight(30);
-		table.add(fullnameText).fillX().uniformX().pad(5).padRight(50).padLeft(-20);
+		table.add();
+		table.add(password).fillX().uniformX().pad(5);
+		table.add(passwordText).fillX().uniformX().pad(5);
 		table.row();
-		table.add(secretQuestionBox).fillX().uniformX().pad(5).padLeft(140).padRight(30);
-		table.add(secretAnswerText).fillX().uniformX().pad(5).padRight(50).padLeft(-20);
+		table.add();
+		table.add(fullname).fillX().uniformX().pad(5);
+		table.add(fullnameText).fillX().uniformX().pad(5);
 		table.row();
-		table.row().colspan(2);
-		table.add(createAccount).pad(50).padTop(20).padLeft(120).width(Gdx.graphics.getWidth()/6).align(Align.center|Align.bottom);
+		table.add();
+		table.add(secretQuestionBox).fillX().uniformX().pad(5);
+		table.add(secretAnswerText).fillX().uniformX().pad(5);
+		table.row();
+		table.add();
+		table.add(createAccount).pad(5).colspan(2);
 		//adding button functionality
 		back.addListener(new ChangeListener() {
 			@Override
