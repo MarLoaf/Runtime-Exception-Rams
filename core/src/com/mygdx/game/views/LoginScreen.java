@@ -121,13 +121,13 @@ public class LoginScreen implements Screen {
 		table.row();
 		table.add(password).fillX().uniformX().pad(5);
 		table.add(passwordText).fillX().uniformX().pad(5);
-		table.row().colspan(2);
-		table.add(login).fillX().uniformX().pad(5);
+		table.row();
+		table.add(login).uniformX().pad(5).colspan(2);
 		table.row();
 		table.add(forgotPassword).fillX().uniformX().pad(5);
 		table.add(createAccount).fillX().uniformX().pad(5);
-		table.row().colspan(2);
-		table.add(exit).fillX().uniformX().pad(5);
+		table.row();
+		table.add(exit).uniformX().pad(5).colspan(2);
 		//adding button functionality
 		usernameText.setTextFieldListener(new TextField.TextFieldListener() {
 			@Override

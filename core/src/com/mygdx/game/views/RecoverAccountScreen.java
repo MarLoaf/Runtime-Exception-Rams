@@ -101,7 +101,6 @@ public class RecoverAccountScreen implements Screen {
 		secretquestionText.setMessageText("Enter Secret Answer...");
 		ImageTextButton next = new ImageTextButton("Next", skin, "pink");
 		Button back = new Button(skin, "Exit");
-		
 		//layout:
 		table.top();
 		table.row();
@@ -116,7 +115,6 @@ public class RecoverAccountScreen implements Screen {
 		table.add();
 		table.add(secretquestionText).fillX().uniformX().pad(5); 
 		table.add(next).pad(5);
-		
 		//adding button functionality
 		back.addListener(new ChangeListener() {
 			@Override
@@ -125,7 +123,6 @@ public class RecoverAccountScreen implements Screen {
 			}
 			
 		});
-	
 		next.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
