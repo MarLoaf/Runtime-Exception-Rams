@@ -115,31 +115,41 @@ public class AchievementsScreen implements Screen {
 		//layout:
 		table.top();
 		table.row();
-		table.add(achiemeventsButton).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
+		//table.add(achiemeventsButton).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
 		table.add();
 		table.row();
 		table.row();
 		table.add();
 		//table.add(Iron1).pad(5).align(Align.right);
-		table.add(Ruby).pad(5).align(Align.right);
-		table.add(achievement1).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
 		table.row();
-		/*if (parent.additionAchievement == 1) {
-			table.add(AdditionIron).pad(5).align(Align.right);
-			table.add(addition).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.right);
+		if (parent.additionAchievement == 1) {
+			table.add(AdditionIron).pad(5).align(Align.left);
+			table.add(Ruby).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
 		} else if (parent.additionAchievement == 2) {
-			table.add(AdditionDiamond).pad(5).align(Align.right);
-			table.add(addition).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.right);
+			table.add(AdditionDiamond).pad(5).align(Align.left);
+			table.add(Diamond).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
 		} else if (parent.additionAchievement == 3) {
-			table.add(AdditionRuby).pad(5).align(Align.right);
-			table.add(addition).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.right);
+			table.add(AdditionRuby).pad(5).align(Align.left);
+			table.add(Iron).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
 		}else {
-			table.add();
+			table.add();    
 			table.add();
 		}
-		*/
+		
+		table.add(Ruby).pad(5).padLeft(50).padTop(50).align(Align.left);
+		table.add(achievement1).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
+		//table.add(achievement1).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5).align(Align.left);
+		table.row();
+		table.add();
+		table.add();
+		table.row();
+		table.add();
+		table.add();
 		table.add(Diamond).pad(5).align(Align.right);
 		table.add(achievement2).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
+		table.row();
+		table.add();
+		table.add();
 		table.row();
 		table.add();
 		table.add();
