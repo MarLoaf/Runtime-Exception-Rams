@@ -13,6 +13,7 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFont
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.Hinting;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
@@ -92,11 +93,49 @@ public class RecoverAccountScreen implements Screen {
 		table.setFillParent(true);
 		stage.addActor(table);
         //creating different buttons/textfields/labels
+<<<<<<< Updated upstream
 		ImageTextButton back = new ImageTextButton("Back", skin, "pink");
 		//layout:
 		table.add(back);
+=======
+		Label secretquestiontitle = new Label("Secret Question", skin);
+		Label secretquestion = new Label("What is your Mothers Maiden Name", skin);
+		TextField secretquestionText = new TextField("         ", skin);
+		secretquestionText.setMessageText("Enter Secret Answer...");
+		
+		
+		
+		Button logout = new Button(skin, "Exit");
+		//layout:
+		
+	 
+		table.top();
+		table.row();
+		
+		table.add(logout);
+		table.row();
+		table.add(secretquestiontitle);
+		table.row();
+		table.add(secretquestion);
+		table.row();
+		table.add(secretquestionText); 
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+		
+>>>>>>> Stashed changes
 		//adding button functionality
-		back.addListener(new ChangeListener() {
+		logout.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
 				parent.changeScreen(Tutor.LOGIN);
