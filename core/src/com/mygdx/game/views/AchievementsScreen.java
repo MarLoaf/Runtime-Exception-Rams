@@ -101,6 +101,7 @@ public class AchievementsScreen implements Screen {
 		//
 		//Button logout = new Button(skin, "Exit");
 		//Image Iron1 = new Image(new Texture(Gdx.files.internal("images/iron.png")));
+		Label userInfo = new Label("Student: John Smith", skin);
 		Image AdditionIron = new Image(new Texture(Gdx.files.internal("images/iron.png")));
 		Image AdditionDiamond = new Image(new Texture(Gdx.files.internal("images/diamond.png")));
 		Image AdditionRuby = new Image(new Texture(Gdx.files.internal("images/ruby.png")));
@@ -113,10 +114,10 @@ public class AchievementsScreen implements Screen {
 		Label achievement3 = new Label("Basic Reward", skin, "noBackground"); 
 		ImageTextButton achiemeventsButton = new ImageTextButton("My Achievements", skin);
 		//layout:
-		table.top();
+		table.add(userInfo).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
 		table.row();
+		table.top();
 		//table.add(achiemeventsButton).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
-		table.add();
 		table.row();
 		table.row();
 		table.add();
