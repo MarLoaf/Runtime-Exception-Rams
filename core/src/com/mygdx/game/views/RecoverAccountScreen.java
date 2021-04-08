@@ -99,26 +99,41 @@ public class RecoverAccountScreen implements Screen {
 		Label secretquestion = new Label("What is your Mother's Maiden Name", skin);
 		TextField secretquestionText = new TextField("", skin);
 		secretquestionText.setMessageText("Enter Secret Answer...");
+		ImageTextButton next = new ImageTextButton("Next", skin, "pink");
 		Button back = new Button(skin, "Exit");
+		
 		//layout:
 		table.top();
 		table.row();
-		table.add(back);
+		table.add().fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
+		table.add(secretquestiontitle).fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
+		table.add().fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
+		table.add(back).uniformX().pad(5).padBottom(270);
 		table.row();
-		table.add(secretquestiontitle).fillX().uniformX().pad(5);
-		table.row();
+		table.add();
 		table.add(secretquestion).fillX().uniformX().pad(5);
 		table.row();
+		table.add();
 		table.add(secretquestionText).fillX().uniformX().pad(5); 
+		table.add(next).pad(5);
+		
 		//adding button functionality
 		back.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
 				parent.changeScreen(Tutor.LOGIN);
 			}
+			
+		});
+	
+		next.addListener(new ChangeListener() {
+			@Override
+			public void changed(ChangeEvent event, Actor actor) {
+				parent.changeScreen(Tutor.PASSRESET);
+			}
+			
 		});
 	}
-
 	@Override
 	public void render(float delta) {
 		Gdx.gl.glClearColor(.1f, .12f, .16f, 1);
