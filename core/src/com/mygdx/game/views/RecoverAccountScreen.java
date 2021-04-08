@@ -13,9 +13,12 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFont
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.Hinting;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
 import com.badlogic.gdx.utils.Json;
@@ -92,9 +95,21 @@ public class RecoverAccountScreen implements Screen {
 		table.setFillParent(true);
 		stage.addActor(table);
         //creating different buttons/textfields/labels
-		ImageTextButton back = new ImageTextButton("Back", skin, "pink");
+		Label secretquestiontitle = new Label("Secret Question", skin);
+		Label secretquestion = new Label("What is your Mother's Maiden Name", skin);
+		TextField secretquestionText = new TextField("", skin);
+		secretquestionText.setMessageText("Enter Secret Answer...");
+		Button back = new Button(skin, "Exit");
 		//layout:
+		table.top();
+		table.row();
 		table.add(back);
+		table.row();
+		table.add(secretquestiontitle).fillX().uniformX().pad(5);
+		table.row();
+		table.add(secretquestion).fillX().uniformX().pad(5);
+		table.row();
+		table.add(secretquestionText).fillX().uniformX().pad(5); 
 		//adding button functionality
 		back.addListener(new ChangeListener() {
 			@Override

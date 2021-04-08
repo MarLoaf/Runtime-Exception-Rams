@@ -106,30 +106,30 @@ public class HomeScreen implements Screen {
 		final SelectBox<String> lessonSelectBox = new SelectBox<String>(skin);
 		lessonSelectBox.setItems("Tutorial", "Practice", "Test", "Exam");
 		lessonSelectBox.setAlignment(Align.center);
-		ImageTextButton begin = new ImageTextButton("Begin", skin, "green");
+		ImageTextButton begin = new ImageTextButton("Begin", skin, "green"); //creates a green button
 		if(parent.problemNumber!=0) {
 			begin.setText("Continue");
 		}
 		Label userInfo = new Label("Student: John Smith", skin);
 		userInfo.setAlignment(Align.center);
-		Button logout = new Button(skin, "Exit");
-		Image Iron1 = new Image(new Texture(Gdx.files.internal("images/iron.png")));
+		Button logout = new Button(skin, "Exit"); //creates button with the "exit door"
+		Image Iron1 = new Image(new Texture(Gdx.files.internal("images/iron.png"))); //image NOT BUTTON with the iron pickaxe
 		Image AdditionIron = new Image(new Texture(Gdx.files.internal("images/iron.png")));
-		Image AdditionDiamond = new Image(new Texture(Gdx.files.internal("images/diamond.png")));
-		Image AdditionRuby = new Image(new Texture(Gdx.files.internal("images/ruby.png")));
+		Image AdditionDiamond = new Image(new Texture(Gdx.files.internal("images/diamond.png"))); //image NOT BUTTON with the diamond
+		Image AdditionRuby = new Image(new Texture(Gdx.files.internal("images/ruby.png"))); //image NOT BUTTON with the ruby
 		Image Ruby = new Image(new Texture(Gdx.files.internal("images/ruby.png")));
 		Image Diamond = new Image(new Texture(Gdx.files.internal("images/diamond.png")));
 		Image Iron = new Image(new Texture(Gdx.files.internal("images/iron.png")));
-		Label achievement1 = new Label("Addition", skin, "noBackground");
+		Label achievement1 = new Label("Addition", skin, "noBackground"); //creates a label without a background - just text
 		Label achievement2 = new Label("Subtraction", skin, "noBackground");
 		Label achievement3 = new Label("Division", skin, "noBackground");
-		Label latestAchievements = new Label("Latest Achivements:", skin);
+		Label latestAchievements = new Label("Latest Achivements:", skin); //creates a label with a purple background
 		latestAchievements.setAlignment(Align.center);
 		Label greatestAchievements = new Label("Greatest Achievements:", skin);
 		greatestAchievements.setAlignment(Align.center);
 		Label fractions = new Label("Fractions", skin, "noBackground");
 		Label addition = new Label("Addition", skin, "noBackground");
-		ImageTextButton achiemeventsButton = new ImageTextButton("My Achievements", skin);
+		ImageTextButton achiemeventsButton = new ImageTextButton("My Achievements", skin); //creates a blue button (blue is default when no color is specified)
 		//layout:
 		table.top();
 		table.row();
