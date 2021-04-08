@@ -96,22 +96,22 @@ public class RecoverAccountScreen implements Screen {
 		stage.addActor(table);
         //creating different buttons/textfields/labels
 		Label secretquestiontitle = new Label("Secret Question", skin);
-		Label secretquestion = new Label("What is your Mothers Maiden Name", skin);
-		TextField secretquestionText = new TextField("         ", skin);
+		Label secretquestion = new Label("What is your Mother's Maiden Name", skin);
+		TextField secretquestionText = new TextField("", skin);
 		secretquestionText.setMessageText("Enter Secret Answer...");
-		Button logout = new Button(skin, "Exit");
+		Button back = new Button(skin, "Exit");
 		//layout:
 		table.top();
 		table.row();
-		table.add(logout);
+		table.add(back);
 		table.row();
-		table.add(secretquestiontitle);
+		table.add(secretquestiontitle).fillX().uniformX().pad(5);
 		table.row();
-		table.add(secretquestion);
+		table.add(secretquestion).fillX().uniformX().pad(5);
 		table.row();
-		table.add(secretquestionText); 
+		table.add(secretquestionText).fillX().uniformX().pad(5); 
 		//adding button functionality
-		logout.addListener(new ChangeListener() {
+		back.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
 				parent.changeScreen(Tutor.LOGIN);
