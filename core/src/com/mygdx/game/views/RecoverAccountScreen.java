@@ -101,7 +101,7 @@ public class RecoverAccountScreen implements Screen {
 		Label secretquestion = new Label("What is your Mother's Maiden Name", skin);
 		secretquestion.setAlignment(Align.center);
 		TextField secretquestionText = new TextField("", skin);
-		secretquestionText.setMessageText("Enter Secret Answer...");
+		secretquestionText.setMessageText("Enter secret answer...");
 		secretquestionText.setAlignment(Align.center);
 		ImageTextButton next = new ImageTextButton("Next", skin, "pink");
 		Button back = new Button(skin, "Exit");

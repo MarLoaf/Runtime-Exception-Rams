@@ -103,15 +103,15 @@ public class CreateAccountScreen implements Screen {
 		createAccountLabel.setAlignment(Align.center);
 		Label username = new Label("Username:", skin);
 	    Label password = new Label("Password:", skin);
-	    Label fullname = new Label("Fullname:", skin);
+	    Label fullname = new Label("Full Name:", skin);
 	    TextField usernameText = new TextField("", skin);
 	    usernameText.setMessageText("Enter username...");
 	    TextField passwordText = new TextField("", skin);
 	    passwordText.setMessageText("Enter password...");
 	    TextField fullnameText = new TextField("", skin);
-	    fullnameText.setMessageText("Enter Your Fullname...");
+	    fullnameText.setMessageText("Enter your full name...");
 	    TextField secretAnswerText = new TextField("", skin);
-	    secretAnswerText.setMessageText("Enter Answer...");
+	    secretAnswerText.setMessageText("Enter answer...");
 		Button back = new Button(skin, "Exit");
 		ImageTextButton createAccount = new ImageTextButton("Create Account", skin,"green");
 		username.setAlignment(Align.center);
