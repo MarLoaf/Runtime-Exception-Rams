@@ -15,8 +15,10 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
 import com.badlogic.gdx.utils.Json;
@@ -93,25 +95,14 @@ public class RecoverAccountScreen implements Screen {
 		table.setFillParent(true);
 		stage.addActor(table);
         //creating different buttons/textfields/labels
-<<<<<<< Updated upstream
-		ImageTextButton back = new ImageTextButton("Back", skin, "pink");
-		//layout:
-		table.add(back);
-=======
 		Label secretquestiontitle = new Label("Secret Question", skin);
 		Label secretquestion = new Label("What is your Mothers Maiden Name", skin);
 		TextField secretquestionText = new TextField("         ", skin);
 		secretquestionText.setMessageText("Enter Secret Answer...");
-		
-		
-		
 		Button logout = new Button(skin, "Exit");
 		//layout:
-		
-	 
 		table.top();
 		table.row();
-		
 		table.add(logout);
 		table.row();
 		table.add(secretquestiontitle);
@@ -119,21 +110,6 @@ public class RecoverAccountScreen implements Screen {
 		table.add(secretquestion);
 		table.row();
 		table.add(secretquestionText); 
-		
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	
-		
->>>>>>> Stashed changes
 		//adding button functionality
 		logout.addListener(new ChangeListener() {
 			@Override
