@@ -115,19 +115,30 @@ public class LoginScreen implements Screen {
 		password.setAlignment(Align.center);
 		passwordText.setAlignment(Align.center);
 		//layout:
+		table.top();
 		table.row();
-		table.add(username).fillX().uniformX().pad(5);
-		table.add(usernameText).fillX().uniformX().pad(5);
+		table.add().fillX().uniformX().pad(5).padBottom(213).width(Gdx.graphics.getWidth()/5);
+		table.add().fillX().uniformX().pad(5).padBottom(213).width(Gdx.graphics.getWidth()/5);
+		table.add().fillX().uniformX().pad(5).padBottom(213).width(Gdx.graphics.getWidth()/5);
+		table.add().fillX().uniformX().pad(5).padBottom(213).width(Gdx.graphics.getWidth()/5);
 		table.row();
-		table.add(password).fillX().uniformX().pad(5);
-		table.add(passwordText).fillX().uniformX().pad(5);
+		table.add();
+		table.add(username).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add(usernameText).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		table.row();
-		table.add(login).uniformX().pad(5).colspan(2);
+		table.add();
+		table.add(password).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add(passwordText).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		table.row();
-		table.add(forgotPassword).fillX().uniformX().pad(5);
-		table.add(createAccount).fillX().uniformX().pad(5);
+		table.add();
+		table.add(login).uniformX().pad(5).colspan(2).width(Gdx.graphics.getWidth()/5);
 		table.row();
-		table.add(exit).uniformX().pad(5).colspan(2);
+		table.add();
+		table.add(forgotPassword).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add(createAccount).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.row();
+		table.add();
+		table.add(exit).uniformX().pad(5).colspan(2).width(Gdx.graphics.getWidth()/5);
 		//adding button functionality
 		usernameText.setTextFieldListener(new TextField.TextFieldListener() {
 			@Override

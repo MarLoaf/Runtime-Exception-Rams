@@ -99,6 +99,8 @@ public class CreateAccountScreen implements Screen {
 		final SelectBox<String> secretQuestionBox = new SelectBox<String>(skin);
 		secretQuestionBox.setItems("Secret Question","What's your favorite color?", "What's the name of your first pet?", "What's your mother's maiden name?");
 		secretQuestionBox.setAlignment(Align.center);
+		Label createAccountLabel = new Label("Create Account", skin);
+		createAccountLabel.setAlignment(Align.center);
 		Label username = new Label("Username:", skin);
 	    Label password = new Label("Password:", skin);
 	    Label fullname = new Label("Fullname:", skin);
@@ -123,28 +125,27 @@ public class CreateAccountScreen implements Screen {
 		table.top();
 		table.row();
 		table.add().fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
-		table.add().fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
-		table.add().fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
+		table.add(createAccountLabel).colspan(2).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
 		table.add(back).uniformX().pad(5).padBottom(100);
 		table.row();
 		table.add();
-		table.add(username).fillX().uniformX().pad(5);
-		table.add(usernameText).fillX().uniformX().pad(5);
+		table.add(username).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add(usernameText).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		table.row();
 		table.add();
-		table.add(password).fillX().uniformX().pad(5);
-		table.add(passwordText).fillX().uniformX().pad(5);
+		table.add(password).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add(passwordText).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		table.row();
 		table.add();
-		table.add(fullname).fillX().uniformX().pad(5);
-		table.add(fullnameText).fillX().uniformX().pad(5);
+		table.add(fullname).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add(fullnameText).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		table.row();
 		table.add();
-		table.add(secretQuestionBox).fillX().uniformX().pad(5);
-		table.add(secretAnswerText).fillX().uniformX().pad(5);
+		table.add(secretQuestionBox).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add(secretAnswerText).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		table.row();
 		table.add();
-		table.add(createAccount).pad(5).colspan(2);
+		table.add(createAccount).pad(5).colspan(2).width(Gdx.graphics.getWidth()/5);
 		//adding button functionality
 		back.addListener(new ChangeListener() {
 			@Override

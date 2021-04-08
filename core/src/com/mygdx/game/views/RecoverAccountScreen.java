@@ -21,6 +21,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
+import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
@@ -95,26 +96,28 @@ public class RecoverAccountScreen implements Screen {
 		table.setFillParent(true);
 		stage.addActor(table);
         //creating different buttons/textfields/labels
-		Label secretquestiontitle = new Label("Secret Question", skin);
+		Label secretquestiontitle = new Label("Forgot Password", skin);
+		secretquestiontitle.setAlignment(Align.center);
 		Label secretquestion = new Label("What is your Mother's Maiden Name", skin);
+		secretquestion.setAlignment(Align.center);
 		TextField secretquestionText = new TextField("", skin);
 		secretquestionText.setMessageText("Enter Secret Answer...");
+		secretquestionText.setAlignment(Align.center);
 		ImageTextButton next = new ImageTextButton("Next", skin, "pink");
 		Button back = new Button(skin, "Exit");
 		//layout:
 		table.top();
 		table.row();
 		table.add().fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
-		table.add(secretquestiontitle).fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
-		table.add().fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
+		table.add(secretquestiontitle).colspan(2).fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
 		table.add(back).uniformX().pad(5).padBottom(270);
 		table.row();
 		table.add();
-		table.add(secretquestion).fillX().uniformX().pad(5);
+		table.add(secretquestion).colspan(2).fillX().uniformX().pad(5);
 		table.row();
 		table.add();
 		table.add(secretquestionText).fillX().uniformX().pad(5); 
-		table.add(next).pad(5);
+		table.add(next).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		//adding button functionality
 		back.addListener(new ChangeListener() {
 			@Override
