@@ -120,7 +120,7 @@ public class HomeScreen implements Screen {
 		Image Ruby = new Image(new Texture(Gdx.files.internal("images/ruby.png")));
 		Image Diamond = new Image(new Texture(Gdx.files.internal("images/diamond.png")));
 		Image Iron = new Image(new Texture(Gdx.files.internal("images/iron.png")));
-		Label achievement1 = new Label("Addition", skin, "noBackground"); //creates a label without a background - just text
+		Label achievement1 = new Label("Numbers", skin, "noBackground"); //creates a label without a background - just text
 		Label achievement2 = new Label("Subtraction", skin, "noBackground");
 		Label achievement3 = new Label("Division", skin, "noBackground");
 		Label latestAchievements = new Label("Latest Achivements:", skin); //creates a label with a purple background
