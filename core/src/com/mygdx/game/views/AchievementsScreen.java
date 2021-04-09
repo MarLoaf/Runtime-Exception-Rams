@@ -122,6 +122,7 @@ public class AchievementsScreen implements Screen {
 		table.row();
 		table.add();
 		//table.add(Iron1).pad(5).align(Align.right);
+		
 		table.row();
 		if (parent.additionAchievement == 1) {
 			table.add(AdditionIron).pad(5).align(Align.left);
