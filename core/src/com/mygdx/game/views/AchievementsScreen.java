@@ -13,11 +13,14 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFont
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.Hinting;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.SelectBox;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
 import com.badlogic.gdx.utils.Align;
@@ -90,17 +93,12 @@ public class AchievementsScreen implements Screen {
                 return json;
             }
         };
+        
 		//making tables
 		Table table = new Table();
 		table.setFillParent(true);
 		stage.addActor(table);
-        //creating different buttons/textfields/labels
-		ImageTextButton back = new ImageTextButton("Back", skin, "pink");
-		//layout:
-		table.add(back);
-		//
-		//Button logout = new Button(skin, "Exit");
-		//Image Iron1 = new Image(new Texture(Gdx.files.internal("images/iron.png")));
+		//creating different buttons/textfields/labels
 		Label userInfo = new Label("Student: John Smith", skin);
 		Image AdditionIron = new Image(new Texture(Gdx.files.internal("images/iron.png")));
 		Image AdditionDiamond = new Image(new Texture(Gdx.files.internal("images/diamond.png")));
@@ -113,50 +111,33 @@ public class AchievementsScreen implements Screen {
 		Label achievement2 = new Label("Second Tier Reward", skin, "noBackground");
 		Label achievement3 = new Label("Basic Reward", skin, "noBackground"); 
 		ImageTextButton achiemeventsButton = new ImageTextButton("My Achievements", skin);
+		ImageTextButton back = new ImageTextButton("Back", skin, "pink"); 
+
 		//layout:
-		table.add(userInfo).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
-		table.row();
 		table.top();
-		//table.add(achiemeventsButton).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
+		table.row();
+		table.add().fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
+		table.add(back); //.uniformX().pad(5).padBottom(100);
 		table.row();
 		table.row();
 		table.add();
-		//table.add(Iron1).pad(5).align(Align.right);
-		
-		table.row();
-		if (parent.additionAchievement == 1) {
-			table.add(AdditionIron).pad(5).align(Align.left);
-			table.add(Ruby).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
-		} else if (parent.additionAchievement == 2) {
-			table.add(AdditionDiamond).pad(5).align(Align.left);
-			table.add(Diamond).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
-		} else if (parent.additionAchievement == 3) {
-			table.add(AdditionRuby).pad(5).align(Align.left);
-			table.add(Iron).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
-		}else {
-			table.add();    
-			table.add();
-		}
-		
-		table.add(Ruby).pad(5).padLeft(50).padTop(50).align(Align.left);
+		table.add(AdditionRuby).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		table.add(achievement1).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
-		//table.add(achievement1).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5).align(Align.left);
+		table.add(Ruby).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.row();
 		table.row();
 		table.add();
-		table.add();
-		table.row();
-		table.add();
-		table.add();
-		table.add(Diamond).pad(5).align(Align.right);
+		table.add(AdditionDiamond).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		table.add(achievement2).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
+		table.add(Diamond).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.row();
 		table.row();
 		table.add();
-		table.add();
-		table.row();
-		table.add();
-		table.add();
-		table.add(Iron).pad(5).align(Align.right);
+		table.add(AdditionIron).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		table.add(achievement3).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
+		table.add(Iron).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.row();
+		table.add();
 		//adding button functionality
 		back.addListener(new ChangeListener() {
 			@Override
