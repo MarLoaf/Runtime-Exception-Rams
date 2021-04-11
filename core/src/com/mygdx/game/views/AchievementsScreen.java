@@ -123,45 +123,41 @@ public class AchievementsScreen implements Screen {
 
 		//layout:
 		table.top();
-		table.add(back).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5).align(Align.right);
-		//table.add(back).uniformX().pad(5).padBottom(100);
+		table.add(back).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
+		table.add(back).uniformX().pad(5).padBottom(100);
 		table.add();
 		table.add(userInfo).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
 		table.row();
 		//table.row();
-		table.add();
 		table.add(Ruby).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		table.add(achievement1).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.right);
-		//table.add();
 		table.add(Diamond).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		table.add(achievement2).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.right);
-		//table.add();
 		table.add(Iron).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		table.add(achievement3).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.right);
 		table.row();
+		table.row();
 		table.add();
-		
-		
 		table.add(List1).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
-		table.add();
-		table.add(List2).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
+		table.add(List2).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.right);
+		table.row();
 		table.row();
 		table.add();
 		table.add(Ruby1).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		table.add(progress1).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
-		//table.add(Ruby2).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add(Ruby2).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		table.row();
 		table.row();
 		table.add();
 		table.add(Diamond1).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		table.add(progress2).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
-		//table.add(Diamond2).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add(Diamond2).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		table.row();
 		table.row();
 		table.add();
 		table.add(Iron1).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		table.add(progress3).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
-		//table.add(Iron2).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add(Iron2).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		table.row();
 		table.add();
 		
