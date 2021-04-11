@@ -100,45 +100,71 @@ public class AchievementsScreen implements Screen {
 		stage.addActor(table);
 		//creating different buttons/textfields/labels
 		Label userInfo = new Label("Student: John Smith", skin);
-		Image AdditionIron = new Image(new Texture(Gdx.files.internal("images/iron.png")));
-		Image AdditionDiamond = new Image(new Texture(Gdx.files.internal("images/diamond.png")));
-		Image AdditionRuby = new Image(new Texture(Gdx.files.internal("images/ruby.png")));
 		Image Ruby = new Image(new Texture(Gdx.files.internal("images/ruby.png")));
 		Image Diamond = new Image(new Texture(Gdx.files.internal("images/diamond.png")));
 		Image Iron = new Image(new Texture(Gdx.files.internal("images/iron.png")));
+		Image Ruby1 = new Image(new Texture(Gdx.files.internal("images/ruby.png")));
+		Image Diamond1 = new Image(new Texture(Gdx.files.internal("images/diamond.png")));
+		Image Iron1 = new Image(new Texture(Gdx.files.internal("images/iron.png")));
+		Image Ruby2 = new Image(new Texture(Gdx.files.internal("images/ruby.png")));
+		Image Diamond2 = new Image(new Texture(Gdx.files.internal("images/diamond.png")));
+		Image Iron2 = new Image(new Texture(Gdx.files.internal("images/iron.png")));
 		//
 		Label achievement1 = new Label("Best Reward", skin, "noBackground");
 		Label achievement2 = new Label("Second Tier Reward", skin, "noBackground");
 		Label achievement3 = new Label("Basic Reward", skin, "noBackground"); 
+		Label List1 = new Label("Collected Achievements", skin, "noBackground");
+		Label List2 = new Label("Achievements in-progress", skin, "noBackground");
+		Label progress1 = new Label("Ruby Division 100%", skin, "noBackground");
+		Label progress2 = new Label("Diamond Multiplication 80%", skin, "noBackground");
+		Label progress3 = new Label("Iron Fractions 65%", skin, "noBackground"); 
 		ImageTextButton achiemeventsButton = new ImageTextButton("My Achievements", skin);
 		ImageTextButton back = new ImageTextButton("Back", skin, "pink"); 
 
 		//layout:
 		table.top();
-		table.add(back).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
+		table.add(back).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5).align(Align.right);
 		//table.add(back).uniformX().pad(5).padBottom(100);
 		table.add();
 		table.add(userInfo).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
 		table.row();
-		table.row();
+		//table.row();
 		table.add();
-		table.add(AdditionRuby).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
-		table.add(achievement1).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
 		table.add(Ruby).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
-		table.row();
-		table.row();
-		table.add();
-		table.add(AdditionDiamond).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
-		table.add(achievement2).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
+		table.add(achievement1).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.right);
+		//table.add();
 		table.add(Diamond).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
-		table.row();
-		table.row();
-		table.add();
-		table.add(AdditionIron).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
-		table.add(achievement3).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
+		table.add(achievement2).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.right);
+		//table.add();
 		table.add(Iron).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add(achievement3).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.right);
 		table.row();
 		table.add();
+		
+		
+		table.add(List1).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
+		table.add();
+		table.add(List2).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
+		table.row();
+		table.add();
+		table.add(Ruby1).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add(progress1).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
+		//table.add(Ruby2).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.row();
+		table.row();
+		table.add();
+		table.add(Diamond1).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add(progress2).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
+		//table.add(Diamond2).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.row();
+		table.row();
+		table.add();
+		table.add(Iron1).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add(progress3).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
+		//table.add(Iron2).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.row();
+		table.add();
+		
 		//adding button functionality
 		back.addListener(new ChangeListener() {
 			@Override
