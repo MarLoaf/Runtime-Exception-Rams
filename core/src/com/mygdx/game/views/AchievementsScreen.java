@@ -129,6 +129,7 @@ public class AchievementsScreen implements Screen {
 		table.add(userInfo).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
 		table.row();
 		//table.row();
+		table.add();
 		table.add(Ruby).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		table.add(achievement1).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.right);
 		table.add(Diamond).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
