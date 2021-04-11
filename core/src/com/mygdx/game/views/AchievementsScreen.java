@@ -115,9 +115,10 @@ public class AchievementsScreen implements Screen {
 
 		//layout:
 		table.top();
-		table.row();
-		table.add().fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
-		table.add(back); //.uniformX().pad(5).padBottom(100);
+		table.add(back).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
+		//table.add(back).uniformX().pad(5).padBottom(100);
+		table.add();
+		table.add(userInfo).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
 		table.row();
 		table.row();
 		table.add();
