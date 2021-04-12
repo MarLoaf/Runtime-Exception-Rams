@@ -196,11 +196,11 @@ public class CreateAccountScreen implements Screen {
 		createAccount.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-				if(username!=null && password!=null && secretAnswer!=null && fullName!=null) {
+				if(username!=null && password!=null && secretQuestion!=null && secretAnswer!=null && fullName!=null) {
 					if(username.length()>4 && password.length()>4 && secretAnswer.length()>0 && fullName.length()>0) {
 						//only creates accounts with at least 5 character username and password and at least something for secret answer and full name
 						parent.addAccount(username, password, secretQuestion, secretAnswer, fullName);
-						parent.changeScreen(Tutor.HOME);
+						parent.changeScreen(Tutor.LOGIN);
 					}
 				}
 			}

@@ -35,6 +35,7 @@ public class HomeScreen implements Screen {
 	private Stage stage;
 	private SpriteBatch batch;
 	private Texture backgroundTexture;
+	private String userInfoMessage;
 	
 	public HomeScreen(Tutor tutor) {
 		parent = tutor;
@@ -44,6 +45,7 @@ public class HomeScreen implements Screen {
 		Gdx.input.setInputProcessor(stage);
 		stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1/30f));
 		stage.draw();
+		userInfoMessage = "Student: " + parent.currentUser.getFullName();
 	}
 
 	@Override
@@ -112,7 +114,8 @@ public class HomeScreen implements Screen {
 		if(parent.problemNumber!=0) {
 			begin.setText("Continue");
 		}
-		Label userInfo = new Label("Student: John Smith", skin);
+		Label userInfo = new Label("", skin);
+		userInfo.setText(userInfoMessage);
 		userInfo.setAlignment(Align.center);
 		Button logout = new Button(skin, "Exit"); //creates button with the "exit door"
 		Image Iron1 = new Image(new Texture(Gdx.files.internal("images/iron.png"))); //image NOT BUTTON with the iron pickaxe

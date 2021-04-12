@@ -34,6 +34,7 @@ public class Tutor extends Game {
 	public int additionAchievement = 0;
 	public Problem[] problems = {new Problem("5 + 3 = ?", "8"), new Problem("2 + 2 = ?", "4"), new Problem("3 + 2 = ?", "5", new String[] {"4","3","6"})};
 	public ArrayList<Account> accounts = new ArrayList<Account>(0);
+	public Account currentUser;
 	
 	public final static int ACHIEVEMENTS = 0;
 	public final static int CREATEACCOUNT = 1;
@@ -114,7 +115,10 @@ public class Tutor extends Game {
 	public boolean loginAccount(String username, String password) {
 		if (accounts.size()>0) {
 			for (Account a : accounts) {
-				if (a.getUsername().equals(username) && a.getPassword().equals(password)) return true;
+				if (a.getUsername().equals(username) && a.getPassword().equals(password)) {
+					currentUser = a;
+					return true;
+				}
 			}
 		}
 		return false;
