@@ -109,7 +109,18 @@ public class Tutor extends Game {
 	}
 	
 	public void addAccount(String username, String password, String secretQuestion, String secretAnswer, String fullName) {
-		accounts.add(new Account(username, password, secretQuestion, secretAnswer, fullName));
+		if (!checkDuplicateUsername(username)) accounts.add(new Account(username, password, secretQuestion, secretAnswer, fullName));
+	}
+	
+	public boolean checkDuplicateUsername(String username) {
+		if (accounts.size()>0) {
+			for (Account a : accounts) {
+				if (a.getUsername().equals(username)) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 	
 	public boolean loginAccount(String username, String password) {
