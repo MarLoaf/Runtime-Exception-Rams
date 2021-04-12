@@ -21,6 +21,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.SelectBox;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextTooltip;
+import com.badlogic.gdx.scenes.scene2d.ui.TooltipManager;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Json;
@@ -131,6 +132,12 @@ public class HomeScreen implements Screen {
 		Label fractions = new Label("Fractions", skin, "noBackground");
 		Label addition = new Label("Addition", skin, "noBackground");
 		ImageTextButton achiemeventsButton = new ImageTextButton("My Achievements", skin); //creates a blue button (blue is default when no color is specified)
+		TextTooltip RubyPopup = new TextTooltip("Top achievement", skin);
+		RubyPopup.setInstant(true);
+		TextTooltip DiamondPopup = new TextTooltip("Medium achievement", skin);
+		DiamondPopup.setInstant(true);
+		TextTooltip IronPopup = new TextTooltip("Lowest achievement", skin);
+		IronPopup.setInstant(true);
 		//layout:
 		table.top();
 		table.row();
@@ -144,10 +151,8 @@ public class HomeScreen implements Screen {
 		table.add(lessonSelectBox).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
 		table.add(begin).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
 		table.row();
-		table.add();
-		table.add(latestAchievements).width(Gdx.graphics.getWidth()/5).align(Align.center);
-		table.add();
-		table.add(greatestAchievements).width(Gdx.graphics.getWidth()/5).align(Align.center);
+		table.add(latestAchievements).colspan(2).width(Gdx.graphics.getWidth()/5).align(Align.center);
+		table.add(greatestAchievements).colspan(2).width(Gdx.graphics.getWidth()/5).align(Align.center);
 		table.row();
 		table.add(Iron1).pad(5).align(Align.right);
 		table.add(fractions).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.right);
@@ -175,6 +180,13 @@ public class HomeScreen implements Screen {
 		table.add(Iron).pad(5).align(Align.right);
 		table.add(achievement3).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
 		//adding button functionality
+		Ruby.addListener(RubyPopup);
+		Diamond.addListener(DiamondPopup);
+		Iron.addListener(IronPopup);
+		Iron1.addListener(IronPopup);
+		AdditionIron.addListener(IronPopup);
+		AdditionDiamond.addListener(DiamondPopup);
+		AdditionRuby.addListener(RubyPopup);
 		logout.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
@@ -194,7 +206,6 @@ public class HomeScreen implements Screen {
 				parent.changeScreen(Tutor.ACHIEVEMENTS);
 			}
 		});
-		Ruby.addListener(new TextTooltip("Best achievement", skin));
 	}
 
 	@Override

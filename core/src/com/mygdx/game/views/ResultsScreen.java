@@ -19,6 +19,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextTooltip;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Json;
@@ -107,6 +108,12 @@ public class ResultsScreen implements Screen {
 		Image Ruby = new Image(new Texture(Gdx.files.internal("images/ruby.png")));
 		Image Diamond = new Image(new Texture(Gdx.files.internal("images/diamond.png")));
 		Image Iron = new Image(new Texture(Gdx.files.internal("images/iron.png")));
+		TextTooltip RubyPopup = new TextTooltip("Top achievement", skin);
+		RubyPopup.setInstant(true);
+		TextTooltip DiamondPopup = new TextTooltip("Medium achievement", skin);
+		DiamondPopup.setInstant(true);
+		TextTooltip IronPopup = new TextTooltip("Lowest achievement", skin);
+		IronPopup.setInstant(true);
         //layout
 		table.top();
 		table.row();
@@ -131,6 +138,9 @@ public class ResultsScreen implements Screen {
 		table.add();
 		table.add(ok).colspan(2).pad(5).width(Gdx.graphics.getWidth()/4);
 		//adding button functionality
+		Ruby.addListener(RubyPopup);
+		Diamond.addListener(DiamondPopup);
+		Iron.addListener(IronPopup);
 		back.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
