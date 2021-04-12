@@ -31,8 +31,8 @@ public class LoginScreen implements Screen {
 	private Stage stage;
 	private SpriteBatch batch;
 	private Texture backgroundTexture;
-	private boolean correctUsername;
-	private boolean correctPassword;
+	private String username;
+	private String password;
 	
 	public LoginScreen(Tutor tutor) {
 		parent = tutor;
@@ -41,8 +41,8 @@ public class LoginScreen implements Screen {
 		stage = new Stage(new ScreenViewport());
 		stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1/30f));
 		stage.draw();
-		correctUsername = false;
-		correctPassword = false;
+		username = "";
+		password = "";
 	}
 
 	@Override
@@ -98,8 +98,8 @@ public class LoginScreen implements Screen {
 		table.setFillParent(true);
 		stage.addActor(table);
         //creating different buttons/textfields/labels
-        Label username = new Label("Username:", skin);
-        Label password = new Label("Password:", skin);
+        Label usernameLabel = new Label("Username:", skin);
+        Label passwordLabel = new Label("Password:", skin);
 		TextField usernameText = new TextField("", skin);
 		usernameText.setMessageText("Enter username...");
 		TextField passwordText = new TextField("", skin);
@@ -110,9 +110,9 @@ public class LoginScreen implements Screen {
 		ImageTextButton forgotPassword = new ImageTextButton("Forgot Password", skin);
 		ImageTextButton createAccount = new ImageTextButton("Create Account", skin);
 		ImageTextButton exit = new ImageTextButton("Exit", skin, "pink");
-		username.setAlignment(Align.center);
+		usernameLabel.setAlignment(Align.center);
 		usernameText.setAlignment(Align.center);
-		password.setAlignment(Align.center);
+		passwordLabel.setAlignment(Align.center);
 		passwordText.setAlignment(Align.center);
 		//layout:
 		table.top();
@@ -123,11 +123,11 @@ public class LoginScreen implements Screen {
 		table.add().fillX().uniformX().pad(5).padBottom(213).width(Gdx.graphics.getWidth()/5);
 		table.row();
 		table.add();
-		table.add(username).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add(usernameLabel).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		table.add(usernameText).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		table.row();
 		table.add();
-		table.add(password).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add(passwordLabel).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		table.add(passwordText).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		table.row();
 		table.add();
@@ -143,26 +143,22 @@ public class LoginScreen implements Screen {
 		usernameText.setTextFieldListener(new TextField.TextFieldListener() {
 			@Override
 			public void keyTyped(TextField textField, char c) {
-				if (textField.getText().equals("Username")) {
-					correctUsername = true;
-				}
+				username = textField.getText();
 			}
 		});
 		passwordText.setTextFieldListener(new TextField.TextFieldListener() {
 			@Override
 			public void keyTyped(TextField textField, char c) {
-				if (textField.getText().equals("Password")) {
-					correctPassword = true;
-				}
+				password = textField.getText();
 			}
 		});
 		login.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-				if (correctUsername && correctPassword) {
+				if (parent.loginAccount(username, password)) {
 					parent.changeScreen(Tutor.HOME);
 				}
-				parent.changeScreen(Tutor.HOME); // TODO remove to get username and password check
+				//parent.changeScreen(Tutor.HOME); // TODO remove to get username and password check
 			}
 		});
 		forgotPassword.addListener(new ChangeListener() {

@@ -33,6 +33,10 @@ public class CreateAccountScreen implements Screen {
 	private Stage stage;
 	private SpriteBatch batch;
 	private Texture backgroundTexture;
+	private String username;
+	private String password;
+	private String fullName;
+	private String secretAnswer;
 	
 	public CreateAccountScreen(Tutor tutor) {
 		parent = tutor;
@@ -97,13 +101,13 @@ public class CreateAccountScreen implements Screen {
 		stage.addActor(table);
 		//creating different buttons/textfields/labels
 		final SelectBox<String> secretQuestionBox = new SelectBox<String>(skin);
-		secretQuestionBox.setItems("Secret Question","What's your favorite color?", "What's the name of your first pet?", "What's your mother's maiden name?");
+		secretQuestionBox.setItems("Secret Question","What's your favorite color?","What's the name of your first pet?","What's your mother's maiden name?");
 		secretQuestionBox.setAlignment(Align.center);
 		Label createAccountLabel = new Label("Create Account", skin);
 		createAccountLabel.setAlignment(Align.center);
-		Label username = new Label("Username:", skin);
-	    Label password = new Label("Password:", skin);
-	    Label fullname = new Label("Full Name:", skin);
+		Label usernameLabel = new Label("Username:", skin);
+	    Label passwordLabel = new Label("Password:", skin);
+	    Label fullnameLabel = new Label("Full Name:", skin);
 	    TextField usernameText = new TextField("", skin);
 	    usernameText.setMessageText("Enter username...");
 	    TextField passwordText = new TextField("", skin);
@@ -114,11 +118,11 @@ public class CreateAccountScreen implements Screen {
 	    secretAnswerText.setMessageText("Enter answer...");
 		Button back = new Button(skin, "Exit");
 		ImageTextButton createAccount = new ImageTextButton("Create Account", skin,"green");
-		username.setAlignment(Align.center);
+		usernameLabel.setAlignment(Align.center);
 		usernameText.setAlignment(Align.center);
-		password.setAlignment(Align.center);
+		passwordLabel.setAlignment(Align.center);
 		passwordText.setAlignment(Align.center);
-		fullname.setAlignment(Align.center);
+		fullnameLabel.setAlignment(Align.center);
 		fullnameText.setAlignment(Align.center);
 		secretAnswerText.setAlignment(Align.center);
 		//layout:
@@ -129,15 +133,15 @@ public class CreateAccountScreen implements Screen {
 		table.add(back).uniformX().pad(5).padBottom(100);
 		table.row();
 		table.add();
-		table.add(username).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add(usernameLabel).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		table.add(usernameText).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		table.row();
 		table.add();
-		table.add(password).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add(passwordLabel).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		table.add(passwordText).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		table.row();
 		table.add();
-		table.add(fullname).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add(fullnameLabel).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		table.add(fullnameText).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		table.row();
 		table.add();
@@ -147,6 +151,30 @@ public class CreateAccountScreen implements Screen {
 		table.add();
 		table.add(createAccount).pad(5).colspan(2).width(Gdx.graphics.getWidth()/5);
 		//adding button functionality
+		usernameText.setTextFieldListener(new TextField.TextFieldListener() {
+			@Override
+			public void keyTyped(TextField textField, char c) {
+				username = textField.getText();
+			}
+		});
+		passwordText.setTextFieldListener(new TextField.TextFieldListener() {
+			@Override
+			public void keyTyped(TextField textField, char c) {
+				password = textField.getText();
+			}
+		});
+		fullnameText.setTextFieldListener(new TextField.TextFieldListener() {
+			@Override
+			public void keyTyped(TextField textField, char c) {
+				fullName = textField.getText();
+			}
+		});
+		secretAnswerText.setTextFieldListener(new TextField.TextFieldListener() {
+			@Override
+			public void keyTyped(TextField textField, char c) {
+				secretAnswer = textField.getText();
+			}
+		});
 		back.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
@@ -156,6 +184,7 @@ public class CreateAccountScreen implements Screen {
 		createAccount.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
+				parent.addAccount(username, password, "", "", fullName); // TODO secret question and answer
 				parent.changeScreen(Tutor.HOME);
 			}
 		});

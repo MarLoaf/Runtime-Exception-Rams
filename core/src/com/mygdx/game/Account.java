@@ -6,12 +6,14 @@ public class Account {
 	private String password;
 	private String secretQuestion;
 	private String secretAnswer;
+	private String fullName;
 	
-	public Account(String u, String p, String sq, String sa) {
+	public Account(String u, String p, String sq, String sa, String fn) {
 		username = u;
 		password = p;
 		secretQuestion = sq;
 		secretAnswer = sa;
+		fullName = fn;
 	}
 	
 	public Account() {
@@ -19,6 +21,7 @@ public class Account {
 		password = "";
 		secretQuestion = "";
 		secretAnswer = "";
+		fullName = "";
 	}
 	
 	public String getUsername() {
@@ -37,6 +40,10 @@ public class Account {
 		return secretAnswer;
 	}
 	
+	public String getFullName() {
+		return fullName;
+	}
+	
 	public void setUsername(String u) {
 		username = u;
 	}
@@ -51,5 +58,9 @@ public class Account {
 	
 	public void setSecretAnswer(String sa) {
 		secretAnswer = sa;
+	}
+	
+	public void setFullName(String fn) {
+		fullName = fn;
 	}
 }

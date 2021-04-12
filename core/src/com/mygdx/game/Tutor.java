@@ -1,5 +1,7 @@
 package com.mygdx.game;
 
+import java.util.ArrayList;
+
 import com.badlogic.gdx.Game;
 import com.mygdx.game.views.AchievementsScreen;
 import com.mygdx.game.views.CreateAccountScreen;
@@ -31,6 +33,7 @@ public class Tutor extends Game {
 	public int problemNumber = 0;
 	public int additionAchievement = 0;
 	public Problem[] problems = {new Problem("5 + 3 = ?", "8"), new Problem("2 + 2 = ?", "4"), new Problem("3 + 2 = ?", "5", new String[] {"4","3","6"})};
+	public ArrayList<Account> accounts = new ArrayList<Account>(0);
 	
 	public final static int ACHIEVEMENTS = 0;
 	public final static int CREATEACCOUNT = 1;
@@ -65,7 +68,8 @@ public class Tutor extends Game {
 			this.setScreen(homeScreen);
 			break;
 		case LOGIN:
-			if(loginScreen == null) loginScreen = new LoginScreen(this);
+			//if(loginScreen == null)
+			loginScreen = new LoginScreen(this);
 			this.setScreen(loginScreen);
 			break;
 		case PASSRESET:
@@ -95,6 +99,17 @@ public class Tutor extends Game {
 			this.setScreen(tutorialScreen);
 			break;
 		}
+	}
+	
+	public void addAccount(String username, String password, String secretQuestion, String secretAnswer, String fullName) {
+		accounts.add(new Account(username, password, secretQuestion, secretAnswer, fullName));
+	}
+	
+	public boolean loginAccount(String username, String password) {
+		for (Account a : accounts) {
+			if (a.getUsername().equals(username) && a.getPassword().equals(password)) return true;
+		}
+		return false;
 	}
 	
 }
