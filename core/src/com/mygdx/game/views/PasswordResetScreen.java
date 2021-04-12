@@ -14,10 +14,14 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.Hinting;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
+import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
+import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
@@ -92,14 +96,54 @@ public class PasswordResetScreen implements Screen {
 		table.setFillParent(true);
 		stage.addActor(table);
         //creating different buttons/textfields/labels
+		//label
+		Label passwordresettitle = new Label("Password Reset", skin);
+		Label newpassword = new Label("New Password:", skin);
+		Label retypepassword = new Label("Retype New Password:", skin);
+		//textfield
+		TextField NewPasswordText = new TextField("", skin);
+		TextField RetypePasswordText = new TextField("", skin);
+		//set message text
+		NewPasswordText.setMessageText("New Password:");
+		RetypePasswordText.setMessageText("Retype");
+		
+		ImageTextButton Confirm = new ImageTextButton("Confirm", skin,"green");
 		Button back = new Button(skin, "Exit");
+		
+		RetypePasswordText.setAlignment(Align.center);
+		newpassword.setAlignment(Align.center);
+		retypepassword.setAlignment(Align.center);
+		passwordresettitle.setAlignment(Align.center);
+		NewPasswordText.setAlignment(Align.center);
+		
+		
 		//layout:
-		table.add(back);
+
+		table.top();
+		table.row();
+		table.add().fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
+		table.add(passwordresettitle).colspan(2).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
+		table.add(back).uniformX().pad(5).padBottom(100);
+		table.row();
+		table.add();
+		table.add(newpassword).colspan(2).fillX().uniformX().pad(5);
+		table.add(NewPasswordText).colspan(2).fillX().uniformX().pad(5);
+		table.row();
+		table.add();
+		table.add(retypepassword).colspan(2).fillX().uniformX().pad(5);
+		table.add(RetypePasswordText).colspan(2).fillX().uniformX().pad(5);
+		table.add(Confirm).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		//adding button functionality
 		back.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-				parent.changeScreen(Tutor.LOGIN);
+				parent.changeScreen(Tutor.RECOVERACC);
+			}
+		});
+		Confirm.addListener(new ChangeListener() {
+			@Override
+			public void changed(ChangeEvent event, Actor actor) {
+				parent.changeScreen(Tutor.HOME);
 			}
 		});
 	}
