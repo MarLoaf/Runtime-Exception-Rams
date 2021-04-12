@@ -100,68 +100,50 @@ public class AchievementsScreen implements Screen {
 		stage.addActor(table);
 		//creating different buttons/textfields/labels
 		Label userInfo = new Label("Student: John Smith", skin);
-		Image Ruby = new Image(new Texture(Gdx.files.internal("images/ruby.png")));
-		Image Diamond = new Image(new Texture(Gdx.files.internal("images/diamond.png")));
-		Image Iron = new Image(new Texture(Gdx.files.internal("images/iron.png")));
+		userInfo.setAlignment(Align.center);
 		Image Ruby1 = new Image(new Texture(Gdx.files.internal("images/ruby.png")));
 		Image Diamond1 = new Image(new Texture(Gdx.files.internal("images/diamond.png")));
 		Image Iron1 = new Image(new Texture(Gdx.files.internal("images/iron.png")));
 		Image Ruby2 = new Image(new Texture(Gdx.files.internal("images/ruby.png")));
 		Image Diamond2 = new Image(new Texture(Gdx.files.internal("images/diamond.png")));
 		Image Iron2 = new Image(new Texture(Gdx.files.internal("images/iron.png")));
-		//
-		Label achievement1 = new Label("Best Reward", skin, "noBackground");
-		Label achievement2 = new Label("Second Tier Reward", skin, "noBackground");
-		Label achievement3 = new Label("Basic Reward", skin, "noBackground"); 
 		Label List1 = new Label("Collected Achievements", skin, "noBackground");
+		List1.setAlignment(Align.center);
 		Label List2 = new Label("Achievements in-progress", skin, "noBackground");
-		Label progress1 = new Label("Ruby Division 100%", skin, "noBackground");
-		Label progress2 = new Label("Diamond Multiplication 80%", skin, "noBackground");
-		Label progress3 = new Label("Iron Fractions 65%", skin, "noBackground"); 
-		ImageTextButton achiemeventsButton = new ImageTextButton("My Achievements", skin);
-		ImageTextButton back = new ImageTextButton("Back", skin, "pink"); 
-
+		List2.setAlignment(Align.center);
+		Label progress1 = new Label("Division 100%", skin, "noBackground");
+		Label progress2 = new Label("Multiplication 80%", skin, "noBackground");
+		Label progress3 = new Label("Fractions 65%", skin, "noBackground");
+		Label collected1 = new Label("Division", skin, "noBackground");
+		Label collected2 = new Label("Multiplication", skin, "noBackground");
+		Label collected3 = new Label("Fractions", skin, "noBackground");
+		Button back = new Button(skin, "Exit");
+		// TODO add description for the achievements via pop-ups
 		//layout:
 		table.top();
-		table.add(back).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
-		table.add(back).uniformX().pad(5).padBottom(100);
-		table.add();
+		table.row();
+		table.add().fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
+		table.add().fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
 		table.add(userInfo).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
+		table.add(back).uniformX().pad(5).padBottom(100);
 		table.row();
-		//table.row();
-		table.add();
-		table.add(Ruby).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
-		table.add(achievement1).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.right);
-		table.add(Diamond).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
-		table.add(achievement2).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.right);
-		table.add(Iron).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
-		table.add(achievement3).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.right);
+		table.add(List1).colspan(2).pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add(List2).colspan(2).pad(5).width(Gdx.graphics.getWidth()/5);
 		table.row();
-		table.row();
-		table.add();
-		table.add(List1).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
-		table.add(List2).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.right);
-		table.row();
-		//table.row();
-		table.add();
-		table.add(Ruby1).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add(Ruby1).uniformX().pad(5).align(Align.right);
+		table.add(collected1).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
+		table.add(Ruby2).uniformX().pad(5).align(Align.right);
 		table.add(progress1).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
-		table.add(Ruby2).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		table.row();
-		//table.row();
-		table.add();
-		table.add(Diamond1).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add(Diamond1).uniformX().pad(5).align(Align.right);
+		table.add(collected2).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
+		table.add(Diamond2).uniformX().pad(5).align(Align.right);
 		table.add(progress2).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
-		table.add(Diamond2).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		table.row();
-		//table.row();
-		table.add();
-		table.add(Iron1).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add(Iron1).uniformX().pad(5).align(Align.right);
+		table.add(collected3).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
+		table.add(Iron2).uniformX().pad(5).align(Align.right);
 		table.add(progress3).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
-		table.add(Iron2).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
-		table.row();
-		table.add();
-		
 		//adding button functionality
 		back.addListener(new ChangeListener() {
 			@Override
