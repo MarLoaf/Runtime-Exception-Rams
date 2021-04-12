@@ -87,6 +87,35 @@ public class TutorialScreen implements Screen {
 		Table table = new Table();
 		table.setFillParent(true);
 		stage.addActor(table);
+		
+		Label tutorial = new Label("Tutorial", skin);
+		tutorial.setAlignment(Align.center);
+		Label userInfo = new Label("Student: John Smith", skin);
+		userInfo.setAlignment(Align.center);
+		Label tutorialTopic = new Label("Tutorial Topic", skin);
+		tutorialTopic.setAlignment(Align.center);
+		ImageTextButton video = new ImageTextButton("Video", skin, "green");
+		ImageTextButton additionalHelp = new ImageTextButton("Additional Help", skin);
+		ImageTextButton askTeacher = new ImageTextButton("Click here for help!", skin, "pink");
+		
+		
+		table.top();
+		table.row();
+		table.add(tutorial).padBottom(150);
+		table.add();
+		table.add(userInfo).padBottom(150);
+		table.add();
+		table.row();
+		table.add();
+		table.add(tutorialTopic).width(Gdx.graphics.getWidth()/3);
+		table.add();
+		table.row();
+		table.add();
+		table.add(video).width(Gdx.graphics.getWidth()/3).height(Gdx.graphics.getHeight()/3).fill().padBottom(50);
+		table.add();
+		table.row();
+		table.add(additionalHelp).width(Gdx.graphics.getWidth()/3);
+		table.add(askTeacher).width(Gdx.graphics.getWidth()/3);
 	}
 
 	@Override
