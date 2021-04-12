@@ -107,16 +107,21 @@ public class AchievementsScreen implements Screen {
 		Image Ruby2 = new Image(new Texture(Gdx.files.internal("images/ruby.png")));
 		Image Diamond2 = new Image(new Texture(Gdx.files.internal("images/diamond.png")));
 		Image Iron2 = new Image(new Texture(Gdx.files.internal("images/iron.png")));
+		Image Iron3 = new Image(new Texture(Gdx.files.internal("images/iron.png")));
+		Image Iron4 = new Image(new Texture(Gdx.files.internal("images/iron.png")));
 		Label List1 = new Label("Collected Achievements", skin, "noBackground");
 		List1.setAlignment(Align.center);
 		Label List2 = new Label("Achievements in-progress", skin, "noBackground");
 		List2.setAlignment(Align.center);
-		Label progress1 = new Label("Division 100%", skin, "noBackground");
-		Label progress2 = new Label("Multiplication 80%", skin, "noBackground");
-		Label progress3 = new Label("Fractions 65%", skin, "noBackground");
-		Label collected1 = new Label("Division", skin, "noBackground");
-		Label collected2 = new Label("Multiplication", skin, "noBackground");
-		Label collected3 = new Label("Fractions", skin, "noBackground");
+		Label progress1 = new Label("Ruby Addition 100%", skin, "noBackground");
+		Label progress2 = new Label("Diamond Multiplication 80%", skin, "noBackground");
+		Label progress3 = new Label("Iron Fractions 65%", skin, "noBackground");
+		Label progress4 = new Label("Iron Division 65%", skin, "noBackground");
+		Label collected1 = new Label("Ruby Addition", skin, "noBackground");
+		Label collected2 = new Label("Diamond Multiplication", skin, "noBackground");
+		Label collected3 = new Label("Iron Fractions", skin, "noBackground");
+		Label collected4 = new Label("Iron Division", skin, "noBackground");
+		
 		Button back = new Button(skin, "Exit");
 		// TODO add description for the achievements via pop-ups
 		//layout:
@@ -144,6 +149,12 @@ public class AchievementsScreen implements Screen {
 		table.add(collected3).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
 		table.add(Iron2).uniformX().pad(5).align(Align.right);
 		table.add(progress3).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
+		table.row();
+		table.add(Iron3).uniformX().pad(5).align(Align.right);
+		table.add(collected4).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
+		table.add(Iron4).uniformX().pad(5).align(Align.right);
+		table.add(progress4).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
+		
 		//adding button functionality
 		back.addListener(new ChangeListener() {
 			@Override
