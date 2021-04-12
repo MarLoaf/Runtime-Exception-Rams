@@ -41,6 +41,7 @@ public class ProblemScreen implements Screen {
 	private CheckBox wrongAnswer0;
 	private CheckBox wrongAnswer1;
 	private CheckBox wrongAnswer2;
+	private String userInfoMessage;
 	
 	public ProblemScreen(Tutor tutor) {
 		parent = tutor;
@@ -49,6 +50,7 @@ public class ProblemScreen implements Screen {
 		stage = new Stage(new ScreenViewport());
 		stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1/30f));
 		stage.draw();
+		userInfoMessage = "Student: " + parent.currentUser.getFullName();
 		//setting up the problem
 		correctAnswersCheck = false;
 	}
@@ -106,7 +108,8 @@ public class ProblemScreen implements Screen {
 		table.setFillParent(true);
 		stage.addActor(table);
 		//creating actors
-		Label userInfo = new Label("Student: John Smith", skin);
+		Label userInfo = new Label("", skin);
+		userInfo.setText(userInfoMessage);
 		userInfo.setAlignment(Align.center);
         problem = new Label("", skin, "noBackground");
         problem.setText(parent.problems[parent.problemNumber].getProblemText());

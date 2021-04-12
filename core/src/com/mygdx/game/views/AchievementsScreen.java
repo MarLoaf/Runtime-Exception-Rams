@@ -35,6 +35,7 @@ public class AchievementsScreen implements Screen {
 	private Stage stage;
 	private SpriteBatch batch;
 	private Texture backgroundTexture;
+	private String userInfoMessage;
 	
 	public AchievementsScreen(Tutor tutor) {
 		parent = tutor;
@@ -43,6 +44,7 @@ public class AchievementsScreen implements Screen {
 		stage = new Stage(new ScreenViewport());
 		stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1/30f));
 		stage.draw();
+		userInfoMessage = "Student: " + parent.currentUser.getFullName();
 	}
 
 	@Override
@@ -99,7 +101,8 @@ public class AchievementsScreen implements Screen {
 		table.setFillParent(true);
 		stage.addActor(table);
 		//creating different buttons/textfields/labels
-		Label userInfo = new Label("Student: John Smith", skin);
+		Label userInfo = new Label("", skin);
+		userInfo.setText(userInfoMessage);
 		userInfo.setAlignment(Align.center);
 		Image Ruby1 = new Image(new Texture(Gdx.files.internal("images/ruby.png")));
 		Image Diamond1 = new Image(new Texture(Gdx.files.internal("images/diamond.png")));

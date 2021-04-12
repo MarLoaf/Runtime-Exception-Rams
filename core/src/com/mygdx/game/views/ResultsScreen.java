@@ -34,6 +34,7 @@ public class ResultsScreen implements Screen {
 	private SpriteBatch batch;
 	private Texture backgroundTexture;
 	private String message;
+	private String userInfoMessage;
 	
 	public ResultsScreen(Tutor tutor) {
 		parent = tutor;
@@ -42,6 +43,7 @@ public class ResultsScreen implements Screen {
 		stage = new Stage(new ScreenViewport());
 		stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1/30f));
 		stage.draw();
+		userInfoMessage = "Student: " + parent.currentUser.getFullName();
 		message = "You got " + parent.answerCounter + " problems correct!";
 	}
 
@@ -98,7 +100,8 @@ public class ResultsScreen implements Screen {
 		table.setFillParent(true);
 		stage.addActor(table);
 		//creating actors
-		Label userInfo = new Label("Student: John Smith", skin);
+		Label userInfo = new Label("", skin);
+		userInfo.setText(userInfoMessage);
 		userInfo.setAlignment(Align.center);
         Label resultText = new Label("", skin);
         resultText.setText(message);

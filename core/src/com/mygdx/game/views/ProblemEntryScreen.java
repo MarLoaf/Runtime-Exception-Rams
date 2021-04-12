@@ -31,6 +31,7 @@ public class ProblemEntryScreen implements Screen {
 	private Stage stage;
 	private SpriteBatch batch;
 	private Texture backgroundTexture;
+	private String userInfoMessage;
 	
 	public ProblemEntryScreen(Tutor tutor) {
 		parent = tutor;
@@ -39,6 +40,7 @@ public class ProblemEntryScreen implements Screen {
 		stage = new Stage(new ScreenViewport());
 		stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1/30f));
 		stage.draw();
+		userInfoMessage = "Student: " + parent.currentUser.getFullName();
 	}
 
 	@Override
@@ -94,7 +96,8 @@ public class ProblemEntryScreen implements Screen {
 		table.setFillParent(true);
 		stage.addActor(table);
 		//creating actors
-		Label userInfo = new Label("Student: John Smith", skin);
+		Label userInfo = new Label("", skin);
+		userInfo.setText(userInfoMessage);
 		userInfo.setAlignment(Align.center);
         Label description1 = new Label("You're about to begin a set of practice problems", skin, "noBackground");
         Label description2 = new Label("click Begin to start the problems", skin, "noBackground");
