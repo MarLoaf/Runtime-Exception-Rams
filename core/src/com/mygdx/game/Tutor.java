@@ -55,11 +55,13 @@ public class Tutor extends Game {
 	public void changeScreen(int screen) {
 		switch(screen) {
 		case ACHIEVEMENTS:
-			if(achievementsScreen == null) achievementsScreen = new AchievementsScreen(this);
+			//if(achievementsScreen == null)
+			achievementsScreen = new AchievementsScreen(this);
 			this.setScreen(achievementsScreen);
 			break;
 		case CREATEACCOUNT:
-			if(createAccountScreen == null) createAccountScreen = new CreateAccountScreen(this);
+			//if(createAccountScreen == null)
+			createAccountScreen = new CreateAccountScreen(this);
 			this.setScreen(createAccountScreen);
 			break;
 		case HOME:
@@ -73,11 +75,13 @@ public class Tutor extends Game {
 			this.setScreen(loginScreen);
 			break;
 		case PASSRESET:
-			if(passwordResetScreen == null) passwordResetScreen = new PasswordResetScreen(this);
+			//if(passwordResetScreen == null)
+			passwordResetScreen = new PasswordResetScreen(this);
 			this.setScreen(passwordResetScreen);
 			break;
 		case PROBLEMENTRY:
-			if(problemEntryScreen == null) problemEntryScreen = new ProblemEntryScreen(this);
+			//if(problemEntryScreen == null)
+			problemEntryScreen = new ProblemEntryScreen(this);
 			this.setScreen(problemEntryScreen);
 			break;
 		case PROBLEM:
@@ -86,7 +90,8 @@ public class Tutor extends Game {
 			this.setScreen(problemScreen);
 			break;
 		case RECOVERACC:
-			if(recoverAccountScreen == null) recoverAccountScreen = new RecoverAccountScreen(this);
+			//if(recoverAccountScreen == null)
+			recoverAccountScreen = new RecoverAccountScreen(this);
 			this.setScreen(recoverAccountScreen);
 			break;
 		case RESULTS:
@@ -95,7 +100,8 @@ public class Tutor extends Game {
 			this.setScreen(resultsScreen);
 			break;
 		case TUTORIAL:
-			if(tutorialScreen == null) tutorialScreen = new TutorialScreen(this);
+			//if(tutorialScreen == null)
+			tutorialScreen = new TutorialScreen(this);
 			this.setScreen(tutorialScreen);
 			break;
 		}

@@ -36,6 +36,7 @@ public class CreateAccountScreen implements Screen {
 	private String username;
 	private String password;
 	private String fullName;
+	private String secretQuestion;
 	private String secretAnswer;
 	
 	public CreateAccountScreen(Tutor tutor) {
@@ -151,6 +152,12 @@ public class CreateAccountScreen implements Screen {
 		table.add();
 		table.add(createAccount).pad(5).colspan(2).width(Gdx.graphics.getWidth()/5);
 		//adding button functionality
+		secretQuestionBox.addListener(new ChangeListener() {
+			@Override
+			public void changed(ChangeEvent event, Actor actor) {
+				secretQuestion = secretQuestionBox.getSelected();
+			}
+		});
 		usernameText.setTextFieldListener(new TextField.TextFieldListener() {
 			@Override
 			public void keyTyped(TextField textField, char c) {
@@ -184,7 +191,7 @@ public class CreateAccountScreen implements Screen {
 		createAccount.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-				parent.addAccount(username, password, "", "", fullName); // TODO secret question and answer
+				parent.addAccount(username, password, secretQuestion, secretAnswer, fullName); // TODO secret question and answer
 				parent.changeScreen(Tutor.HOME);
 			}
 		});

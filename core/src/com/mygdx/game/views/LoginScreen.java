@@ -41,8 +41,6 @@ public class LoginScreen implements Screen {
 		stage = new Stage(new ScreenViewport());
 		stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1/30f));
 		stage.draw();
-		username = "";
-		password = "";
 	}
 
 	@Override
