@@ -20,6 +20,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.SelectBox;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
+import com.badlogic.gdx.scenes.scene2d.ui.TextTooltip;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Json;
@@ -126,6 +127,8 @@ public class CreateAccountScreen implements Screen {
 		fullnameLabel.setAlignment(Align.center);
 		fullnameText.setAlignment(Align.center);
 		secretAnswerText.setAlignment(Align.center);
+		TextTooltip lengthPopup = new TextTooltip("At least 5 characters", skin);
+		lengthPopup.setInstant(true);
 		//layout:
 		table.top();
 		table.row();
@@ -152,6 +155,8 @@ public class CreateAccountScreen implements Screen {
 		table.add();
 		table.add(createAccount).pad(5).colspan(2).width(Gdx.graphics.getWidth()/5);
 		//adding button functionality
+		usernameText.addListener(lengthPopup);
+		passwordText.addListener(lengthPopup);
 		secretQuestionBox.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
@@ -191,8 +196,13 @@ public class CreateAccountScreen implements Screen {
 		createAccount.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-				parent.addAccount(username, password, secretQuestion, secretAnswer, fullName); // TODO secret question and answer
-				parent.changeScreen(Tutor.HOME);
+				if(username!=null && password!=null && secretAnswer!=null && fullName!=null) {
+					if(username.length()>4 && password.length()>4 && secretAnswer.length()>0 && fullName.length()>0) {
+						//only creates accounts with at least 5 character username and password and at least something for secret answer and full name
+						parent.addAccount(username, password, secretQuestion, secretAnswer, fullName);
+						parent.changeScreen(Tutor.HOME);
+					}
+				}
 			}
 		});
 	}

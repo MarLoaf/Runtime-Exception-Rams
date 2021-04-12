@@ -112,8 +112,10 @@ public class Tutor extends Game {
 	}
 	
 	public boolean loginAccount(String username, String password) {
-		for (Account a : accounts) {
-			if (a.getUsername().equals(username) && a.getPassword().equals(password)) return true;
+		if (accounts.size()>0) {
+			for (Account a : accounts) {
+				if (a.getUsername().equals(username) && a.getPassword().equals(password)) return true;
+			}
 		}
 		return false;
 	}
