@@ -107,19 +107,15 @@ public class PasswordResetScreen implements Screen {
 		//set message text
 		NewPasswordText.setMessageText("New password...");
 		RetypePasswordText.setMessageText("Retype new password...");
-		
 		ImageTextButton Confirm = new ImageTextButton("Confirm", skin,"green");
 		Button back = new Button(skin, "Exit");
 		TextTooltip exitPopup = new TextTooltip("Back", skin);
 		exitPopup.setInstant(true);
-		
 		RetypePasswordText.setAlignment(Align.center);
 		newpassword.setAlignment(Align.center);
 		retypepassword.setAlignment(Align.center);
 		passwordresettitle.setAlignment(Align.center);
 		NewPasswordText.setAlignment(Align.center);
-		
-		
 		//layout:
 		table.top();
 		table.row();
@@ -128,12 +124,12 @@ public class PasswordResetScreen implements Screen {
 		table.add(back).uniformX().pad(5).padBottom(270);
 		table.row();
 		table.add();
-		table.add(newpassword).fillX().uniformX().pad(5);
-		table.add(NewPasswordText).fillX().uniformX().pad(5);
+		table.add(newpassword).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add(NewPasswordText).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		table.row();
 		table.add();
-		table.add(retypepassword).fillX().uniformX().pad(5);
-		table.add(RetypePasswordText).fillX().uniformX().pad(5);
+		table.add(retypepassword).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add(RetypePasswordText).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		table.row();
 		table.add();
 		table.add(Confirm).colspan(2).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
@@ -148,7 +144,7 @@ public class PasswordResetScreen implements Screen {
 		Confirm.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-				parent.changeScreen(Tutor.HOME);
+				parent.changeScreen(Tutor.LOGIN);
 			}
 		});
 	}

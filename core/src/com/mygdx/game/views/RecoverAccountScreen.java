@@ -119,10 +119,8 @@ public class RecoverAccountScreen implements Screen {
 		table.add(secretquestion).colspan(2).fillX().uniformX().pad(5);
 		table.row();
 		table.add();
-		table.add(secretquestionText).colspan(2).fillX().uniformX().pad(5); 
-		table.row();
-		table.add();
-		table.add(next).colspan(2).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add(secretquestionText).fillX().uniformX().pad(5);
+		table.add(next).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		//adding button functionality
 		back.addListener(exitPopup);
 		back.addListener(new ChangeListener() {
