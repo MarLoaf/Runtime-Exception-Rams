@@ -23,6 +23,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextTooltip;
 import com.badlogic.gdx.scenes.scene2d.ui.TooltipManager;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
@@ -36,6 +37,7 @@ public class HomeScreen implements Screen {
 	private SpriteBatch batch;
 	private Texture backgroundTexture;
 	private String userInfoMessage;
+	private String lessonSelection = "";
 	
 	public HomeScreen(Tutor tutor) {
 		parent = tutor;
@@ -189,6 +191,12 @@ public class HomeScreen implements Screen {
 		AdditionIron.addListener(IronPopup);
 		AdditionDiamond.addListener(DiamondPopup);
 		AdditionRuby.addListener(RubyPopup);
+		lessonSelectBox.addListener(new ChangeListener() {
+			@Override
+			public void changed(ChangeEvent event, Actor actor) {
+				lessonSelection = lessonSelectBox.getSelected();
+			}
+		});
 		logout.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
@@ -198,7 +206,8 @@ public class HomeScreen implements Screen {
 		begin.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-				if (parent.problemNumber == 0) parent.changeScreen(Tutor.PROBLEMENTRY);
+				if (lessonSelection.equals("Tutorial")) parent.changeScreen(Tutor.TUTORIAL);
+				else if (parent.problemNumber == 0) parent.changeScreen(Tutor.PROBLEMENTRY);
 				else parent.changeScreen(Tutor.PROBLEM);
 			}
 		});
