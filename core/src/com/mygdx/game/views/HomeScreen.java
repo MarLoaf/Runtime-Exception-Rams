@@ -111,12 +111,13 @@ public class HomeScreen implements Screen {
 		topicSelectBox.setItems("Topic 1", "Topic 2", "Topic 3", "Topic 4");
 		topicSelectBox.setAlignment(Align.center);
 		final SelectBox<String> lessonSelectBox = new SelectBox<String>(skin);
-		lessonSelectBox.setItems("Tutorial", "Practice", "Test", "Exam");
+		lessonSelectBox.setItems("Practice", "Test", "Exam", "Tutorial");
 		lessonSelectBox.setAlignment(Align.center);
-		ImageTextButton begin = new ImageTextButton("Begin", skin, "green"); //creates a green button
-		if(parent.problemNumber!=0) {
-			begin.setText("Continue");
-		}
+		Button begin = new Button(skin, "ArrowRight"); //creates an arrow button pointing to the right
+		TextTooltip beginPopup = new TextTooltip("Begin", skin);
+		beginPopup.setInstant(true);
+		TextTooltip continuePopup = new TextTooltip("Continue", skin);
+		continuePopup.setInstant(true);
 		Label userInfo = new Label("", skin);
 		userInfo.setText(userInfoMessage);
 		userInfo.setAlignment(Align.center);
@@ -155,7 +156,7 @@ public class HomeScreen implements Screen {
 		table.add(gradeSelectBox).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
 		table.add(topicSelectBox).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
 		table.add(lessonSelectBox).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
-		table.add(begin).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
+		table.add(begin).uniformX().pad(5).padBottom(100);
 		table.row();
 		table.add(latestAchievements).colspan(2).width(Gdx.graphics.getWidth()/5).align(Align.center);
 		table.add(greatestAchievements).colspan(2).width(Gdx.graphics.getWidth()/5).align(Align.center);
@@ -186,6 +187,8 @@ public class HomeScreen implements Screen {
 		table.add(Iron).pad(5).align(Align.right);
 		table.add(achievement3).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
 		//adding button functionality
+		if(parent.problemNumber==0) begin.addListener(beginPopup);
+		else begin.addListener(continuePopup);
 		Ruby.addListener(RubyPopup);
 		Diamond.addListener(DiamondPopup);
 		Iron.addListener(IronPopup);
