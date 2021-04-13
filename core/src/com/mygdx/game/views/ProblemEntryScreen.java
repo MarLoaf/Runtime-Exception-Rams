@@ -18,6 +18,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextTooltip;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Json;
@@ -103,6 +104,8 @@ public class ProblemEntryScreen implements Screen {
         Label description2 = new Label("click Begin to start the problems", skin, "noBackground");
 		ImageTextButton begin = new ImageTextButton("Begin", skin, "green");
 		Button back = new Button(skin, "Exit");
+		TextTooltip exitPopup = new TextTooltip("Back", skin);
+		exitPopup.setInstant(true);
         //layout
 		table.top();
 		table.row();
@@ -120,6 +123,7 @@ public class ProblemEntryScreen implements Screen {
 		table.add();
 		table.add(begin).colspan(2).pad(5).width(Gdx.graphics.getWidth()/4);
 		//adding button functionality
+		back.addListener(exitPopup);
 		back.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {

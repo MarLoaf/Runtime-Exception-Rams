@@ -117,6 +117,8 @@ public class ResultsScreen implements Screen {
 		DiamondPopup.setInstant(true);
 		TextTooltip IronPopup = new TextTooltip("Lowest achievement", skin);
 		IronPopup.setInstant(true);
+		TextTooltip exitPopup = new TextTooltip("Back", skin);
+		exitPopup.setInstant(true);
         //layout
 		table.top();
 		table.row();
@@ -144,6 +146,7 @@ public class ResultsScreen implements Screen {
 		Ruby.addListener(RubyPopup);
 		Diamond.addListener(DiamondPopup);
 		Iron.addListener(IronPopup);
+		back.addListener(exitPopup);
 		back.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
