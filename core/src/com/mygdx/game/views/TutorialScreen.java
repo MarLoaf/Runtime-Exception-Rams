@@ -109,6 +109,8 @@ public class TutorialScreen implements Screen {
 		ImageTextButton video = new ImageTextButton("Video", skin, "green");
 		ImageTextButton additionalHelp = new ImageTextButton("Additional Help", skin);
 		ImageTextButton askTeacher = new ImageTextButton("Click here for help!", skin, "pink");
+		Label beginLabel = new Label("Click the arrow to begin", skin);
+		Button begin = new Button(skin, "ArrowRight");
 		Button back = new Button(skin, "Exit");
 		TextTooltip exitPopup = new TextTooltip("Back", skin);
 		exitPopup.setInstant(true);
@@ -129,8 +131,12 @@ public class TutorialScreen implements Screen {
 		table.add();
 		table.row();
 		table.add();
-		table.add(additionalHelp).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
-		table.add(askTeacher).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add(additionalHelp).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5).padBottom(100);
+		table.add(askTeacher).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5).padBottom(100);
+		table.row();
+		table.add();
+		table.add(begin);
+		
 		//adding button functionality
 		back.addListener(new ChangeListener() {
 			@Override
