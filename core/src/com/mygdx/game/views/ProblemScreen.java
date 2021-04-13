@@ -21,6 +21,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
+import com.badlogic.gdx.scenes.scene2d.ui.TextTooltip;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Json;
@@ -117,7 +118,9 @@ public class ProblemScreen implements Screen {
 		answer = new TextField("", skin);
 		answer.setMessageText("Answer...");
 		answer.setAlignment(Align.center);
-		ImageTextButton next = new ImageTextButton("Next", skin, "green");
+		Button next = new Button(skin, "ArrowRight");
+		TextTooltip nextPopup = new TextTooltip("Next", skin);
+		nextPopup.setInstant(true);
 		Button back = new Button(skin, "Exit");
 		rightAnswer = new CheckBox(parent.problems[parent.problemNumber].getCorrectAnswer(), skin);
 		wrongAnswer0 = new CheckBox("", skin);
@@ -155,8 +158,9 @@ public class ProblemScreen implements Screen {
 		}
 		table.row();
 		table.add();
-		table.add(next).colspan(2).pad(5).fillX().uniformX().width(Gdx.graphics.getWidth()/4);
+		table.add(next).colspan(2).pad(5).uniformX();
 		//adding button functionality
+		next.addListener(nextPopup);
 		answer.setTextFieldListener(new TextField.TextFieldListener() {
 			@Override
 			public void keyTyped(TextField textField, char c) {
