@@ -106,13 +106,14 @@ public class TutorialScreen implements Screen {
 		userInfo.setAlignment(Align.center);
 		Label tutorialTopic = new Label("Tutorial Topic", skin);
 		tutorialTopic.setAlignment(Align.center);
-		ImageTextButton video = new ImageTextButton("Video", skin, "green");
+		Button video = new Button(skin, "Video");
 		ImageTextButton additionalHelp = new ImageTextButton("Additional Help", skin);
 		ImageTextButton askTeacher = new ImageTextButton("Click here for help!", skin, "pink");
-		Label beginLabel = new Label("Click the arrow to begin", skin);
 		Button back = new Button(skin, "Exit");
 		TextTooltip exitPopup = new TextTooltip("Back", skin);
 		exitPopup.setInstant(true);
+		TextTooltip videoPopup = new TextTooltip("Video", skin);
+		videoPopup.setInstant(true);
 		//layout:
 		table.top();
 		table.row();
@@ -132,8 +133,9 @@ public class TutorialScreen implements Screen {
 		table.add();
 		table.add(additionalHelp).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5).padBottom(100);
 		table.add(askTeacher).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5).padBottom(100);
-		
 		//adding button functionality
+		back.addListener(exitPopup);
+		video.addListener(videoPopup);
 		back.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
