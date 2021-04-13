@@ -6,7 +6,7 @@ filter: Linear,Linear
 repeat: none
 ArrowLeft
   rotate: false
-  xy: 1111, 1523
+  xy: 556, 1293
   size: 113, 113
   orig: 113, 113
   offset: 0, 0
@@ -20,14 +20,14 @@ ArrowLeftPressed
   index: -1
 ArrowRight
   rotate: false
-  xy: 1, 1178
+  xy: 1111, 1408
   size: 113, 113
   orig: 113, 113
   offset: 0, 0
   index: -1
 ArrowRightPressed
   rotate: false
-  xy: 116, 1293
+  xy: 1226, 1523
   size: 113, 113
   orig: 113, 113
   offset: 0, 0
@@ -48,7 +48,7 @@ BlueButtonPressed
   index: -1
 CheckBox
   rotate: false
-  xy: 671, 1480
+  xy: 1, 1135
   size: 41, 41
   orig: 41, 41
   offset: 0, 0
@@ -62,14 +62,14 @@ CheckBoxPressed
   index: -1
 ExitButton
   rotate: false
-  xy: 1, 1293
+  xy: 1111, 1523
   size: 113, 113
   orig: 113, 113
   offset: 0, 0
   index: -1
 ExitButtonPressed
   rotate: false
-  xy: 556, 1408
+  xy: 1, 1178
   size: 113, 113
   orig: 113, 113
   offset: 0, 0
@@ -139,7 +139,7 @@ PurpleButtonPressed
   index: -1
 TextCursor
   rotate: false
-  xy: 1226, 1533
+  xy: 116, 1188
   size: 3, 103
   orig: 3, 103
   offset: 0, 0
@@ -154,6 +154,20 @@ YellowButton
 YellowButtonPressed
   rotate: false
   xy: 1111, 1638
+  size: 553, 113
+  orig: 553, 113
+  offset: 0, 0
+  index: -1
+YouTube
+  rotate: false
+  xy: 1, 1293
+  size: 553, 113
+  orig: 553, 113
+  offset: 0, 0
+  index: -1
+YouTubePressed
+  rotate: false
+  xy: 556, 1408
   size: 553, 113
   orig: 553, 113
   offset: 0, 0
