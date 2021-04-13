@@ -135,6 +135,8 @@ public class ProblemScreen implements Screen {
 			wrongAnswer1.setText(parent.problems[parent.problemNumber].getWrongAnswers()[1]);
 			wrongAnswer2.setText(parent.problems[parent.problemNumber].getWrongAnswers()[2]);
 		}
+		TextTooltip exitPopup = new TextTooltip("Back", skin);
+		exitPopup.setInstant(true);
         //layout
 		table.top();
 		table.row();
@@ -161,6 +163,7 @@ public class ProblemScreen implements Screen {
 		table.add(next).colspan(2).pad(5).uniformX();
 		//adding button functionality
 		next.addListener(nextPopup);
+		back.addListener(exitPopup);
 		answer.setTextFieldListener(new TextField.TextFieldListener() {
 			@Override
 			public void keyTyped(TextField textField, char c) {

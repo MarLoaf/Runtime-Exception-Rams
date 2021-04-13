@@ -21,6 +21,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.SelectBox;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
+import com.badlogic.gdx.scenes.scene2d.ui.TextTooltip;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
 import com.badlogic.gdx.utils.Align;
@@ -124,8 +125,9 @@ public class AchievementsScreen implements Screen {
 		Label collected2 = new Label("Diamond Multiplication", skin, "noBackground");
 		Label collected3 = new Label("Iron Fractions", skin, "noBackground");
 		Label collected4 = new Label("Iron Division", skin, "noBackground");
-		
 		Button back = new Button(skin, "Exit");
+		TextTooltip exitPopup = new TextTooltip("Back", skin);
+		exitPopup.setInstant(true);
 		// TODO add description for the achievements via pop-ups
 		//layout:
 		table.top();
@@ -157,8 +159,8 @@ public class AchievementsScreen implements Screen {
 		table.add(collected4).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
 		table.add(Iron4).uniformX().pad(5).align(Align.right);
 		table.add(progress4).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
-		
 		//adding button functionality
+		back.addListener(exitPopup);
 		back.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {

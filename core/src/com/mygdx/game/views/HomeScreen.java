@@ -145,6 +145,8 @@ public class HomeScreen implements Screen {
 		DiamondPopup.setInstant(true);
 		TextTooltip IronPopup = new TextTooltip("Lowest achievement", skin);
 		IronPopup.setInstant(true);
+		TextTooltip exitPopup = new TextTooltip("Log out", skin);
+		exitPopup.setInstant(true);
 		//layout:
 		table.top();
 		table.row();
@@ -196,6 +198,7 @@ public class HomeScreen implements Screen {
 		AdditionIron.addListener(IronPopup);
 		AdditionDiamond.addListener(DiamondPopup);
 		AdditionRuby.addListener(RubyPopup);
+		logout.addListener(exitPopup);
 		gradeSelectBox.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {

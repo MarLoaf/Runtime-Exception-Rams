@@ -131,6 +131,8 @@ public class CreateAccountScreen implements Screen {
 		lengthPopup.setInstant(true);
 		TextTooltip secretQuestionPopup = new TextTooltip("Secret Question", skin);
 		secretQuestionPopup.setInstant(true);
+		TextTooltip exitPopup = new TextTooltip("Back", skin);
+		exitPopup.setInstant(true);
 		//layout:
 		table.top();
 		table.row();
@@ -162,6 +164,7 @@ public class CreateAccountScreen implements Screen {
 		passwordLabel.addListener(lengthPopup);
 		usernameText.addListener(lengthPopup);
 		passwordText.addListener(lengthPopup);
+		back.addListener(exitPopup);
 		secretQuestionBox.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {

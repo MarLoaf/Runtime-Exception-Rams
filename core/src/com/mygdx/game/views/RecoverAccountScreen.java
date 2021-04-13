@@ -19,6 +19,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
+import com.badlogic.gdx.scenes.scene2d.ui.TextTooltip;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
 import com.badlogic.gdx.utils.Align;
@@ -105,6 +106,8 @@ public class RecoverAccountScreen implements Screen {
 		secretquestionText.setAlignment(Align.center);
 		ImageTextButton next = new ImageTextButton("Next", skin, "pink");
 		Button back = new Button(skin, "Exit");
+		TextTooltip exitPopup = new TextTooltip("Back", skin);
+		exitPopup.setInstant(true);
 		//layout:
 		table.top();
 		table.row();
@@ -119,6 +122,7 @@ public class RecoverAccountScreen implements Screen {
 		table.add(secretquestionText).fillX().uniformX().pad(5); 
 		table.add(next).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		//adding button functionality
+		back.addListener(exitPopup);
 		back.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {

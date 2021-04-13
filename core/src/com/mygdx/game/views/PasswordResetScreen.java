@@ -19,6 +19,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
+import com.badlogic.gdx.scenes.scene2d.ui.TextTooltip;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
 import com.badlogic.gdx.utils.Align;
@@ -109,6 +110,8 @@ public class PasswordResetScreen implements Screen {
 		
 		ImageTextButton Confirm = new ImageTextButton("Confirm", skin,"green");
 		Button back = new Button(skin, "Exit");
+		TextTooltip exitPopup = new TextTooltip("Back", skin);
+		exitPopup.setInstant(true);
 		
 		RetypePasswordText.setAlignment(Align.center);
 		newpassword.setAlignment(Align.center);
@@ -134,6 +137,7 @@ public class PasswordResetScreen implements Screen {
 		table.add(RetypePasswordText).colspan(2).fillX().uniformX().pad(5);
 		table.add(Confirm).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		//adding button functionality
+		back.addListener(exitPopup);
 		back.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
