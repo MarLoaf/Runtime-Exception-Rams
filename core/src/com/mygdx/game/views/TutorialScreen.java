@@ -11,16 +11,22 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFontParameter;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.Hinting;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.mygdx.game.Tutor;
+import java.awt.Desktop;
+import java.net.URI;
+
 
 public class TutorialScreen implements Screen {
 
@@ -122,8 +128,19 @@ public class TutorialScreen implements Screen {
 		table.row();
 		table.add(additionalHelp).width(Gdx.graphics.getWidth()/3);
 		table.add(askTeacher).width(Gdx.graphics.getWidth()/3);
-	}
-
+			
+		video.addListener(new ChangeListener() {
+			@Override
+			public void changed(ChangeEvent event, Actor actor) {
+					try {
+						Desktop d = Desktop.getDesktop();
+						d.browse(new URI("https://www.youtube.com/watch?v=QtBDL8EiNZo"));
+					} catch (Exception e) {
+						System.out.println("URL fail @ tutorial page");
+					}
+				}
+			});
+		}
 	@Override
 	public void render(float delta) {
 		Gdx.gl.glClearColor(.1f, .12f, .16f, 1);
