@@ -13,10 +13,12 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFont
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.Hinting;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextTooltip;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
 import com.badlogic.gdx.utils.Align;
@@ -98,9 +100,7 @@ public class TutorialScreen implements Screen {
 		Table table = new Table();
 		table.setFillParent(true);
 		stage.addActor(table);
-		
-		Label tutorial = new Label("Tutorial", skin);
-		tutorial.setAlignment(Align.center);
+		//creating different buttons/textfields/labels
 		Label userInfo = new Label("", skin);
 		userInfo.setText(userInfoMessage);
 		userInfo.setAlignment(Align.center);
@@ -109,26 +109,35 @@ public class TutorialScreen implements Screen {
 		ImageTextButton video = new ImageTextButton("Video", skin, "green");
 		ImageTextButton additionalHelp = new ImageTextButton("Additional Help", skin);
 		ImageTextButton askTeacher = new ImageTextButton("Click here for help!", skin, "pink");
-		
-		
+		Button back = new Button(skin, "Exit");
+		TextTooltip exitPopup = new TextTooltip("Back", skin);
+		exitPopup.setInstant(true);
+		//layout:
 		table.top();
 		table.row();
-		table.add(tutorial).padBottom(150);
+		table.add().fillX().uniformX().pad(5).padBottom(150).width(Gdx.graphics.getWidth()/5);
+		table.add().fillX().uniformX().pad(5).padBottom(150).width(Gdx.graphics.getWidth()/5);
+		table.add(userInfo).fillX().uniformX().pad(5).padBottom(150).width(Gdx.graphics.getWidth()/5);
+		table.add(back).uniformX().pad(5).padBottom(150);
+		table.row();
 		table.add();
-		table.add(userInfo).padBottom(150);
+		table.add(tutorialTopic).fillX().uniformX().pad(5).colspan(2).width(Gdx.graphics.getWidth()/5);
 		table.add();
 		table.row();
 		table.add();
-		table.add(tutorialTopic).width(Gdx.graphics.getWidth()/3);
+		table.add(video).fillX().uniformX().pad(5).colspan(2).width(Gdx.graphics.getWidth()/5);
 		table.add();
 		table.row();
 		table.add();
-		table.add(video).width(Gdx.graphics.getWidth()/3).height(Gdx.graphics.getHeight()/3).fill().padBottom(50);
-		table.add();
-		table.row();
-		table.add(additionalHelp).width(Gdx.graphics.getWidth()/3);
-		table.add(askTeacher).width(Gdx.graphics.getWidth()/3);
-			
+		table.add(additionalHelp).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add(askTeacher).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		//adding button functionality
+		back.addListener(new ChangeListener() {
+			@Override
+			public void changed(ChangeEvent event, Actor actor) {
+				parent.changeScreen(Tutor.HOME);
+			}
+		});
 		video.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
