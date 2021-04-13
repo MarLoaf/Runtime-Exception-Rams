@@ -105,8 +105,8 @@ public class PasswordResetScreen implements Screen {
 		TextField NewPasswordText = new TextField("", skin);
 		TextField RetypePasswordText = new TextField("", skin);
 		//set message text
-		NewPasswordText.setMessageText("New Password:");
-		RetypePasswordText.setMessageText("Retype");
+		NewPasswordText.setMessageText("New password...");
+		RetypePasswordText.setMessageText("Retype new password...");
 		
 		ImageTextButton Confirm = new ImageTextButton("Confirm", skin,"green");
 		Button back = new Button(skin, "Exit");
@@ -121,21 +121,22 @@ public class PasswordResetScreen implements Screen {
 		
 		
 		//layout:
-
 		table.top();
 		table.row();
-		table.add().fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
-		table.add(passwordresettitle).colspan(2).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
-		table.add(back).uniformX().pad(5).padBottom(100);
+		table.add().fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
+		table.add(passwordresettitle).colspan(2).fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
+		table.add(back).uniformX().pad(5).padBottom(270);
 		table.row();
 		table.add();
-		table.add(newpassword).colspan(2).fillX().uniformX().pad(5);
-		table.add(NewPasswordText).colspan(2).fillX().uniformX().pad(5);
+		table.add(newpassword).fillX().uniformX().pad(5);
+		table.add(NewPasswordText).fillX().uniformX().pad(5);
 		table.row();
 		table.add();
-		table.add(retypepassword).colspan(2).fillX().uniformX().pad(5);
-		table.add(RetypePasswordText).colspan(2).fillX().uniformX().pad(5);
-		table.add(Confirm).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add(retypepassword).fillX().uniformX().pad(5);
+		table.add(RetypePasswordText).fillX().uniformX().pad(5);
+		table.row();
+		table.add();
+		table.add(Confirm).colspan(2).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		//adding button functionality
 		back.addListener(exitPopup);
 		back.addListener(new ChangeListener() {
