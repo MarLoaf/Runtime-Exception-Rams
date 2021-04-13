@@ -103,7 +103,7 @@ public class CreateAccountScreen implements Screen {
 		stage.addActor(table);
 		//creating different buttons/textfields/labels
 		final SelectBox<String> secretQuestionBox = new SelectBox<String>(skin);
-		secretQuestionBox.setItems("Secret Question","What's your favorite color?","What's the name of your first pet?","What's your mother's maiden name?");
+		secretQuestionBox.setItems("What's your favorite color?","What's the name of your first pet?","What's your mother's maiden name?");
 		secretQuestionBox.setAlignment(Align.center);
 		Label createAccountLabel = new Label("Create Account", skin);
 		createAccountLabel.setAlignment(Align.center);
@@ -117,7 +117,7 @@ public class CreateAccountScreen implements Screen {
 	    TextField fullnameText = new TextField("", skin);
 	    fullnameText.setMessageText("Enter your full name...");
 	    TextField secretAnswerText = new TextField("", skin);
-	    secretAnswerText.setMessageText("Enter answer...");
+	    secretAnswerText.setMessageText("Enter secret answer...");
 		Button back = new Button(skin, "Exit");
 		ImageTextButton createAccount = new ImageTextButton("Create Account", skin,"green");
 		usernameLabel.setAlignment(Align.center);
@@ -129,6 +129,8 @@ public class CreateAccountScreen implements Screen {
 		secretAnswerText.setAlignment(Align.center);
 		TextTooltip lengthPopup = new TextTooltip("At least 5 characters", skin);
 		lengthPopup.setInstant(true);
+		TextTooltip secretQuestionPopup = new TextTooltip("Secret Question", skin);
+		secretQuestionPopup.setInstant(true);
 		//layout:
 		table.top();
 		table.row();
@@ -155,6 +157,9 @@ public class CreateAccountScreen implements Screen {
 		table.add();
 		table.add(createAccount).pad(5).colspan(2).width(Gdx.graphics.getWidth()/5);
 		//adding button functionality
+		secretQuestionBox.addListener(secretQuestionPopup);
+		usernameLabel.addListener(lengthPopup);
+		passwordLabel.addListener(lengthPopup);
 		usernameText.addListener(lengthPopup);
 		passwordText.addListener(lengthPopup);
 		secretQuestionBox.addListener(new ChangeListener() {
@@ -205,6 +210,8 @@ public class CreateAccountScreen implements Screen {
 				}
 			}
 		});
+		//default value
+		secretQuestion = secretQuestionBox.getSelected();
 	}
 
 	@Override

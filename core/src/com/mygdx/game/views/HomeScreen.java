@@ -37,6 +37,8 @@ public class HomeScreen implements Screen {
 	private SpriteBatch batch;
 	private Texture backgroundTexture;
 	private String userInfoMessage;
+	private String gradeSelection = "";
+	private String topicSelection = "";
 	private String lessonSelection = "";
 	
 	public HomeScreen(Tutor tutor) {
@@ -191,6 +193,18 @@ public class HomeScreen implements Screen {
 		AdditionIron.addListener(IronPopup);
 		AdditionDiamond.addListener(DiamondPopup);
 		AdditionRuby.addListener(RubyPopup);
+		gradeSelectBox.addListener(new ChangeListener() {
+			@Override
+			public void changed(ChangeEvent event, Actor actor) {
+				gradeSelection = gradeSelectBox.getSelected();
+			}
+		});
+		topicSelectBox.addListener(new ChangeListener() {
+			@Override
+			public void changed(ChangeEvent event, Actor actor) {
+				topicSelection = topicSelectBox.getSelected();
+			}
+		});
 		lessonSelectBox.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
@@ -217,6 +231,10 @@ public class HomeScreen implements Screen {
 				parent.changeScreen(Tutor.ACHIEVEMENTS);
 			}
 		});
+		//default values
+		gradeSelection = gradeSelectBox.getSelected();
+		topicSelection = topicSelectBox.getSelected();
+		lessonSelection = lessonSelectBox.getSelected();
 	}
 
 	@Override
