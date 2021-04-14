@@ -155,13 +155,14 @@ public class ProblemScreen implements Screen {
 			table.row();
 			ArrayList<CheckBox> answers = new ArrayList<CheckBox>(4);
 			Random randomNumber = new Random();
-			answers.add(rightAnswer);
+			int n;
 			answers.add(wrongAnswer0);
 			answers.add(wrongAnswer1);
 			answers.add(wrongAnswer2);
+			answers.add(rightAnswer);
 			for(int i=3; i>0; i--) {
-				randomNumber.nextInt(i);
-				table.add(answers.remove(i)).pad(5).fillX().uniformX();
+				n = randomNumber.nextInt(i);
+				table.add(answers.remove(n)).pad(5).fillX().uniformX();
 			}
 			table.add(answers.remove(0)).pad(5).fillX().uniformX();
 		}else {
