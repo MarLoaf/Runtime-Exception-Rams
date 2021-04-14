@@ -117,17 +117,23 @@ public class AchievementsScreen implements Screen {
 		List1.setAlignment(Align.center);
 		Label List2 = new Label("Achievements in-progress", skin, "noBackground");
 		List2.setAlignment(Align.center);
-		Label progress1 = new Label("Ruby Addition 100%", skin, "noBackground");
-		Label progress2 = new Label("Diamond Multiplication 80%", skin, "noBackground");
-		Label progress3 = new Label("Iron Fractions 65%", skin, "noBackground");
-		Label progress4 = new Label("Iron Division 65%", skin, "noBackground");
-		Label collected1 = new Label("Ruby Addition", skin, "noBackground");
-		Label collected2 = new Label("Diamond Multiplication", skin, "noBackground");
-		Label collected3 = new Label("Iron Fractions", skin, "noBackground");
-		Label collected4 = new Label("Iron Division", skin, "noBackground");
+		Label progress1 = new Label("Addition 100%", skin, "noBackground");
+		Label progress2 = new Label("Multiplication 80%", skin, "noBackground");
+		Label progress3 = new Label("Fractions 65%", skin, "noBackground");
+		Label progress4 = new Label("Division 65%", skin, "noBackground");
+		Label collected1 = new Label("Addition", skin, "noBackground");
+		Label collected2 = new Label("Multiplication", skin, "noBackground");
+		Label collected3 = new Label("Fractions", skin, "noBackground");
+		Label collected4 = new Label("Division", skin, "noBackground");
 		Button back = new Button(skin, "Exit");
 		TextTooltip exitPopup = new TextTooltip("Back", skin);
 		exitPopup.setInstant(true);
+		TextTooltip RubyPopup = new TextTooltip("Top achievement", skin);
+		RubyPopup.setInstant(true);
+		TextTooltip DiamondPopup = new TextTooltip("Medium achievement", skin);
+		DiamondPopup.setInstant(true);
+		TextTooltip IronPopup = new TextTooltip("Lowest achievement", skin);
+		IronPopup.setInstant(true);
 		// TODO add description for the achievements via pop-ups
 		//layout:
 		table.top();
@@ -160,6 +166,14 @@ public class AchievementsScreen implements Screen {
 		table.add(Iron4).uniformX().pad(5).align(Align.right);
 		table.add(progress4).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
 		//adding button functionality
+		Ruby1.addListener(RubyPopup);
+		Diamond1.addListener(DiamondPopup);
+		Iron1.addListener(IronPopup);
+		Ruby2.addListener(RubyPopup);
+		Diamond2.addListener(DiamondPopup);
+		Iron2.addListener(IronPopup);
+		Iron3.addListener(IronPopup);
+		Iron4.addListener(IronPopup);
 		back.addListener(exitPopup);
 		back.addListener(new ChangeListener() {
 			@Override
