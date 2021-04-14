@@ -153,6 +153,17 @@ public class TutorialScreen implements Screen {
 					}
 				}
 			});
+		additionalHelp.addListener(new ChangeListener() {
+			@Override
+			public void changed(ChangeEvent event, Actor actor) {
+					try {
+						Desktop d = Desktop.getDesktop();
+						d.browse(new URI("https://www.kidsmathtv.com/2nd-grade-videos/"));
+					} catch (Exception e) {
+						System.out.println("URL fail @ tutorial page");
+					}
+				}
+			});
 		}
 	@Override
 	public void render(float delta) {
