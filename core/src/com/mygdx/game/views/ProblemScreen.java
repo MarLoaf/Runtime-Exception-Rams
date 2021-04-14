@@ -1,5 +1,8 @@
 package com.mygdx.game.views;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.files.FileHandle;
@@ -27,6 +30,7 @@ import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import com.mygdx.game.Account;
 import com.mygdx.game.Tutor;
 
 public class ProblemScreen implements Screen {
@@ -149,10 +153,17 @@ public class ProblemScreen implements Screen {
 		table.add(problem).colspan(2).fillX().uniformX().width(Gdx.graphics.getWidth()/4);
 		if (parent.problems[parent.problemNumber].getWrongAnswers()!=null) {
 			table.row();
-			table.add(rightAnswer).pad(5).fillX().uniformX();
-			table.add(wrongAnswer0).pad(5).fillX().uniformX();
-			table.add(wrongAnswer1).pad(5).fillX().uniformX();
-			table.add(wrongAnswer2).pad(5).fillX().uniformX();
+			ArrayList<CheckBox> answers = new ArrayList<CheckBox>(4);
+			Random randomNumber = new Random();
+			answers.add(rightAnswer);
+			answers.add(wrongAnswer0);
+			answers.add(wrongAnswer1);
+			answers.add(wrongAnswer2);
+			for(int i=3; i>0; i--) {
+				randomNumber.nextInt(i);
+				table.add(answers.remove(i)).pad(5).fillX().uniformX();
+			}
+			table.add(answers.remove(0)).pad(5).fillX().uniformX();
 		}else {
 			table.row();
 			table.add();
