@@ -123,9 +123,9 @@ public class HomeScreen implements Screen {
 		userInfo.setAlignment(Align.center);
 		Button logout = new Button(skin, "Exit"); //creates button with the "exit door"
 		Image Iron1 = new Image(new Texture(Gdx.files.internal("images/iron.png"))); //image NOT BUTTON with the iron pickaxe
-		Image AdditionIron = new Image(new Texture(Gdx.files.internal("images/iron.png")));
-		Image AdditionDiamond = new Image(new Texture(Gdx.files.internal("images/diamond.png"))); //image NOT BUTTON with the diamond
-		Image AdditionRuby = new Image(new Texture(Gdx.files.internal("images/ruby.png"))); //image NOT BUTTON with the ruby
+		Image grade2Iron = new Image(new Texture(Gdx.files.internal("images/iron.png")));
+		Image grade2Diamond = new Image(new Texture(Gdx.files.internal("images/diamond.png"))); //image NOT BUTTON with the diamond
+		Image grade2Ruby = new Image(new Texture(Gdx.files.internal("images/ruby.png"))); //image NOT BUTTON with the ruby
 		Image Ruby = new Image(new Texture(Gdx.files.internal("images/ruby.png")));
 		Image Diamond = new Image(new Texture(Gdx.files.internal("images/diamond.png")));
 		Image Iron = new Image(new Texture(Gdx.files.internal("images/iron.png")));
@@ -137,7 +137,7 @@ public class HomeScreen implements Screen {
 		Label greatestAchievements = new Label("Greatest Achievements:", skin);
 		greatestAchievements.setAlignment(Align.center);
 		Label fractions = new Label("Fractions", skin, "noBackground");
-		Label addition = new Label("Addition", skin, "noBackground");
+		Label grade2 = new Label("Grade 2", skin, "noBackground");
 		ImageTextButton achiemeventsButton = new ImageTextButton("My Achievements", skin); //creates a blue button (blue is default when no color is specified)
 		TextTooltip RubyPopup = new TextTooltip("Top achievement", skin);
 		RubyPopup.setInstant(true);
@@ -168,15 +168,15 @@ public class HomeScreen implements Screen {
 		table.add(Ruby).pad(5).align(Align.right);
 		table.add(achievement1).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
 		table.row();
-		if (parent.additionAchievement == 1) {
-			table.add(AdditionIron).pad(5).align(Align.right);
-			table.add(addition).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.right);
-		} else if (parent.additionAchievement == 2) {
-			table.add(AdditionDiamond).pad(5).align(Align.right);
-			table.add(addition).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.right);
-		} else if (parent.additionAchievement == 3) {
-			table.add(AdditionRuby).pad(5).align(Align.right);
-			table.add(addition).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.right);
+		if (parent.grade2Achievement == 3) {
+			table.add(grade2Iron).pad(5).align(Align.right);
+			table.add(grade2).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.right);
+		} else if (parent.grade2Achievement == 4) {
+			table.add(grade2Diamond).pad(5).align(Align.right);
+			table.add(grade2).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.right);
+		} else if (parent.grade2Achievement == 5) {
+			table.add(grade2Ruby).pad(5).align(Align.right);
+			table.add(grade2).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.right);
 		}else {
 			table.add();
 			table.add();
@@ -195,9 +195,9 @@ public class HomeScreen implements Screen {
 		Diamond.addListener(DiamondPopup);
 		Iron.addListener(IronPopup);
 		Iron1.addListener(IronPopup);
-		AdditionIron.addListener(IronPopup);
-		AdditionDiamond.addListener(DiamondPopup);
-		AdditionRuby.addListener(RubyPopup);
+		grade2Iron.addListener(IronPopup);
+		grade2Diamond.addListener(DiamondPopup);
+		grade2Ruby.addListener(RubyPopup);
 		logout.addListener(exitPopup);
 		gradeSelectBox.addListener(new ChangeListener() {
 			@Override

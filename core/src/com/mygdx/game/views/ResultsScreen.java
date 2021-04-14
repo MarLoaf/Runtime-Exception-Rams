@@ -131,12 +131,12 @@ public class ResultsScreen implements Screen {
 		table.add(resultText).colspan(2).pad(5).fillX().uniformX().width(Gdx.graphics.getWidth()/4);
 		table.row();
 		table.add();
-		if (parent.additionAchievement < parent.answerCounter) parent.additionAchievement = parent.answerCounter;
-		if (parent.answerCounter == 1) {
+		if (parent.grade2Achievement < parent.answerCounter) parent.grade2Achievement = parent.answerCounter;
+		if (parent.answerCounter == 3) {
 			table.add(Iron).colspan(2).uniformX();
-		}else if (parent.answerCounter == 2) {
+		}else if (parent.answerCounter == 4) {
 			table.add(Diamond).colspan(2).uniformX();
-		}else if (parent.answerCounter == 3) {
+		}else if (parent.answerCounter == 5) {
 			table.add(Ruby).colspan(2).uniformX();
 		}
 		table.row();
