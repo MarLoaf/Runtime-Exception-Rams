@@ -104,10 +104,10 @@ public class TutorialScreen implements Screen {
 		Label userInfo = new Label("", skin);
 		userInfo.setText(userInfoMessage);
 		userInfo.setAlignment(Align.center);
-		Label tutorialTopic = new Label("Tutorial Topic", skin);
+		Label tutorialTopic = new Label("Addition Tutorial", skin);
 		tutorialTopic.setAlignment(Align.center);
 		Button video = new Button(skin, "Video");
-		ImageTextButton additionalHelp = new ImageTextButton("Additional Help", skin);
+		ImageTextButton additionalHelp = new ImageTextButton("Links to additional Help", skin);
 		ImageTextButton askTeacher = new ImageTextButton("Click here for help!", skin, "pink");
 		Button back = new Button(skin, "Exit");
 		TextTooltip exitPopup = new TextTooltip("Back", skin);
