@@ -108,7 +108,7 @@ public class HomeScreen implements Screen {
 		gradeSelectBox.setItems("Kindergarten", "1st Grade", "2nd Grade", "3rd Grade", "4th Grade");
 		gradeSelectBox.setAlignment(Align.center);
 		final SelectBox<String> topicSelectBox = new SelectBox<String>(skin);
-		topicSelectBox.setItems("Topic 1", "Topic 2", "Topic 3", "Topic 4");
+		topicSelectBox.setItems("Addition", "Subtraction", "Division", "Multiplication");
 		topicSelectBox.setAlignment(Align.center);
 		final SelectBox<String> lessonSelectBox = new SelectBox<String>(skin);
 		lessonSelectBox.setItems("Practice", "Test", "Exam", "Tutorial");
