@@ -1,7 +1,6 @@
 package com.mygdx.game.views;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -19,7 +18,6 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.ButtonGroup;
 import com.badlogic.gdx.scenes.scene2d.ui.CheckBox;
-import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
@@ -30,7 +28,6 @@ import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
-import com.mygdx.game.Account;
 import com.mygdx.game.Tutor;
 
 public class ProblemScreen implements Screen {
@@ -154,17 +151,15 @@ public class ProblemScreen implements Screen {
 		if (parent.problems[parent.problemNumber].getWrongAnswers()!=null) {
 			table.row();
 			ArrayList<CheckBox> answers = new ArrayList<CheckBox>(4);
-			Random randomNumber = new Random();
 			int n;
+			answers.add(rightAnswer);
 			answers.add(wrongAnswer0);
 			answers.add(wrongAnswer1);
 			answers.add(wrongAnswer2);
-			answers.add(rightAnswer);
-			for(int i=3; i>0; i--) {
-				n = randomNumber.nextInt(i);
+			for(int i=4; i>0; i--) {
+				n = (int)Math.floor(Math.random()*i);
 				table.add(answers.remove(n)).pad(5).fillX().uniformX();
 			}
-			table.add(answers.remove(0)).pad(5).fillX().uniformX();
 		}else {
 			table.row();
 			table.add();
