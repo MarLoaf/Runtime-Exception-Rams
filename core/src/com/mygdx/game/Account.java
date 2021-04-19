@@ -32,7 +32,7 @@ public class Account {
 	private int grade4Fractions;
 	private int grade4Measurements;
 	
-	private String[] latestAchievements;
+	private String[] latestAchievements; // none - nothing, 1 - bronze, 2 - silver, 3 - gold
 	
 	public Account(String u, String p, String sq, String sa, String fn, int kc, int ko, int kn, int km, int o1, int n1, int m1, int o2, int n2, int m2, int o3, int n3, int f3, int m3, int o4, int n4, int f4, int m4, String[] la) {
 		username = u;
