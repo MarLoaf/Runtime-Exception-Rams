@@ -205,10 +205,12 @@ public class CreateAccountScreen implements Screen {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
 				if(username!=null && password!=null && secretQuestion!=null && secretAnswer!=null && fullName!=null) {
-					if(username.length()>4 && password.length()>4 && secretAnswer.length()>0 && fullName.length()>0 && !parent.checkDuplicateUsername(username)) {
-						//only creates accounts with at least 5 character username and password and at least something for secret answer and full name
-						parent.addAccount(username, password, secretQuestion, secretAnswer, fullName);
-						parent.changeScreen(Tutor.LOGIN);
+					if (!username.contains(",") && !password.contains(",") && !secretQuestion.contains(",") && !secretAnswer.contains(",") && !fullName.contains(",")) {
+						if(username.length()>4 && password.length()>4 && secretAnswer.length()>0 && fullName.length()>0 && !parent.checkDuplicateUsername(username)) {
+							//only creates accounts with at least 5 character username and password and at least something for secret answer and full name. also no fields can contain ","
+							parent.addAccount(username, password, secretQuestion, secretAnswer, fullName);
+							parent.changeScreen(Tutor.LOGIN);
+						}
 					}
 				}
 			}
