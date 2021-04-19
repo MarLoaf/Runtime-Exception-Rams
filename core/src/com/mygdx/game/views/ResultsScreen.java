@@ -108,15 +108,15 @@ public class ResultsScreen implements Screen {
         resultText.setAlignment(Align.center);
 		Button back = new Button(skin, "Exit");
 		ImageTextButton ok = new ImageTextButton("OK", skin, "green");
-		Image Ruby = new Image(new Texture(Gdx.files.internal("images/ruby.png")));
-		Image Diamond = new Image(new Texture(Gdx.files.internal("images/diamond.png")));
-		Image Iron = new Image(new Texture(Gdx.files.internal("images/iron.png")));
-		TextTooltip RubyPopup = new TextTooltip("Top achievement", skin);
-		RubyPopup.setInstant(true);
-		TextTooltip DiamondPopup = new TextTooltip("Medium achievement", skin);
-		DiamondPopup.setInstant(true);
-		TextTooltip IronPopup = new TextTooltip("Lowest achievement", skin);
-		IronPopup.setInstant(true);
+		Image Gold = new Image(new Texture(Gdx.files.internal("images/Gold.png")));
+		Image Silver = new Image(new Texture(Gdx.files.internal("images/Silver.png")));
+		Image Bronze = new Image(new Texture(Gdx.files.internal("images/Bronze.png")));
+		TextTooltip GoldPopup = new TextTooltip("Top achievement", skin);
+		GoldPopup.setInstant(true);
+		TextTooltip SilverPopup = new TextTooltip("Medium achievement", skin);
+		SilverPopup.setInstant(true);
+		TextTooltip BronzePopup = new TextTooltip("Lowest achievement", skin);
+		BronzePopup.setInstant(true);
 		TextTooltip exitPopup = new TextTooltip("Back", skin);
 		exitPopup.setInstant(true);
         //layout
@@ -133,19 +133,19 @@ public class ResultsScreen implements Screen {
 		table.add();
 		if (parent.grade2Achievement < parent.answerCounter) parent.grade2Achievement = parent.answerCounter;
 		if (parent.answerCounter == 3) {
-			table.add(Iron).colspan(2).uniformX();
+			table.add(Bronze).colspan(2).uniformX();
 		}else if (parent.answerCounter == 4) {
-			table.add(Diamond).colspan(2).uniformX();
+			table.add(Silver).colspan(2).uniformX();
 		}else if (parent.answerCounter == 5) {
-			table.add(Ruby).colspan(2).uniformX();
+			table.add(Gold).colspan(2).uniformX();
 		}
 		table.row();
 		table.add();
 		table.add(ok).colspan(2).pad(5).width(Gdx.graphics.getWidth()/4);
 		//adding button functionality
-		Ruby.addListener(RubyPopup);
-		Diamond.addListener(DiamondPopup);
-		Iron.addListener(IronPopup);
+		Gold.addListener(GoldPopup);
+		Silver.addListener(SilverPopup);
+		Bronze.addListener(BronzePopup);
 		back.addListener(exitPopup);
 		back.addListener(new ChangeListener() {
 			@Override

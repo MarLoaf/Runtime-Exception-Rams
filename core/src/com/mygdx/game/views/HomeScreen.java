@@ -119,13 +119,13 @@ public class HomeScreen implements Screen {
 		userInfo.setText(userInfoMessage);
 		userInfo.setAlignment(Align.center);
 		Button logout = new Button(skin, "Exit"); //creates button with the "exit door"
-		Image Iron1 = new Image(new Texture(Gdx.files.internal("images/iron.png"))); //image NOT BUTTON with the iron pickaxe
-		Image grade2Iron = new Image(new Texture(Gdx.files.internal("images/iron.png")));
-		Image grade2Diamond = new Image(new Texture(Gdx.files.internal("images/diamond.png"))); //image NOT BUTTON with the diamond
-		Image grade2Ruby = new Image(new Texture(Gdx.files.internal("images/ruby.png"))); //image NOT BUTTON with the ruby
-		Image Ruby = new Image(new Texture(Gdx.files.internal("images/ruby.png")));
-		Image Diamond = new Image(new Texture(Gdx.files.internal("images/diamond.png")));
-		Image Iron = new Image(new Texture(Gdx.files.internal("images/iron.png")));
+		Image Bronze1 = new Image(new Texture(Gdx.files.internal("images/Bronze.png"))); //image NOT BUTTON with the Bronze pickaxe
+		Image grade2Bronze = new Image(new Texture(Gdx.files.internal("images/Bronze.png")));
+		Image grade2Silver = new Image(new Texture(Gdx.files.internal("images/Silver.png"))); //image NOT BUTTON with the Silver
+		Image grade2Gold = new Image(new Texture(Gdx.files.internal("images/Gold.png"))); //image NOT BUTTON with the Gold
+		Image Gold = new Image(new Texture(Gdx.files.internal("images/Gold.png")));
+		Image Silver = new Image(new Texture(Gdx.files.internal("images/Silver.png")));
+		Image Bronze = new Image(new Texture(Gdx.files.internal("images/Bronze.png")));
 		Label achievement1 = new Label("Numbers", skin, "noBackground"); //creates a label without a background - just text
 		Label achievement2 = new Label("Subtraction", skin, "noBackground");
 		Label achievement3 = new Label("Division", skin, "noBackground");
@@ -136,12 +136,12 @@ public class HomeScreen implements Screen {
 		Label fractions = new Label("Fractions", skin, "noBackground");
 		Label grade2 = new Label("Grade 2", skin, "noBackground");
 		ImageTextButton achiemeventsButton = new ImageTextButton("My Achievements", skin); //creates a blue button (blue is default when no color is specified)
-		TextTooltip RubyPopup = new TextTooltip("Top achievement", skin);
-		RubyPopup.setInstant(true);
-		TextTooltip DiamondPopup = new TextTooltip("Medium achievement", skin);
-		DiamondPopup.setInstant(true);
-		TextTooltip IronPopup = new TextTooltip("Lowest achievement", skin);
-		IronPopup.setInstant(true);
+		TextTooltip GoldPopup = new TextTooltip("Top achievement", skin);
+		GoldPopup.setInstant(true);
+		TextTooltip SilverPopup = new TextTooltip("Medium achievement", skin);
+		SilverPopup.setInstant(true);
+		TextTooltip BronzePopup = new TextTooltip("Lowest achievement", skin);
+		BronzePopup.setInstant(true);
 		TextTooltip exitPopup = new TextTooltip("Log out", skin);
 		exitPopup.setInstant(true);
 		//layout:
@@ -160,41 +160,41 @@ public class HomeScreen implements Screen {
 		table.add(latestAchievements).colspan(2).width(Gdx.graphics.getWidth()/5).align(Align.center);
 		table.add(greatestAchievements).colspan(2).width(Gdx.graphics.getWidth()/5).align(Align.center);
 		table.row();
-		table.add(Iron1).pad(5).align(Align.right);
+		table.add(Bronze1).pad(5).align(Align.right);
 		table.add(fractions).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.right);
-		table.add(Ruby).pad(5).align(Align.right);
+		table.add(Gold).pad(5).align(Align.right);
 		table.add(achievement1).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
 		table.row();
 		if (parent.grade2Achievement == 3) {
-			table.add(grade2Iron).pad(5).align(Align.right);
+			table.add(grade2Bronze).pad(5).align(Align.right);
 			table.add(grade2).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.right);
 		} else if (parent.grade2Achievement == 4) {
-			table.add(grade2Diamond).pad(5).align(Align.right);
+			table.add(grade2Silver).pad(5).align(Align.right);
 			table.add(grade2).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.right);
 		} else if (parent.grade2Achievement == 5) {
-			table.add(grade2Ruby).pad(5).align(Align.right);
+			table.add(grade2Gold).pad(5).align(Align.right);
 			table.add(grade2).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.right);
 		}else {
 			table.add();
 			table.add();
 		}
-		table.add(Diamond).pad(5).align(Align.right);
+		table.add(Silver).pad(5).align(Align.right);
 		table.add(achievement2).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
 		table.row();
 		table.add();
 		table.add();
-		table.add(Iron).pad(5).align(Align.right);
+		table.add(Bronze).pad(5).align(Align.right);
 		table.add(achievement3).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
 		//adding button functionality
 		if(parent.problemNumber==0) begin.addListener(beginPopup);
 		else begin.addListener(continuePopup);
-		Ruby.addListener(RubyPopup);
-		Diamond.addListener(DiamondPopup);
-		Iron.addListener(IronPopup);
-		Iron1.addListener(IronPopup);
-		grade2Iron.addListener(IronPopup);
-		grade2Diamond.addListener(DiamondPopup);
-		grade2Ruby.addListener(RubyPopup);
+		Gold.addListener(GoldPopup);
+		Silver.addListener(SilverPopup);
+		Bronze.addListener(BronzePopup);
+		Bronze1.addListener(BronzePopup);
+		grade2Bronze.addListener(BronzePopup);
+		grade2Silver.addListener(SilverPopup);
+		grade2Gold.addListener(GoldPopup);
 		logout.addListener(exitPopup);
 		gradeSelectBox.addListener(new ChangeListener() {
 			@Override
