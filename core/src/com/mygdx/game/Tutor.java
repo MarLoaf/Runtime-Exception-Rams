@@ -3,6 +3,8 @@ package com.mygdx.game;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
 import com.mygdx.game.views.AchievementsScreen;
 import com.mygdx.game.views.CreateAccountScreen;
 import com.mygdx.game.views.HomeScreen;
@@ -34,7 +36,7 @@ public class Tutor extends Game {
 	public int grade2Achievement = 0;
 	public Problem[] problems = {new Problem("5 - 3 = ?", "2"), new Problem("2 + 2 = ?", "4"), new Problem("3 + 2 = ?", "5", new String[] {"4","3","6"}), new Problem("If each student has 3 apples, how many apples do 5 students have", "15"), new Problem("You have 2 oranges, Lisa has 7 oranges, how many oranges do you have together","9", new String[] {"8","10","7"})};
 	public ArrayList<Account> accounts = new ArrayList<Account>(0);
-	public Account currentUser = new Account("","","","","John Smith");
+	public Account currentUser = new Account("","","","","Test User");
 	
 	public final static int ACHIEVEMENTS = 0;
 	public final static int CREATEACCOUNT = 1;
@@ -49,6 +51,7 @@ public class Tutor extends Game {
 	
 	@Override
 	public void create() {
+		readAccounts();
 		loadingScreen = new LoadingScreen(this);
 		setScreen(loadingScreen);
 	}
@@ -109,7 +112,8 @@ public class Tutor extends Game {
 	}
 	
 	public void addAccount(String username, String password, String secretQuestion, String secretAnswer, String fullName) {
-		if (!checkDuplicateUsername(username)) accounts.add(new Account(username, password, secretQuestion, secretAnswer, fullName));
+		if (!checkDuplicateUsername(username)) writeAccount(new Account(username, password, secretQuestion, secretAnswer, fullName));
+		readAccounts();
 	}
 	
 	public boolean checkDuplicateUsername(String username) {
@@ -135,4 +139,22 @@ public class Tutor extends Game {
 		return false;
 	}
 	
+	public void readAccounts() {
+		//reads accounts from the accounts.txt file in assets
+		String accs;
+		FileHandle file = Gdx.files.local("accounts.txt");
+		accs = file.readString();
+		String[] splitAccs = accs.split("\\r?\\n");
+		String[] splitAccParts;
+		for(int i = 0; i < splitAccs.length; i++) {
+			splitAccParts = splitAccs[i].split(",");
+			accounts.add(new Account(splitAccParts[0],splitAccParts[1],splitAccParts[2],splitAccParts[3],splitAccParts[4]));
+		}
+	}
+	
+	public void writeAccount(Account a) {
+		//adds an account to the accounts.txt file
+		FileHandle file = Gdx.files.local("accounts.txt");
+		file.writeString("\n" + a.getUsername() + "," + a.getPassword() + "," + a.getSecretQuestion() + "," + a.getSecretAnswer() + "," + a.getFullName(),true);
+	}
 }
