@@ -1,2 +1,3 @@
-username1,password1,secretQuestion1,secretAnswer1,fullName1
-username2,password2,secretQuestion2,secretAnswer2,fullName2
+username,password,What's your favorite color?,blue,full name,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,none,none,none
+username1,password,What's your favorite color?,blue,full name,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,none,none,none
+username3,password,What's your favorite color?,blue,full name,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,none,none,none

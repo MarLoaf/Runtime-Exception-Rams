@@ -30,13 +30,43 @@ public class Tutor extends Game {
 	private RecoverAccountScreen recoverAccountScreen;
 	private ResultsScreen resultsScreen;
 	private TutorialScreen tutorialScreen;
-	
+
+	public String gradeSelection = "";
+	public String topicSelection = "";
+	public String lessonSelection = "";
 	public int answerCounter = 0;
 	public int problemNumber = 0;
 	public int grade2Achievement = 0;
 	public Problem[] problems = {new Problem("5 - 3 = ?", "2"), new Problem("2 + 2 = ?", "4"), new Problem("3 + 2 = ?", "5", new String[] {"4","3","6"}), new Problem("If each student has 3 apples, how many apples do 5 students have", "15"), new Problem("You have 2 oranges, Lisa has 7 oranges, how many oranges do you have together","9", new String[] {"8","10","7"})};
+	
+	/*problem sets
+	public Problem[] kindergardenCounting;
+	public Problem[] kindergardenOperations;
+	public Problem[] kindergardenNumbers;
+	public Problem[] kindergardenMeasurements;
+
+	public Problem[] grade1Operations;
+	public Problem[] grade1Numbers;
+	public Problem[] grade1Measurements;
+
+	public Problem[] grade2Operations;
+	public Problem[] grade2Numbers;
+	public Problem[] grade2Measurements;
+
+	public Problem[] grade3Operations;
+	public Problem[] grade3Numbers;
+	public Problem[] grade3Fractions;
+	public Problem[] grade3Measurements;
+
+	public Problem[] grade4Operations;
+	public Problem[] grade4Numbers;
+	public Problem[] grade4Fractions = {new Problem("Which of the following is an improper fraction?", "7/3", new String[] {"3/15", "3/7", "1/2"})};
+	public Problem[] grade4Measurements;
+	*/
+	
 	public ArrayList<Account> accounts = new ArrayList<Account>(0);
-	public Account currentUser = new Account("","","","","Test User");
+	//public Account currentUser = new Account("","","","","Test User");
+	public Account currentUser = new Account("","","question","answer","Test User");
 	
 	public final static int ACHIEVEMENTS = 0;
 	public final static int CREATEACCOUNT = 1;
@@ -112,8 +142,8 @@ public class Tutor extends Game {
 	}
 	
 	public void addAccount(String username, String password, String secretQuestion, String secretAnswer, String fullName) {
-		if (!checkDuplicateUsername(username)) writeAccount(new Account(username, password, secretQuestion, secretAnswer, fullName));
-		readAccounts();
+		Account newAcc = new Account(username, password, secretQuestion, secretAnswer, fullName);
+		if (!checkDuplicateUsername(username)) writeAccount(newAcc);
 	}
 	
 	public boolean checkDuplicateUsername(String username) {
@@ -140,21 +170,57 @@ public class Tutor extends Game {
 	}
 	
 	public void readAccounts() {
-		//reads accounts from the accounts.txt file in assets
+		//reads accounts from the accounts.txt file in assets into the accounts variable
 		String accs;
 		FileHandle file = Gdx.files.local("accounts.txt");
 		accs = file.readString();
-		String[] splitAccs = accs.split("\\r?\\n");
-		String[] splitAccParts;
-		for(int i = 0; i < splitAccs.length; i++) {
-			splitAccParts = splitAccs[i].split(",");
-			accounts.add(new Account(splitAccParts[0],splitAccParts[1],splitAccParts[2],splitAccParts[3],splitAccParts[4]));
+		if(!accs.equals("")) {
+			String[] splitAccs = accs.split("\\r?\\n");
+			String[] splitAccParts;
+			for(int i = 0; i < splitAccs.length; i++) {
+				splitAccParts = splitAccs[i].split(",");
+				if(!checkDuplicateUsername(splitAccParts[0])) {
+					accounts.add(new Account(splitAccParts[0],splitAccParts[1],splitAccParts[2],splitAccParts[3],splitAccParts[4],Integer.parseInt(splitAccParts[5]),Integer.parseInt(splitAccParts[6]),Integer.parseInt(splitAccParts[7]),Integer.parseInt(splitAccParts[8]),Integer.parseInt(splitAccParts[9]),Integer.parseInt(splitAccParts[10]),Integer.parseInt(splitAccParts[11]),Integer.parseInt(splitAccParts[12]),Integer.parseInt(splitAccParts[13]),Integer.parseInt(splitAccParts[14]),Integer.parseInt(splitAccParts[15]),Integer.parseInt(splitAccParts[16]),Integer.parseInt(splitAccParts[17]),Integer.parseInt(splitAccParts[18]),Integer.parseInt(splitAccParts[19]),Integer.parseInt(splitAccParts[20]),Integer.parseInt(splitAccParts[21]),Integer.parseInt(splitAccParts[22]), new String[] {splitAccParts[23],splitAccParts[23],splitAccParts[24]}));
+				}
+			}
 		}
 	}
 	
 	public void writeAccount(Account a) {
 		//adds an account to the accounts.txt file
+		String accs;
 		FileHandle file = Gdx.files.local("accounts.txt");
-		file.writeString("\n" + a.getUsername() + "," + a.getPassword() + "," + a.getSecretQuestion() + "," + a.getSecretAnswer() + "," + a.getFullName(),true);
+		accs = file.readString();
+		if(!accs.equals("")) file.writeString("\n" + a.getUsername() + "," + a.getPassword() + "," + a.getSecretQuestion() + "," + a.getSecretAnswer() + "," + a.getFullName() + "," + a.getKindergardenCounting() + "," + a.getKindergardenOperations() + "," + a.getKindergardenNumbers() + "," + a.getKindergardenMeasurements() + "," + a.getGrade1Operations() + "," + a.getGrade1Numbers() + "," + a.getGrade1Measurements() + "," + a.getGrade2Operations() + "," + a.getGrade2Numbers() + "," + a.getGrade2Measurements() + "," + a.getGrade3Operations() + "," + a.getGrade3Numbers() + "," + a.getGrade3Fractions() + "," + a.getGrade3Measurements() + "," + a.getGrade4Operations() + "," + a.getGrade4Numbers() + "," + a.getGrade4Fractions() + "," + a.getGrade4Measurements() + "," + a.getLatestAchievements()[0] + "," + a.getLatestAchievements()[1] + "," + a.getLatestAchievements()[2],true);
+		else file.writeString(a.getUsername() + "," + a.getPassword() + "," + a.getSecretQuestion() + "," + a.getSecretAnswer() + "," + a.getFullName() + "," + a.getKindergardenCounting() + "," + a.getKindergardenOperations() + "," + a.getKindergardenNumbers() + "," + a.getKindergardenMeasurements() + "," + a.getGrade1Operations() + "," + a.getGrade1Numbers() + "," + a.getGrade1Measurements() + "," + a.getGrade2Operations() + "," + a.getGrade2Numbers() + "," + a.getGrade2Measurements() + "," + a.getGrade3Operations() + "," + a.getGrade3Numbers() + "," + a.getGrade3Fractions() + "," + a.getGrade3Measurements() + "," + a.getGrade4Operations() + "," + a.getGrade4Numbers() + "," + a.getGrade4Fractions() + "," + a.getGrade4Measurements() + "," + a.getLatestAchievements()[0] + "," + a.getLatestAchievements()[1] + "," + a.getLatestAchievements()[2],true);
+		readAccounts();
+	}
+	
+	public void updateAccount(Account a) {
+		//used to update all account info for a specified account
+		readAccounts();
+		if (accounts.size()>0) {
+			for (int i = 0; i < accounts.size(); i++) {
+				if (accounts.get(i).getUsername().equals(a.getUsername())) {
+					accounts.set(i, a);
+				}
+			}
+		}
+		rewriteAccounts();
+		readAccounts();
+	}
+	
+	public void rewriteAccounts() {
+		//rewrites all accounts from the accounts variable into the accounts.txt file (overwriting the file)
+		String accs;
+		FileHandle file = Gdx.files.local("accounts.txt");
+		file.writeString("",false);
+		if (accounts.size()>0) {
+			for (Account a : accounts) {
+				accs = file.readString();
+				if(!accs.equals("")) file.writeString("\n",true);
+				file.writeString(a.getUsername() + "," + a.getPassword() + "," + a.getSecretQuestion() + "," + a.getSecretAnswer() + "," + a.getFullName() + "," + a.getKindergardenCounting() + "," + a.getKindergardenOperations() + "," + a.getKindergardenNumbers() + "," + a.getKindergardenMeasurements() + "," + a.getGrade1Operations() + "," + a.getGrade1Numbers() + "," + a.getGrade1Measurements() + "," + a.getGrade2Operations() + "," + a.getGrade2Numbers() + "," + a.getGrade2Measurements() + "," + a.getGrade3Operations() + "," + a.getGrade3Numbers() + "," + a.getGrade3Fractions() + "," + a.getGrade3Measurements() + "," + a.getGrade4Operations() + "," + a.getGrade4Numbers() + "," + a.getGrade4Fractions() + "," + a.getGrade4Measurements() + "," + a.getLatestAchievements()[0] + "," + a.getLatestAchievements()[1] + "," + a.getLatestAchievements()[2],true);
+			}
+		}
 	}
 }

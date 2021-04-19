@@ -37,9 +37,6 @@ public class HomeScreen implements Screen {
 	private SpriteBatch batch;
 	private Texture backgroundTexture;
 	private String userInfoMessage;
-	private String gradeSelection = "";
-	private String topicSelection = "";
-	private String lessonSelection = "";
 	
 	public HomeScreen(Tutor tutor) {
 		parent = tutor;
@@ -202,34 +199,34 @@ public class HomeScreen implements Screen {
 		gradeSelectBox.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-				gradeSelection = gradeSelectBox.getSelected();
-				if(gradeSelection.equals("Kindergarten")) {
+				parent.gradeSelection = gradeSelectBox.getSelected();
+				if(parent.gradeSelection.equals("Kindergarten")) {
 					topicSelectBox.setItems("Counting", "Operations", "Numbers", "Measurements");
 				}
-				else if(gradeSelection.equals("1st Grade")) {
+				else if(parent.gradeSelection.equals("1st Grade")) {
 					topicSelectBox.setItems("Operations", "Numbers", "Measurements");
 				}
-				else if(gradeSelection.equals("2nd Grade")) {
+				else if(parent.gradeSelection.equals("2nd Grade")) {
 					topicSelectBox.setItems("Operations", "Numbers", "Measurements");
 				}
-				else if(gradeSelection.equals("3rd Grade")) {
+				else if(parent.gradeSelection.equals("3rd Grade")) {
 					topicSelectBox.setItems("Operations", "Numbers", "Fractions", "Measurements");
 				}
-				else if(gradeSelection.equals("4th Grade")) {
-					topicSelectBox.setItems("Operations", "Numbers", "Fractions");
+				else if(parent.gradeSelection.equals("4th Grade")) {
+					topicSelectBox.setItems("Operations", "Numbers", "Fractions", "Measurements");
 				}
 			}
 		});
 		topicSelectBox.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-				topicSelection = topicSelectBox.getSelected();
+				parent.topicSelection = topicSelectBox.getSelected();
 			}
 		});
 		lessonSelectBox.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-				lessonSelection = lessonSelectBox.getSelected();
+				parent.lessonSelection = lessonSelectBox.getSelected();
 			}
 		});
 		logout.addListener(new ChangeListener() {
@@ -241,7 +238,7 @@ public class HomeScreen implements Screen {
 		begin.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-				if (lessonSelection.equals("Tutorial")) parent.changeScreen(Tutor.TUTORIAL);
+				if (parent.lessonSelection.equals("Tutorial")) parent.changeScreen(Tutor.TUTORIAL);
 				else if (parent.problemNumber == 0) parent.changeScreen(Tutor.PROBLEMENTRY);
 				else parent.changeScreen(Tutor.PROBLEM);
 			}
@@ -253,9 +250,9 @@ public class HomeScreen implements Screen {
 			}
 		});
 		//default values
-		gradeSelection = gradeSelectBox.getSelected();
-		topicSelection = topicSelectBox.getSelected();
-		lessonSelection = lessonSelectBox.getSelected();
+		parent.gradeSelection = gradeSelectBox.getSelected();
+		parent.topicSelection = topicSelectBox.getSelected();
+		parent.lessonSelection = lessonSelectBox.getSelected();
 	}
 
 	@Override
