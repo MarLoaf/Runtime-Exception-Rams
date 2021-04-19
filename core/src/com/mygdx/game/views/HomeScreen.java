@@ -108,7 +108,7 @@ public class HomeScreen implements Screen {
 		gradeSelectBox.setItems("Kindergarten", "1st Grade", "2nd Grade", "3rd Grade", "4th Grade");
 		gradeSelectBox.setAlignment(Align.center);
 		final SelectBox<String> topicSelectBox = new SelectBox<String>(skin);
-		topicSelectBox.setItems("Addition", "Subtraction", "Division", "Multiplication");
+		topicSelectBox.setItems("Counting", "Operations", "Numbers", "Measurements");
 		topicSelectBox.setAlignment(Align.center);
 		final SelectBox<String> lessonSelectBox = new SelectBox<String>(skin);
 		lessonSelectBox.setItems("Practice", "Test", "Exam", "Tutorial");
@@ -203,6 +203,21 @@ public class HomeScreen implements Screen {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
 				gradeSelection = gradeSelectBox.getSelected();
+				if(gradeSelection.equals("Kindergarten")) {
+					topicSelectBox.setItems("Counting", "Operations", "Numbers", "Measurements");
+				}
+				else if(gradeSelection.equals("1st Grade")) {
+					topicSelectBox.setItems("Operations", "Numbers", "Measurements");
+				}
+				else if(gradeSelection.equals("2nd Grade")) {
+					topicSelectBox.setItems("Operations", "Numbers", "Measurements");
+				}
+				else if(gradeSelection.equals("3rd Grade")) {
+					topicSelectBox.setItems("Operations", "Numbers", "Fractions", "Measurements");
+				}
+				else if(gradeSelection.equals("4th Grade")) {
+					topicSelectBox.setItems("Operations", "Numbers", "Fractions");
+				}
 			}
 		});
 		topicSelectBox.addListener(new ChangeListener() {
