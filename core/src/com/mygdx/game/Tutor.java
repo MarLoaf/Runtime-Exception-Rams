@@ -257,6 +257,8 @@ public class Tutor extends Game {
 			
 		} else {
 			return null;
-		}	
+		}
+		
+		return null;
 	}
 }
