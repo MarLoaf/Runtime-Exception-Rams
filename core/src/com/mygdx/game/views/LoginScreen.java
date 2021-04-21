@@ -112,6 +112,7 @@ public class LoginScreen implements Screen {
 		usernameText.setAlignment(Align.center);
 		passwordLabel.setAlignment(Align.center);
 		passwordText.setAlignment(Align.center);
+		Label iconAttribution = new Label("Picture icons made by Freepik from www.flaticon.com", skin, "noBackground");
 		//layout:
 		table.top();
 		table.row();
@@ -137,6 +138,9 @@ public class LoginScreen implements Screen {
 		table.row();
 		table.add();
 		table.add(exit).uniformX().pad(5).colspan(2).width(Gdx.graphics.getWidth()/5);
+		table.row();
+		table.add();
+		table.add(iconAttribution).uniformX().pad(5).colspan(2);
 		//adding button functionality
 		usernameText.setTextFieldListener(new TextField.TextFieldListener() {
 			@Override
