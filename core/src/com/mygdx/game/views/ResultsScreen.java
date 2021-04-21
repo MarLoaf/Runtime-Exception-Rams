@@ -100,6 +100,8 @@ public class ResultsScreen implements Screen {
 		table.setFillParent(true);
 		stage.addActor(table);
 		//creating actors
+		Label currentAssignment = new Label(parent.gradeSelection + " " + parent.topicSelection, skin);
+		currentAssignment.setAlignment(Align.center);
 		Label userInfo = new Label("", skin);
 		userInfo.setText(userInfoMessage);
 		userInfo.setAlignment(Align.center);
@@ -117,7 +119,7 @@ public class ResultsScreen implements Screen {
         //layout
 		table.top();
 		table.row();
-		table.add().fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
+		table.add(currentAssignment).fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
 		table.add().fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
 		table.add(userInfo).fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
 		table.add(back).uniformX().pad(5).padBottom(270);

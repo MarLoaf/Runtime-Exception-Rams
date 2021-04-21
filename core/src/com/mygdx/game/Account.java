@@ -97,7 +97,7 @@ public class Account {
 		grade4Fractions = 0;
 		grade4Measurements = 0;
 		
-		latestAchievements = new String[] {"none","none","none"};
+		latestAchievements = new String[] {"none","none","none","none","none","none"};
 	}
 	
 	public Account() {
@@ -130,7 +130,7 @@ public class Account {
 		grade4Fractions = 0;
 		grade4Measurements = 0;
 		
-		latestAchievements = new String[] {"none","none","none"};
+		latestAchievements = new String[] {"none","none","none","none","none","none"};
 	}
 	
 	public int getAchievement(String grade, String topic) {
