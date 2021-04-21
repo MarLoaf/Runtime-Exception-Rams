@@ -226,9 +226,26 @@ public class Tutor extends Game {
 	
 	
 	
-	public problem problemGenerator(String grade, String topic, boolean multipleChoiceOrNot) {
-		//determining grade
+	public Problem problemGenerator(String grade, String topic, boolean multipleChoiceOrNot) {
+		int start = 0;
+		int range = 0;
+		int pattern = 0;
+		
+		
+		//determining grade & topic validation 
 		if (grade.equals("Kindergarten")) {
+			
+			if (topic.equals("Counting")) {
+				
+			} else if (topic.equals("Operations")) {
+				
+			} else if (topic.equals("Numbers")) {
+				
+			} else if (topic.equals("Measurement")) {
+				
+			} else {
+				return null
+			}
 			
 		} else if (grade.equals("Grade1")) {
 			
@@ -236,10 +253,10 @@ public class Tutor extends Game {
 			
 		} else if (grade.equals("Grade3")) {
 			
-		} else if (grade.equals("Grade3")) {
+		} else if (grade.equals("Grade4")) {
 			
 		} else {
 			return null;
-		}
+		}	
 	}
 }
