@@ -146,8 +146,7 @@ public class AchievementsScreen implements Screen {
 		table.add(List1).colspan(2).pad(5).width(Gdx.graphics.getWidth()/5);
 		table.add(List2).colspan(2).pad(5).width(Gdx.graphics.getWidth()/5);
 		table.row();
-		table.add(Gold1).uniformX().pad(5).align(Align.right);
-		table.add(collected1).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
+		generateAchievementVisual(table, skin, "", "Addition", 3);
 		table.add(Gold2).uniformX().pad(5).align(Align.right);
 		table.add(progress1).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
 		table.row();
@@ -239,7 +238,8 @@ public class AchievementsScreen implements Screen {
 			table.add(new Image(new Texture(Gdx.files.internal("images/Gold.png")))).pad(5).align(Align.right);
 			break;
 		}
-		table.add(new Label(grade + " " + topic, skin, "noBackground")).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
+		if (grade.equals("")) table.add(new Label(topic, skin, "noBackground")).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
+		else table.add(new Label(grade + " " + topic, skin, "noBackground")).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
 	}
 
 }
