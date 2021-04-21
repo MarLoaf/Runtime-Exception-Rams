@@ -294,5 +294,10 @@ public class HomeScreen implements Screen {
 	public void dispose() {
 		stage.dispose();
 	}
+	
+	private void generateAchievementVisual(Table t, String grade, String topic, int a) {
+		//adds an achievement picture + label to the table
+		
+	}
 
 }
