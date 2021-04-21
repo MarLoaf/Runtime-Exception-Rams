@@ -119,29 +119,11 @@ public class HomeScreen implements Screen {
 		userInfo.setText(userInfoMessage);
 		userInfo.setAlignment(Align.center);
 		Button logout = new Button(skin, "Exit"); //creates button with the "exit door"
-		Image Bronze1 = new Image(new Texture(Gdx.files.internal("images/Bronze.png"))); //image NOT BUTTON with the Bronze pickaxe
-		Image grade2Bronze = new Image(new Texture(Gdx.files.internal("images/Bronze.png")));
-		Image grade2Silver = new Image(new Texture(Gdx.files.internal("images/Silver.png"))); //image NOT BUTTON with the Silver
-		Image grade2Gold = new Image(new Texture(Gdx.files.internal("images/Gold.png"))); //image NOT BUTTON with the Gold
-		Image Gold = new Image(new Texture(Gdx.files.internal("images/Gold.png")));
-		Image Silver = new Image(new Texture(Gdx.files.internal("images/Silver.png")));
-		Image Bronze = new Image(new Texture(Gdx.files.internal("images/Bronze.png")));
-		Label achievement1 = new Label("Numbers", skin, "noBackground"); //creates a label without a background - just text
-		Label achievement2 = new Label("Subtraction", skin, "noBackground");
-		Label achievement3 = new Label("Division", skin, "noBackground");
 		Label latestAchievements = new Label("Latest Achivements:", skin); //creates a label with a purple background
 		latestAchievements.setAlignment(Align.center);
 		Label greatestAchievements = new Label("Greatest Achievements:", skin);
 		greatestAchievements.setAlignment(Align.center);
-		Label fractions = new Label("Fractions", skin, "noBackground");
-		Label grade2 = new Label("Grade 2", skin, "noBackground");
 		ImageTextButton achiemeventsButton = new ImageTextButton("My Achievements", skin); //creates a blue button (blue is default when no color is specified)
-		TextTooltip GoldPopup = new TextTooltip("Top achievement", skin);
-		GoldPopup.setInstant(true);
-		TextTooltip SilverPopup = new TextTooltip("Medium achievement", skin);
-		SilverPopup.setInstant(true);
-		TextTooltip BronzePopup = new TextTooltip("Lowest achievement", skin);
-		BronzePopup.setInstant(true);
 		TextTooltip exitPopup = new TextTooltip("Log out", skin);
 		exitPopup.setInstant(true);
 		//layout:
@@ -160,41 +142,26 @@ public class HomeScreen implements Screen {
 		table.add(latestAchievements).colspan(2).width(Gdx.graphics.getWidth()/5).align(Align.center);
 		table.add(greatestAchievements).colspan(2).width(Gdx.graphics.getWidth()/5).align(Align.center);
 		table.row();
-		table.add(Bronze1).pad(5).align(Align.right);
-		table.add(fractions).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.right);
-		table.add(Gold).pad(5).align(Align.right);
-		table.add(achievement1).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
+		generateAchievementVisual(table, skin, "Kindergarden", "Operations", 1);
+		generateAchievementVisual(table, skin, "Grade 1", "Numbers", 3);
 		table.row();
 		if (parent.grade2Achievement == 3) {
-			table.add(grade2Bronze).pad(5).align(Align.right);
-			table.add(grade2).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.right);
+			generateAchievementVisual(table, skin, "Grade 2", "", 1);
 		} else if (parent.grade2Achievement == 4) {
-			table.add(grade2Silver).pad(5).align(Align.right);
-			table.add(grade2).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.right);
+			generateAchievementVisual(table, skin, "Grade 2", "", 2);
 		} else if (parent.grade2Achievement == 5) {
-			table.add(grade2Gold).pad(5).align(Align.right);
-			table.add(grade2).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.right);
+			generateAchievementVisual(table, skin, "Grade 2", "", 3);
 		}else {
-			table.add();
-			table.add();
+			generateAchievementVisual(table, skin, "Grade 2", "", 0);
 		}
-		table.add(Silver).pad(5).align(Align.right);
-		table.add(achievement2).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
+		generateAchievementVisual(table, skin, "Grade 1", "Subtraction", 2);
 		table.row();
 		table.add();
 		table.add();
-		table.add(Bronze).pad(5).align(Align.right);
-		table.add(achievement3).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
+		generateAchievementVisual(table, skin, "Grade 3", "Division", 1);
 		//adding button functionality
 		if(parent.problemNumber==0) begin.addListener(beginPopup);
 		else begin.addListener(continuePopup);
-		Gold.addListener(GoldPopup);
-		Silver.addListener(SilverPopup);
-		Bronze.addListener(BronzePopup);
-		Bronze1.addListener(BronzePopup);
-		grade2Bronze.addListener(BronzePopup);
-		grade2Silver.addListener(SilverPopup);
-		grade2Gold.addListener(GoldPopup);
 		logout.addListener(exitPopup);
 		gradeSelectBox.addListener(new ChangeListener() {
 			@Override
@@ -295,9 +262,23 @@ public class HomeScreen implements Screen {
 		stage.dispose();
 	}
 	
-	private void generateAchievementVisual(Table t, String grade, String topic, int a) {
+	private void generateAchievementVisual(Table table, Skin skin, String grade, String topic, int a) {
 		//adds an achievement picture + label to the table
-		
+		switch(a) {
+		case 0:
+			table.add(new Image(new Texture(Gdx.files.internal("images/NoMedal.png")))).pad(5).align(Align.right);
+			break;
+		case 1:
+			table.add(new Image(new Texture(Gdx.files.internal("images/Bronze.png")))).pad(5).align(Align.right);
+			break;
+		case 2:
+			table.add(new Image(new Texture(Gdx.files.internal("images/Silver.png")))).pad(5).align(Align.right);
+			break;
+		case 3:
+			table.add(new Image(new Texture(Gdx.files.internal("images/Gold.png")))).pad(5).align(Align.right);
+			break;
+		}
+		table.add(new Label(grade + " " + topic, skin, "noBackground")).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
 	}
 
 }

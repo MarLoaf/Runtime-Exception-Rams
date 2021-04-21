@@ -222,5 +222,24 @@ public class AchievementsScreen implements Screen {
 	public void dispose() {
 		stage.dispose();
 	}
+	
+	private void generateAchievementVisual(Table table, Skin skin, String grade, String topic, int a) {
+		//adds an achievement picture + label to the table
+		switch(a) {
+		case 0:
+			table.add(new Image(new Texture(Gdx.files.internal("images/NoMedal.png")))).pad(5).align(Align.right);
+			break;
+		case 1:
+			table.add(new Image(new Texture(Gdx.files.internal("images/Bronze.png")))).pad(5).align(Align.right);
+			break;
+		case 2:
+			table.add(new Image(new Texture(Gdx.files.internal("images/Silver.png")))).pad(5).align(Align.right);
+			break;
+		case 3:
+			table.add(new Image(new Texture(Gdx.files.internal("images/Gold.png")))).pad(5).align(Align.right);
+			break;
+		}
+		table.add(new Label(grade + " " + topic, skin, "noBackground")).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
+	}
 
 }
