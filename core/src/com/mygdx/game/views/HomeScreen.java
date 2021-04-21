@@ -142,23 +142,23 @@ public class HomeScreen implements Screen {
 		table.add(latestAchievements).colspan(2).width(Gdx.graphics.getWidth()/5).align(Align.center);
 		table.add(greatestAchievements).colspan(2).width(Gdx.graphics.getWidth()/5).align(Align.center);
 		table.row();
-		generateAchievementVisual(table, skin, "Kindergarden", "Operations", 1);
-		generateAchievementVisual(table, skin, "Grade 1", "Numbers", 3);
+		generateAchievementVisual(table, skin, "Kindergarten", "Operations", 1);
+		generateAchievementVisual(table, skin, "1st Grade", "Numbers", 3);
 		table.row();
 		if (parent.grade2Achievement == 3) {
-			generateAchievementVisual(table, skin, "Grade 2", "", 1);
+			generateAchievementVisual(table, skin, "2nd Grade", "", 1);
 		} else if (parent.grade2Achievement == 4) {
-			generateAchievementVisual(table, skin, "Grade 2", "", 2);
+			generateAchievementVisual(table, skin, "2nd Grade", "", 2);
 		} else if (parent.grade2Achievement == 5) {
-			generateAchievementVisual(table, skin, "Grade 2", "", 3);
+			generateAchievementVisual(table, skin, "2nd Grade", "", 3);
 		}else {
-			generateAchievementVisual(table, skin, "Grade 2", "", 0);
+			generateAchievementVisual(table, skin, "2nd Grade", "", 0);
 		}
-		generateAchievementVisual(table, skin, "Grade 1", "Subtraction", 2);
+		generateAchievementVisual(table, skin, "1st Grade", "Subtraction", 2);
 		table.row();
 		table.add();
 		table.add();
-		generateAchievementVisual(table, skin, "Grade 3", "Division", 1);
+		generateAchievementVisual(table, skin, "3rd Grade", "Division", 1);
 		//adding button functionality
 		if(parent.problemNumber==0) begin.addListener(beginPopup);
 		else begin.addListener(continuePopup);

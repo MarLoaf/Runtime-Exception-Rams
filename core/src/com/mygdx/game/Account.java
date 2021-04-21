@@ -9,10 +9,10 @@ public class Account {
 	private String fullName;
 	
 	//achievements, 0 - nothing, 1 - bronze, 2 - silver, 3 - gold
-	private int kindergardenCounting;
-	private int kindergardenOperations;
-	private int kindergardenNumbers;
-	private int kindergardenMeasurements;
+	private int kindergartenCounting;
+	private int kindergartenOperations;
+	private int kindergartenNumbers;
+	private int kindergartenMeasurements;
 
 	private int grade1Operations;
 	private int grade1Numbers;
@@ -32,7 +32,7 @@ public class Account {
 	private int grade4Fractions;
 	private int grade4Measurements;
 	
-	private String[] latestAchievements; // none - nothing, 1 - bronze, 2 - silver, 3 - gold
+	private String[] latestAchievements; // none - nothing, 1 - bronze, 2 - silver, 3 - gold, 6 fields: grade1, topic1, grade2, topic2, grade3, topic3
 	
 	public Account(String u, String p, String sq, String sa, String fn, int kc, int ko, int kn, int km, int o1, int n1, int m1, int o2, int n2, int m2, int o3, int n3, int f3, int m3, int o4, int n4, int f4, int m4, String[] la) {
 		username = u;
@@ -41,10 +41,10 @@ public class Account {
 		secretAnswer = sa;
 		fullName = fn;
 		
-		kindergardenCounting = kc;
-		kindergardenOperations = ko;
-		kindergardenNumbers = kn;
-		kindergardenMeasurements = km;
+		kindergartenCounting = kc;
+		kindergartenOperations = ko;
+		kindergartenNumbers = kn;
+		kindergartenMeasurements = km;
 
 		grade1Operations = o1;
 		grade1Numbers = n1;
@@ -74,10 +74,10 @@ public class Account {
 		secretAnswer = sa;
 		fullName = fn;
 		
-		kindergardenCounting = 0;
-		kindergardenOperations = 0;
-		kindergardenNumbers = 0;
-		kindergardenMeasurements = 0;
+		kindergartenCounting = 0;
+		kindergartenOperations = 0;
+		kindergartenNumbers = 0;
+		kindergartenMeasurements = 0;
 
 		grade1Operations = 0;
 		grade1Numbers = 0;
@@ -107,10 +107,10 @@ public class Account {
 		secretAnswer = "";
 		fullName = "";
 		
-		kindergardenCounting = 0;
-		kindergardenOperations = 0;
-		kindergardenNumbers = 0;
-		kindergardenMeasurements = 0;
+		kindergartenCounting = 0;
+		kindergartenOperations = 0;
+		kindergartenNumbers = 0;
+		kindergartenMeasurements = 0;
 
 		grade1Operations = 0;
 		grade1Numbers = 0;
@@ -133,72 +133,161 @@ public class Account {
 		latestAchievements = new String[] {"none","none","none"};
 	}
 	
-	public void gainAchievement(String gradeAndTopic, int a) {
-		switch(gradeAndTopic) {
-		case "kindergardenCounting":
-			if (kindergardenCounting < a) kindergardenCounting = a;
+	public int getAchievement(String grade, String topic) {
+		switch(grade) {
+		case "Kindergarten":
+			switch(topic) {
+			case "Counting":
+				return kindergartenCounting;
+			case "Operations":
+				return kindergartenOperations;
+			case "Numbers":
+				return kindergartenNumbers;
+			case "Measurements":
+				return kindergartenMeasurements;
+			}
 			break;
-		case "kindergardenOperations":
-			if (kindergardenOperations < a) kindergardenOperations = a;
+		case "1st Grade":
+			switch(topic) {
+			case "Operations":
+				return grade1Operations;
+			case "Numbers":
+				return grade1Numbers;
+			case "Measurements":
+				return grade1Measurements;
+			}
 			break;
-		case "kindergardenNumbers":
-			if (kindergardenNumbers < a) kindergardenNumbers = a;
+		case "2nd Grade":
+			switch(topic) {
+			case "Operations":
+				return grade2Operations;
+			case "Numbers":
+				return grade2Numbers;
+			case "Measurements":
+				return grade2Measurements;
+			}
 			break;
-		case "kindergardenMeasurements":
-			if (kindergardenMeasurements < a) kindergardenMeasurements = a;
+		case "3rd Grade":
+			switch(topic) {
+			case "Operations":
+				return grade3Operations;
+			case "Numbers":
+				return grade3Numbers;
+			case "Fractions":
+				return grade3Fractions;
+			case "Measurements":
+				return grade3Measurements;
+			}
 			break;
-		case "grade1Operations":
-			if (grade1Operations < a) grade1Operations = a;
-			break;
-		case "grade1Numbers":
-			if (grade1Numbers < a) grade1Numbers = a;
-			break;
-		case "grade1Measurements":
-			if (grade1Measurements < a) grade1Measurements = a;
-			break;
-		case "grade2Operations":
-			if (grade2Operations < a) grade2Operations = a;
-			break;
-		case "grade2Numbers":
-			if (grade2Numbers < a) grade2Numbers = a;
-			break;
-		case "grade2Measurements":
-			if (grade2Measurements < a) grade2Measurements = a;
-			break;
-		case "grade3Operations":
-			if (grade3Operations < a) grade3Operations = a;
-			break;
-		case "grade3Numbers":
-			if (grade3Numbers < a) grade3Numbers = a;
-			break;
-		case "grade3Fractions":
-			if (grade3Fractions < a) grade3Fractions = a;
-			break;
-		case "grade3Measurements":
-			if (grade3Measurements < a) grade3Measurements = a;
-			break;
-		case "grade4Operations":
-			if (grade4Operations < a) grade4Operations = a;
-			break;
-		case "grade4Numbers":
-			if (grade4Numbers < a) grade4Numbers = a;
-			break;
-		case "grade4Fractions":
-			if (grade4Fractions < a) grade4Fractions = a;
-			break;
-		case "grade4Measurements":
-			if (grade4Measurements < a) grade4Measurements = a;
+		case "4th Grade":
+			switch(topic) {
+			case "Operations":
+				return grade4Operations;
+			case "Numbers":
+				return grade4Numbers;
+			case "Fractions":
+				return grade4Fractions;
+			case "Measurements":
+				return grade4Measurements;
+			}
 			break;
 		}
-		updateLatestAchievements(gradeAndTopic);
+		return -1;
 	}
 	
-	public void updateLatestAchievements(String gradeAndTopic) {
-		if (latestAchievements[0].equals("none")) latestAchievements[0] = gradeAndTopic;
+	public void gainAchievement(String grade, String topic, int a) {
+		switch(grade) {
+		case "Kindergarten":
+			switch(topic) {
+			case "Counting":
+				if (kindergartenCounting < a) kindergartenCounting = a;
+				break;
+			case "Operations":
+				if (kindergartenOperations < a) kindergartenOperations = a;
+				break;
+			case "Numbers":
+				if (kindergartenNumbers < a) kindergartenNumbers = a;
+				break;
+			case "Measurements":
+				if (kindergartenMeasurements < a) kindergartenMeasurements = a;
+				break;
+			}
+			break;
+		case "1st Grade":
+			switch(topic) {
+			case "Operations":
+				if (grade1Operations < a) grade1Operations = a;
+				break;
+			case "Numbers":
+				if (grade1Numbers < a) grade1Numbers = a;
+				break;
+			case "Measurements":
+				if (grade1Measurements < a) grade1Measurements = a;
+				break;
+			}
+			break;
+		case "2nd Grade":
+			switch(topic) {
+			case "Operations":
+				if (grade2Operations < a) grade2Operations = a;
+				break;
+			case "Numbers":
+				if (grade2Numbers < a) grade2Numbers = a;
+				break;
+			case "Measurements":
+				if (grade2Measurements < a) grade2Measurements = a;
+				break;
+			}
+			break;
+		case "3rd Grade":
+			switch(topic) {
+			case "Operations":
+				if (grade3Operations < a) grade3Operations = a;
+				break;
+			case "Numbers":
+				if (grade3Numbers < a) grade3Numbers = a;
+				break;
+			case "Fractions":
+				if (grade3Fractions < a) grade3Fractions = a;
+				break;
+			case "Measurements":
+				if (grade3Measurements < a) grade3Measurements = a;
+				break;
+			}
+			break;
+		case "4th Grade":
+			switch(topic) {
+			case "Operations":
+				if (grade4Operations < a) grade4Operations = a;
+				break;
+			case "Numbers":
+				if (grade4Numbers < a) grade4Numbers = a;
+				break;
+			case "Fractions":
+				if (grade4Fractions < a) grade4Fractions = a;
+				break;
+			case "Measurements":
+				if (grade4Measurements < a) grade4Measurements = a;
+				break;
+			}
+			break;
+		}
+		updateLatestAchievements(grade, topic);
+	}
+	
+	private void updateLatestAchievements(String grade, String topic) {
+		// none - nothing, 1 - bronze, 2 - silver, 3 - gold, 6 fields: grade1, topic1, grade2, topic2, grade3, topic3
+		if (latestAchievements[0].equals("none")) {
+			latestAchievements[0] = grade;
+			latestAchievements[1] = topic;
+		}
 		else {
-			latestAchievements[2] = latestAchievements[1];
-			latestAchievements[1] = latestAchievements[0];
-			latestAchievements[0] = gradeAndTopic;
+			latestAchievements[5] = latestAchievements[3];
+			latestAchievements[4] = latestAchievements[2];
+			latestAchievements[3] = latestAchievements[1];
+			latestAchievements[2] = latestAchievements[0];
+			latestAchievements[1] = topic;
+			latestAchievements[0] = grade;
 		}
 	}
 	
@@ -243,20 +332,20 @@ public class Account {
 	}
 	
 	//getters for achievements
-	public int getKindergardenCounting() {
-		return kindergardenCounting;
+	public int getkindergartenCounting() {
+		return kindergartenCounting;
 	}
 	
-	public int getKindergardenOperations() {
-		return kindergardenOperations;
+	public int getkindergartenOperations() {
+		return kindergartenOperations;
 	}
 	
-	public int getKindergardenNumbers() {
-		return kindergardenNumbers;
+	public int getkindergartenNumbers() {
+		return kindergartenNumbers;
 	}
 	
-	public int getKindergardenMeasurements() {
-		return kindergardenMeasurements;
+	public int getkindergartenMeasurements() {
+		return kindergartenMeasurements;
 	}
 	
 	public int getGrade1Operations() {
@@ -316,20 +405,20 @@ public class Account {
 	}
 	
 	//setters for achievements
-	public void setKindergardenCounting(int a) {
-		kindergardenCounting = a;
+	public void setkindergartenCounting(int a) {
+		kindergartenCounting = a;
 	}
 	
-	public void setKindergardenOperations(int a) {
-		kindergardenOperations = a;
+	public void setkindergartenOperations(int a) {
+		kindergartenOperations = a;
 	}
 	
-	public void setKindergardenNumbers(int a) {
-		kindergardenNumbers = a;
+	public void setkindergartenNumbers(int a) {
+		kindergartenNumbers = a;
 	}
 	
-	public void setKindergardenMeasurements(int a) {
-		kindergardenMeasurements = a;
+	public void setkindergartenMeasurements(int a) {
+		kindergartenMeasurements = a;
 	}
 	
 	public void setGrade1Operations(int a) {

@@ -111,12 +111,7 @@ public class ResultsScreen implements Screen {
 		Image Gold = new Image(new Texture(Gdx.files.internal("images/Gold.png")));
 		Image Silver = new Image(new Texture(Gdx.files.internal("images/Silver.png")));
 		Image Bronze = new Image(new Texture(Gdx.files.internal("images/Bronze.png")));
-		TextTooltip GoldPopup = new TextTooltip("Top achievement", skin);
-		GoldPopup.setInstant(true);
-		TextTooltip SilverPopup = new TextTooltip("Medium achievement", skin);
-		SilverPopup.setInstant(true);
-		TextTooltip BronzePopup = new TextTooltip("Lowest achievement", skin);
-		BronzePopup.setInstant(true);
+		Image NoMedal = new Image(new Texture(Gdx.files.internal("images/NoMedal.png")));
 		TextTooltip exitPopup = new TextTooltip("Back", skin);
 		exitPopup.setInstant(true);
         //layout
@@ -133,19 +128,21 @@ public class ResultsScreen implements Screen {
 		table.add();
 		if (parent.grade2Achievement < parent.answerCounter) parent.grade2Achievement = parent.answerCounter;
 		if (parent.answerCounter == 3) {
+			parent.currentUser.gainAchievement(parent.gradeSelection, parent.topicSelection, 1);
 			table.add(Bronze).colspan(2).uniformX();
 		}else if (parent.answerCounter == 4) {
+			parent.currentUser.gainAchievement(parent.gradeSelection, parent.topicSelection, 2);
 			table.add(Silver).colspan(2).uniformX();
 		}else if (parent.answerCounter == 5) {
+			parent.currentUser.gainAchievement(parent.gradeSelection, parent.topicSelection, 3);
 			table.add(Gold).colspan(2).uniformX();
+		}else {
+			table.add(NoMedal).colspan(2).uniformX();
 		}
 		table.row();
 		table.add();
 		table.add(ok).colspan(2).pad(5).width(Gdx.graphics.getWidth()/4);
 		//adding button functionality
-		Gold.addListener(GoldPopup);
-		Silver.addListener(SilverPopup);
-		Bronze.addListener(BronzePopup);
 		back.addListener(exitPopup);
 		back.addListener(new ChangeListener() {
 			@Override

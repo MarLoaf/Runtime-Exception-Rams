@@ -100,8 +100,7 @@ public class ProblemEntryScreen implements Screen {
 		Label userInfo = new Label("", skin);
 		userInfo.setText(userInfoMessage);
 		userInfo.setAlignment(Align.center);
-        Label description1 = new Label("You're about to begin a set of practice problems", skin, "noBackground");
-        Label description2 = new Label("click Begin to start the problems", skin, "noBackground");
+        Label descriptionLine2 = new Label("click Begin to start", skin, "noBackground");
 		ImageTextButton begin = new ImageTextButton("Begin", skin, "green");
 		Button back = new Button(skin, "Exit");
 		TextTooltip exitPopup = new TextTooltip("Back", skin);
@@ -115,10 +114,10 @@ public class ProblemEntryScreen implements Screen {
 		table.add(back).uniformX().pad(5).padBottom(270);
 		table.row();
 		table.add();
-		table.add(description1).colspan(2).fillX().uniformX().pad(5);
+		table.add(new Label("You're about to begin " + parent.gradeSelection + " " + parent.topicSelection + " " + parent.lessonSelection, skin, "noBackground")).colspan(2).fillX().uniformX().pad(5);
 		table.row();
 		table.add();
-		table.add(description2).colspan(2).fillX().uniformX().pad(5);
+		table.add(descriptionLine2).colspan(2).fillX().uniformX().pad(5);
 		table.row();
 		table.add();
 		table.add(begin).colspan(2).pad(5).width(Gdx.graphics.getWidth()/4);
