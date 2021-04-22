@@ -136,9 +136,9 @@ public class CreateAccountScreen implements Screen {
 		//layout:
 		table.top();
 		table.row();
-		table.add().fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
-		table.add(createAccountLabel).colspan(2).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
-		table.add(back).uniformX().pad(5).padBottom(100);
+		table.add().fillX().uniformX().pad(5).padBottom(148).width(Gdx.graphics.getWidth()/5);
+		table.add(createAccountLabel).colspan(2).fillX().uniformX().pad(5).padBottom(148).width(Gdx.graphics.getWidth()/5);
+		table.add(back).uniformX().pad(5).padBottom(148);
 		table.row();
 		table.add();
 		table.add(usernameLabel).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);

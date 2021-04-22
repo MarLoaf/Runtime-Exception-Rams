@@ -13,6 +13,7 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFont
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.Hinting;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -96,6 +97,7 @@ public class LoginScreen implements Screen {
 		table.setFillParent(true);
 		stage.addActor(table);
         //creating different buttons/textfields/labels
+		Image ramLogo = new Image(new Texture(Gdx.files.internal("images/Ram.png")));
         Label usernameLabel = new Label("Username:", skin);
         Label passwordLabel = new Label("Password:", skin);
 		TextField usernameText = new TextField("", skin);
@@ -112,12 +114,12 @@ public class LoginScreen implements Screen {
 		usernameText.setAlignment(Align.center);
 		passwordLabel.setAlignment(Align.center);
 		passwordText.setAlignment(Align.center);
+		Label iconAttribution = new Label("Picture icons made by Freepik from www.flaticon.com", skin, "noBackground");
 		//layout:
 		table.top();
 		table.row();
 		table.add().fillX().uniformX().pad(5).padBottom(213).width(Gdx.graphics.getWidth()/5);
-		table.add().fillX().uniformX().pad(5).padBottom(213).width(Gdx.graphics.getWidth()/5);
-		table.add().fillX().uniformX().pad(5).padBottom(213).width(Gdx.graphics.getWidth()/5);
+		table.add(ramLogo).colspan(2).uniformX().pad(5);
 		table.add().fillX().uniformX().pad(5).padBottom(213).width(Gdx.graphics.getWidth()/5);
 		table.row();
 		table.add();
@@ -137,6 +139,9 @@ public class LoginScreen implements Screen {
 		table.row();
 		table.add();
 		table.add(exit).uniformX().pad(5).colspan(2).width(Gdx.graphics.getWidth()/5);
+		table.row();
+		table.add();
+		table.add(iconAttribution).uniformX().pad(5).colspan(2);
 		//adding button functionality
 		usernameText.setTextFieldListener(new TextField.TextFieldListener() {
 			@Override
