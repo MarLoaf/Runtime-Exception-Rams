@@ -130,13 +130,16 @@ public class ResultsScreen implements Screen {
 		table.row();
 		table.add();
 		if (parent.answerCounter == 3) {
-			parent.currentUser.gainAchievement(parent.gradeSelection, parent.topicSelection, 1);
+			if (parent.lessonSelection.equals("Exam")) parent.currentUser.gainAchievement(parent.gradeSelection, parent.lessonSelection, 1);
+			else parent.currentUser.gainAchievement(parent.gradeSelection, parent.topicSelection, 1);
 			table.add(Bronze).colspan(2).uniformX();
 		}else if (parent.answerCounter == 4) {
-			parent.currentUser.gainAchievement(parent.gradeSelection, parent.topicSelection, 2);
+			if (parent.lessonSelection.equals("Exam")) parent.currentUser.gainAchievement(parent.gradeSelection, parent.lessonSelection, 2);
+			else parent.currentUser.gainAchievement(parent.gradeSelection, parent.topicSelection, 2);
 			table.add(Silver).colspan(2).uniformX();
 		}else if (parent.answerCounter == 5) {
-			parent.currentUser.gainAchievement(parent.gradeSelection, parent.topicSelection, 3);
+			if (parent.lessonSelection.equals("Exam")) parent.currentUser.gainAchievement(parent.gradeSelection, parent.lessonSelection, 3);
+			else parent.currentUser.gainAchievement(parent.gradeSelection, parent.topicSelection, 3);
 			table.add(Gold).colspan(2).uniformX();
 		}else {
 			table.add(NoMedal).colspan(2).uniformX();

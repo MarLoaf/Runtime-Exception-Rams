@@ -106,16 +106,6 @@ public class AchievementsScreen implements Screen {
 		Label userInfo = new Label("", skin);
 		userInfo.setText(userInfoMessage);
 		userInfo.setAlignment(Align.center);
-		Label List1 = new Label("Kindergarten", skin, "noBackground");
-		List1.setAlignment(Align.center);
-		Label List2 = new Label("1st Grade", skin, "noBackground");
-		List2.setAlignment(Align.center);
-		Label List3 = new Label("2nd Grade", skin, "noBackground");
-		List3.setAlignment(Align.center);
-		Label List4 = new Label("3th Grade", skin, "noBackground");
-		List4.setAlignment(Align.center);
-		Label List5 = new Label("4th Grade", skin, "noBackground");
-		List5.setAlignment(Align.center);
 		Button back = new Button(skin, "Exit");
 		TextTooltip exitPopup = new TextTooltip("Back", skin);
 		exitPopup.setInstant(true);
@@ -127,35 +117,37 @@ public class AchievementsScreen implements Screen {
 		topBarTable.add(userInfo).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		topBarTable.add(back).uniformX().pad(5);
 		table.row();
-		table.add(List1).fillX().uniformX().colspan(2).pad(5).width(Gdx.graphics.getWidth()/5);
-		table.add(List2).fillX().uniformX().colspan(2).pad(5).width(Gdx.graphics.getWidth()/5);
-		table.add(List3).fillX().uniformX().colspan(2).pad(5).width(Gdx.graphics.getWidth()/5);
-		table.add(List4).fillX().uniformX().colspan(2).pad(5).width(Gdx.graphics.getWidth()/5);
-		table.add(List5).fillX().uniformX().colspan(2).pad(5).width(Gdx.graphics.getWidth()/5);
+		generateAchievementVisual(table, skin, "Kindergarten", parent.currentUser.getkindergartenExam());
+		generateAchievementVisual(table, skin, "1st Grade", parent.currentUser.getGrade1Exam());
+		generateAchievementVisual(table, skin, "2nd Grade", parent.currentUser.getGrade2Exam());
+		generateAchievementVisual(table, skin, "3rd Grade", parent.currentUser.getGrade3Exam());
+		generateAchievementVisual(table, skin, "4th Grade", parent.currentUser.getGrade4Exam());
 		table.row();
-		generateAchievementVisual(table, skin, "", "Counting", parent.currentUser.getkindergartenCounting());
-		generateAchievementVisual(table, skin, "", "Operations", parent.currentUser.getGrade1Operations());
-		generateAchievementVisual(table, skin, "", "Operations", parent.currentUser.getGrade2Operations());
-		generateAchievementVisual(table, skin, "", "Operations", parent.currentUser.getGrade3Operations());
-		generateAchievementVisual(table, skin, "", "Operations", parent.currentUser.getGrade4Operations());
+		generateAchievementVisual(table, skin, "Counting", parent.currentUser.getkindergartenCounting());
+		generateAchievementVisual(table, skin, "Operations", parent.currentUser.getGrade1Operations());
+		generateAchievementVisual(table, skin, "Operations", parent.currentUser.getGrade2Operations());
+		generateAchievementVisual(table, skin, "Operations", parent.currentUser.getGrade3Operations());
+		generateAchievementVisual(table, skin, "Operations", parent.currentUser.getGrade4Operations());
 		table.row();
-		generateAchievementVisual(table, skin, "", "Operations", parent.currentUser.getkindergartenOperations());
-		generateAchievementVisual(table, skin, "", "Numbers", parent.currentUser.getGrade1Numbers());
-		generateAchievementVisual(table, skin, "", "Numbers", parent.currentUser.getGrade2Numbers());
-		generateAchievementVisual(table, skin, "", "Numbers", parent.currentUser.getGrade3Numbers());
-		generateAchievementVisual(table, skin, "", "Numbers", parent.currentUser.getGrade4Numbers());
+		generateAchievementVisual(table, skin, "Operations", parent.currentUser.getkindergartenOperations());
+		generateAchievementVisual(table, skin, "Numbers", parent.currentUser.getGrade1Numbers());
+		generateAchievementVisual(table, skin, "Numbers", parent.currentUser.getGrade2Numbers());
+		generateAchievementVisual(table, skin, "Numbers", parent.currentUser.getGrade3Numbers());
+		generateAchievementVisual(table, skin, "Numbers", parent.currentUser.getGrade4Numbers());
 		table.row();
-		generateAchievementVisual(table, skin, "", "Numbers", parent.currentUser.getkindergartenNumbers());
-		generateAchievementVisual(table, skin, "", "Measurements", parent.currentUser.getGrade1Measurements());
-		generateAchievementVisual(table, skin, "", "Measurements", parent.currentUser.getGrade2Measurements());
-		generateAchievementVisual(table, skin, "", "Fractions", parent.currentUser.getGrade3Fractions());
-		generateAchievementVisual(table, skin, "", "Fractions", parent.currentUser.getGrade4Fractions());
+		generateAchievementVisual(table, skin, "Numbers", parent.currentUser.getkindergartenNumbers());
+		generateAchievementVisual(table, skin, "Measurements", parent.currentUser.getGrade1Measurements());
+		generateAchievementVisual(table, skin, "Measurements", parent.currentUser.getGrade2Measurements());
+		generateAchievementVisual(table, skin, "Fractions", parent.currentUser.getGrade3Fractions());
+		generateAchievementVisual(table, skin, "Fractions", parent.currentUser.getGrade4Fractions());
 		table.row();
-		generateAchievementVisual(table, skin, "", "Measurements", parent.currentUser.getkindergartenMeasurements());
-		table.add().uniformX().pad(5).width(Gdx.graphics.getWidth()/10);
-		table.add().uniformX().pad(5).width(Gdx.graphics.getWidth()/10);
-		generateAchievementVisual(table, skin, "", "Measurements", parent.currentUser.getGrade3Measurements());
-		generateAchievementVisual(table, skin, "", "Measurements", parent.currentUser.getGrade4Measurements());
+		generateAchievementVisual(table, skin, "Measurements", parent.currentUser.getkindergartenMeasurements());
+		table.add().uniformX().pad(5);
+		table.add().uniformX().pad(5).width(Gdx.graphics.getWidth()/11);
+		table.add().uniformX().pad(5);
+		table.add().uniformX().pad(5).width(Gdx.graphics.getWidth()/11);
+		generateAchievementVisual(table, skin, "Measurements", parent.currentUser.getGrade3Measurements());
+		generateAchievementVisual(table, skin, "Measurements", parent.currentUser.getGrade4Measurements());
 		//adding button functionality
 		back.addListener(exitPopup);
 		back.addListener(new ChangeListener() {
@@ -206,7 +198,7 @@ public class AchievementsScreen implements Screen {
 		stage.dispose();
 	}
 	
-	private void generateAchievementVisual(Table table, Skin skin, String grade, String topic, int a) {
+	private void generateAchievementVisual(Table table, Skin skin, String name, int a) {
 		//adds an achievement picture + label to the table
 		switch(a) {
 		case 0:
@@ -222,8 +214,7 @@ public class AchievementsScreen implements Screen {
 			table.add(new Image(new Texture(Gdx.files.internal("images/Gold.png")))).uniformX().pad(5).align(Align.right);
 			break;
 		}
-		if (grade.equals("")) table.add(new Label(topic, skin, "noBackground")).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/10).align(Align.left);
-		else table.add(new Label(grade + " " + topic, skin, "noBackground")).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/10).align(Align.left);
+		table.add(new Label(name, skin, "noBackground")).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/11).align(Align.left);
 	}
 
 }
