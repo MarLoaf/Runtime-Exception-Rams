@@ -100,19 +100,16 @@ public class AchievementsScreen implements Screen {
 		//making tables
 		Table table = new Table();
 		table.setFillParent(true);
+		Table topBarTable = new Table();
+		topBarTable.setFillParent(true);
+		stage.addActor(topBarTable);
 		stage.addActor(table);
 		//creating different buttons/textfields/labels
+		Label achiemeventsLabel = new Label("My Achievements", skin);
+		achiemeventsLabel.setAlignment(Align.center);
 		Label userInfo = new Label("", skin);
 		userInfo.setText(userInfoMessage);
 		userInfo.setAlignment(Align.center);
-		Image Gold1 = new Image(new Texture(Gdx.files.internal("images/Gold.png")));
-		Image Silver1 = new Image(new Texture(Gdx.files.internal("images/Silver.png")));
-		Image Bronze1 = new Image(new Texture(Gdx.files.internal("images/Bronze.png")));
-		Image Gold2 = new Image(new Texture(Gdx.files.internal("images/Gold.png")));
-		Image Silver2 = new Image(new Texture(Gdx.files.internal("images/Silver.png")));
-		Image Bronze2 = new Image(new Texture(Gdx.files.internal("images/Bronze.png")));
-		Image Bronze3 = new Image(new Texture(Gdx.files.internal("images/Bronze.png")));
-		Image Bronze4 = new Image(new Texture(Gdx.files.internal("images/Bronze.png")));
 		Label List1 = new Label("Kindergarten", skin, "noBackground");
 		List1.setAlignment(Align.center);
 		Label List2 = new Label("1st Grade", skin, "noBackground");
@@ -123,68 +120,48 @@ public class AchievementsScreen implements Screen {
 		List4.setAlignment(Align.center);
 		Label List5 = new Label("4th Grade", skin, "noBackground");
 		List5.setAlignment(Align.center);
-		Label progress1 = new Label("Addition 100%", skin, "noBackground");
-		Label progress2 = new Label("Multiplication 80%", skin, "noBackground");
-		Label progress3 = new Label("Fractions 65%", skin, "noBackground");
-		Label progress4 = new Label("Division 65%", skin, "noBackground");
-		Label collected1 = new Label("Addition", skin, "noBackground");
-		Label collected2 = new Label("Multiplication", skin, "noBackground");
-		Label collected3 = new Label("Fractions", skin, "noBackground");
-		Label collected4 = new Label("Division", skin, "noBackground");
 		Button back = new Button(skin, "Exit");
 		TextTooltip exitPopup = new TextTooltip("Back", skin);
 		exitPopup.setInstant(true);
-		TextTooltip GoldPopup = new TextTooltip("Top achievement", skin);
-		GoldPopup.setInstant(true);
-		TextTooltip SilverPopup = new TextTooltip("Medium achievement", skin);
-		SilverPopup.setInstant(true);
-		TextTooltip BronzePopup = new TextTooltip("Lowest achievement", skin);
-		BronzePopup.setInstant(true);
 		// TODO add description for the achievements via pop-ups
 		//layout:
-		table.top();
+		topBarTable.top();
+		topBarTable.row();
+		topBarTable.add(achiemeventsLabel).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		topBarTable.add().fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		topBarTable.add(userInfo).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		topBarTable.add(back).uniformX().pad(5);
 		table.row();
-		table.add().fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
-		table.add().fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
-		table.add(userInfo).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
-		table.add(back).uniformX().pad(5).padBottom(100);
+		table.add(List1).fillX().uniformX().colspan(2).pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add(List2).fillX().uniformX().colspan(2).pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add(List3).fillX().uniformX().colspan(2).pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add(List4).fillX().uniformX().colspan(2).pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add(List5).fillX().uniformX().colspan(2).pad(5).width(Gdx.graphics.getWidth()/5);
 		table.row();
-		table.add(List1).colspan(2).pad(5).width(Gdx.graphics.getWidth()/6);
-		table.add(List2).colspan(2).pad(5).width(Gdx.graphics.getWidth()/6);
-		table.add(List3).colspan(2).pad(5).width(Gdx.graphics.getWidth()/6);
-		table.add(List4).colspan(2).pad(5).width(Gdx.graphics.getWidth()/6);
-		table.add(List5).colspan(2).pad(5).width(Gdx.graphics.getWidth()/10);
+		generateAchievementVisual(table, skin, "", "Counting", 3);
+		generateAchievementVisual(table, skin, "", "Operations", 3);
+		generateAchievementVisual(table, skin, "", "Operations", 3);
+		generateAchievementVisual(table, skin, "", "Operations", 3);
+		generateAchievementVisual(table, skin, "", "Operations", 3);
 		table.row();
-		generateAchievementVisual(table, skin, "Operations K", "Addition", 3);
-		generateAchievementVisual(table, skin, "Operations 1st", "Addition", 3);
-		generateAchievementVisual(table, skin, "Operations 2nd", "Addition", 3);
-		generateAchievementVisual(table, skin, "Operations 3rd", "Addition", 3);
-		generateAchievementVisual(table, skin, "Operations 4th", "Addition", 3);
+		generateAchievementVisual(table, skin, "", "Operations", 3);
+		generateAchievementVisual(table, skin, "", "Numbers", 2);
+		generateAchievementVisual(table, skin, "", "Numbers", 3);
+		generateAchievementVisual(table, skin, "", "Numbers", 2);
+		generateAchievementVisual(table, skin, "", "Numbers", 3);
 		table.row();
-		table.add(Silver1).uniformX().pad(5).align(Align.right);
-		table.add(collected2).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
-		table.add(Silver2).uniformX().pad(5).align(Align.right);
-		table.add(progress2).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
+		generateAchievementVisual(table, skin, "", "Numbers", 1);
+		generateAchievementVisual(table, skin, "", "Measurements", 1);
+		generateAchievementVisual(table, skin, "", "Measurements", 3);
+		generateAchievementVisual(table, skin, "", "Fractions", 2);
+		generateAchievementVisual(table, skin, "", "Fractions", 3);
 		table.row();
-		table.add(Bronze1).uniformX().pad(5).align(Align.right);
-		table.add(collected3).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
-		table.add(Bronze2).uniformX().pad(5).align(Align.right);
-		table.add(progress3).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
-		table.row();
-		generateAchievementVisual(table, skin, "AdditionFun 100%", "", 3);
-		generateAchievementVisual(table, skin, "Multiplication 80%", "", 2);
-		table.row();
-		generateAchievementVisual(table, skin, "Fractions 65%", "", 1);
-		generateAchievementVisual(table, skin, "Division 65%", "", 1);
+		generateAchievementVisual(table, skin, "", "Measurements", 1);
+		table.add().uniformX().pad(5).width(Gdx.graphics.getWidth()/10);
+		table.add().uniformX().pad(5).width(Gdx.graphics.getWidth()/10);
+		generateAchievementVisual(table, skin, "", "Measurements", 2);
+		generateAchievementVisual(table, skin, "", "Measurements", 3);
 		//adding button functionality
-		Gold1.addListener(GoldPopup);
-		Silver1.addListener(SilverPopup);
-		Bronze1.addListener(BronzePopup);
-		Gold2.addListener(GoldPopup);
-		Silver2.addListener(SilverPopup);
-		Bronze2.addListener(BronzePopup);
-		Bronze3.addListener(BronzePopup);
-		Bronze4.addListener(BronzePopup);
 		back.addListener(exitPopup);
 		back.addListener(new ChangeListener() {
 			@Override
@@ -238,20 +215,20 @@ public class AchievementsScreen implements Screen {
 		//adds an achievement picture + label to the table
 		switch(a) {
 		case 0:
-			table.add(new Image(new Texture(Gdx.files.internal("images/NoMedal.png")))).pad(5).align(Align.right);
+			table.add(new Image(new Texture(Gdx.files.internal("images/NoMedal.png")))).uniformX().pad(5).align(Align.right);
 			break;
 		case 1:
-			table.add(new Image(new Texture(Gdx.files.internal("images/Bronze.png")))).pad(5).align(Align.right);
+			table.add(new Image(new Texture(Gdx.files.internal("images/Bronze.png")))).uniformX().pad(5).align(Align.right);
 			break;
 		case 2:
-			table.add(new Image(new Texture(Gdx.files.internal("images/Silver.png")))).pad(5).align(Align.right);
+			table.add(new Image(new Texture(Gdx.files.internal("images/Silver.png")))).uniformX().pad(5).align(Align.right);
 			break;
 		case 3:
-			table.add(new Image(new Texture(Gdx.files.internal("images/Gold.png")))).pad(5).align(Align.right);
+			table.add(new Image(new Texture(Gdx.files.internal("images/Gold.png")))).uniformX().pad(5).align(Align.right);
 			break;
 		}
-		if (grade.equals("")) table.add(new Label(topic, skin, "noBackground")).pad(5).width(Gdx.graphics.getWidth()/10).align(Align.left);
-		else table.add(new Label(grade + " " + topic, skin, "noBackground")).pad(5).width(Gdx.graphics.getWidth()/10).align(Align.left);
+		if (grade.equals("")) table.add(new Label(topic, skin, "noBackground")).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/10).align(Align.left);
+		else table.add(new Label(grade + " " + topic, skin, "noBackground")).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/10).align(Align.left);
 	}
 
 }
