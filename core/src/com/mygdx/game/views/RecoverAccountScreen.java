@@ -101,9 +101,14 @@ public class RecoverAccountScreen implements Screen {
 		secretquestiontitle.setAlignment(Align.center);
 		Label secretquestion = new Label("What is your Mother's Maiden Name", skin);
 		secretquestion.setAlignment(Align.center);
+		Label username = new Label("Username:", skin);
+		username.setAlignment(Align.center);
 		TextField secretquestionText = new TextField("", skin);
 		secretquestionText.setMessageText("Enter secret answer...");
 		secretquestionText.setAlignment(Align.center);
+		TextField usernametext = new TextField("", skin);
+		usernametext.setMessageText("Enter secret answer...");
+		usernametext.setAlignment(Align.center);
 		ImageTextButton next = new ImageTextButton("Next", skin, "pink");
 		Button back = new Button(skin, "Exit");
 		TextTooltip exitPopup = new TextTooltip("Back", skin);
@@ -111,9 +116,16 @@ public class RecoverAccountScreen implements Screen {
 		//layout:
 		table.top();
 		table.row();
-		table.add().fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
-		table.add(secretquestiontitle).colspan(2).fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
-		table.add(back).uniformX().pad(5).padBottom(270);
+		
+		table.add().fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
+		table.add(secretquestiontitle).colspan(2).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
+		table.add(back).uniformX().pad(5).padBottom(100);
+		
+		
+		table.row();
+		table.add();
+		table.add(username).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add(usernametext).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		table.row();
 		table.add();
 		table.add(secretquestion).colspan(2).fillX().uniformX().pad(5);
@@ -121,6 +133,16 @@ public class RecoverAccountScreen implements Screen {
 		table.add();
 		table.add(secretquestionText).fillX().uniformX().pad(5);
 		table.add(next).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add();
+		table.add().fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add().fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.row();
+		table.add();
+		table.add().fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add().fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.row();
+		table.add();
+	
 		//adding button functionality
 		back.addListener(exitPopup);
 		back.addListener(new ChangeListener() {
