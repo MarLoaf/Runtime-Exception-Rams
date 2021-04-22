@@ -195,6 +195,206 @@ public class Account {
 		return -1;
 	}
 	
+	public String[] getGreatestAchievements() {
+		String[] ga = new String[] {"none","none","none","none","none","none"};
+		int[] allAchievements = {kindergartenCounting, kindergartenOperations, kindergartenNumbers, kindergartenMeasurements, grade1Operations, grade1Numbers, grade1Measurements, grade2Operations, grade2Numbers, grade2Measurements, grade3Operations, grade3Numbers, grade3Fractions, grade3Measurements, grade4Operations, grade4Numbers, grade4Fractions, grade4Measurements};
+		for (int i = allAchievements.length-1; i>-1; i--) {
+			if (allAchievements[i]==3) {
+				switch(i) {
+				case 0:
+					ga = addToGreatestAchievements("Kindergarten", "Counting", ga);
+					break;
+				case 1:
+					ga = addToGreatestAchievements("Kindergarten", "Operations", ga);
+					break;
+				case 2:
+					ga = addToGreatestAchievements("Kindergarten", "Numbers", ga);
+					break;
+				case 3:
+					ga = addToGreatestAchievements("Kindergarten", "Measurements", ga);
+					break;
+				case 4:
+					ga = addToGreatestAchievements("1st Grade", "Operations", ga);
+					break;
+				case 5:
+					ga = addToGreatestAchievements("1st Grade", "Numbers", ga);
+					break;
+				case 6:
+					ga = addToGreatestAchievements("1st Grade", "Measurements", ga);
+					break;
+				case 7:
+					ga = addToGreatestAchievements("2nd Grade", "Operations", ga);
+					break;
+				case 8:
+					ga = addToGreatestAchievements("2nd Grade", "Numbers", ga);
+					break;
+				case 9:
+					ga = addToGreatestAchievements("2nd Grade", "Measurements", ga);
+					break;
+				case 10:
+					ga = addToGreatestAchievements("3rd Grade", "Operations", ga);
+					break;
+				case 11:
+					ga = addToGreatestAchievements("3rd Grade", "Numbers", ga);
+					break;
+				case 12:
+					ga = addToGreatestAchievements("3rd Grade", "Fractions", ga);
+					break;
+				case 13:
+					ga = addToGreatestAchievements("3rd Grade", "Measurements", ga);
+					break;
+				case 14:
+					ga = addToGreatestAchievements("4th Grade", "Operations", ga);
+					break;
+				case 15:
+					ga = addToGreatestAchievements("4th Grade", "Numbers", ga);
+					break;
+				case 16:
+					ga = addToGreatestAchievements("4th Grade", "Fractions", ga);
+					break;
+				case 17:
+					ga = addToGreatestAchievements("4th Grade", "Measurements", ga);
+					break;
+				}
+			}
+		}
+		for (int i = allAchievements.length-1; i>-1; i--) {
+			if (allAchievements[i]==2) {
+				switch(i) {
+				case 0:
+					ga = addToGreatestAchievements("Kindergarten", "Counting", ga);
+					break;
+				case 1:
+					ga = addToGreatestAchievements("Kindergarten", "Operations", ga);
+					break;
+				case 2:
+					ga = addToGreatestAchievements("Kindergarten", "Numbers", ga);
+					break;
+				case 3:
+					ga = addToGreatestAchievements("Kindergarten", "Measurements", ga);
+					break;
+				case 4:
+					ga = addToGreatestAchievements("1st Grade", "Operations", ga);
+					break;
+				case 5:
+					ga = addToGreatestAchievements("1st Grade", "Numbers", ga);
+					break;
+				case 6:
+					ga = addToGreatestAchievements("1st Grade", "Measurements", ga);
+					break;
+				case 7:
+					ga = addToGreatestAchievements("2nd Grade", "Operations", ga);
+					break;
+				case 8:
+					ga = addToGreatestAchievements("2nd Grade", "Numbers", ga);
+					break;
+				case 9:
+					ga = addToGreatestAchievements("2nd Grade", "Measurements", ga);
+					break;
+				case 10:
+					ga = addToGreatestAchievements("3rd Grade", "Operations", ga);
+					break;
+				case 11:
+					ga = addToGreatestAchievements("3rd Grade", "Numbers", ga);
+					break;
+				case 12:
+					ga = addToGreatestAchievements("3rd Grade", "Fractions", ga);
+					break;
+				case 13:
+					ga = addToGreatestAchievements("3rd Grade", "Measurements", ga);
+					break;
+				case 14:
+					ga = addToGreatestAchievements("4th Grade", "Operations", ga);
+					break;
+				case 15:
+					ga = addToGreatestAchievements("4th Grade", "Numbers", ga);
+					break;
+				case 16:
+					ga = addToGreatestAchievements("4th Grade", "Fractions", ga);
+					break;
+				case 17:
+					ga = addToGreatestAchievements("4th Grade", "Measurements", ga);
+					break;
+				}
+			}
+		}
+		for (int i = allAchievements.length-1; i>-1; i--) {
+			if (allAchievements[i]==1) {
+				switch(i) {
+				case 0:
+					ga = addToGreatestAchievements("Kindergarten", "Counting", ga);
+					break;
+				case 1:
+					ga = addToGreatestAchievements("Kindergarten", "Operations", ga);
+					break;
+				case 2:
+					ga = addToGreatestAchievements("Kindergarten", "Numbers", ga);
+					break;
+				case 3:
+					ga = addToGreatestAchievements("Kindergarten", "Measurements", ga);
+					break;
+				case 4:
+					ga = addToGreatestAchievements("1st Grade", "Operations", ga);
+					break;
+				case 5:
+					ga = addToGreatestAchievements("1st Grade", "Numbers", ga);
+					break;
+				case 6:
+					ga = addToGreatestAchievements("1st Grade", "Measurements", ga);
+					break;
+				case 7:
+					ga = addToGreatestAchievements("2nd Grade", "Operations", ga);
+					break;
+				case 8:
+					ga = addToGreatestAchievements("2nd Grade", "Numbers", ga);
+					break;
+				case 9:
+					ga = addToGreatestAchievements("2nd Grade", "Measurements", ga);
+					break;
+				case 10:
+					ga = addToGreatestAchievements("3rd Grade", "Operations", ga);
+					break;
+				case 11:
+					ga = addToGreatestAchievements("3rd Grade", "Numbers", ga);
+					break;
+				case 12:
+					ga = addToGreatestAchievements("3rd Grade", "Fractions", ga);
+					break;
+				case 13:
+					ga = addToGreatestAchievements("3rd Grade", "Measurements", ga);
+					break;
+				case 14:
+					ga = addToGreatestAchievements("4th Grade", "Operations", ga);
+					break;
+				case 15:
+					ga = addToGreatestAchievements("4th Grade", "Numbers", ga);
+					break;
+				case 16:
+					ga = addToGreatestAchievements("4th Grade", "Fractions", ga);
+					break;
+				case 17:
+					ga = addToGreatestAchievements("4th Grade", "Measurements", ga);
+					break;
+				}
+			}
+		}
+		return ga;
+	}
+	
+	private String[] addToGreatestAchievements(String grade, String topic, String[] ga) {
+		if (ga[0].equals("none")) {
+			ga[0]=grade;
+			ga[1]=topic;
+		} else if (ga[2].equals("none")) {
+			ga[2]=grade;
+			ga[3]=topic;
+		} else if (ga[4].equals("none")) {
+			ga[4]=grade;
+			ga[5]=topic;
+		}
+		return ga;
+	}
+	
 	public void gainAchievement(String grade, String topic, int a) {
 		switch(grade) {
 		case "Kindergarten":

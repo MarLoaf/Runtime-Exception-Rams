@@ -43,7 +43,7 @@ public class LoginScreen implements Screen {
 		stage = new Stage(new ScreenViewport());
 		stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1/30f));
 		stage.draw();
-		parent.currentUser = new Account("","","question","answer","Test User"); // TODO this is only for testing, remove when testing is done
+		parent.currentUser = null;
 	}
 
 	@Override
@@ -163,7 +163,6 @@ public class LoginScreen implements Screen {
 				if (parent.loginAccount(username, password)) {
 					parent.changeScreen(Tutor.HOME);
 				}
-				parent.changeScreen(Tutor.HOME); // TODO remove to get username and password check
 			}
 		});
 		forgotPassword.addListener(new ChangeListener() {

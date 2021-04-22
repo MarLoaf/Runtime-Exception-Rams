@@ -140,23 +140,38 @@ public class HomeScreen implements Screen {
 		table.add(latestAchievements).colspan(2).width(Gdx.graphics.getWidth()/5).align(Align.center);
 		table.add(greatestAchievements).colspan(2).width(Gdx.graphics.getWidth()/5).align(Align.center);
 		table.row();
-		generateAchievementVisual(table, skin, "Kindergarten", "Operations", 1);
-		generateAchievementVisual(table, skin, "1st Grade", "Numbers", 3);
-		table.row();
-		if (parent.grade2Achievement == 3) {
-			generateAchievementVisual(table, skin, "2nd Grade", "", 1);
-		} else if (parent.grade2Achievement == 4) {
-			generateAchievementVisual(table, skin, "2nd Grade", "", 2);
-		} else if (parent.grade2Achievement == 5) {
-			generateAchievementVisual(table, skin, "2nd Grade", "", 3);
-		}else {
-			generateAchievementVisual(table, skin, "2nd Grade", "", 0);
+		if(!parent.currentUser.getLatestAchievements()[0].equals("none")) generateAchievementVisual(table, skin, parent.currentUser.getLatestAchievements()[0], parent.currentUser.getLatestAchievements()[1], parent.currentUser.getAchievement(parent.currentUser.getLatestAchievements()[0], parent.currentUser.getLatestAchievements()[1]));
+		else {
+			table.add();
+			table.add();
 		}
-		generateAchievementVisual(table, skin, "1st Grade", "Subtraction", 2);
+		if(!parent.currentUser.getGreatestAchievements()[0].equals("none")) generateAchievementVisual(table, skin, parent.currentUser.getGreatestAchievements()[0], parent.currentUser.getGreatestAchievements()[1], parent.currentUser.getAchievement(parent.currentUser.getGreatestAchievements()[0], parent.currentUser.getGreatestAchievements()[1]));
+		else {
+			table.add();
+			table.add();
+		}
 		table.row();
-		table.add();
-		table.add();
-		generateAchievementVisual(table, skin, "3rd Grade", "Division", 1);
+		if(!parent.currentUser.getLatestAchievements()[2].equals("none")) generateAchievementVisual(table, skin, parent.currentUser.getLatestAchievements()[2], parent.currentUser.getLatestAchievements()[3], parent.currentUser.getAchievement(parent.currentUser.getLatestAchievements()[2], parent.currentUser.getLatestAchievements()[3]));
+		else {
+			table.add();
+			table.add();
+		}
+		if(!parent.currentUser.getGreatestAchievements()[2].equals("none")) generateAchievementVisual(table, skin, parent.currentUser.getGreatestAchievements()[2], parent.currentUser.getGreatestAchievements()[3], parent.currentUser.getAchievement(parent.currentUser.getGreatestAchievements()[2], parent.currentUser.getGreatestAchievements()[3]));
+		else {
+			table.add();
+			table.add();
+		}
+		table.row();
+		if(!parent.currentUser.getLatestAchievements()[4].equals("none")) generateAchievementVisual(table, skin, parent.currentUser.getLatestAchievements()[4], parent.currentUser.getLatestAchievements()[5], parent.currentUser.getAchievement(parent.currentUser.getLatestAchievements()[4], parent.currentUser.getLatestAchievements()[5]));
+		else {
+			table.add();
+			table.add();
+		}
+		if(!parent.currentUser.getGreatestAchievements()[4].equals("none")) generateAchievementVisual(table, skin, parent.currentUser.getGreatestAchievements()[4], parent.currentUser.getGreatestAchievements()[5], parent.currentUser.getAchievement(parent.currentUser.getGreatestAchievements()[4], parent.currentUser.getGreatestAchievements()[5]));
+		else {
+			table.add();
+			table.add();
+		}
 		//adding button functionality
 		if(parent.problemNumber==0) begin.addListener(beginPopup);
 		else begin.addListener(continuePopup);
@@ -197,6 +212,7 @@ public class HomeScreen implements Screen {
 		logout.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
+				parent.currentUser = null;
 				parent.changeScreen(Tutor.LOGIN);
 			}
 		});
