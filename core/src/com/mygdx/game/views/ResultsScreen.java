@@ -129,7 +129,6 @@ public class ResultsScreen implements Screen {
 		table.add(resultText).colspan(2).pad(5).fillX().uniformX();
 		table.row();
 		table.add();
-		if (parent.grade2Achievement < parent.answerCounter) parent.grade2Achievement = parent.answerCounter;
 		if (parent.answerCounter == 3) {
 			parent.currentUser.gainAchievement(parent.gradeSelection, parent.topicSelection, 1);
 			table.add(Bronze).colspan(2).uniformX();
