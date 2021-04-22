@@ -207,6 +207,12 @@ public class HomeScreen implements Screen {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
 				parent.lessonSelection = lessonSelectBox.getSelected();
+				if(parent.lessonSelection.equals("Exam")) {
+					topicSelectBox.setDisabled(true);
+				}
+				else {
+					topicSelectBox.setDisabled(false);
+				}
 			}
 		});
 		logout.addListener(new ChangeListener() {

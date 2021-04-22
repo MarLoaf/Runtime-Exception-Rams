@@ -13,28 +13,33 @@ public class Account {
 	private int kindergartenOperations;
 	private int kindergartenNumbers;
 	private int kindergartenMeasurements;
+	private int kindergartenExam;
 
 	private int grade1Operations;
 	private int grade1Numbers;
 	private int grade1Measurements;
+	private int grade1Exam;
 
 	private int grade2Operations;
 	private int grade2Numbers;
 	private int grade2Measurements;
+	private int grade2Exam;
 
 	private int grade3Operations;
 	private int grade3Numbers;
 	private int grade3Fractions;
 	private int grade3Measurements;
+	private int grade3Exam;
 
 	private int grade4Operations;
 	private int grade4Numbers;
 	private int grade4Fractions;
 	private int grade4Measurements;
+	private int grade4Exam;
 	
 	private String[] latestAchievements; // none - nothing, 1 - bronze, 2 - silver, 3 - gold, 6 fields: grade1, topic1, grade2, topic2, grade3, topic3
 	
-	public Account(String u, String p, String sq, String sa, String fn, int kc, int ko, int kn, int km, int o1, int n1, int m1, int o2, int n2, int m2, int o3, int n3, int f3, int m3, int o4, int n4, int f4, int m4, String[] la) {
+	public Account(String u, String p, String sq, String sa, String fn, int kc, int ko, int kn, int km, int ke, int o1, int n1, int m1, int e1, int o2, int n2, int m2, int e2, int o3, int n3, int f3, int m3, int e3, int o4, int n4, int f4, int m4, int e4, String[] la) {
 		username = u;
 		password = p;
 		secretQuestion = sq;
@@ -45,24 +50,29 @@ public class Account {
 		kindergartenOperations = ko;
 		kindergartenNumbers = kn;
 		kindergartenMeasurements = km;
+		kindergartenExam = ke;
 
 		grade1Operations = o1;
 		grade1Numbers = n1;
 		grade1Measurements = m1;
+		grade1Exam = e1;
 
 		grade2Operations = o2;
 		grade2Numbers = n2;
 		grade2Measurements = m2;
+		grade2Exam = e2;
 
 		grade3Operations = o3;
 		grade3Numbers = n3;
 		grade3Fractions = f3;
 		grade3Measurements = m3;
+		grade3Exam = e3;
 
 		grade4Operations = o4;
 		grade4Numbers = n4;
 		grade4Fractions = f4;
 		grade4Measurements = m4;
+		grade4Exam = e4;
 		
 		latestAchievements = la;
 	}
@@ -78,24 +88,29 @@ public class Account {
 		kindergartenOperations = 0;
 		kindergartenNumbers = 0;
 		kindergartenMeasurements = 0;
+		kindergartenExam = 0;
 
 		grade1Operations = 0;
 		grade1Numbers = 0;
 		grade1Measurements = 0;
+		grade1Exam = 0;
 
 		grade2Operations = 0;
 		grade2Numbers = 0;
 		grade2Measurements = 0;
+		grade2Exam = 0;
 
 		grade3Operations = 0;
 		grade3Numbers = 0;
 		grade3Fractions = 0;
 		grade3Measurements = 0;
+		grade3Exam = 0;
 
 		grade4Operations = 0;
 		grade4Numbers = 0;
 		grade4Fractions = 0;
 		grade4Measurements = 0;
+		grade4Exam = 0;
 		
 		latestAchievements = new String[] {"none","none","none","none","none","none"};
 	}
@@ -111,24 +126,29 @@ public class Account {
 		kindergartenOperations = 0;
 		kindergartenNumbers = 0;
 		kindergartenMeasurements = 0;
+		kindergartenExam = 0;
 
 		grade1Operations = 0;
 		grade1Numbers = 0;
 		grade1Measurements = 0;
+		grade1Exam = 0;
 
 		grade2Operations = 0;
 		grade2Numbers = 0;
 		grade2Measurements = 0;
+		grade2Exam = 0;
 
 		grade3Operations = 0;
 		grade3Numbers = 0;
 		grade3Fractions = 0;
 		grade3Measurements = 0;
+		grade3Exam = 0;
 
 		grade4Operations = 0;
 		grade4Numbers = 0;
 		grade4Fractions = 0;
 		grade4Measurements = 0;
+		grade4Exam = 0;
 		
 		latestAchievements = new String[] {"none","none","none","none","none","none"};
 	}
@@ -145,6 +165,8 @@ public class Account {
 				return kindergartenNumbers;
 			case "Measurements":
 				return kindergartenMeasurements;
+			case "Exam":
+				return kindergartenExam;
 			}
 			break;
 		case "1st Grade":
@@ -155,6 +177,8 @@ public class Account {
 				return grade1Numbers;
 			case "Measurements":
 				return grade1Measurements;
+			case "Exam":
+				return grade1Exam;
 			}
 			break;
 		case "2nd Grade":
@@ -165,6 +189,8 @@ public class Account {
 				return grade2Numbers;
 			case "Measurements":
 				return grade2Measurements;
+			case "Exam":
+				return grade2Exam;
 			}
 			break;
 		case "3rd Grade":
@@ -177,6 +203,8 @@ public class Account {
 				return grade3Fractions;
 			case "Measurements":
 				return grade3Measurements;
+			case "Exam":
+				return grade3Exam;
 			}
 			break;
 		case "4th Grade":
@@ -189,6 +217,8 @@ public class Account {
 				return grade4Fractions;
 			case "Measurements":
 				return grade4Measurements;
+			case "Exam":
+				return grade4Exam;
 			}
 			break;
 		}
@@ -197,7 +227,7 @@ public class Account {
 	
 	public String[] getGreatestAchievements() {
 		String[] ga = new String[] {"none","none","none","none","none","none"};
-		int[] allAchievements = {kindergartenCounting, kindergartenOperations, kindergartenNumbers, kindergartenMeasurements, grade1Operations, grade1Numbers, grade1Measurements, grade2Operations, grade2Numbers, grade2Measurements, grade3Operations, grade3Numbers, grade3Fractions, grade3Measurements, grade4Operations, grade4Numbers, grade4Fractions, grade4Measurements};
+		int[] allAchievements = {kindergartenCounting, kindergartenOperations, kindergartenNumbers, kindergartenMeasurements, kindergartenExam, grade1Operations, grade1Numbers, grade1Measurements, grade1Exam, grade2Operations, grade2Numbers, grade2Measurements, grade2Exam, grade3Operations, grade3Numbers, grade3Fractions, grade3Measurements, grade3Exam, grade4Operations, grade4Numbers, grade4Fractions, grade4Measurements, grade4Exam};
 		for (int i = allAchievements.length-1; i>-1; i--) {
 			if (allAchievements[i]==3) {
 				switch(i) {
@@ -214,46 +244,61 @@ public class Account {
 					ga = addToGreatestAchievements("Kindergarten", "Measurements", ga);
 					break;
 				case 4:
-					ga = addToGreatestAchievements("1st Grade", "Operations", ga);
+					ga = addToGreatestAchievements("Kindergarten", "Exam", ga);
 					break;
 				case 5:
-					ga = addToGreatestAchievements("1st Grade", "Numbers", ga);
+					ga = addToGreatestAchievements("1st Grade", "Operations", ga);
 					break;
 				case 6:
-					ga = addToGreatestAchievements("1st Grade", "Measurements", ga);
+					ga = addToGreatestAchievements("1st Grade", "Numbers", ga);
 					break;
 				case 7:
-					ga = addToGreatestAchievements("2nd Grade", "Operations", ga);
+					ga = addToGreatestAchievements("1st Grade", "Measurements", ga);
 					break;
 				case 8:
-					ga = addToGreatestAchievements("2nd Grade", "Numbers", ga);
+					ga = addToGreatestAchievements("1st Grade", "Exam", ga);
 					break;
 				case 9:
-					ga = addToGreatestAchievements("2nd Grade", "Measurements", ga);
+					ga = addToGreatestAchievements("2nd Grade", "Operations", ga);
 					break;
 				case 10:
-					ga = addToGreatestAchievements("3rd Grade", "Operations", ga);
+					ga = addToGreatestAchievements("2nd Grade", "Numbers", ga);
 					break;
 				case 11:
-					ga = addToGreatestAchievements("3rd Grade", "Numbers", ga);
+					ga = addToGreatestAchievements("2nd Grade", "Measurements", ga);
 					break;
 				case 12:
-					ga = addToGreatestAchievements("3rd Grade", "Fractions", ga);
+					ga = addToGreatestAchievements("2nd Grade", "Exam", ga);
 					break;
 				case 13:
-					ga = addToGreatestAchievements("3rd Grade", "Measurements", ga);
+					ga = addToGreatestAchievements("3rd Grade", "Operations", ga);
 					break;
 				case 14:
-					ga = addToGreatestAchievements("4th Grade", "Operations", ga);
+					ga = addToGreatestAchievements("3rd Grade", "Numbers", ga);
 					break;
 				case 15:
-					ga = addToGreatestAchievements("4th Grade", "Numbers", ga);
+					ga = addToGreatestAchievements("3rd Grade", "Fractions", ga);
 					break;
 				case 16:
-					ga = addToGreatestAchievements("4th Grade", "Fractions", ga);
+					ga = addToGreatestAchievements("3rd Grade", "Measurements", ga);
 					break;
 				case 17:
+					ga = addToGreatestAchievements("3rd Grade", "Exam", ga);
+					break;
+				case 18:
+					ga = addToGreatestAchievements("4th Grade", "Operations", ga);
+					break;
+				case 19:
+					ga = addToGreatestAchievements("4th Grade", "Numbers", ga);
+					break;
+				case 20:
+					ga = addToGreatestAchievements("4th Grade", "Fractions", ga);
+					break;
+				case 21:
 					ga = addToGreatestAchievements("4th Grade", "Measurements", ga);
+					break;
+				case 22:
+					ga = addToGreatestAchievements("4th Grade", "Exam", ga);
 					break;
 				}
 			}
@@ -274,46 +319,61 @@ public class Account {
 					ga = addToGreatestAchievements("Kindergarten", "Measurements", ga);
 					break;
 				case 4:
-					ga = addToGreatestAchievements("1st Grade", "Operations", ga);
+					ga = addToGreatestAchievements("Kindergarten", "Exam", ga);
 					break;
 				case 5:
-					ga = addToGreatestAchievements("1st Grade", "Numbers", ga);
+					ga = addToGreatestAchievements("1st Grade", "Operations", ga);
 					break;
 				case 6:
-					ga = addToGreatestAchievements("1st Grade", "Measurements", ga);
+					ga = addToGreatestAchievements("1st Grade", "Numbers", ga);
 					break;
 				case 7:
-					ga = addToGreatestAchievements("2nd Grade", "Operations", ga);
+					ga = addToGreatestAchievements("1st Grade", "Measurements", ga);
 					break;
 				case 8:
-					ga = addToGreatestAchievements("2nd Grade", "Numbers", ga);
+					ga = addToGreatestAchievements("1st Grade", "Exam", ga);
 					break;
 				case 9:
-					ga = addToGreatestAchievements("2nd Grade", "Measurements", ga);
+					ga = addToGreatestAchievements("2nd Grade", "Operations", ga);
 					break;
 				case 10:
-					ga = addToGreatestAchievements("3rd Grade", "Operations", ga);
+					ga = addToGreatestAchievements("2nd Grade", "Numbers", ga);
 					break;
 				case 11:
-					ga = addToGreatestAchievements("3rd Grade", "Numbers", ga);
+					ga = addToGreatestAchievements("2nd Grade", "Measurements", ga);
 					break;
 				case 12:
-					ga = addToGreatestAchievements("3rd Grade", "Fractions", ga);
+					ga = addToGreatestAchievements("2nd Grade", "Exam", ga);
 					break;
 				case 13:
-					ga = addToGreatestAchievements("3rd Grade", "Measurements", ga);
+					ga = addToGreatestAchievements("3rd Grade", "Operations", ga);
 					break;
 				case 14:
-					ga = addToGreatestAchievements("4th Grade", "Operations", ga);
+					ga = addToGreatestAchievements("3rd Grade", "Numbers", ga);
 					break;
 				case 15:
-					ga = addToGreatestAchievements("4th Grade", "Numbers", ga);
+					ga = addToGreatestAchievements("3rd Grade", "Fractions", ga);
 					break;
 				case 16:
-					ga = addToGreatestAchievements("4th Grade", "Fractions", ga);
+					ga = addToGreatestAchievements("3rd Grade", "Measurements", ga);
 					break;
 				case 17:
+					ga = addToGreatestAchievements("3rd Grade", "Exam", ga);
+					break;
+				case 18:
+					ga = addToGreatestAchievements("4th Grade", "Operations", ga);
+					break;
+				case 19:
+					ga = addToGreatestAchievements("4th Grade", "Numbers", ga);
+					break;
+				case 20:
+					ga = addToGreatestAchievements("4th Grade", "Fractions", ga);
+					break;
+				case 21:
 					ga = addToGreatestAchievements("4th Grade", "Measurements", ga);
+					break;
+				case 22:
+					ga = addToGreatestAchievements("4th Grade", "Exam", ga);
 					break;
 				}
 			}
@@ -334,46 +394,61 @@ public class Account {
 					ga = addToGreatestAchievements("Kindergarten", "Measurements", ga);
 					break;
 				case 4:
-					ga = addToGreatestAchievements("1st Grade", "Operations", ga);
+					ga = addToGreatestAchievements("Kindergarten", "Exam", ga);
 					break;
 				case 5:
-					ga = addToGreatestAchievements("1st Grade", "Numbers", ga);
+					ga = addToGreatestAchievements("1st Grade", "Operations", ga);
 					break;
 				case 6:
-					ga = addToGreatestAchievements("1st Grade", "Measurements", ga);
+					ga = addToGreatestAchievements("1st Grade", "Numbers", ga);
 					break;
 				case 7:
-					ga = addToGreatestAchievements("2nd Grade", "Operations", ga);
+					ga = addToGreatestAchievements("1st Grade", "Measurements", ga);
 					break;
 				case 8:
-					ga = addToGreatestAchievements("2nd Grade", "Numbers", ga);
+					ga = addToGreatestAchievements("1st Grade", "Exam", ga);
 					break;
 				case 9:
-					ga = addToGreatestAchievements("2nd Grade", "Measurements", ga);
+					ga = addToGreatestAchievements("2nd Grade", "Operations", ga);
 					break;
 				case 10:
-					ga = addToGreatestAchievements("3rd Grade", "Operations", ga);
+					ga = addToGreatestAchievements("2nd Grade", "Numbers", ga);
 					break;
 				case 11:
-					ga = addToGreatestAchievements("3rd Grade", "Numbers", ga);
+					ga = addToGreatestAchievements("2nd Grade", "Measurements", ga);
 					break;
 				case 12:
-					ga = addToGreatestAchievements("3rd Grade", "Fractions", ga);
+					ga = addToGreatestAchievements("2nd Grade", "Exam", ga);
 					break;
 				case 13:
-					ga = addToGreatestAchievements("3rd Grade", "Measurements", ga);
+					ga = addToGreatestAchievements("3rd Grade", "Operations", ga);
 					break;
 				case 14:
-					ga = addToGreatestAchievements("4th Grade", "Operations", ga);
+					ga = addToGreatestAchievements("3rd Grade", "Numbers", ga);
 					break;
 				case 15:
-					ga = addToGreatestAchievements("4th Grade", "Numbers", ga);
+					ga = addToGreatestAchievements("3rd Grade", "Fractions", ga);
 					break;
 				case 16:
-					ga = addToGreatestAchievements("4th Grade", "Fractions", ga);
+					ga = addToGreatestAchievements("3rd Grade", "Measurements", ga);
 					break;
 				case 17:
+					ga = addToGreatestAchievements("3rd Grade", "Exam", ga);
+					break;
+				case 18:
+					ga = addToGreatestAchievements("4th Grade", "Operations", ga);
+					break;
+				case 19:
+					ga = addToGreatestAchievements("4th Grade", "Numbers", ga);
+					break;
+				case 20:
+					ga = addToGreatestAchievements("4th Grade", "Fractions", ga);
+					break;
+				case 21:
 					ga = addToGreatestAchievements("4th Grade", "Measurements", ga);
+					break;
+				case 22:
+					ga = addToGreatestAchievements("4th Grade", "Exam", ga);
 					break;
 				}
 			}
@@ -411,6 +486,9 @@ public class Account {
 			case "Measurements":
 				if (kindergartenMeasurements < a) kindergartenMeasurements = a;
 				break;
+			case "Exam":
+				if (kindergartenExam < a) kindergartenExam = a;
+				break;
 			}
 			break;
 		case "1st Grade":
@@ -424,6 +502,9 @@ public class Account {
 			case "Measurements":
 				if (grade1Measurements < a) grade1Measurements = a;
 				break;
+			case "Exam":
+				if (grade1Exam < a) grade1Exam = a;
+				break;
 			}
 			break;
 		case "2nd Grade":
@@ -436,6 +517,9 @@ public class Account {
 				break;
 			case "Measurements":
 				if (grade2Measurements < a) grade2Measurements = a;
+				break;
+			case "Exam":
+				if (grade2Exam < a) grade2Exam = a;
 				break;
 			}
 			break;
@@ -453,6 +537,9 @@ public class Account {
 			case "Measurements":
 				if (grade3Measurements < a) grade3Measurements = a;
 				break;
+			case "Exam":
+				if (grade3Exam < a) grade3Exam = a;
+				break;
 			}
 			break;
 		case "4th Grade":
@@ -468,6 +555,9 @@ public class Account {
 				break;
 			case "Measurements":
 				if (grade4Measurements < a) grade4Measurements = a;
+				break;
+			case "Exam":
+				if (grade4Exam < a) grade4Exam = a;
 				break;
 			}
 			break;
@@ -549,6 +639,10 @@ public class Account {
 		return kindergartenMeasurements;
 	}
 	
+	public int getkindergartenExam() {
+		return kindergartenExam;
+	}
+	
 	public int getGrade1Operations() {
 		return grade1Operations;
 	}
@@ -561,6 +655,10 @@ public class Account {
 		return grade1Measurements;
 	}
 	
+	public int getGrade1Exam() {
+		return grade1Exam;
+	}
+	
 	public int getGrade2Operations() {
 		return grade2Operations;
 	}
@@ -571,6 +669,10 @@ public class Account {
 	
 	public int getGrade2Measurements() {
 		return grade2Measurements;
+	}
+	
+	public int getGrade2Exam() {
+		return grade2Exam;
 	}
 	
 	public int getGrade3Operations() {
@@ -589,6 +691,10 @@ public class Account {
 		return grade3Measurements;
 	}
 	
+	public int getGrade3Exam() {
+		return grade3Exam;
+	}
+	
 	public int getGrade4Operations() {
 		return grade4Operations;
 	}
@@ -603,6 +709,10 @@ public class Account {
 	
 	public int getGrade4Measurements() {
 		return grade4Measurements;
+	}
+	
+	public int getGrade4Exam() {
+		return grade4Exam;
 	}
 	
 	//setters for achievements
@@ -622,6 +732,10 @@ public class Account {
 		kindergartenMeasurements = a;
 	}
 	
+	public void setkindergartenExam(int a) {
+		kindergartenExam = a;
+	}
+	
 	public void setGrade1Operations(int a) {
 		grade1Operations = a;
 	}
@@ -634,6 +748,10 @@ public class Account {
 		grade1Measurements = a;
 	}
 	
+	public void setGrade1Exam(int a) {
+		grade1Exam = a;
+	}
+	
 	public void setGrade2Operations(int a) {
 		grade2Operations = a;
 	}
@@ -644,6 +762,10 @@ public class Account {
 	
 	public void setGrade2Measurements(int a) {
 		grade2Measurements = a;
+	}
+	
+	public void setGrade2Exam(int a) {
+		grade2Exam = a;
 	}
 	
 	public void setGrade3Operations(int a) {
@@ -662,6 +784,10 @@ public class Account {
 		grade3Measurements = a;
 	}
 	
+	public void setGrade3Exam(int a) {
+		grade3Exam = a;
+	}
+	
 	public void setGrade4Operations(int a) {
 		grade4Operations = a;
 	}
@@ -676,6 +802,10 @@ public class Account {
 	
 	public void setGrade4Measurements(int a) {
 		grade4Measurements = a;
+	}
+	
+	public void setGrade4Exam(int a) {
+		grade4Exam = a;
 	}
 	
 	public String[] getLatestAchievements() {

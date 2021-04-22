@@ -1,3 +1,1 @@
-username1,password,What's your favorite color?,blue,full name1,1,0,2,0,0,0,0,0,0,3,0,1,0,0,0,0,0,3,2nd Grade,Measurements,3rd Grade,Numbers,4th Grade,Measurements
-username2,password,What's your favorite color?,blue,full name2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,none,none,none,none,none,none
-username3,password,What's your favorite color?,blue,full name3,3,2,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,none,none,none,none,none,none
+username,password,What's your favorite color?,blue,full name,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,none,none,none,none,none,none
