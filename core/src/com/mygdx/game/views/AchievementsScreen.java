@@ -149,11 +149,11 @@ public class AchievementsScreen implements Screen {
 		table.add(userInfo).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
 		table.add(back).uniformX().pad(5).padBottom(100);
 		table.row();
-		table.add(List1).colspan(2).pad(5).width(Gdx.graphics.getWidth()/5);
-		table.add(List2).colspan(2).pad(5).width(Gdx.graphics.getWidth()/5);
-		table.add(List3).colspan(2).pad(5).width(Gdx.graphics.getWidth()/5);
-		table.add(List4).colspan(2).pad(5).width(Gdx.graphics.getWidth()/5);
-		table.add(List5).colspan(2).pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add(List1).colspan(2).pad(5).width(Gdx.graphics.getWidth()/6);
+		table.add(List2).colspan(2).pad(5).width(Gdx.graphics.getWidth()/6);
+		table.add(List3).colspan(2).pad(5).width(Gdx.graphics.getWidth()/6);
+		table.add(List4).colspan(2).pad(5).width(Gdx.graphics.getWidth()/6);
+		table.add(List5).colspan(2).pad(5).width(Gdx.graphics.getWidth()/10);
 		table.row();
 		generateAchievementVisual(table, skin, "Operations K", "Addition", 3);
 		generateAchievementVisual(table, skin, "Operations 1st", "Addition", 3);
@@ -250,8 +250,8 @@ public class AchievementsScreen implements Screen {
 			table.add(new Image(new Texture(Gdx.files.internal("images/Gold.png")))).pad(5).align(Align.right);
 			break;
 		}
-		if (grade.equals("")) table.add(new Label(topic, skin, "noBackground")).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
-		else table.add(new Label(grade + " " + topic, skin, "noBackground")).pad(5).width(Gdx.graphics.getWidth()/5).align(Align.left);
+		if (grade.equals("")) table.add(new Label(topic, skin, "noBackground")).pad(5).width(Gdx.graphics.getWidth()/10).align(Align.left);
+		else table.add(new Label(grade + " " + topic, skin, "noBackground")).pad(5).width(Gdx.graphics.getWidth()/10).align(Align.left);
 	}
 
 }
