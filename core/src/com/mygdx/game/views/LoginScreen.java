@@ -24,6 +24,7 @@ import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import com.mygdx.game.Account;
 import com.mygdx.game.Tutor;
 
 public class LoginScreen implements Screen {
@@ -42,6 +43,7 @@ public class LoginScreen implements Screen {
 		stage = new Stage(new ScreenViewport());
 		stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1/30f));
 		stage.draw();
+		parent.currentUser = new Account("","","question","answer","Test User"); // TODO this is only for testing, remove when testing is done
 	}
 
 	@Override

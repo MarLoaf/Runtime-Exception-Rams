@@ -66,7 +66,7 @@ public class Tutor extends Game {
 	
 	public ArrayList<Account> accounts = new ArrayList<Account>(0);
 	//public Account currentUser = new Account("","","","","Test User");
-	public Account currentUser = new Account("","","question","answer","Test User");
+	public Account currentUser;
 	
 	public final static int ACHIEVEMENTS = 0;
 	public final static int CREATEACCOUNT = 1;
@@ -150,6 +150,18 @@ public class Tutor extends Game {
 		if (accounts.size()>0) {
 			for (Account a : accounts) {
 				if (a.getUsername().equals(username)) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
+	public boolean getAccountViaSecret(String username, String secretAnswer) {
+		if (accounts.size()>0) {
+			for (Account a : accounts) {
+				if (a.getUsername().equals(username) && a.getSecretAnswer().equals(secretAnswer)) {
+					currentUser = a;
 					return true;
 				}
 			}

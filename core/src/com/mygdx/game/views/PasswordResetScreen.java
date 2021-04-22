@@ -34,6 +34,8 @@ public class PasswordResetScreen implements Screen {
 	private Stage stage;
 	private SpriteBatch batch;
 	private Texture backgroundTexture;
+	private String newPassword;
+	private String retypedPassword;
 	
 	public PasswordResetScreen(Tutor tutor) {
 		parent = tutor;
@@ -116,12 +118,14 @@ public class PasswordResetScreen implements Screen {
 		retypepassword.setAlignment(Align.center);
 		passwordresettitle.setAlignment(Align.center);
 		NewPasswordText.setAlignment(Align.center);
+		TextTooltip lengthPopup = new TextTooltip("At least 5 characters", skin);
+		lengthPopup.setInstant(true);
 		//layout:
 		table.top();
 		table.row();
-		table.add().fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
-		table.add(passwordresettitle).colspan(2).fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
-		table.add(back).uniformX().pad(5).padBottom(270);
+		table.add().fillX().uniformX().pad(5).padBottom(148).width(Gdx.graphics.getWidth()/5);
+		table.add(passwordresettitle).colspan(2).fillX().uniformX().pad(5).padBottom(148).width(Gdx.graphics.getWidth()/5);
+		table.add(back).uniformX().pad(5).padBottom(148);
 		table.row();
 		table.add();
 		table.add(newpassword).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
@@ -134,17 +138,39 @@ public class PasswordResetScreen implements Screen {
 		table.add();
 		table.add(Confirm).colspan(2).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		//adding button functionality
+		NewPasswordText.addListener(lengthPopup);
+		RetypePasswordText.addListener(lengthPopup);
+		newpassword.addListener(lengthPopup);
+		retypepassword.addListener(lengthPopup);
 		back.addListener(exitPopup);
+		NewPasswordText.setTextFieldListener(new TextField.TextFieldListener() {
+			@Override
+			public void keyTyped(TextField textField, char c) {
+				newPassword = textField.getText();
+			}
+		});
+		RetypePasswordText.setTextFieldListener(new TextField.TextFieldListener() {
+			@Override
+			public void keyTyped(TextField textField, char c) {
+				retypedPassword = textField.getText();
+			}
+		});
 		back.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
+				parent.currentUser = null;
 				parent.changeScreen(Tutor.RECOVERACC);
 			}
 		});
 		Confirm.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-				parent.changeScreen(Tutor.LOGIN);
+				if (newPassword.equals(retypedPassword) && newPassword.length()>4) {
+					parent.currentUser.setPassword(newPassword);
+					parent.updateAccount(parent.currentUser);
+					parent.currentUser = null;
+					parent.changeScreen(Tutor.LOGIN);
+				}
 			}
 		});
 	}
