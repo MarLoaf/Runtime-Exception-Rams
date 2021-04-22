@@ -18,21 +18,26 @@ public class Problem {
 		problemText = pt;
 		correctAnswer = ca;
 		wrongAnswers = wa;
-		selectedAnswer = null;
+		selectedAnswer = "";
 	}
 	
 	public Problem(String pt, String ca) {
 		problemText = pt;
 		correctAnswer = ca;
 		wrongAnswers = null;
-		selectedAnswer = null;
+		selectedAnswer = "";
 	}
 	
 	public Problem() {
 		problemText = "";
-		problemText = "";
+		correctAnswer = "";
 		wrongAnswers = new String[3];
-		selectedAnswer = null;
+		selectedAnswer = "";
+	}
+	
+	public boolean checkAnswer() {
+		if (selectedAnswer.equals(correctAnswer)) return true;
+		return false;
 	}
 	
 	public String getProblemText() {
