@@ -237,10 +237,22 @@ public class Tutor extends Game {
 	
 	
 	
-	public Problem problemGenerator(String grade, String topic, boolean multipleChoiceOrNot) {
-		int start = 0;
+	public Problem problemGenerator(String grade, String topic, char subtopic, boolean multipleChoiceOrNot) {
+		int start = 1;
 		int range = 0;
 		int pattern = 0;
+		char[] possibleOperations = {'+', '-', 'x', '/'};
+		String[] names;
+		String[] objectsForProblems;
+		
+		Random rand = new Random();
+		int random = 0;
+		double field1 = 0;
+		double field2 = 0;
+		double correctAnswer = 0;
+		String problemText = "";
+		String problemCorrectAnswer = "";
+		Problem newProblem = new Problem();
 		
 		
 		//determining grade & topic validation 
@@ -265,6 +277,85 @@ public class Tutor extends Game {
 		} else if (grade.equals("Grade3")) {
 			
 		} else if (grade.equals("Grade4")) {
+			if (topic.equals("Operations")) {
+				if (subtopic == 'A') {
+					range = 100;
+					boolean isDivision = false;
+					random = rand.nextInt(5);
+					
+					if (random == 0) {
+						field1 = rand.nextInt(range + 1);
+						field2 = rand.nextInt(range + 1);
+						
+						if (field1 == 0)
+							field1 = 1;
+						if (field2 == 0)
+							field2 = 1;
+						
+						correctAnswer = field1 * field2;
+						problemText = "" + correctAnswer + " = __ x " + field2;
+						problemCorrectAnswer = Double.toString(field1);
+						
+						newProblem.setCorrectAnswer(problemCorrectAnswer);
+						newProblem.setProblemText(problemText);
+						newProblem.setWorrectAnswers(null);
+							
+						return newProblem;
+						
+					} else if (random == 1) {
+						random = rand.nextInt(2);
+						
+						if (random == 1) {
+							isDivision = true;
+						}
+						field1 = rand.nextInt(range + 1);
+						field2 = rand.nextInt(range + 1);
+					
+						if (field1 == 0)
+							field1 = rand.nextInt(range + 1);
+						if (field2 == 0)
+							field2 = rand.nextInt(range + 1);
+						
+						if (!isDivision) {
+							correctAnswer = field1 * field2;
+							problemText = "John has + " + field1 + " apples and Bob has " + field2 + "apples, how many apples do they have?";
+							problemCorrectAnswer = Double.toString(correctAnswer);
+							
+							newProblem.setCorrectAnswer(problemCorrectAnswer);
+							newProblem.setProblemText(problemText);
+							newProblem.setWorrectAnswers(null);
+									
+							return newProblem;
+						} else {
+							if (field1 % field2 != 0) {
+								field2--;
+								
+								while (field1 % field2 != 0) {
+									field2--;
+								}
+							}
+							
+							correctAnswer = field1 / field2;
+							problemText = "John has " + field1 + "tomatoes and wants to have " + field2 + "seperate even piles, how many piles will John have?";
+							problemCorrectAnswer = Double.toString(correctAnswer);
+							
+							newProblem.setCorrectAnswer(problemCorrectAnswer);
+							newProblem.setProblemText(problemText);
+							newProblem.setWorrectAnswers(null);
+							
+							return newProblem;
+						}
+					} else if (random == 2) {
+						
+					}
+					
+					
+					
+				}
+				
+				
+				
+			}
 			
 		} else {
 			return null;
