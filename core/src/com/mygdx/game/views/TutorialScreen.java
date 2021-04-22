@@ -151,60 +151,162 @@ public class TutorialScreen implements Screen {
 						case "Counting":
 							try {
 								Desktop d = Desktop.getDesktop();
-								d.browse(new URI("https://www.youtube.com/watch?v=QtBDL8EiNZo"));
+								d.browse(new URI("https://www.youtube.com/watch?v=ZJEIKkPXirg"));
 							} catch (Exception e) {
 								System.out.println("URL fail @ tutorial page");
 							}
 							break;
 						case "Operations":
+							try {
+								Desktop d = Desktop.getDesktop();
+								d.browse(new URI("https://www.youtube.com/watch?v=igcoDFokKzU"));
+							} catch (Exception e) {
+								System.out.println("URL fail @ tutorial page");
+							}
 							break;
 						case "Numbers":
+							try {
+								Desktop d = Desktop.getDesktop();
+								d.browse(new URI("https://www.youtube.com/watch?v=0b2tbYP4a_Q"));
+							} catch (Exception e) {
+								System.out.println("URL fail @ tutorial page");
+							}
 							break;
 						case "Measurements":
+							try {
+								Desktop d = Desktop.getDesktop();
+								d.browse(new URI("https://www.youtube.com/watch?v=8lD3qDZdnp8"));
+							} catch (Exception e) {
+								System.out.println("URL fail @ tutorial page");
+							}
 							break;
 						}
 						break;
 					case "1st Grade":
 						switch(parent.topicSelection) {
 						case "Operations":
+							try {
+								Desktop d = Desktop.getDesktop();
+								d.browse(new URI("https://www.youtube.com/watch?v=FtjkzSnZ4G4"));
+							} catch (Exception e) {
+								System.out.println("URL fail @ tutorial page");
+							}
 							break;
 						case "Numbers":
+							try {
+								Desktop d = Desktop.getDesktop();
+								d.browse(new URI("https://www.youtube.com/watch?v=2sghJbCPnyw"));
+							} catch (Exception e) {
+								System.out.println("URL fail @ tutorial page");
+							}
 							break;
 						case "Measurements":
+							try {
+								Desktop d = Desktop.getDesktop();
+								d.browse(new URI("https://www.youtube.com/watch?v=2wUsdsae0ro"));
+							} catch (Exception e) {
+								System.out.println("URL fail @ tutorial page");
+							}
 							break;
 						}
 						break;
 					case "2nd Grade":
 						switch(parent.topicSelection) {
 						case "Operations":
+							try {
+								Desktop d = Desktop.getDesktop();
+								d.browse(new URI("https://www.youtube.com/watch?v=LaZu6W2xFy4"));
+							} catch (Exception e) {
+								System.out.println("URL fail @ tutorial page");
+							}
 							break;
 						case "Numbers":
+							try {
+								Desktop d = Desktop.getDesktop();
+								d.browse(new URI("https://www.youtube.com/watch?v=PyzVG3xkONs"));
+							} catch (Exception e) {
+								System.out.println("URL fail @ tutorial page");
+							}
 							break;
 						case "Measurements":
+							try {
+								Desktop d = Desktop.getDesktop();
+								d.browse(new URI("https://www.youtube.com/watch?v=iz7Ux7kq1Ho"));
+							} catch (Exception e) {
+								System.out.println("URL fail @ tutorial page");
+							}
 							break;
 						}
 						break;
 					case "3rd Grade":
 						switch(parent.topicSelection) {
 						case "Operations":
+							try {
+								Desktop d = Desktop.getDesktop();
+								d.browse(new URI("https://www.youtube.com/watch?v=rmhTkanhVyI"));
+							} catch (Exception e) {
+								System.out.println("URL fail @ tutorial page");
+							}
 							break;
 						case "Numbers":
+							try {
+								Desktop d = Desktop.getDesktop();
+								d.browse(new URI("https://www.youtube.com/watch?v=HuiYOLPOzEk"));
+							} catch (Exception e) {
+								System.out.println("URL fail @ tutorial page");
+							}
 							break;
 						case "Fractions":
+							try {
+								Desktop d = Desktop.getDesktop();
+								d.browse(new URI("https://www.youtube.com/watch?v=_EEDtmFY-hg"));
+							} catch (Exception e) {
+								System.out.println("URL fail @ tutorial page");
+							}
 							break;
 						case "Measurements":
+							try {
+								Desktop d = Desktop.getDesktop();
+								d.browse(new URI("https://www.youtube.com/watch?v=cKbmvLv-FRo"));
+							} catch (Exception e) {
+								System.out.println("URL fail @ tutorial page");
+							}
 							break;
 						}
 						break;
 					case "4th Grade":
 						switch(parent.topicSelection) {
 						case "Operations":
+							try {
+								Desktop d = Desktop.getDesktop();
+								d.browse(new URI("https://www.youtube.com/watch?v=GG-hoRpD-yQ"));
+							} catch (Exception e) {
+								System.out.println("URL fail @ tutorial page");
+							}
 							break;
 						case "Numbers":
+							try {
+								Desktop d = Desktop.getDesktop();
+								d.browse(new URI("https://www.youtube.com/watch?v=wUBQF0DI_xg"));
+							} catch (Exception e) {
+								System.out.println("URL fail @ tutorial page");
+							}
 							break;
 						case "Fractions":
+							try {
+								Desktop d = Desktop.getDesktop();
+								d.browse(new URI("https://www.youtube.com/watch?v=lqNFLeUCWAE&t=73s"));
+							} catch (Exception e) {
+								System.out.println("URL fail @ tutorial page");
+							}
 							break;
 						case "Measurements":
+							try {
+								Desktop d = Desktop.getDesktop();
+								d.browse(new URI("https://www.youtube.com/watch?v=1jmScxZ0ffM"));
+							} catch (Exception e) {
+								System.out.println("URL fail @ tutorial page");
+							}
 							break;
 						}
 						break;
@@ -220,60 +322,112 @@ public class TutorialScreen implements Screen {
 						case "Counting":
 							try {
 								Desktop d = Desktop.getDesktop();
-								d.browse(new URI("https://www.kidsmathtv.com/2nd-grade-videos/"));
+								d.browse(new URI("https://www.k5learning.com/free-preschool-kindergarten-worksheets/numbers"));
 							} catch (Exception e) {
 								System.out.println("URL fail @ tutorial page");
 							}
 							break;
 						case "Operations":
+							try {
+								Desktop d = Desktop.getDesktop();
+								d.browse(new URI("https://www.k5learning.com/free-preschool-kindergarten-worksheets/addition"));
+							} catch (Exception e) {
+								System.out.println("URL fail @ tutorial page");
+							}
+							try {
+								Desktop d = Desktop.getDesktop();
+								d.browse(new URI("https://www.k5learning.com/free-preschool-kindergarten-worksheets/subtraction"));
+							} catch (Exception e) {
+								System.out.println("URL fail @ tutorial page");
+							}
 							break;
 						case "Numbers":
+							try {
+								Desktop d = Desktop.getDesktop();
+								d.browse(new URI("https://www.mrsrichardsonsclass.com/a-little-funky-fractions/"));
+							} catch (Exception e) {
+								System.out.println("URL fail @ tutorial page");
+							}
 							break;
 						case "Measurements":
+							try {
+								Desktop d = Desktop.getDesktop();
+								d.browse(new URI("https://www.kindergartenkindergarten.com/measurement/"));
+							} catch (Exception e) {
+								System.out.println("URL fail @ tutorial page");
+							}
 							break;
 						}
 						break;
 					case "1st Grade":
 						switch(parent.topicSelection) {
 						case "Operations":
+							try {
+								Desktop d = Desktop.getDesktop();
+								d.browse(new URI("https://www.k5learning.com/free-math-worksheets/first-grade-1/addition"));
+							} catch (Exception e) {
+								System.out.println("URL fail @ tutorial page");
+							}
 							break;
 						case "Numbers":
+							//TODO add text link
 							break;
 						case "Measurements":
+							//TODO add text link
 							break;
 						}
 						break;
 					case "2nd Grade":
 						switch(parent.topicSelection) {
 						case "Operations":
+							//TODO add text link
 							break;
 						case "Numbers":
+							//TODO add text link
 							break;
 						case "Measurements":
+							//TODO add text link
 							break;
 						}
-						break;
 					case "3rd Grade":
 						switch(parent.topicSelection) {
 						case "Operations":
+							//TODO add text link
 							break;
 						case "Numbers":
+							//TODO add text link
 							break;
 						case "Fractions":
+							//TODO add text link
 							break;
 						case "Measurements":
+							try {
+								Desktop d = Desktop.getDesktop();
+								d.browse(new URI("https://classace.io/learn/math/3rdgrade/units-of-length"));
+							} catch (Exception e) {
+								System.out.println("URL fail @ tutorial page");
+							}
 							break;
 						}
 						break;
 					case "4th Grade":
 						switch(parent.topicSelection) {
 						case "Operations":
+							try {
+								Desktop d = Desktop.getDesktop();
+								d.browse(new URI("https://content.byui.edu/file/b8b83119-9acc-4a7b-bc84-efacf9043998/1/Math-1-6-1.html"));
+							} catch (Exception e) {
+								System.out.println("URL fail @ tutorial page");
+							}
 							break;
 						case "Numbers":
+							//TODO add text link
 							break;
 						case "Fractions":
+							//TODO add text link
 							break;
 						case "Measurements":
+							//TODO add text link
 							break;
 						}
 						break;
