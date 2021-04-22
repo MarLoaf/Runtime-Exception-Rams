@@ -44,7 +44,8 @@ public class ResultsScreen implements Screen {
 		stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1/30f));
 		stage.draw();
 		userInfoMessage = "Student: " + parent.currentUser.getFullName();
-		message = "You got " + parent.answerCounter + " problems correct!";
+		if(parent.answerCounter>0) message = "You got " + parent.answerCounter + " problems correct!";
+		else message = "You should review " + parent.topicSelection + " and try again.";
 	}
 
 	@Override
@@ -105,7 +106,7 @@ public class ResultsScreen implements Screen {
 		Label userInfo = new Label("", skin);
 		userInfo.setText(userInfoMessage);
 		userInfo.setAlignment(Align.center);
-        Label resultText = new Label("", skin);
+        Label resultText = new Label("", skin, "noBackground");
         resultText.setText(message);
         resultText.setAlignment(Align.center);
 		Button back = new Button(skin, "Exit");
@@ -125,7 +126,7 @@ public class ResultsScreen implements Screen {
 		table.add(back).uniformX().pad(5).padBottom(270);
 		table.row();
 		table.add();
-		table.add(resultText).colspan(2).pad(5).fillX().uniformX().width(Gdx.graphics.getWidth()/4);
+		table.add(resultText).colspan(2).pad(5).fillX().uniformX();
 		table.row();
 		table.add();
 		if (parent.grade2Achievement < parent.answerCounter) parent.grade2Achievement = parent.answerCounter;

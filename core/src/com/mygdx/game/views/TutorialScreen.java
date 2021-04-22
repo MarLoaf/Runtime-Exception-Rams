@@ -37,6 +37,7 @@ public class TutorialScreen implements Screen {
 	private SpriteBatch batch;
 	private Texture backgroundTexture;
 	private String userInfoMessage;
+	private String tutorialMessage;
 	
 	public TutorialScreen(Tutor tutor) {
 		parent = tutor;
@@ -46,6 +47,7 @@ public class TutorialScreen implements Screen {
 		stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1/30f));
 		stage.draw();
 		userInfoMessage = "Student: " + parent.currentUser.getFullName();
+		tutorialMessage = parent.gradeSelection + " " + parent.topicSelection;
 	}
 
 	@Override
@@ -101,10 +103,9 @@ public class TutorialScreen implements Screen {
 		table.setFillParent(true);
 		stage.addActor(table);
 		//creating different buttons/textfields/labels
-		Label userInfo = new Label("", skin);
-		userInfo.setText(userInfoMessage);
+		Label userInfo = new Label(userInfoMessage, skin);
 		userInfo.setAlignment(Align.center);
-		Label tutorialTopic = new Label("Addition Tutorial", skin);
+		Label tutorialTopic = new Label(tutorialMessage, skin);
 		tutorialTopic.setAlignment(Align.center);
 		Button video = new Button(skin, "Video");
 		ImageTextButton additionalHelp = new ImageTextButton("Links to additional Help", skin);
@@ -145,22 +146,138 @@ public class TutorialScreen implements Screen {
 		video.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-					try {
-						Desktop d = Desktop.getDesktop();
-						d.browse(new URI("https://www.youtube.com/watch?v=QtBDL8EiNZo"));
-					} catch (Exception e) {
-						System.out.println("URL fail @ tutorial page");
+					switch(parent.gradeSelection) {
+					case "Kindergarten":
+						switch(parent.topicSelection) {
+						case "Counting":
+							try {
+								Desktop d = Desktop.getDesktop();
+								d.browse(new URI("https://www.youtube.com/watch?v=QtBDL8EiNZo"));
+							} catch (Exception e) {
+								System.out.println("URL fail @ tutorial page");
+							}
+							break;
+						case "Operations":
+							break;
+						case "Numbers":
+							break;
+						case "Measurements":
+							break;
+						}
+						break;
+					case "1st Grade":
+						switch(parent.topicSelection) {
+						case "Operations":
+							break;
+						case "Numbers":
+							break;
+						case "Measurements":
+							break;
+						}
+						break;
+					case "2nd Grade":
+						switch(parent.topicSelection) {
+						case "Operations":
+							break;
+						case "Numbers":
+							break;
+						case "Measurements":
+							break;
+						}
+						break;
+					case "3rd Grade":
+						switch(parent.topicSelection) {
+						case "Operations":
+							break;
+						case "Numbers":
+							break;
+						case "Fractions":
+							break;
+						case "Measurements":
+							break;
+						}
+						break;
+					case "4th Grade":
+						switch(parent.topicSelection) {
+						case "Operations":
+							break;
+						case "Numbers":
+							break;
+						case "Fractions":
+							break;
+						case "Measurements":
+							break;
+						}
+						break;
 					}
 				}
 			});
 		additionalHelp.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-					try {
-						Desktop d = Desktop.getDesktop();
-						d.browse(new URI("https://www.kidsmathtv.com/2nd-grade-videos/"));
-					} catch (Exception e) {
-						System.out.println("URL fail @ tutorial page");
+					switch(parent.gradeSelection) {
+					case "Kindergarten":
+						switch(parent.topicSelection) {
+						case "Counting":
+							try {
+								Desktop d = Desktop.getDesktop();
+								d.browse(new URI("https://www.kidsmathtv.com/2nd-grade-videos/"));
+							} catch (Exception e) {
+								System.out.println("URL fail @ tutorial page");
+							}
+							break;
+						case "Operations":
+							break;
+						case "Numbers":
+							break;
+						case "Measurements":
+							break;
+						}
+						break;
+					case "1st Grade":
+						switch(parent.topicSelection) {
+						case "Operations":
+							break;
+						case "Numbers":
+							break;
+						case "Measurements":
+							break;
+						}
+						break;
+					case "2nd Grade":
+						switch(parent.topicSelection) {
+						case "Operations":
+							break;
+						case "Numbers":
+							break;
+						case "Measurements":
+							break;
+						}
+						break;
+					case "3rd Grade":
+						switch(parent.topicSelection) {
+						case "Operations":
+							break;
+						case "Numbers":
+							break;
+						case "Fractions":
+							break;
+						case "Measurements":
+							break;
+						}
+						break;
+					case "4th Grade":
+						switch(parent.topicSelection) {
+						case "Operations":
+							break;
+						case "Numbers":
+							break;
+						case "Fractions":
+							break;
+						case "Measurements":
+							break;
+						}
+						break;
 					}
 				}
 			});

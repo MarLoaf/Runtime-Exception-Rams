@@ -115,14 +115,18 @@ public class ProblemScreen implements Screen {
         problem = new Label("", skin, "noBackground");
         problem.setText(parent.problems[parent.problemNumber].getProblemText());
         problem.setAlignment(Align.center);
-		answer = new TextField("", skin);
+		answer = new TextField(parent.problems[parent.problemNumber].getSelectedAnswer(), skin);
 		answer.setMessageText("Answer...");
 		answer.setAlignment(Align.center);
 		Button next = new Button(skin, "ArrowRight");
+		Button previous = new Button(skin, "ArrowLeft");
 		TextTooltip nextPopup = new TextTooltip("Next", skin);
 		nextPopup.setInstant(true);
+		TextTooltip previousPopup = new TextTooltip("Previous", skin);
+		previousPopup.setInstant(true);
 		Button back = new Button(skin, "Exit");
 		rightAnswer = new CheckBox(parent.problems[parent.problemNumber].getCorrectAnswer(), skin);
+		if(parent.problems[parent.problemNumber].getSelectedAnswer().equals(parent.problems[parent.problemNumber].getCorrectAnswer())) rightAnswer.setChecked(true);
 		wrongAnswer0 = new CheckBox("", skin);
 		wrongAnswer1 = new CheckBox("", skin);
 		wrongAnswer2 = new CheckBox("", skin);
@@ -132,8 +136,11 @@ public class ProblemScreen implements Screen {
 		answersGroup.setUncheckLast(true);
 		if (parent.problems[parent.problemNumber].getWrongAnswers()!=null) {
 			wrongAnswer0.setText(parent.problems[parent.problemNumber].getWrongAnswers()[0]);
+			if(parent.problems[parent.problemNumber].getSelectedAnswer().equals(parent.problems[parent.problemNumber].getWrongAnswers()[0])) wrongAnswer0.setChecked(true);
 			wrongAnswer1.setText(parent.problems[parent.problemNumber].getWrongAnswers()[1]);
+			if(parent.problems[parent.problemNumber].getSelectedAnswer().equals(parent.problems[parent.problemNumber].getWrongAnswers()[1])) wrongAnswer1.setChecked(true);
 			wrongAnswer2.setText(parent.problems[parent.problemNumber].getWrongAnswers()[2]);
+			if(parent.problems[parent.problemNumber].getSelectedAnswer().equals(parent.problems[parent.problemNumber].getWrongAnswers()[2])) wrongAnswer2.setChecked(true);
 		}
 		TextTooltip exitPopup = new TextTooltip("Back", skin);
 		exitPopup.setInstant(true);
@@ -166,9 +173,11 @@ public class ProblemScreen implements Screen {
 		}
 		table.row();
 		table.add();
-		table.add(next).colspan(2).pad(5).uniformX();
+		table.add(previous).pad(5).uniformX();
+		table.add(next).pad(5).uniformX();
 		//adding button functionality
 		next.addListener(nextPopup);
+		previous.addListener(previousPopup);
 		back.addListener(exitPopup);
 		answer.setTextFieldListener(new TextField.TextFieldListener() {
 			@Override
@@ -210,6 +219,15 @@ public class ProblemScreen implements Screen {
 					parent.changeScreen(Tutor.RESULTS);
 				}else {
 					parent.problemNumber++;
+					parent.changeScreen(Tutor.PROBLEM);
+				}
+			}
+		});
+		previous.addListener(new ChangeListener() {
+			@Override
+			public void changed(ChangeEvent event, Actor actor) {
+				if (parent.problemNumber != 0) {
+					parent.problemNumber--;
 					parent.changeScreen(Tutor.PROBLEM);
 				}
 			}
