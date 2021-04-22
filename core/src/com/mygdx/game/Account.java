@@ -281,7 +281,8 @@ public class Account {
 			latestAchievements[0] = grade;
 			latestAchievements[1] = topic;
 		}
-		else {
+		else if (!(latestAchievements[0].equals(grade)&&latestAchievements[1].equals(topic))&&!(latestAchievements[2].equals(grade)&&latestAchievements[3].equals(topic))&&!(latestAchievements[4].equals(grade)&&latestAchievements[5].equals(topic))) {
+			//if the new achievement isn't on the list yet, add it and move everything over
 			latestAchievements[5] = latestAchievements[3];
 			latestAchievements[4] = latestAchievements[2];
 			latestAchievements[3] = latestAchievements[1];

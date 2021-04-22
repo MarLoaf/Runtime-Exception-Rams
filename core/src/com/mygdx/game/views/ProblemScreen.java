@@ -281,13 +281,13 @@ public class ProblemScreen implements Screen {
 	}
 	
 	private void confirmAnswers() {
-		for(int i = 0; i < parent.problems.length-1; i++) {
+		for(int i = 0; i < parent.problems.length; i++) {
 			if (parent.problems[i].checkAnswer()) parent.answerCounter++;
 		}
 	}
 	
 	private void clearAnswers() {
-		for(int i = 0; i < parent.problems.length-1; i++) {
+		for(int i = 0; i < parent.problems.length; i++) {
 			parent.problems[i].setSelectedAnswer("");
 		}
 	}
