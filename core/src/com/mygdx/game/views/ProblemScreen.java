@@ -36,7 +36,6 @@ public class ProblemScreen implements Screen {
 	private Stage stage;
 	private SpriteBatch batch;
 	private Texture backgroundTexture;
-	private boolean correctAnswersCheck;
     private Label problem;
 	private TextField answer;
 	private CheckBox rightAnswer;
@@ -53,8 +52,6 @@ public class ProblemScreen implements Screen {
 		stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1/30f));
 		stage.draw();
 		userInfoMessage = "Student: " + parent.currentUser.getFullName();
-		//setting up the problem
-		correctAnswersCheck = false;
 	}
 
 	@Override
@@ -176,44 +173,40 @@ public class ProblemScreen implements Screen {
 		answer.setTextFieldListener(new TextField.TextFieldListener() {
 			@Override
 			public void keyTyped(TextField textField, char c) {
-				if (textField.getText().equals(parent.problems[parent.problemNumber].getCorrectAnswer())) {
-					correctAnswersCheck = true;
-				}
+				parent.problems[parent.problemNumber].setSelectedAnswer(textField.getText());
 			}
 		});
 		rightAnswer.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-				correctAnswersCheck = true;
+				parent.problems[parent.problemNumber].setSelectedAnswer(rightAnswer.getText().toString());
 			}
 		});
 		wrongAnswer0.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-				correctAnswersCheck = false;
+				parent.problems[parent.problemNumber].setSelectedAnswer(wrongAnswer0.getText().toString());
 			}
 		});
 		wrongAnswer1.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-				correctAnswersCheck = false;
+				parent.problems[parent.problemNumber].setSelectedAnswer(wrongAnswer1.getText().toString());
 			}
 		});
 		wrongAnswer2.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-				correctAnswersCheck = false;
+				parent.problems[parent.problemNumber].setSelectedAnswer(wrongAnswer2.getText().toString());
 			}
 		});
 		next.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-				if (correctAnswersCheck) {
-					parent.answerCounter++;
-					correctAnswersCheck = false;
-				}
 				if (parent.problemNumber == parent.problems.length-1) {
 					parent.problemNumber = 0;
+					confirmAnswers();
+					clearAnswers();
 					parent.changeScreen(Tutor.RESULTS);
 				}else {
 					parent.problemNumber++;
@@ -267,6 +260,18 @@ public class ProblemScreen implements Screen {
 	@Override
 	public void dispose() {
 		stage.dispose();
+	}
+	
+	private void confirmAnswers() {
+		for(int i = 0; i < parent.problems.length-1; i++) {
+			if (parent.problems[i].checkAnswer()) parent.answerCounter++;
+		}
+	}
+	
+	private void clearAnswers() {
+		for(int i = 0; i < parent.problems.length-1; i++) {
+			parent.problems[i].setSelectedAnswer("");
+		}
 	}
 
 }
