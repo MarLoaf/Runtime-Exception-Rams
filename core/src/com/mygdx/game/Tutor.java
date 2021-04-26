@@ -1,7 +1,14 @@
 package com.mygdx.game;
 
+import java.security.KeyStore;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Random;
+
+import javax.crypto.Cipher;
+import javax.crypto.KeyGenerator;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
@@ -79,9 +86,12 @@ public class Tutor extends Game {
 	public final static int RESULTS = 8;
 	public final static int TUTORIAL = 9;
 	
+	private final String key = "xxW/O4V6rjg=";
+	
 	@Override
 	public void create() {
 		readAccounts();
+		encrypt("Text that was encrypted, did this work? 1, 2, 3. Is this ok??");
 		loadingScreen = new LoadingScreen(this);
 		setScreen(loadingScreen);
 	}
@@ -139,6 +149,48 @@ public class Tutor extends Game {
 			this.setScreen(tutorialScreen);
 			break;
 		}
+	}
+	
+	private void encrypt(String originalString) {
+		try{
+            SecretKey myKey = new SecretKeySpec(Base64.getDecoder().decode(key), 0, Base64.getDecoder().decode(key).length, "DES");
+            Cipher desCipher;
+            desCipher = Cipher.getInstance("DES");
+            byte[] text = originalString.getBytes("UTF8");
+            desCipher.init(Cipher.ENCRYPT_MODE, myKey);
+            byte[] textEncrypted = desCipher.doFinal(text);
+            String s = new String(textEncrypted);
+            System.out.println(s);
+            desCipher.init(Cipher.DECRYPT_MODE, myKey);
+            byte[] textDecrypted = desCipher.doFinal(textEncrypted);
+            s = new String(textDecrypted);
+            System.out.println(s);
+        }catch(Exception e)
+        {
+            System.out.println("Encryption Exception");
+        }
+	}
+	
+	private String decrypt() {
+		try{
+			byte[] decodedKey = Base64.getDecoder().decode(key);
+            SecretKey myKey = new SecretKeySpec(decodedKey, 0, decodedKey.length, "DES");
+            Cipher desCipher;
+            desCipher = Cipher.getInstance("DES");
+            byte[] text = "No body can see me.".getBytes("UTF8");
+            desCipher.init(Cipher.ENCRYPT_MODE, myKey);
+            byte[] textEncrypted = desCipher.doFinal(text);
+            String s = new String(textEncrypted);
+            System.out.println(s);
+            desCipher.init(Cipher.DECRYPT_MODE, myKey);
+            byte[] textDecrypted = desCipher.doFinal(textEncrypted);
+            s = new String(textDecrypted);
+            System.out.println(s);
+        }catch(Exception e)
+        {
+            System.out.println("Encryption Exception");
+        }
+		return "";
 	}
 	
 	public void addAccount(String username, String password, String secretQuestion, String secretAnswer, String fullName) {
