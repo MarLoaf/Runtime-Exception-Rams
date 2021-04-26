@@ -1,13 +1,10 @@
 package com.mygdx.game;
 
-import java.nio.charset.StandardCharsets;
-import java.security.KeyStore;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Random;
 
 import javax.crypto.Cipher;
-import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
@@ -91,7 +88,6 @@ public class Tutor extends Game {
 	
 	@Override
 	public void create() {
-		readAccountsSecure();
 		loadingScreen = new LoadingScreen(this);
 		setScreen(loadingScreen);
 	}
@@ -186,70 +182,6 @@ public class Tutor extends Game {
 		return false;
 	}
 	
-	/*
-	public void addAccountNotSecure(String username, String password, String secretQuestion, String secretAnswer, String fullName) {
-		//adds account to database
-		Account newAcc = new Account(username, password, secretQuestion, secretAnswer, fullName);
-		if (!checkDuplicateUsername(username)) writeAccountNotSecure(newAcc);
-	}
-	
-	public void readAccountsNotSecure() {
-		//reads accounts from the accounts.txt file in assets into the accounts variable
-		String accs;
-		FileHandle file = Gdx.files.local("accounts.txt");
-		accs = file.readString();
-		if(!accs.equals("")) {
-			String[] splitAccs = accs.split("\\r?\\n");
-			String[] splitAccParts;
-			for(int i = 0; i < splitAccs.length; i++) {
-				splitAccParts = splitAccs[i].split(",");
-				if(!checkDuplicateUsername(splitAccParts[0])) {
-					accounts.add(new Account(splitAccParts[0],splitAccParts[1],splitAccParts[2],splitAccParts[3],splitAccParts[4],Integer.parseInt(splitAccParts[5]),Integer.parseInt(splitAccParts[6]),Integer.parseInt(splitAccParts[7]),Integer.parseInt(splitAccParts[8]),Integer.parseInt(splitAccParts[9]),Integer.parseInt(splitAccParts[10]),Integer.parseInt(splitAccParts[11]),Integer.parseInt(splitAccParts[12]),Integer.parseInt(splitAccParts[13]),Integer.parseInt(splitAccParts[14]),Integer.parseInt(splitAccParts[15]),Integer.parseInt(splitAccParts[16]),Integer.parseInt(splitAccParts[17]),Integer.parseInt(splitAccParts[18]),Integer.parseInt(splitAccParts[19]),Integer.parseInt(splitAccParts[20]),Integer.parseInt(splitAccParts[21]),Integer.parseInt(splitAccParts[22]),Integer.parseInt(splitAccParts[23]),Integer.parseInt(splitAccParts[24]),Integer.parseInt(splitAccParts[25]),Integer.parseInt(splitAccParts[26]),Integer.parseInt(splitAccParts[27]), new String[] {splitAccParts[28],splitAccParts[29],splitAccParts[30],splitAccParts[31],splitAccParts[32],splitAccParts[33]}));
-				}
-			}
-		}
-	}
-	
-	public void writeAccountNotSecure(Account a) {
-		//adds an account to the accounts.txt file
-		String accs;
-		FileHandle file = Gdx.files.local("accounts.txt");
-		accs = file.readString();
-		if(!accs.equals("")) file.writeString("\n" + a.getUsername() + "," + a.getPassword() + "," + a.getSecretQuestion() + "," + a.getSecretAnswer() + "," + a.getFullName() + "," + a.getkindergartenCounting() + "," + a.getkindergartenOperations() + "," + a.getkindergartenNumbers() + "," + a.getkindergartenMeasurements() + "," + a.getkindergartenExam() + "," + a.getGrade1Operations() + "," + a.getGrade1Numbers() + "," + a.getGrade1Measurements() + "," + a.getGrade1Exam() + "," + a.getGrade2Operations() + "," + a.getGrade2Numbers() + "," + a.getGrade2Measurements() + "," + a.getGrade2Exam() + "," + a.getGrade3Operations() + "," + a.getGrade3Numbers() + "," + a.getGrade3Fractions() + "," + a.getGrade3Measurements() + "," + a.getGrade3Exam() + "," + a.getGrade4Operations() + "," + a.getGrade4Numbers() + "," + a.getGrade4Fractions() + "," + a.getGrade4Measurements() + "," + a.getGrade4Exam() + "," + a.getLatestAchievements()[0] + "," + a.getLatestAchievements()[1] + "," + a.getLatestAchievements()[2] + "," + a.getLatestAchievements()[3] + "," + a.getLatestAchievements()[4] + "," + a.getLatestAchievements()[5],true);
-		else file.writeString(a.getUsername() + "," + a.getPassword() + "," + a.getSecretQuestion() + "," + a.getSecretAnswer() + "," + a.getFullName() + "," + a.getkindergartenCounting() + "," + a.getkindergartenOperations() + "," + a.getkindergartenNumbers() + "," + a.getkindergartenMeasurements() + "," + a.getkindergartenExam() + "," + a.getGrade1Operations() + "," + a.getGrade1Numbers() + "," + a.getGrade1Measurements() + "," + a.getGrade1Exam() + "," + a.getGrade2Operations() + "," + a.getGrade2Numbers() + "," + a.getGrade2Measurements() + "," + a.getGrade2Exam() + "," + a.getGrade3Operations() + "," + a.getGrade3Numbers() + "," + a.getGrade3Fractions() + "," + a.getGrade3Measurements() + "," + a.getGrade3Exam() + "," + a.getGrade4Operations() + "," + a.getGrade4Numbers() + "," + a.getGrade4Fractions() + "," + a.getGrade4Measurements() + "," + a.getGrade4Exam() + "," + a.getLatestAchievements()[0] + "," + a.getLatestAchievements()[1] + "," + a.getLatestAchievements()[2] + "," + a.getLatestAchievements()[3] + "," + a.getLatestAchievements()[4] + "," + a.getLatestAchievements()[5],true);
-		readAccountsNotSecure();
-	}
-	
-	public void updateAccountNotSecure(Account a) {
-		//used to update all account info for a specified account
-		readAccountsNotSecure();
-		if (accounts.size()>0) {
-			for (int i = 0; i < accounts.size(); i++) {
-				if (accounts.get(i).getUsername().equals(a.getUsername())) {
-					accounts.set(i, a);
-				}
-			}
-		}
-		rewriteAccountsNotSecure();
-		readAccountsNotSecure();
-	}
-	
-	public void rewriteAccountsNotSecure() {
-		//rewrites all accounts from the accounts variable into the accounts.txt file (overwriting the file)
-		String accs;
-		FileHandle file = Gdx.files.local("accounts.txt");
-		file.writeString("",false);
-		if (accounts.size()>0) {
-			for (Account a : accounts) {
-				accs = file.readString();
-				if(!accs.equals("")) file.writeString("\n",true);
-				file.writeString(a.getUsername() + "," + a.getPassword() + "," + a.getSecretQuestion() + "," + a.getSecretAnswer() + "," + a.getFullName() + "," + a.getkindergartenCounting() + "," + a.getkindergartenOperations() + "," + a.getkindergartenNumbers() + "," + a.getkindergartenMeasurements() + "," + a.getkindergartenExam() + "," + a.getGrade1Operations() + "," + a.getGrade1Numbers() + "," + a.getGrade1Measurements() + "," + a.getGrade1Exam() + "," + a.getGrade2Operations() + "," + a.getGrade2Numbers() + "," + a.getGrade2Measurements() + "," + a.getGrade2Exam() + "," + a.getGrade3Operations() + "," + a.getGrade3Numbers() + "," + a.getGrade3Fractions() + "," + a.getGrade3Measurements() + "," + a.getGrade3Exam() + "," + a.getGrade4Operations() + "," + a.getGrade4Numbers() + "," + a.getGrade4Fractions() + "," + a.getGrade4Measurements() + "," + a.getGrade4Exam() + "," + a.getLatestAchievements()[0] + "," + a.getLatestAchievements()[1] + "," + a.getLatestAchievements()[2] + "," + a.getLatestAchievements()[3] + "," + a.getLatestAchievements()[4] + "," + a.getLatestAchievements()[5],true);
-			}
-		}
-	}
-	*/
-	
-	//secure versions of the above 5 methods----------------------------------------------------------------------------------------------------------------------
 	public void addAccountSecure(String username, String password, String secretQuestion, String secretAnswer, String fullName) {
 		//adds account to database, secure version
 		Account newAcc = new Account(username, password, secretQuestion, secretAnswer, fullName);
@@ -257,16 +189,15 @@ public class Tutor extends Game {
 	}
 	
 	public void readAccountsSecure() {
-		//reads accounts from the accounts.txt file in assets into the accounts variable, secure version
+		//reads accounts from the DoNotEdit.txt file in assets into the accounts variable, secure version
 		String accs;
 		FileHandle file = Gdx.files.local("DoNotEdit.txt");
 		accs = decrypt(file.readString());
 		if(!accs.equals("")) {
-			String[] splitAccs = accs.split(".");
+			String[] splitAccs = accs.split("\\.");
 			String[] splitAccParts;
 			for(int i = 0; i < splitAccs.length; i++) {
 				splitAccParts = splitAccs[i].split(",");
-				System.out.println(splitAccParts[1]);
 				if(!checkDuplicateUsername(splitAccParts[0])) {
 					accounts.add(new Account(splitAccParts[0],splitAccParts[1],splitAccParts[2],splitAccParts[3],splitAccParts[4],Integer.parseInt(splitAccParts[5]),Integer.parseInt(splitAccParts[6]),Integer.parseInt(splitAccParts[7]),Integer.parseInt(splitAccParts[8]),Integer.parseInt(splitAccParts[9]),Integer.parseInt(splitAccParts[10]),Integer.parseInt(splitAccParts[11]),Integer.parseInt(splitAccParts[12]),Integer.parseInt(splitAccParts[13]),Integer.parseInt(splitAccParts[14]),Integer.parseInt(splitAccParts[15]),Integer.parseInt(splitAccParts[16]),Integer.parseInt(splitAccParts[17]),Integer.parseInt(splitAccParts[18]),Integer.parseInt(splitAccParts[19]),Integer.parseInt(splitAccParts[20]),Integer.parseInt(splitAccParts[21]),Integer.parseInt(splitAccParts[22]),Integer.parseInt(splitAccParts[23]),Integer.parseInt(splitAccParts[24]),Integer.parseInt(splitAccParts[25]),Integer.parseInt(splitAccParts[26]),Integer.parseInt(splitAccParts[27]), new String[] {splitAccParts[28],splitAccParts[29],splitAccParts[30],splitAccParts[31],splitAccParts[32],splitAccParts[33]}));
 				}
@@ -275,7 +206,7 @@ public class Tutor extends Game {
 	}
 	
 	public void writeAccountSecure(Account a) {
-		//adds an account to the accounts.txt file, secure version
+		//adds an account to the DoNotEdit.txt file, secure version
 		accounts.add(a);
 		rewriteAccountsSecure();
 		readAccountsSecure();
@@ -296,7 +227,7 @@ public class Tutor extends Game {
 	}
 	
 	public void rewriteAccountsSecure() {
-		//rewrites all accounts from the accounts variable into the accounts.txt file (overwriting the file), secure version
+		//rewrites all accounts from the accounts variable into the DoNotEdit.txt file (overwriting the file), secure version
 		FileHandle file = Gdx.files.local("DoNotEdit.txt");
 		file.writeString("",false);
 		String toWrite = "";

@@ -1,2 +1,0 @@
-username,password,What's your favorite color?,blue,full name,2,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,Kindergarten,Counting,Kindergarten,Exam,none,none
-someguy,badpassword,What's your mother's maiden name?,Karen,some guy,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,none,none,none,none,none,none
