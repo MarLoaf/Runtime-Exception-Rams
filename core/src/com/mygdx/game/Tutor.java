@@ -178,7 +178,7 @@ public class Tutor extends Game {
 			desCipher = Cipher.getInstance("DES");
 			byte[] textEncrypted = encryptedString.getBytes("UTF8");
 			desCipher.init(Cipher.DECRYPT_MODE, myKey);
-			byte[] textDecrypted = desCipher.doFinal(textEncrypted); //problem here
+			byte[] textDecrypted = desCipher.doFinal(textEncrypted); //TODO problem here
 			String s = new String(textDecrypted);
 			return s;
 			}catch(Exception e) {
