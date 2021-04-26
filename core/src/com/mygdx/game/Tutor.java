@@ -1,5 +1,6 @@
 package com.mygdx.game;
 
+import java.nio.charset.StandardCharsets;
 import java.security.KeyStore;
 import java.util.ArrayList;
 import java.util.Base64;
@@ -90,12 +91,7 @@ public class Tutor extends Game {
 	
 	@Override
 	public void create() {
-		readAccounts();
-		String testString = "Text that was encrypted, did this work? 1, 2, 3. Is this ok??";
-		String textEncrypted = encrypt(testString);
-		System.out.println(textEncrypted);
-		String textDecrypted = decrypt(textEncrypted);
-		System.out.println(textDecrypted);
+		readAccountsSecure();
 		loadingScreen = new LoadingScreen(this);
 		setScreen(loadingScreen);
 	}
@@ -155,43 +151,6 @@ public class Tutor extends Game {
 		}
 	}
 	
-	private String encrypt(String originalString) {
-		try{
-			SecretKey myKey = new SecretKeySpec(Base64.getDecoder().decode(key), 0, Base64.getDecoder().decode(key).length, "DES");
-			Cipher desCipher;
-			desCipher = Cipher.getInstance("DES");
-			byte[] textDecrypted = originalString.getBytes("UTF8");
-			desCipher.init(Cipher.ENCRYPT_MODE, myKey);
-			byte[] textEncrypted = desCipher.doFinal(textDecrypted);
-			String s = new String(textEncrypted);
-			return s;
-			}catch(Exception e) {
-				System.out.println("Encryption Exception");
-			}
-		return "-1";
-	}
-	
-	private String decrypt(String encryptedString) {
-		try{
-			SecretKey myKey = new SecretKeySpec(Base64.getDecoder().decode(key), 0, Base64.getDecoder().decode(key).length, "DES");
-			Cipher desCipher;
-			desCipher = Cipher.getInstance("DES");
-			byte[] textEncrypted = encryptedString.getBytes("UTF8");
-			desCipher.init(Cipher.DECRYPT_MODE, myKey);
-			byte[] textDecrypted = desCipher.doFinal(textEncrypted); //TODO problem here
-			String s = new String(textDecrypted);
-			return s;
-			}catch(Exception e) {
-				System.out.println("Decryption Exception");
-			}
-		return "-1";
-	}
-	
-	public void addAccount(String username, String password, String secretQuestion, String secretAnswer, String fullName) {
-		Account newAcc = new Account(username, password, secretQuestion, secretAnswer, fullName);
-		if (!checkDuplicateUsername(username)) writeAccount(newAcc);
-	}
-	
 	public boolean checkDuplicateUsername(String username) {
 		if (accounts.size()>0) {
 			for (Account a : accounts) {
@@ -227,7 +186,14 @@ public class Tutor extends Game {
 		return false;
 	}
 	
-	public void readAccounts() {
+	/*
+	public void addAccountNotSecure(String username, String password, String secretQuestion, String secretAnswer, String fullName) {
+		//adds account to database
+		Account newAcc = new Account(username, password, secretQuestion, secretAnswer, fullName);
+		if (!checkDuplicateUsername(username)) writeAccountNotSecure(newAcc);
+	}
+	
+	public void readAccountsNotSecure() {
 		//reads accounts from the accounts.txt file in assets into the accounts variable
 		String accs;
 		FileHandle file = Gdx.files.local("accounts.txt");
@@ -244,19 +210,19 @@ public class Tutor extends Game {
 		}
 	}
 	
-	public void writeAccount(Account a) {
+	public void writeAccountNotSecure(Account a) {
 		//adds an account to the accounts.txt file
 		String accs;
 		FileHandle file = Gdx.files.local("accounts.txt");
 		accs = file.readString();
 		if(!accs.equals("")) file.writeString("\n" + a.getUsername() + "," + a.getPassword() + "," + a.getSecretQuestion() + "," + a.getSecretAnswer() + "," + a.getFullName() + "," + a.getkindergartenCounting() + "," + a.getkindergartenOperations() + "," + a.getkindergartenNumbers() + "," + a.getkindergartenMeasurements() + "," + a.getkindergartenExam() + "," + a.getGrade1Operations() + "," + a.getGrade1Numbers() + "," + a.getGrade1Measurements() + "," + a.getGrade1Exam() + "," + a.getGrade2Operations() + "," + a.getGrade2Numbers() + "," + a.getGrade2Measurements() + "," + a.getGrade2Exam() + "," + a.getGrade3Operations() + "," + a.getGrade3Numbers() + "," + a.getGrade3Fractions() + "," + a.getGrade3Measurements() + "," + a.getGrade3Exam() + "," + a.getGrade4Operations() + "," + a.getGrade4Numbers() + "," + a.getGrade4Fractions() + "," + a.getGrade4Measurements() + "," + a.getGrade4Exam() + "," + a.getLatestAchievements()[0] + "," + a.getLatestAchievements()[1] + "," + a.getLatestAchievements()[2] + "," + a.getLatestAchievements()[3] + "," + a.getLatestAchievements()[4] + "," + a.getLatestAchievements()[5],true);
 		else file.writeString(a.getUsername() + "," + a.getPassword() + "," + a.getSecretQuestion() + "," + a.getSecretAnswer() + "," + a.getFullName() + "," + a.getkindergartenCounting() + "," + a.getkindergartenOperations() + "," + a.getkindergartenNumbers() + "," + a.getkindergartenMeasurements() + "," + a.getkindergartenExam() + "," + a.getGrade1Operations() + "," + a.getGrade1Numbers() + "," + a.getGrade1Measurements() + "," + a.getGrade1Exam() + "," + a.getGrade2Operations() + "," + a.getGrade2Numbers() + "," + a.getGrade2Measurements() + "," + a.getGrade2Exam() + "," + a.getGrade3Operations() + "," + a.getGrade3Numbers() + "," + a.getGrade3Fractions() + "," + a.getGrade3Measurements() + "," + a.getGrade3Exam() + "," + a.getGrade4Operations() + "," + a.getGrade4Numbers() + "," + a.getGrade4Fractions() + "," + a.getGrade4Measurements() + "," + a.getGrade4Exam() + "," + a.getLatestAchievements()[0] + "," + a.getLatestAchievements()[1] + "," + a.getLatestAchievements()[2] + "," + a.getLatestAchievements()[3] + "," + a.getLatestAchievements()[4] + "," + a.getLatestAchievements()[5],true);
-		readAccounts();
+		readAccountsNotSecure();
 	}
 	
-	public void updateAccount(Account a) {
+	public void updateAccountNotSecure(Account a) {
 		//used to update all account info for a specified account
-		readAccounts();
+		readAccountsNotSecure();
 		if (accounts.size()>0) {
 			for (int i = 0; i < accounts.size(); i++) {
 				if (accounts.get(i).getUsername().equals(a.getUsername())) {
@@ -264,11 +230,11 @@ public class Tutor extends Game {
 				}
 			}
 		}
-		rewriteAccounts();
-		readAccounts();
+		rewriteAccountsNotSecure();
+		readAccountsNotSecure();
 	}
 	
-	public void rewriteAccounts() {
+	public void rewriteAccountsNotSecure() {
 		//rewrites all accounts from the accounts variable into the accounts.txt file (overwriting the file)
 		String accs;
 		FileHandle file = Gdx.files.local("accounts.txt");
@@ -281,7 +247,104 @@ public class Tutor extends Game {
 			}
 		}
 	}
+	*/
 	
+	//secure versions of the above 5 methods----------------------------------------------------------------------------------------------------------------------
+	public void addAccountSecure(String username, String password, String secretQuestion, String secretAnswer, String fullName) {
+		//adds account to database, secure version
+		Account newAcc = new Account(username, password, secretQuestion, secretAnswer, fullName);
+		if (!checkDuplicateUsername(username)) writeAccountSecure(newAcc);
+	}
+	
+	public void readAccountsSecure() {
+		//reads accounts from the accounts.txt file in assets into the accounts variable, secure version
+		String accs;
+		FileHandle file = Gdx.files.local("DoNotEdit.txt");
+		accs = decrypt(file.readString());
+		if(!accs.equals("")) {
+			String[] splitAccs = accs.split(".");
+			String[] splitAccParts;
+			for(int i = 0; i < splitAccs.length; i++) {
+				splitAccParts = splitAccs[i].split(",");
+				System.out.println(splitAccParts[1]);
+				if(!checkDuplicateUsername(splitAccParts[0])) {
+					accounts.add(new Account(splitAccParts[0],splitAccParts[1],splitAccParts[2],splitAccParts[3],splitAccParts[4],Integer.parseInt(splitAccParts[5]),Integer.parseInt(splitAccParts[6]),Integer.parseInt(splitAccParts[7]),Integer.parseInt(splitAccParts[8]),Integer.parseInt(splitAccParts[9]),Integer.parseInt(splitAccParts[10]),Integer.parseInt(splitAccParts[11]),Integer.parseInt(splitAccParts[12]),Integer.parseInt(splitAccParts[13]),Integer.parseInt(splitAccParts[14]),Integer.parseInt(splitAccParts[15]),Integer.parseInt(splitAccParts[16]),Integer.parseInt(splitAccParts[17]),Integer.parseInt(splitAccParts[18]),Integer.parseInt(splitAccParts[19]),Integer.parseInt(splitAccParts[20]),Integer.parseInt(splitAccParts[21]),Integer.parseInt(splitAccParts[22]),Integer.parseInt(splitAccParts[23]),Integer.parseInt(splitAccParts[24]),Integer.parseInt(splitAccParts[25]),Integer.parseInt(splitAccParts[26]),Integer.parseInt(splitAccParts[27]), new String[] {splitAccParts[28],splitAccParts[29],splitAccParts[30],splitAccParts[31],splitAccParts[32],splitAccParts[33]}));
+				}
+			}
+		}
+	}
+	
+	public void writeAccountSecure(Account a) {
+		//adds an account to the accounts.txt file, secure version
+		accounts.add(a);
+		rewriteAccountsSecure();
+		readAccountsSecure();
+	}
+	
+	public void updateAccountSecure(Account a) {
+		//used to update all account info for a specified account, secure version
+		readAccountsSecure();
+		if (accounts.size()>0) {
+			for (int i = 0; i < accounts.size(); i++) {
+				if (accounts.get(i).getUsername().equals(a.getUsername())) {
+					accounts.set(i, a);
+				}
+			}
+		}
+		rewriteAccountsSecure();
+		readAccountsSecure();
+	}
+	
+	public void rewriteAccountsSecure() {
+		//rewrites all accounts from the accounts variable into the accounts.txt file (overwriting the file), secure version
+		FileHandle file = Gdx.files.local("DoNotEdit.txt");
+		file.writeString("",false);
+		String toWrite = "";
+		String encrypted;
+		if (accounts.size()>0) {
+			for (Account a : accounts) {
+				if(!toWrite.equals("")) {
+					toWrite += ".";
+				}
+				toWrite += a.getUsername() + "," + a.getPassword() + "," + a.getSecretQuestion() + "," + a.getSecretAnswer() + "," + a.getFullName() + "," + a.getkindergartenCounting() + "," + a.getkindergartenOperations() + "," + a.getkindergartenNumbers() + "," + a.getkindergartenMeasurements() + "," + a.getkindergartenExam() + "," + a.getGrade1Operations() + "," + a.getGrade1Numbers() + "," + a.getGrade1Measurements() + "," + a.getGrade1Exam() + "," + a.getGrade2Operations() + "," + a.getGrade2Numbers() + "," + a.getGrade2Measurements() + "," + a.getGrade2Exam() + "," + a.getGrade3Operations() + "," + a.getGrade3Numbers() + "," + a.getGrade3Fractions() + "," + a.getGrade3Measurements() + "," + a.getGrade3Exam() + "," + a.getGrade4Operations() + "," + a.getGrade4Numbers() + "," + a.getGrade4Fractions() + "," + a.getGrade4Measurements() + "," + a.getGrade4Exam() + "," + a.getLatestAchievements()[0] + "," + a.getLatestAchievements()[1] + "," + a.getLatestAchievements()[2] + "," + a.getLatestAchievements()[3] + "," + a.getLatestAchievements()[4] + "," + a.getLatestAchievements()[5];
+			}
+		}
+		encrypted = encrypt(toWrite);
+		file.writeString(encrypted, true);
+	}
+	
+	private String encrypt(String originalString) {
+		//encrypts a string, returns the encrypted string if successful, returns -1 if failed
+		try{
+			SecretKey myKey = new SecretKeySpec(Base64.getDecoder().decode(key), 0, Base64.getDecoder().decode(key).length, "DES");
+			Cipher desCipher = Cipher.getInstance("DES");
+			desCipher.init(Cipher.ENCRYPT_MODE, myKey);
+			byte[] textDecrypted = originalString.getBytes("UTF-8");
+			byte[] textEncrypted = desCipher.doFinal(textDecrypted);
+			byte[] textEncoded = Base64.getEncoder().encode(textEncrypted);
+			String s = new String(textEncoded);
+			return s;
+			}catch(Exception e) {
+				System.out.println("Encryption Exception");
+			}
+		return "-1";
+	}
+	
+	private String decrypt(String encryptedString) {
+		//decrypts a string, returns the decrypted string if successful, returns -1 if failed
+		try{
+			SecretKey myKey = new SecretKeySpec(Base64.getDecoder().decode(key), 0, Base64.getDecoder().decode(key).length, "DES");
+			Cipher desCipher = Cipher.getInstance("DES");
+			desCipher.init(Cipher.DECRYPT_MODE, myKey);
+			byte[] textEncrypted = Base64.getDecoder().decode(encryptedString.getBytes());
+			byte[] textDecrypted = desCipher.doFinal(textEncrypted);
+			String s = new String(textDecrypted, "UTF-8");
+			return s;
+			}catch(Exception e) {
+				System.out.println("Decryption Exception");
+			}
+		return "-1";
+	}
 	
 	
 	public Problem problemGenerator(String grade, String topic, char subtopic, boolean multipleChoiceOrNot) {

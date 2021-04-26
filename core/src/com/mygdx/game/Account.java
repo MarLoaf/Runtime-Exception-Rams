@@ -602,24 +602,25 @@ public class Account {
 		return fullName;
 	}
 	
+	//no field can contain "," or "." so if they are contained in the string, these methods do not allow them through
 	public void setUsername(String u) {
-		username = u;
+		if (!u.contains(",") && !u.contains(".")) username = u;
 	}
 	
 	public void setPassword(String p) {
-		password = p;
+		if (!p.contains(",") && !p.contains(".")) password = p;
 	}
 	
 	public void setSecretQuestion(String sq) {
-		secretQuestion = sq;
+		if (!sq.contains(",") && !sq.contains(".")) secretQuestion = sq;
 	}
 	
 	public void setSecretAnswer(String sa) {
-		secretAnswer = sa;
+		if (!sa.contains(",") && !sa.contains(".")) secretAnswer = sa;
 	}
 	
 	public void setFullName(String fn) {
-		fullName = fn;
+		if (!fn.contains(",") && !fn.contains(".")) fullName = fn;
 	}
 	
 	//getters for achievements

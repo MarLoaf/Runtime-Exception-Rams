@@ -164,9 +164,9 @@ public class PasswordResetScreen implements Screen {
 		Confirm.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-				if (newPassword.equals(retypedPassword) && newPassword.length()>4) {
+				if (newPassword.equals(retypedPassword) && newPassword.length()>4 && !newPassword.contains(",") && !newPassword.contains(".")) {
 					parent.currentUser.setPassword(newPassword);
-					parent.updateAccount(parent.currentUser);
+					parent.updateAccountSecure(parent.currentUser);
 					parent.currentUser = null;
 					parent.changeScreen(Tutor.LOGIN);
 				}

@@ -144,7 +144,7 @@ public class ResultsScreen implements Screen {
 		}else {
 			table.add(NoMedal).colspan(2).uniformX();
 		}
-		parent.updateAccount(parent.currentUser);
+		parent.updateAccountSecure(parent.currentUser);
 		table.row();
 		table.add();
 		table.add(ok).colspan(2).pad(5).width(Gdx.graphics.getWidth()/4);
