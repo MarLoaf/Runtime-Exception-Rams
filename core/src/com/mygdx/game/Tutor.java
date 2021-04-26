@@ -91,7 +91,10 @@ public class Tutor extends Game {
 	@Override
 	public void create() {
 		readAccounts();
-		encrypt("Text that was encrypted, did this work? 1, 2, 3. Is this ok??");
+		String textEncrypted = encrypt("Text that was encrypted, did this work? 1, 2, 3. Is this ok??");
+		System.out.println(textEncrypted);
+		String textDecrypted = decrypt(textEncrypted);
+		System.out.println(textDecrypted);
 		loadingScreen = new LoadingScreen(this);
 		setScreen(loadingScreen);
 	}
@@ -151,46 +154,36 @@ public class Tutor extends Game {
 		}
 	}
 	
-	private void encrypt(String originalString) {
+	private String encrypt(String originalString) {
 		try{
-            SecretKey myKey = new SecretKeySpec(Base64.getDecoder().decode(key), 0, Base64.getDecoder().decode(key).length, "DES");
-            Cipher desCipher;
-            desCipher = Cipher.getInstance("DES");
-            byte[] text = originalString.getBytes("UTF8");
-            desCipher.init(Cipher.ENCRYPT_MODE, myKey);
-            byte[] textEncrypted = desCipher.doFinal(text);
-            String s = new String(textEncrypted);
-            System.out.println(s);
-            desCipher.init(Cipher.DECRYPT_MODE, myKey);
-            byte[] textDecrypted = desCipher.doFinal(textEncrypted);
-            s = new String(textDecrypted);
-            System.out.println(s);
-        }catch(Exception e)
-        {
-            System.out.println("Encryption Exception");
-        }
+			SecretKey myKey = new SecretKeySpec(Base64.getDecoder().decode(key), 0, Base64.getDecoder().decode(key).length, "DES");
+			Cipher desCipher;
+			desCipher = Cipher.getInstance("DES");
+			byte[] textDecrypted = originalString.getBytes("UTF8");
+			desCipher.init(Cipher.ENCRYPT_MODE, myKey);
+			byte[] textEncrypted = desCipher.doFinal(textDecrypted);
+			String s = new String(textEncrypted);
+			return s;
+			}catch(Exception e) {
+				System.out.println("Encryption Exception");
+			}
+		return "-1";
 	}
 	
-	private String decrypt() {
+	private String decrypt(String encryptedString) {
 		try{
-			byte[] decodedKey = Base64.getDecoder().decode(key);
-            SecretKey myKey = new SecretKeySpec(decodedKey, 0, decodedKey.length, "DES");
-            Cipher desCipher;
-            desCipher = Cipher.getInstance("DES");
-            byte[] text = "No body can see me.".getBytes("UTF8");
-            desCipher.init(Cipher.ENCRYPT_MODE, myKey);
-            byte[] textEncrypted = desCipher.doFinal(text);
-            String s = new String(textEncrypted);
-            System.out.println(s);
-            desCipher.init(Cipher.DECRYPT_MODE, myKey);
-            byte[] textDecrypted = desCipher.doFinal(textEncrypted);
-            s = new String(textDecrypted);
-            System.out.println(s);
-        }catch(Exception e)
-        {
-            System.out.println("Encryption Exception");
-        }
-		return "";
+			SecretKey myKey = new SecretKeySpec(Base64.getDecoder().decode(key), 0, Base64.getDecoder().decode(key).length, "DES");
+			Cipher desCipher;
+			desCipher = Cipher.getInstance("DES");
+			byte[] textEncrypted = encryptedString.getBytes("UTF8");
+			desCipher.init(Cipher.DECRYPT_MODE, myKey);
+			byte[] textDecrypted = desCipher.doFinal(textEncrypted); //problem here
+			String s = new String(textDecrypted);
+			return s;
+			}catch(Exception e) {
+				System.out.println("Decryption Exception");
+			}
+		return "-1";
 	}
 	
 	public void addAccount(String username, String password, String secretQuestion, String secretAnswer, String fullName) {
