@@ -46,9 +46,23 @@ BlueButtonPressed
   orig: 553, 113
   offset: 0, 0
   index: -1
+Cancel
+  rotate: false
+  xy: 1, 1063
+  size: 113, 113
+  orig: 113, 113
+  offset: 0, 0
+  index: -1
+CancelPressed
+  rotate: false
+  xy: 116, 1178
+  size: 113, 113
+  orig: 113, 113
+  offset: 0, 0
+  index: -1
 CheckBox
   rotate: false
-  xy: 1, 1135
+  xy: 1781, 1882
   size: 41, 41
   orig: 41, 41
   offset: 0, 0
@@ -86,6 +100,20 @@ GreenButtonPressed
   xy: 1111, 1868
   size: 553, 113
   orig: 553, 113
+  offset: 0, 0
+  index: -1
+OK
+  rotate: false
+  xy: 671, 1293
+  size: 113, 113
+  orig: 113, 113
+  offset: 0, 0
+  index: -1
+OKPressed
+  rotate: false
+  xy: 1666, 1695
+  size: 113, 113
+  orig: 113, 113
   offset: 0, 0
   index: -1
 OrangeButton
@@ -139,7 +167,7 @@ PurpleButtonPressed
   index: -1
 TextCursor
   rotate: false
-  xy: 116, 1188
+  xy: 1226, 1418
   size: 3, 103
   orig: 3, 103
   offset: 0, 0
