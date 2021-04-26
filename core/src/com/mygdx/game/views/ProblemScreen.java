@@ -120,10 +120,16 @@ public class ProblemScreen implements Screen {
 		answer.setAlignment(Align.center);
 		Button next = new Button(skin, "ArrowRight");
 		Button previous = new Button(skin, "ArrowLeft");
+		Button finish = new Button(skin, "OK");
+		Button cancel = new Button(skin, "Cancel");
 		TextTooltip nextPopup = new TextTooltip("Next", skin);
 		nextPopup.setInstant(true);
 		TextTooltip previousPopup = new TextTooltip("Previous", skin);
 		previousPopup.setInstant(true);
+		TextTooltip finishPopup = new TextTooltip("Finish", skin);
+		finishPopup.setInstant(true);
+		TextTooltip cancelPopup = new TextTooltip("Cancel", skin);
+		cancelPopup.setInstant(true);
 		Button back = new Button(skin, "Exit");
 		rightAnswer = new CheckBox(parent.problems[parent.problemNumber].getCorrectAnswer(), skin);
 		if(parent.problems[parent.problemNumber].getSelectedAnswer().equals(parent.problems[parent.problemNumber].getCorrectAnswer())) rightAnswer.setChecked(true);
@@ -173,11 +179,15 @@ public class ProblemScreen implements Screen {
 		}
 		table.row();
 		table.add();
-		table.add(previous).pad(5).uniformX();
-		table.add(next).pad(5).uniformX();
+		if (parent.problemNumber == 0) table.add(cancel).pad(5).uniformX();
+		else table.add(previous).pad(5).uniformX();
+		if (parent.problemNumber == parent.problems.length-1) table.add(finish).pad(5).uniformX();
+		else table.add(next).pad(5).uniformX();
 		//adding button functionality
 		next.addListener(nextPopup);
 		previous.addListener(previousPopup);
+		finish.addListener(finishPopup);
+		cancel.addListener(cancelPopup);
 		back.addListener(exitPopup);
 		answer.setTextFieldListener(new TextField.TextFieldListener() {
 			@Override
@@ -229,6 +239,25 @@ public class ProblemScreen implements Screen {
 				if (parent.problemNumber != 0) {
 					parent.problemNumber--;
 					parent.changeScreen(Tutor.PROBLEM);
+				}
+			}
+		});
+		finish.addListener(new ChangeListener() {
+			@Override
+			public void changed(ChangeEvent event, Actor actor) {
+				if (parent.problemNumber == parent.problems.length-1) {
+					parent.problemNumber = 0;
+					confirmAnswers();
+					clearAnswers();
+					parent.changeScreen(Tutor.RESULTS);
+				}
+			}
+		});
+		cancel.addListener(new ChangeListener() {
+			@Override
+			public void changed(ChangeEvent event, Actor actor) {
+				if (parent.problemNumber == 0) {
+					parent.changeScreen(Tutor.HOME);
 				}
 			}
 		});
