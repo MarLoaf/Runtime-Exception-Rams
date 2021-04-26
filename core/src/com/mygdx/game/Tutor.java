@@ -91,7 +91,8 @@ public class Tutor extends Game {
 	@Override
 	public void create() {
 		readAccounts();
-		String textEncrypted = encrypt("Text that was encrypted, did this work? 1, 2, 3. Is this ok??");
+		String testString = "Text that was encrypted, did this work? 1, 2, 3. Is this ok??";
+		String textEncrypted = encrypt(testString);
 		System.out.println(textEncrypted);
 		String textDecrypted = decrypt(textEncrypted);
 		System.out.println(textDecrypted);
