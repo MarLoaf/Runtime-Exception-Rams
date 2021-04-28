@@ -278,7 +278,7 @@ public class Tutor extends Game {
 	}
 	
 	
-	public Problem problemGenerator(String grade, String topic, char subtopic, boolean multipleChoiceOrNot) {
+	public Problem problemGenerator(String grade, String topic, boolean multipleChoiceOrNot) {
 		int start = 1;
 		int range = 0;
 		int pattern = 0;
@@ -299,18 +299,6 @@ public class Tutor extends Game {
 		//determining grade & topic validation 
 		if (grade.equals("Kindergarten")) {
 			
-			if (topic.equals("Counting")) {
-				
-			} else if (topic.equals("Operations")) {
-				
-			} else if (topic.equals("Numbers")) {
-				
-			} else if (topic.equals("Measurement")) {
-				
-			} else {
-				return null;
-			}
-			
 		} else if (grade.equals("Grade1")) {
 			
 		} else if (grade.equals("Grade2")) {
@@ -318,30 +306,62 @@ public class Tutor extends Game {
 		} else if (grade.equals("Grade3")) {
 			
 		} else if (grade.equals("Grade4")) {
-			if (topic.equals("Operations")) {
-				if (subtopic == 'A') {
+			
+			random = rand.nextInt(3);
+			
+			if (random == 0) {					//choosing the subtopic in grade 4
+				random = rand.nextInt(3);
+				
+				if (random == 0) {	//starting the first set of things needed to be test for grade 4
 					range = 100;
 					boolean isDivision = false;
-					random = rand.nextInt(5);
+					random = rand.nextInt(2);
 					
 					if (random == 0) {
-						field1 = rand.nextInt(range + 1);
-						field2 = rand.nextInt(range + 1);
-						
-						if (field1 == 0)
-							field1 = 1;
-						if (field2 == 0)
-							field2 = 1;
-						
-						correctAnswer = field1 * field2;
-						problemText = "" + correctAnswer + " = __ x " + field2;
-						problemCorrectAnswer = Double.toString(field1);
-						
-						newProblem.setCorrectAnswer(problemCorrectAnswer);
-						newProblem.setProblemText(problemText);
-						newProblem.setWorrectAnswers(null);
+						if (!multipleChoiceOrNot) {
+							field1 = rand.nextInt(range + 1);
+							field2 = rand.nextInt(range + 1);
 							
-						return newProblem;
+							if (field1 == 0)
+								field1 = 1;
+							if (field2 == 0)
+								field2 = 1;
+							
+							correctAnswer = field1 * field2;
+							problemText = "" + correctAnswer + " = __ x " + field2;
+							problemCorrectAnswer = Double.toString(field1);
+							
+							newProblem.setCorrectAnswer(problemCorrectAnswer);
+							newProblem.setProblemText(problemText);
+							newProblem.setWorrectAnswers(null);
+								
+							return newProblem;
+						} else {
+							field1 = rand.nextInt(range + 1);
+							field2 = rand.nextInt(range + 1);
+							String[] wrongAnswers = {"", "", ""};
+							
+							if (field1 == 0)
+								field1 = 1;
+							if (field2 == 0)
+								field2 = 1;
+							
+							correctAnswer = field1 * field2;
+							problemText = "" + correctAnswer + " = __ x " + field2;
+							problemCorrectAnswer = Double.toString(field1);
+							
+							for (int i = 0; i < 2; i++) {
+								wrongAnswers[i] = Integer.toString(rand.nextInt(100));
+							}
+							
+							newProblem.setCorrectAnswer(problemCorrectAnswer);
+							newProblem.setProblemText(problemText);
+							newProblem.setWorrectAnswers(wrongAnswers);
+							return newProblem;
+							
+						}
+						
+					
 						
 					} else if (random == 1) {
 						random = rand.nextInt(2);
@@ -364,7 +384,6 @@ public class Tutor extends Game {
 							
 							newProblem.setCorrectAnswer(problemCorrectAnswer);
 							newProblem.setProblemText(problemText);
-							newProblem.setWorrectAnswers(null);
 									
 							return newProblem;
 						} else {
@@ -382,23 +401,15 @@ public class Tutor extends Game {
 							
 							newProblem.setCorrectAnswer(problemCorrectAnswer);
 							newProblem.setProblemText(problemText);
-							newProblem.setWorrectAnswers(null);
 							
 							return newProblem;
 						}
-					} else if (random == 2) {
-						
-					}
-					
-					
-					
 				}
-				
-				
-				
 			}
 			
-		} else {
+		} else if (random == 1) {		//subtopic 2 of grade 4;
+		
+		}
 			return null;
 		}
 		
