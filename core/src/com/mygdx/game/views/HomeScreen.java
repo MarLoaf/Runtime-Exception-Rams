@@ -109,9 +109,9 @@ public class HomeScreen implements Screen {
 		lessonSelectBox.setItems("Practice", "Test", "Exam", "Tutorial");
 		lessonSelectBox.setAlignment(Align.center);
 		Button begin = new Button(skin, "ArrowRight"); //creates an arrow button pointing to the right
-		TextTooltip beginPopup = new TextTooltip("Begin", skin);
+		TextTooltip beginPopup = new TextTooltip(" Begin ", skin);
 		beginPopup.setInstant(true);
-		TextTooltip continuePopup = new TextTooltip("Continue", skin);
+		TextTooltip continuePopup = new TextTooltip(" Continue ", skin);
 		continuePopup.setInstant(true);
 		Label userInfo = new Label("", skin);
 		userInfo.setText(userInfoMessage);
@@ -122,7 +122,7 @@ public class HomeScreen implements Screen {
 		Label greatestAchievements = new Label("Greatest Achievements:", skin);
 		greatestAchievements.setAlignment(Align.center);
 		ImageTextButton achiemeventsButton = new ImageTextButton("My Achievements", skin); //creates a blue button (blue is default when no color is specified)
-		TextTooltip exitPopup = new TextTooltip("Log out", skin);
+		TextTooltip exitPopup = new TextTooltip(" Log out ", skin);
 		exitPopup.setInstant(true);
 		//layout:
 		table.top();

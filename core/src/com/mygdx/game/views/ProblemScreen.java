@@ -122,13 +122,13 @@ public class ProblemScreen implements Screen {
 		Button previous = new Button(skin, "ArrowLeft");
 		Button finish = new Button(skin, "OK");
 		Button cancel = new Button(skin, "Cancel");
-		TextTooltip nextPopup = new TextTooltip("Next", skin);
+		TextTooltip nextPopup = new TextTooltip(" Next ", skin);
 		nextPopup.setInstant(true);
-		TextTooltip previousPopup = new TextTooltip("Previous", skin);
+		TextTooltip previousPopup = new TextTooltip(" Previous ", skin);
 		previousPopup.setInstant(true);
-		TextTooltip finishPopup = new TextTooltip("Finish", skin);
+		TextTooltip finishPopup = new TextTooltip(" Finish ", skin);
 		finishPopup.setInstant(true);
-		TextTooltip cancelPopup = new TextTooltip("Cancel", skin);
+		TextTooltip cancelPopup = new TextTooltip(" Cancel ", skin);
 		cancelPopup.setInstant(true);
 		Button back = new Button(skin, "Exit");
 		rightAnswer = new CheckBox(parent.problems.get(parent.problemNumber).getCorrectAnswer(), skin);
@@ -148,7 +148,7 @@ public class ProblemScreen implements Screen {
 			wrongAnswer2.setText(parent.problems.get(parent.problemNumber).getWrongAnswers()[2]);
 			if(parent.problems.get(parent.problemNumber).getSelectedAnswer().equals(parent.problems.get(parent.problemNumber).getWrongAnswers()[2])) wrongAnswer2.setChecked(true);
 		}
-		TextTooltip exitPopup = new TextTooltip("Back", skin);
+		TextTooltip exitPopup = new TextTooltip(" Back ", skin);
 		exitPopup.setInstant(true);
         //layout
 		table.top();

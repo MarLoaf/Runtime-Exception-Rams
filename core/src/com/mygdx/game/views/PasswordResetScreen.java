@@ -110,14 +110,14 @@ public class PasswordResetScreen implements Screen {
 		RetypePasswordText.setMessageText("Retype new password...");
 		ImageTextButton Confirm = new ImageTextButton("Confirm", skin,"green");
 		Button back = new Button(skin, "Exit");
-		TextTooltip exitPopup = new TextTooltip("Back", skin);
+		TextTooltip exitPopup = new TextTooltip(" Back ", skin);
 		exitPopup.setInstant(true);
 		RetypePasswordText.setAlignment(Align.center);
 		newpassword.setAlignment(Align.center);
 		retypepassword.setAlignment(Align.center);
 		passwordresettitle.setAlignment(Align.center);
 		NewPasswordText.setAlignment(Align.center);
-		TextTooltip lengthPopup = new TextTooltip("At least 5 characters", skin);
+		TextTooltip lengthPopup = new TextTooltip(" At least 5 characters ", skin);
 		lengthPopup.setInstant(true);
 		//layout:
 		table.top();

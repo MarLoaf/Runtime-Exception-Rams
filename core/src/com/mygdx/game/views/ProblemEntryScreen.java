@@ -104,7 +104,7 @@ public class ProblemEntryScreen implements Screen {
         Label descriptionLine2 = new Label("click Begin to start", skin, "noBackground");
 		ImageTextButton begin = new ImageTextButton("Begin", skin, "green");
 		Button back = new Button(skin, "Exit");
-		TextTooltip exitPopup = new TextTooltip("Back", skin);
+		TextTooltip exitPopup = new TextTooltip(" Back ", skin);
 		exitPopup.setInstant(true);
         //layout
 		table.top();

@@ -107,7 +107,7 @@ public class AchievementsScreen implements Screen {
 		userInfo.setText(userInfoMessage);
 		userInfo.setAlignment(Align.center);
 		Button back = new Button(skin, "Exit");
-		TextTooltip exitPopup = new TextTooltip("Back", skin);
+		TextTooltip exitPopup = new TextTooltip(" Back ", skin);
 		exitPopup.setInstant(true);
 		//layout:
 		topBarTable.top();

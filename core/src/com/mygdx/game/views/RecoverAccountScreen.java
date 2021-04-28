@@ -112,7 +112,7 @@ public class RecoverAccountScreen implements Screen {
 		usernameText.setAlignment(Align.center);
 		ImageTextButton next = new ImageTextButton("Next", skin, "pink");
 		Button back = new Button(skin, "Exit");
-		TextTooltip exitPopup = new TextTooltip("Back", skin);
+		TextTooltip exitPopup = new TextTooltip(" Back ", skin);
 		exitPopup.setInstant(true);
 		//layout:
 		table.top();

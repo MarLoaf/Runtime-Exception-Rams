@@ -115,7 +115,7 @@ public class ResultsScreen implements Screen {
 		Image Silver = new Image(new Texture(Gdx.files.internal("images/Silver.png")));
 		Image Bronze = new Image(new Texture(Gdx.files.internal("images/Bronze.png")));
 		Image NoMedal = new Image(new Texture(Gdx.files.internal("images/NoMedal.png")));
-		TextTooltip exitPopup = new TextTooltip("Back", skin);
+		TextTooltip exitPopup = new TextTooltip(" Back ", skin);
 		exitPopup.setInstant(true);
         //layout
 		table.top();

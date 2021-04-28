@@ -127,11 +127,11 @@ public class CreateAccountScreen implements Screen {
 		fullnameLabel.setAlignment(Align.center);
 		fullnameText.setAlignment(Align.center);
 		secretAnswerText.setAlignment(Align.center);
-		TextTooltip lengthPopup = new TextTooltip("At least 5 characters", skin);
+		TextTooltip lengthPopup = new TextTooltip(" At least 5 characters ", skin);
 		lengthPopup.setInstant(true);
-		TextTooltip secretQuestionPopup = new TextTooltip("Secret Question", skin);
+		TextTooltip secretQuestionPopup = new TextTooltip(" Secret Question ", skin);
 		secretQuestionPopup.setInstant(true);
-		TextTooltip exitPopup = new TextTooltip("Back", skin);
+		TextTooltip exitPopup = new TextTooltip(" Back ", skin);
 		exitPopup.setInstant(true);
 		//layout:
 		table.top();

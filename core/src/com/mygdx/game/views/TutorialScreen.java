@@ -110,9 +110,9 @@ public class TutorialScreen implements Screen {
 		ImageTextButton additionalHelp = new ImageTextButton("Links to additional Help", skin);
 		ImageTextButton askTeacher = new ImageTextButton("Click here for help!", skin, "pink");
 		Button back = new Button(skin, "Exit");
-		TextTooltip exitPopup = new TextTooltip("Back", skin);
+		TextTooltip exitPopup = new TextTooltip(" Back ", skin);
 		exitPopup.setInstant(true);
-		TextTooltip videoPopup = new TextTooltip("Video", skin);
+		TextTooltip videoPopup = new TextTooltip(" Video ", skin);
 		videoPopup.setInstant(true);
 		//layout:
 		table.top();
