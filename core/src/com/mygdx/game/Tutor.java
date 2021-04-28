@@ -42,36 +42,8 @@ public class Tutor extends Game {
 	public String lessonSelection = "";
 	public int answerCounter = 0;
 	public int problemNumber = 0;
-	//public Problem[] problems = {new Problem("5 - 3 = ?", "2"), new Problem("2 + 2 = ?", "4"), new Problem("3 + 2 = ?", "5", new String[] {"4","3","6"}), new Problem("If each student has 3 apples, how many apples do 5 students have", "15"), new Problem("You have 2 oranges, Lisa has 7 oranges, how many oranges do you have together","9", new String[] {"8","10","7"})};
 	public ArrayList<Problem> problems = new ArrayList<Problem>(0);
-	
-	/*problem sets
-	public Problem[] kindergartenCounting;
-	public Problem[] kindergartenOperations;
-	public Problem[] kindergartenNumbers;
-	public Problem[] kindergartenMeasurements;
-
-	public Problem[] grade1Operations;
-	public Problem[] grade1Numbers;
-	public Problem[] grade1Measurements;
-
-	public Problem[] grade2Operations;
-	public Problem[] grade2Numbers;
-	public Problem[] grade2Measurements;
-
-	public Problem[] grade3Operations;
-	public Problem[] grade3Numbers;
-	public Problem[] grade3Fractions;
-	public Problem[] grade3Measurements;
-
-	public Problem[] grade4Operations;
-	public Problem[] grade4Numbers;
-	public Problem[] grade4Fractions = {new Problem("Which of the following is an improper fraction?", "7/3", new String[] {"3/15", "3/7", "1/2"})};
-	public Problem[] grade4Measurements;
-	*/
-	
 	public ArrayList<Account> accounts = new ArrayList<Account>(0);
-	//public Account currentUser = new Account("","","","","Test User");
 	public Account currentUser;
 	
 	public final static int ACHIEVEMENTS = 0;
