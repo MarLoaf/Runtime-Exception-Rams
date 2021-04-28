@@ -298,18 +298,22 @@ public class Tutor extends Game {
 		
 		//determining grade & topic validation 
 		if (grade.equals("Kindergarten")) {
+			random = rand.nextInt(3); 
 			
-		} else if (grade.equals("Grade1")) {
+			if (random == 0) {		//Counting and Cardinality
+				
+				
+			}
 			
-		} else if (grade.equals("Grade2")) {
+		} else if (grade.equals("1st Grade")) {
 			
-		} else if (grade.equals("Grade3")) {
+		} else if (grade.equals("2nd Grade")) {
 			
-		} else if (grade.equals("Grade4")) {
+		} else if (grade.equals("3rd Grade")) {
 			
-			random = rand.nextInt(3);
+		} else if (grade.equals("4th Grade")) {
 			
-			if (random == 0) {					//choosing the subtopic in grade 4
+			if (topic.equals("Operations")) {					//choosing the subtopic in grade 4
 				random = rand.nextInt(3);
 				
 				if (random == 0) {	//starting the first set of things needed to be test for grade 4
