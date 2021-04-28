@@ -281,6 +281,7 @@ public class Tutor extends Game {
 	public void generateProblems() {
 		problems.clear();
 		for(int i=0; i<5; i++) {
+			//generates 5 problems
 			problems.add(problemGeneratorAlexVersion(gradeSelection, topicSelection));
 			//problems.add(problemGeneratorMarioVersion(gradeSelection, topicSelection, true));
 		}
