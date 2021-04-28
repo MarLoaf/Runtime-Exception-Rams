@@ -182,7 +182,7 @@ public class TutorialScreen implements Screen {
 							break;
 						}
 						break;
-					case "1st Grade":
+					case "1st Grade":				
 						switch(parent.topicSelection) {
 						case "Operations":
 							try {
@@ -296,6 +296,7 @@ public class TutorialScreen implements Screen {
 							try {
 								Desktop d = Desktop.getDesktop();
 								d.browse(new URI("https://www.youtube.com/watch?v=lqNFLeUCWAE&t=73s"));
+								d.browse(new URI("https://www.youtube.com/watch?v=82kKb093oic"));
 							} catch (Exception e) {
 								System.out.println("URL fail @ tutorial page");
 							}
@@ -304,6 +305,7 @@ public class TutorialScreen implements Screen {
 							try {
 								Desktop d = Desktop.getDesktop();
 								d.browse(new URI("https://www.youtube.com/watch?v=1jmScxZ0ffM"));
+								d.browse(new URI("https://www.youtube.com/watch?v=dOy-yqKjg3k"));
 							} catch (Exception e) {
 								System.out.println("URL fail @ tutorial page");
 							}
@@ -322,7 +324,7 @@ public class TutorialScreen implements Screen {
 						case "Counting":
 							try {
 								Desktop d = Desktop.getDesktop();
-								d.browse(new URI("https://www.k5learning.com/free-preschool-kindergarten-worksheets/numbers"));
+								d.browse(new URI("https://classace.io/learn/math/1stgrade/counting-by-10s-and-1s"));
 							} catch (Exception e) {
 								System.out.println("URL fail @ tutorial page");
 							}
@@ -370,35 +372,75 @@ public class TutorialScreen implements Screen {
 							}
 							break;
 						case "Numbers":
-							//TODO add text link
+							try {
+								Desktop d = Desktop.getDesktop();
+								d.browse(new URI("https://learnzillion.com/wikis/64125-developing-addition-and-subtraction-strategies/"));
+							} catch (Exception e) {
+								System.out.println("URL fail @ tutorial page");
+							}
 							break;
 						case "Measurements":
-							//TODO add text link
+							try {
+								Desktop d = Desktop.getDesktop();
+								d.browse(new URI("https://learnzillion.com/wikis/64122-ordering-and-comparing-lengths/"));
+							} catch (Exception e) {
+								System.out.println("URL fail @ tutorial page");
+							}
 							break;
 						}
 						break;
 					case "2nd Grade":
 						switch(parent.topicSelection) {
 						case "Operations":
-							//TODO add text link
+							try {
+								Desktop d = Desktop.getDesktop();
+								d.browse(new URI("https://www.whatihavelearnedteaching.com/models-strategies-for-two-digit-addition-subtraction/"));
+							} catch (Exception e) {
+								System.out.println("URL fail @ tutorial page");
+							}
 							break;
 						case "Numbers":
-							//TODO add text link
+							try {
+								Desktop d = Desktop.getDesktop();
+								d.browse(new URI("https://classace.io/learn/math/2ndgrade/skip-counting-by-100"));
+							} catch (Exception e) {
+								System.out.println("URL fail @ tutorial page");
+							}
 							break;
 						case "Measurements":
-							//TODO add text link
+							try {
+								Desktop d = Desktop.getDesktop();
+								d.browse(new URI("https://classace.io/learn/math/2ndgrade/units-of-length-2"));
+							} catch (Exception e) {
+								System.out.println("URL fail @ tutorial page");
+							}
 							break;
 						}
 					case "3rd Grade":
 						switch(parent.topicSelection) {
 						case "Operations":
-							//TODO add text link
+							try {
+								Desktop d = Desktop.getDesktop();
+								d.browse(new URI("https://www.mathsisfun.com/operation-order-pemdas.html"));
+							} catch (Exception e) {
+								System.out.println("URL fail @ tutorial page");
+							}
 							break;
 						case "Numbers":
-							//TODO add text link
+							try {
+								Desktop d = Desktop.getDesktop();
+								d.browse(new URI("https://www.keynotesupport.com/excel-functions/rounding-numbers.shtml#:~:text=Each%20digit%20in%20a%20number,the%20digit%20to%20its%20right"));
+							} catch (Exception e) {
+								System.out.println("URL fail @ tutorial page");
+							}
 							break;
 						case "Fractions":
-							//TODO add text link
+							try {
+								Desktop d = Desktop.getDesktop();
+								d.browse(new URI("https://www.splashlearn.com/math-vocabulary/fractions/fraction"));
+							} catch (Exception e) {
+								System.out.println("URL fail @ tutorial page");
+							}
 							break;
 						case "Measurements":
 							try {
@@ -421,13 +463,28 @@ public class TutorialScreen implements Screen {
 							}
 							break;
 						case "Numbers":
-							//TODO add text link
+							try {
+								Desktop d = Desktop.getDesktop();
+								d.browse(new URI("https://www.mathsisfun.com/numbers/estimation.html"));
+							} catch (Exception e) {
+								System.out.println("URL fail @ tutorial page");
+							}
 							break;
 						case "Fractions":
-							//TODO add text link
+							try {
+								Desktop d = Desktop.getDesktop();
+								d.browse(new URI("https://www.splashlearn.com/math-vocabulary/fractions/fraction"));
+							} catch (Exception e) {
+								System.out.println("URL fail @ tutorial page");
+							}
 							break;
 						case "Measurements":
-							//TODO add text link
+							try {
+								Desktop d = Desktop.getDesktop();
+								d.browse(new URI("https://www.splashlearn.com/math-vocabulary/measurements/measurement-units"));
+							} catch (Exception e) {
+								System.out.println("URL fail @ tutorial page");
+							}
 							break;
 						}
 						break;
