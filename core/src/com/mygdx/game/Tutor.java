@@ -42,7 +42,8 @@ public class Tutor extends Game {
 	public String lessonSelection = "";
 	public int answerCounter = 0;
 	public int problemNumber = 0;
-	public Problem[] problems = {new Problem("5 - 3 = ?", "2"), new Problem("2 + 2 = ?", "4"), new Problem("3 + 2 = ?", "5", new String[] {"4","3","6"}), new Problem("If each student has 3 apples, how many apples do 5 students have", "15"), new Problem("You have 2 oranges, Lisa has 7 oranges, how many oranges do you have together","9", new String[] {"8","10","7"})};
+	//public Problem[] problems = {new Problem("5 - 3 = ?", "2"), new Problem("2 + 2 = ?", "4"), new Problem("3 + 2 = ?", "5", new String[] {"4","3","6"}), new Problem("If each student has 3 apples, how many apples do 5 students have", "15"), new Problem("You have 2 oranges, Lisa has 7 oranges, how many oranges do you have together","9", new String[] {"8","10","7"})};
+	public ArrayList<Problem> problems = new ArrayList<Problem>(0);
 	
 	/*problem sets
 	public Problem[] kindergartenCounting;
@@ -277,6 +278,11 @@ public class Tutor extends Game {
 		return "-1";
 	}
 	
+	public void generateProblems() {
+		for(int i=0; i<5; i++) {
+			problems.add(problemGenerator(gradeSelection, topicSelection, true));
+		}
+	}
 	
 	public Problem problemGenerator(String grade, String topic, boolean multipleChoiceOrNot) {
 		int start = 1;

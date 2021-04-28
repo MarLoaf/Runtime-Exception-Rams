@@ -113,9 +113,9 @@ public class ProblemScreen implements Screen {
 		userInfo.setText(userInfoMessage);
 		userInfo.setAlignment(Align.center);
         problem = new Label("", skin, "noBackground");
-        problem.setText(parent.problems[parent.problemNumber].getProblemText());
+        problem.setText(parent.problems.get(parent.problemNumber).getProblemText());
         problem.setAlignment(Align.center);
-		answer = new TextField(parent.problems[parent.problemNumber].getSelectedAnswer(), skin);
+		answer = new TextField(parent.problems.get(parent.problemNumber).getSelectedAnswer(), skin);
 		answer.setMessageText("Answer...");
 		answer.setAlignment(Align.center);
 		Button next = new Button(skin, "ArrowRight");
@@ -131,8 +131,8 @@ public class ProblemScreen implements Screen {
 		TextTooltip cancelPopup = new TextTooltip("Cancel", skin);
 		cancelPopup.setInstant(true);
 		Button back = new Button(skin, "Exit");
-		rightAnswer = new CheckBox(parent.problems[parent.problemNumber].getCorrectAnswer(), skin);
-		if(parent.problems[parent.problemNumber].getSelectedAnswer().equals(parent.problems[parent.problemNumber].getCorrectAnswer())) rightAnswer.setChecked(true);
+		rightAnswer = new CheckBox(parent.problems.get(parent.problemNumber).getCorrectAnswer(), skin);
+		if(parent.problems.get(parent.problemNumber).getSelectedAnswer().equals(parent.problems.get(parent.problemNumber).getCorrectAnswer())) rightAnswer.setChecked(true);
 		wrongAnswer0 = new CheckBox("", skin);
 		wrongAnswer1 = new CheckBox("", skin);
 		wrongAnswer2 = new CheckBox("", skin);
@@ -140,13 +140,13 @@ public class ProblemScreen implements Screen {
 		answersGroup.setMaxCheckCount(1);
 		answersGroup.setMinCheckCount(0);
 		answersGroup.setUncheckLast(true);
-		if (parent.problems[parent.problemNumber].getWrongAnswers()!=null) {
-			wrongAnswer0.setText(parent.problems[parent.problemNumber].getWrongAnswers()[0]);
-			if(parent.problems[parent.problemNumber].getSelectedAnswer().equals(parent.problems[parent.problemNumber].getWrongAnswers()[0])) wrongAnswer0.setChecked(true);
-			wrongAnswer1.setText(parent.problems[parent.problemNumber].getWrongAnswers()[1]);
-			if(parent.problems[parent.problemNumber].getSelectedAnswer().equals(parent.problems[parent.problemNumber].getWrongAnswers()[1])) wrongAnswer1.setChecked(true);
-			wrongAnswer2.setText(parent.problems[parent.problemNumber].getWrongAnswers()[2]);
-			if(parent.problems[parent.problemNumber].getSelectedAnswer().equals(parent.problems[parent.problemNumber].getWrongAnswers()[2])) wrongAnswer2.setChecked(true);
+		if (parent.problems.get(parent.problemNumber).getWrongAnswers()!=null) {
+			wrongAnswer0.setText(parent.problems.get(parent.problemNumber).getWrongAnswers()[0]);
+			if(parent.problems.get(parent.problemNumber).getSelectedAnswer().equals(parent.problems.get(parent.problemNumber).getWrongAnswers()[0])) wrongAnswer0.setChecked(true);
+			wrongAnswer1.setText(parent.problems.get(parent.problemNumber).getWrongAnswers()[1]);
+			if(parent.problems.get(parent.problemNumber).getSelectedAnswer().equals(parent.problems.get(parent.problemNumber).getWrongAnswers()[1])) wrongAnswer1.setChecked(true);
+			wrongAnswer2.setText(parent.problems.get(parent.problemNumber).getWrongAnswers()[2]);
+			if(parent.problems.get(parent.problemNumber).getSelectedAnswer().equals(parent.problems.get(parent.problemNumber).getWrongAnswers()[2])) wrongAnswer2.setChecked(true);
 		}
 		TextTooltip exitPopup = new TextTooltip("Back", skin);
 		exitPopup.setInstant(true);
@@ -160,7 +160,7 @@ public class ProblemScreen implements Screen {
 		table.row();
 		table.add();
 		table.add(problem).colspan(2).fillX().uniformX().width(Gdx.graphics.getWidth()/4);
-		if (parent.problems[parent.problemNumber].getWrongAnswers()!=null) {
+		if (parent.problems.get(parent.problemNumber).getWrongAnswers()!=null) {
 			table.row();
 			ArrayList<CheckBox> answers = new ArrayList<CheckBox>(4);
 			int n;
@@ -181,7 +181,7 @@ public class ProblemScreen implements Screen {
 		table.add();
 		if (parent.problemNumber == 0) table.add(cancel).pad(5).uniformX();
 		else table.add(previous).pad(5).uniformX();
-		if (parent.problemNumber == parent.problems.length-1) table.add(finish).pad(5).uniformX();
+		if (parent.problemNumber == parent.problems.size()-1) table.add(finish).pad(5).uniformX();
 		else table.add(next).pad(5).uniformX();
 		//adding button functionality
 		next.addListener(nextPopup);
@@ -192,37 +192,37 @@ public class ProblemScreen implements Screen {
 		answer.setTextFieldListener(new TextField.TextFieldListener() {
 			@Override
 			public void keyTyped(TextField textField, char c) {
-				parent.problems[parent.problemNumber].setSelectedAnswer(textField.getText());
+				parent.problems.get(parent.problemNumber).setSelectedAnswer(textField.getText());
 			}
 		});
 		rightAnswer.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-				parent.problems[parent.problemNumber].setSelectedAnswer(rightAnswer.getText().toString());
+				parent.problems.get(parent.problemNumber).setSelectedAnswer(rightAnswer.getText().toString());
 			}
 		});
 		wrongAnswer0.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-				parent.problems[parent.problemNumber].setSelectedAnswer(wrongAnswer0.getText().toString());
+				parent.problems.get(parent.problemNumber).setSelectedAnswer(wrongAnswer0.getText().toString());
 			}
 		});
 		wrongAnswer1.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-				parent.problems[parent.problemNumber].setSelectedAnswer(wrongAnswer1.getText().toString());
+				parent.problems.get(parent.problemNumber).setSelectedAnswer(wrongAnswer1.getText().toString());
 			}
 		});
 		wrongAnswer2.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-				parent.problems[parent.problemNumber].setSelectedAnswer(wrongAnswer2.getText().toString());
+				parent.problems.get(parent.problemNumber).setSelectedAnswer(wrongAnswer2.getText().toString());
 			}
 		});
 		next.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-				if (parent.problemNumber == parent.problems.length-1) {
+				if (parent.problemNumber == parent.problems.size()-1) {
 					parent.problemNumber = 0;
 					confirmAnswers();
 					clearAnswers();
@@ -245,7 +245,7 @@ public class ProblemScreen implements Screen {
 		finish.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-				if (parent.problemNumber == parent.problems.length-1) {
+				if (parent.problemNumber == parent.problems.size()-1) {
 					parent.problemNumber = 0;
 					confirmAnswers();
 					clearAnswers();
@@ -310,14 +310,14 @@ public class ProblemScreen implements Screen {
 	}
 	
 	private void confirmAnswers() {
-		for(int i = 0; i < parent.problems.length; i++) {
-			if (parent.problems[i].checkAnswer()) parent.answerCounter++;
+		for(int i = 0; i < parent.problems.size(); i++) {
+			if (parent.problems.get(i).checkAnswer()) parent.answerCounter++;
 		}
 	}
 	
 	private void clearAnswers() {
-		for(int i = 0; i < parent.problems.length; i++) {
-			parent.problems[i].setSelectedAnswer("");
+		for(int i = 0; i < parent.problems.size(); i++) {
+			parent.problems.get(i).setSelectedAnswer("");
 		}
 	}
 

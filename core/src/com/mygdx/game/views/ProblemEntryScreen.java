@@ -42,6 +42,7 @@ public class ProblemEntryScreen implements Screen {
 		stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1/30f));
 		stage.draw();
 		userInfoMessage = "Student: " + parent.currentUser.getFullName();
+		parent.generateProblems();
 	}
 
 	@Override
