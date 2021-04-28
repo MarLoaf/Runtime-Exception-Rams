@@ -117,14 +117,15 @@ public class PasswordResetScreen implements Screen {
 		retypepassword.setAlignment(Align.center);
 		passwordresettitle.setAlignment(Align.center);
 		NewPasswordText.setAlignment(Align.center);
-		TextTooltip lengthPopup = new TextTooltip(" At least 5 characters ", skin);
-		lengthPopup.setInstant(true);
+		Label rules = new Label(" Username and Password have to be at least 5 characters long. No fields should include dots or commas ",skin);
 		//layout:
 		table.top();
 		table.row();
-		table.add().fillX().uniformX().pad(5).padBottom(148).width(Gdx.graphics.getWidth()/5);
-		table.add(passwordresettitle).colspan(2).fillX().uniformX().pad(5).padBottom(148).width(Gdx.graphics.getWidth()/5);
-		table.add(back).uniformX().pad(5).padBottom(148);
+		table.add().fillX().uniformX().pad(5).padBottom(25).width(Gdx.graphics.getWidth()/5);
+		table.add(passwordresettitle).colspan(2).fillX().uniformX().pad(5).padBottom(25).width(Gdx.graphics.getWidth()/5);
+		table.add(back).uniformX().pad(5).padBottom(25);
+		table.row();
+		table.add(rules).pad(5).colspan(4);
 		table.row();
 		table.add();
 		table.add(newpassword).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
@@ -137,10 +138,6 @@ public class PasswordResetScreen implements Screen {
 		table.add();
 		table.add(Confirm).colspan(2).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		//adding button functionality
-		NewPasswordText.addListener(lengthPopup);
-		RetypePasswordText.addListener(lengthPopup);
-		newpassword.addListener(lengthPopup);
-		retypepassword.addListener(lengthPopup);
 		back.addListener(exitPopup);
 		NewPasswordText.setTextFieldListener(new TextField.TextFieldListener() {
 			@Override

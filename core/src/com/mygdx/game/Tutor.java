@@ -143,6 +143,17 @@ public class Tutor extends Game {
 		return false;
 	}
 	
+	public String getAccountSecretQuestion(String username) {
+		if (accounts.size()>0) {
+			for (Account a : accounts) {
+				if (a.getUsername().equals(username)) {
+					return a.getSecretQuestion();
+				}
+			}
+		}
+		return "Enter your username to see the secret question";
+	}
+	
 	public boolean loginAccount(String username, String password) {
 		if (accounts.size()>0) {
 			for (Account a : accounts) {

@@ -35,6 +35,7 @@ public class RecoverAccountScreen implements Screen {
 	private Texture backgroundTexture;
 	private String username;
 	private String secretAnswer;
+	private Label secretQuestion;
 	
 	public RecoverAccountScreen(Tutor tutor) {
 		parent = tutor;
@@ -100,8 +101,8 @@ public class RecoverAccountScreen implements Screen {
         //creating different buttons/textfields/labels
 		Label secretquestiontitle = new Label("Forgot Password", skin);
 		secretquestiontitle.setAlignment(Align.center);
-		Label secretquestion = new Label("What is your Mother's Maiden Name", skin);
-		secretquestion.setAlignment(Align.center);
+		secretQuestion = new Label("Enter your username to see the secret question", skin);
+		secretQuestion.setAlignment(Align.center);
 		Label usernameLabel = new Label("Username:", skin);
 		usernameLabel.setAlignment(Align.center);
 		TextField secretquestionText = new TextField("", skin);
@@ -126,7 +127,7 @@ public class RecoverAccountScreen implements Screen {
 		table.add(usernameText).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		table.row();
 		table.add();
-		table.add(secretquestion).colspan(2).fillX().uniformX().pad(5);
+		table.add(secretQuestion).colspan(2).fillX().uniformX().pad(5);
 		table.row();
 		table.add();
 		table.add(secretquestionText).fillX().uniformX().pad(5);
@@ -144,6 +145,7 @@ public class RecoverAccountScreen implements Screen {
 			@Override
 			public void keyTyped(TextField textField, char c) {
 				username = textField.getText();
+				secretQuestion.setText(parent.getAccountSecretQuestion(username));
 			}
 		});
 		secretquestionText.setTextFieldListener(new TextField.TextFieldListener() {
