@@ -337,7 +337,7 @@ public class Tutor extends Game {
 							
 							newProblem.setCorrectAnswer(problemCorrectAnswer);
 							newProblem.setProblemText(problemText);
-							newProblem.setWorrectAnswers(null);
+							newProblem.setCorrectAnswers(null);
 								
 							return newProblem;
 						} else {
@@ -360,7 +360,7 @@ public class Tutor extends Game {
 							
 							newProblem.setCorrectAnswer(problemCorrectAnswer);
 							newProblem.setProblemText(problemText);
-							newProblem.setWorrectAnswers(wrongAnswers);
+							newProblem.setCorrectAnswers(wrongAnswers);
 							return newProblem;
 							
 						}

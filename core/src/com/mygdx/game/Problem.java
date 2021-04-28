@@ -64,7 +64,7 @@ public class Problem {
 		correctAnswer = ca;
 	}
 	
-	public void setWorrectAnswers(String[] wa) {
+	public void setCorrectAnswers(String[] wa) {
 		wrongAnswers = wa;
 	}
 	
