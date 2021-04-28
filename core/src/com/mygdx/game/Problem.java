@@ -31,7 +31,7 @@ public class Problem {
 	public Problem() {
 		problemText = "";
 		correctAnswer = "";
-		wrongAnswers = new String[3];
+		wrongAnswers = null;
 		selectedAnswer = "";
 	}
 	

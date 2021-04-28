@@ -280,8 +280,141 @@ public class Tutor extends Game {
 	
 	public void generateProblems() {
 		for(int i=0; i<5; i++) {
-			problems.add(problemGenerator(gradeSelection, topicSelection, true));
+			problems.add(problemGeneratorAlexVersion(gradeSelection, topicSelection));
+			//problems.add(problemGenerator(gradeSelection, topicSelection, true));
 		}
+	}
+	
+	public Problem problemGeneratorAlexVersion(String grade, String topic) {
+		Problem randProblem = new Problem();
+		int numberRange = 10;
+		int operationRange = 2;
+		Random random = new Random();
+		int randNumber = 0;
+		String problemText = "";
+		String correctAnswer = "";
+		String wrongAnswers[] = new String[3];
+		int number1 = 0;
+		String operand = "";
+		int number2 = 0;
+		int answer = 0;
+		int wrongAnswersInts[] = new int[3];
+		ArrayList<Integer> possibleNumbers;
+		switch(grade) {
+		case "Kindergarten":
+			numberRange = 10;
+			operationRange = 2;
+			break;
+		case "1st Grade":
+			numberRange = 100;
+			operationRange = 2;
+			break;
+		case "2nd Grade":
+			numberRange = 100;
+			operationRange = 4;
+			break;
+		case "3rd Grade":
+			numberRange = 1000;
+			operationRange = 4;
+			break;
+		case "4th Grade":
+			numberRange = 1000000;
+			operationRange = 4;
+			break;
+		}
+		randNumber = random.nextInt(operationRange);
+		switch(randNumber) {
+		case 0:
+			//addition
+			operand = "+";
+			answer = random.nextInt(numberRange)+1;
+			number1 = random.nextInt(answer);
+			number2 = answer-number1;
+			randNumber = answer;
+			for (int i=0; i<3; i++) {
+				while(randNumber==answer||randNumber==wrongAnswersInts[0]||randNumber==wrongAnswersInts[1]||randNumber==wrongAnswersInts[2]) {
+					randNumber = random.nextInt(numberRange)+1;
+				}
+				wrongAnswersInts[i]=randNumber;
+				randNumber = answer;
+			}
+			break;
+		case 1:
+			//subtraction
+			operand = "-";
+			number1 = random.nextInt(numberRange)+1;
+			number2 = random.nextInt(number1);
+			answer = number1-number2;
+			randNumber = answer;
+			for (int i=0; i<3; i++) {
+				while(randNumber==answer||randNumber==wrongAnswersInts[0]||randNumber==wrongAnswersInts[1]||randNumber==wrongAnswersInts[2]) {
+					randNumber = random.nextInt(numberRange)+1;
+				}
+				wrongAnswersInts[i]=randNumber;
+				randNumber = answer;
+			}
+			break;
+		case 2:
+			//multiplication
+			operand = "x";
+			answer = random.nextInt(numberRange);
+			possibleNumbers = findDivisors(answer);
+			randNumber = random.nextInt(possibleNumbers.size());
+			number1 = possibleNumbers.remove(randNumber);
+			number2 = answer/number1;
+			randNumber = answer;
+			for (int i=0; i<3; i++) {
+				while(randNumber==answer||randNumber==wrongAnswersInts[0]||randNumber==wrongAnswersInts[1]||randNumber==wrongAnswersInts[2]) {
+					randNumber = random.nextInt(numberRange);
+				}
+				wrongAnswersInts[i]=randNumber;
+				randNumber = answer;
+			}
+			break;
+		case 3:
+			//division
+			operand = ":";
+			number1 = random.nextInt(numberRange);
+			possibleNumbers = findDivisors(number1);
+			randNumber = random.nextInt(possibleNumbers.size());
+			number2 = possibleNumbers.remove(randNumber);
+			answer = number1/number2;
+			randNumber = answer;
+			for (int i=0; i<3; i++) {
+				while(randNumber==answer||randNumber==wrongAnswersInts[0]||randNumber==wrongAnswersInts[1]||randNumber==wrongAnswersInts[2]) {
+					randNumber = random.nextInt(numberRange);
+				}
+				wrongAnswersInts[i]=randNumber;
+				randNumber = answer;
+			}
+			break;
+		}
+		problemText = number1 + " " + operand + " " + number2;
+		correctAnswer = "" + answer;
+		wrongAnswers = new String[] {"" + wrongAnswersInts[0], "" + wrongAnswersInts[1], "" + wrongAnswersInts[2]};
+		randNumber = random.nextInt(2);
+		if(randNumber == 0) {
+			//multiple choice
+			randProblem = new Problem(problemText, correctAnswer, wrongAnswers);
+		}else {
+			//not multiple choice
+			randProblem = new Problem(problemText, correctAnswer);
+		}
+		return randProblem;
+	}
+	
+	private ArrayList<Integer> findDivisors(int x) {
+		ArrayList<Integer> output = new ArrayList<Integer>(0);
+		for (int i=1; i<=Math.sqrt(x); i++) {
+			if (x%i==0) {
+				if (x/i==i) output.add(i);
+				else {
+					output.add(i);
+					output.add(x/i);
+				}
+			}
+		}
+		return output;
 	}
 	
 	public Problem problemGenerator(String grade, String topic, boolean multipleChoiceOrNot) {
