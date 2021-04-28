@@ -279,9 +279,10 @@ public class Tutor extends Game {
 	}
 	
 	public void generateProblems() {
+		problems.clear();
 		for(int i=0; i<5; i++) {
 			problems.add(problemGeneratorAlexVersion(gradeSelection, topicSelection));
-			//problems.add(problemGenerator(gradeSelection, topicSelection, true));
+			//problems.add(problemGeneratorMarioVersion(gradeSelection, topicSelection, true));
 		}
 	}
 	
@@ -295,7 +296,7 @@ public class Tutor extends Game {
 		String correctAnswer = "";
 		String wrongAnswers[] = new String[3];
 		int number1 = 0;
-		String operand = "";
+		String operator = "";
 		int number2 = 0;
 		int answer = 0;
 		int wrongAnswersInts[] = new int[3];
@@ -326,7 +327,7 @@ public class Tutor extends Game {
 		switch(randNumber) {
 		case 0:
 			//addition
-			operand = "+";
+			operator = "+";
 			answer = random.nextInt(numberRange)+1;
 			number1 = random.nextInt(answer);
 			number2 = answer-number1;
@@ -341,7 +342,7 @@ public class Tutor extends Game {
 			break;
 		case 1:
 			//subtraction
-			operand = "-";
+			operator = "-";
 			number1 = random.nextInt(numberRange)+1;
 			number2 = random.nextInt(number1);
 			answer = number1-number2;
@@ -356,8 +357,8 @@ public class Tutor extends Game {
 			break;
 		case 2:
 			//multiplication
-			operand = "x";
-			answer = random.nextInt(numberRange);
+			operator = "x";
+			answer = random.nextInt(numberRange)+1;
 			possibleNumbers = findDivisors(answer);
 			randNumber = random.nextInt(possibleNumbers.size());
 			number1 = possibleNumbers.remove(randNumber);
@@ -365,7 +366,7 @@ public class Tutor extends Game {
 			randNumber = answer;
 			for (int i=0; i<3; i++) {
 				while(randNumber==answer||randNumber==wrongAnswersInts[0]||randNumber==wrongAnswersInts[1]||randNumber==wrongAnswersInts[2]) {
-					randNumber = random.nextInt(numberRange);
+					randNumber = random.nextInt(numberRange)+1;
 				}
 				wrongAnswersInts[i]=randNumber;
 				randNumber = answer;
@@ -373,8 +374,8 @@ public class Tutor extends Game {
 			break;
 		case 3:
 			//division
-			operand = ":";
-			number1 = random.nextInt(numberRange);
+			operator = ":";
+			number1 = random.nextInt(numberRange)+1;
 			possibleNumbers = findDivisors(number1);
 			randNumber = random.nextInt(possibleNumbers.size());
 			number2 = possibleNumbers.remove(randNumber);
@@ -382,16 +383,61 @@ public class Tutor extends Game {
 			randNumber = answer;
 			for (int i=0; i<3; i++) {
 				while(randNumber==answer||randNumber==wrongAnswersInts[0]||randNumber==wrongAnswersInts[1]||randNumber==wrongAnswersInts[2]) {
-					randNumber = random.nextInt(numberRange);
+					randNumber = random.nextInt(numberRange)+1;
 				}
 				wrongAnswersInts[i]=randNumber;
 				randNumber = answer;
 			}
 			break;
 		}
-		problemText = number1 + " " + operand + " " + number2;
+		//word problem or not
+		randNumber = random.nextInt(2);
+		if(randNumber == 0 && number1!=0 && number2!=0) {
+			//word problem (doesn't allow operands to be 0 because then the word problem seems weird)
+			String[] names = new String[] {"John", "Sarah", "Alex", "Mario", "Alexa", "Mario", "Mark", "Maria"};
+			String[] objects = new String[] {"apple", "orange", "lemon", "coin"};
+			String name1 = "";
+			randNumber = random.nextInt(names.length);
+			name1 = names[randNumber];
+			String name2 = name1;
+			while (name1.equals(name2)) {
+				randNumber = random.nextInt(names.length);
+				name2 = names[randNumber];
+			}
+			String object1;
+			String object2;
+			String objectPlural;
+			randNumber = random.nextInt(objects.length);
+			object1 = objects[randNumber];
+			object2 = objects[randNumber];
+			objectPlural = objects[randNumber] + "s";
+			if (number1>1) {
+				object1 = objectPlural;
+			}
+			if (number2>1) {
+				object2 = objectPlural;
+			}
+			switch(operator) {
+			case "+":
+				problemText = name1 + " has " + number1 + " " + object1 + " and " + name2 + " has " + number2 + " " + object2 + ", how many " + objectPlural + " do they have together?";
+				break;
+			case "-":
+				problemText = name1 + " has " + number1 + " " + object1 + ", " + name2 + " took away " + number2 + " " + object2 + ", how many " + objectPlural + " does " + name1 + " have left?";
+				break;
+			case "x":
+				problemText = number1 + " " + operator + " " + number2;
+				break;
+			case ":":
+				problemText = number1 + " " + operator + " " + number2;
+				break;
+			}
+		}else {
+			//not word problem
+			problemText = number1 + " " + operator + " " + number2;
+		}
 		correctAnswer = "" + answer;
 		wrongAnswers = new String[] {"" + wrongAnswersInts[0], "" + wrongAnswersInts[1], "" + wrongAnswersInts[2]};
+		//multiple choice or not
 		randNumber = random.nextInt(2);
 		if(randNumber == 0) {
 			//multiple choice
@@ -417,7 +463,7 @@ public class Tutor extends Game {
 		return output;
 	}
 	
-	public Problem problemGenerator(String grade, String topic, boolean multipleChoiceOrNot) {
+	public Problem problemGeneratorMarioVersion(String grade, String topic, boolean multipleChoiceOrNot) {
 		int start = 1;
 		int range = 0;
 		int pattern = 0;
