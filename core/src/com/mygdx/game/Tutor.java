@@ -263,8 +263,8 @@ public class Tutor extends Game {
 	
 	public void generateProblems() {
 		problems.clear();
-		//practice 10
-		//test 10
+		//practice - 10 questions (ungraded)
+		//test - 10 questions
 		//exam 5 per topic
 		if (lessonSelection.equals("Exam")) {
 			//exam is all topics in the grade
