@@ -357,7 +357,7 @@ public class Tutor extends Game {
 			break;
 		case 3:
 			//division
-			operator = ":";
+			operator = "/";
 			number1 = random.nextInt(numberRange)+1;
 			possibleNumbers = findDivisors(number1);
 			randNumber = random.nextInt(possibleNumbers.size());
@@ -410,7 +410,7 @@ public class Tutor extends Game {
 			case "x":
 				problemText = number1 + " " + operator + " " + number2;
 				break;
-			case ":":
+			case "/":
 				problemText = number1 + " " + operator + " " + number2;
 				break;
 			}
