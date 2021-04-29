@@ -359,10 +359,13 @@ public class Tutor extends Game {
 	private Problem generateCountingProblem() {
 		//no parameters since this is always Kindergarten
 		Problem countingProblem = new Problem();
+		//TODO make counting problem generator from pseudocode by Alex K
+		//use images
 		return countingProblem;
 	}
 	
 	private Problem generateOperationsProblem(String grade) {
+		//generates an operations problem with range of numbers and operators based on grade
 		Problem operationsProblem = new Problem();
 		int numberRange = 10;
 		int operationRange = 2;
@@ -501,10 +504,10 @@ public class Tutor extends Game {
 				problemText = name1 + " has " + number1 + " " + object1 + ", " + name2 + " took away " + number2 + " " + object2 + ", how many " + objectPlural + " does " + name1 + " have left?";
 				break;
 			case "x":
-				problemText = number1 + " " + operator + " " + number2;
+				problemText = number1 + " " + operator + " " + number2;//TODO add word problem for multiplication
 				break;
 			case "/":
-				problemText = number1 + " " + operator + " " + number2;
+				problemText = number1 + " " + operator + " " + number2;//TODO add word problem for division
 				break;
 			}
 		}else {
@@ -527,16 +530,19 @@ public class Tutor extends Game {
 	
 	private Problem generateNumbersProblem(String grade) {
 		Problem numbersProblem = new Problem();
+		//TODO make numbers problem generator - factoring
 		return numbersProblem;
 	}
 	
 	private Problem generateMeasurementsProblem(String grade) {
 		Problem measurementsProblem = new Problem();
+		//TODO make measurements problem generator - Mario will do this
 		return measurementsProblem;
 	}
 	
 	private Problem generateFractionsProblem(String grade) {
 		Problem fractionsProblem = new Problem();
+		//TODO make fractions problem generator - can be based off of operations generator but with fractions
 		return fractionsProblem;
 	}
 	
