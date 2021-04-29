@@ -11,6 +11,8 @@ import javax.crypto.spec.SecretKeySpec;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.mygdx.game.views.AchievementsScreen;
 import com.mygdx.game.views.CreateAccountScreen;
 import com.mygdx.game.views.HomeScreen;
@@ -359,12 +361,168 @@ public class Tutor extends Game {
 	private Problem generateCountingProblem() {
 		//no parameters since this is always Kindergarten
 		Problem countingProblem = new Problem();
-		//TODO make counting problem generator from pseudocode by Alex K
-		//use images
+		String problemText = "";
+		String correctAnswer = "";
+		String wrongAnswers[] = new String[3];
+		String countingObject = "";
+		Image countingImage = new Image(new Texture(Gdx.files.internal("images/1Apple.png")));
+		int answer = 0;
+		int wrongAnswersInts[] = new int[3];
 		int numberRange = 10;
 		Random random = new Random();
-		int randNumber = random.nextInt(numberRange);
-		
+		int randNumber = random.nextInt(numberRange-1)+1; //random number from 1 to 9
+		int randObject = random.nextInt(3); //random number from 0 to 2
+		randObject = 0;//TODO remove when orange and lemon images are available
+		switch (randObject) {
+		case 0:
+			//apples
+			problemText = "How many apples are there?";
+			countingObject = "apple";
+			switch (randNumber) {
+			case 1:
+				answer = 1;
+				countingImage = new Image(new Texture(Gdx.files.internal("images/1Apple.png")));
+				break;
+			case 2:
+				answer = 2;
+				countingImage = new Image(new Texture(Gdx.files.internal("images/2Apple.png")));
+				break;
+			case 3:
+				answer = 3;
+				countingImage = new Image(new Texture(Gdx.files.internal("images/3Apple.png")));
+				break;
+			case 4:
+				answer = 4;
+				countingImage = new Image(new Texture(Gdx.files.internal("images/4Apple.png")));
+				break;
+			case 5:
+				answer = 5;
+				countingImage = new Image(new Texture(Gdx.files.internal("images/5Apple.png")));
+				break;
+			case 6:
+				answer = 6;
+				countingImage = new Image(new Texture(Gdx.files.internal("images/6Apple.png")));
+				break;
+			case 7:
+				answer = 7;
+				countingImage = new Image(new Texture(Gdx.files.internal("images/7Apple.png")));
+				break;
+			case 8:
+				answer = 8;
+				countingImage = new Image(new Texture(Gdx.files.internal("images/8Apple.png")));
+				break;
+			case 9:
+				answer = 9;
+				countingImage = new Image(new Texture(Gdx.files.internal("images/9Apple.png")));
+				break;
+			}
+			break;
+		case 1:
+			//oranges
+			problemText = "How many oranges are there?";
+			countingObject = "orange";
+			switch (randNumber) {
+			case 1:
+				answer = 1;
+				countingImage = new Image(new Texture(Gdx.files.internal("images/1Orange.png")));
+				break;
+			case 2:
+				answer = 2;
+				countingImage = new Image(new Texture(Gdx.files.internal("images/2Orange.png")));
+				break;
+			case 3:
+				answer = 3;
+				countingImage = new Image(new Texture(Gdx.files.internal("images/3Orange.png")));
+				break;
+			case 4:
+				answer = 4;
+				countingImage = new Image(new Texture(Gdx.files.internal("images/4Orange.png")));
+				break;
+			case 5:
+				answer = 5;
+				countingImage = new Image(new Texture(Gdx.files.internal("images/5Orange.png")));
+				break;
+			case 6:
+				answer = 6;
+				countingImage = new Image(new Texture(Gdx.files.internal("images/6Orange.png")));
+				break;
+			case 7:
+				answer = 7;
+				countingImage = new Image(new Texture(Gdx.files.internal("images/7Orange.png")));
+				break;
+			case 8:
+				answer = 8;
+				countingImage = new Image(new Texture(Gdx.files.internal("images/8Orange.png")));
+				break;
+			case 9:
+				answer = 9;
+				countingImage = new Image(new Texture(Gdx.files.internal("images/9Orange.png")));
+				break;
+			}
+			break;
+		case 2:
+			//lemons
+			problemText = "How many lemons are there?";
+			countingObject = "lemon";
+			switch (randNumber) {
+			case 1:
+				answer = 1;
+				countingImage = new Image(new Texture(Gdx.files.internal("images/1Lemon.png")));
+				break;
+			case 2:
+				answer = 2;
+				countingImage = new Image(new Texture(Gdx.files.internal("images/2Lemon.png")));
+				break;
+			case 3:
+				answer = 3;
+				countingImage = new Image(new Texture(Gdx.files.internal("images/3Lemon.png")));
+				break;
+			case 4:
+				answer = 4;
+				countingImage = new Image(new Texture(Gdx.files.internal("images/4Lemon.png")));
+				break;
+			case 5:
+				answer = 5;
+				countingImage = new Image(new Texture(Gdx.files.internal("images/5Lemon.png")));
+				break;
+			case 6:
+				answer = 6;
+				countingImage = new Image(new Texture(Gdx.files.internal("images/6Lemon.png")));
+				break;
+			case 7:
+				answer = 7;
+				countingImage = new Image(new Texture(Gdx.files.internal("images/7Lemon.png")));
+				break;
+			case 8:
+				answer = 8;
+				countingImage = new Image(new Texture(Gdx.files.internal("images/8Lemon.png")));
+				break;
+			case 9:
+				answer = 9;
+				countingImage = new Image(new Texture(Gdx.files.internal("images/9Lemon.png")));
+				break;
+			}
+			break;
+		}
+		randNumber = answer;
+		for (int i=0; i<3; i++) {
+			while(randNumber==answer||randNumber==wrongAnswersInts[0]||randNumber==wrongAnswersInts[1]||randNumber==wrongAnswersInts[2]) {
+				randNumber = random.nextInt(numberRange-1)+1;
+			}
+			wrongAnswersInts[i]=randNumber;
+			randNumber = answer;
+		}
+		correctAnswer = "" + answer;
+		wrongAnswers = new String[] {"" + wrongAnswersInts[0], "" + wrongAnswersInts[1], "" + wrongAnswersInts[2]};
+		//multiple choice or not
+		randNumber = random.nextInt(2);
+		if(randNumber == 0) {
+			//multiple choice
+			countingProblem = new Problem(problemText, correctAnswer, wrongAnswers, countingImage, countingObject);
+		}else {
+			//not multiple choice
+			countingProblem = new Problem(problemText, correctAnswer, countingImage, countingObject);
+		}
 		return countingProblem;
 	}
 	

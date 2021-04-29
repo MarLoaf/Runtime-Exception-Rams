@@ -18,6 +18,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.ButtonGroup;
 import com.badlogic.gdx.scenes.scene2d.ui.CheckBox;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
@@ -36,6 +37,7 @@ public class ProblemScreen implements Screen {
 	private Stage stage;
 	private SpriteBatch batch;
 	private Texture backgroundTexture;
+	private Image countingProblemImage;
     private Label problem;
 	private TextField answer;
 	private CheckBox rightAnswer;
@@ -112,6 +114,9 @@ public class ProblemScreen implements Screen {
 		Label userInfo = new Label("", skin);
 		userInfo.setText(userInfoMessage);
 		userInfo.setAlignment(Align.center);
+		if (parent.problems.get(parent.problemNumber).getCountingImage()!=null) {
+			countingProblemImage = parent.problems.get(parent.problemNumber).getCountingImage();
+		}
         problem = new Label("", skin, "noBackground");
         problem.setText(parent.problems.get(parent.problemNumber).getProblemText());
         problem.setAlignment(Align.center);
@@ -153,10 +158,21 @@ public class ProblemScreen implements Screen {
         //layout
 		table.top();
 		table.row();
-		table.add(currentAssignment).fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
-		table.add().fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
-		table.add(userInfo).fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
-		table.add(back).uniformX().pad(5).padBottom(270);
+		if (parent.problems.get(parent.problemNumber).getCountingImage()!=null) {
+			table.add(currentAssignment).fillX().uniformX().pad(5).padBottom(25).width(Gdx.graphics.getWidth()/5);
+			table.add().fillX().uniformX().pad(5).padBottom(25).width(Gdx.graphics.getWidth()/5);
+			table.add(userInfo).fillX().uniformX().pad(5).padBottom(25).width(Gdx.graphics.getWidth()/5);
+			table.add(back).uniformX().pad(5).padBottom(25);
+		}else {
+			table.add(currentAssignment).fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
+			table.add().fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
+			table.add(userInfo).fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
+			table.add(back).uniformX().pad(5).padBottom(270);
+		}
+		if (parent.problems.get(parent.problemNumber).getCountingImage()!=null) {
+			table.row();
+			table.add(countingProblemImage).colspan(4).uniformX();
+		}
 		table.row();
 		table.add();
 		table.add(problem).colspan(2).fillX().uniformX().width(Gdx.graphics.getWidth()/4);
