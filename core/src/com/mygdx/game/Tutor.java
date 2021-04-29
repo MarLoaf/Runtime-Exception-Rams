@@ -361,6 +361,10 @@ public class Tutor extends Game {
 		Problem countingProblem = new Problem();
 		//TODO make counting problem generator from pseudocode by Alex K
 		//use images
+		int numberRange = 10;
+		Random random = new Random();
+		int randNumber = random.nextInt(numberRange);
+		
 		return countingProblem;
 	}
 	

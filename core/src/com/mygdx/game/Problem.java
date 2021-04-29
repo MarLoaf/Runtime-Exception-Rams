@@ -1,17 +1,29 @@
 package com.mygdx.game;
 
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
+
 public class Problem {
 
 	private String problemText;
 	private String correctAnswer;
 	private String wrongAnswers[];
 	private String selectedAnswer;
+	private Image countingImage;
+	
+	public Problem(String pt, String ca, String wa[], String sa, Image ci) {
+		problemText = pt;
+		correctAnswer = ca;
+		wrongAnswers = wa;
+		selectedAnswer = sa;
+		countingImage = ci;
+	}
 	
 	public Problem(String pt, String ca, String wa[], String sa) {
 		problemText = pt;
 		correctAnswer = ca;
 		wrongAnswers = wa;
 		selectedAnswer = sa;
+		countingImage = null;
 	}
 	
 	public Problem(String pt, String ca, String wa[]) {
@@ -19,6 +31,7 @@ public class Problem {
 		correctAnswer = ca;
 		wrongAnswers = wa;
 		selectedAnswer = "";
+		countingImage = null;
 	}
 	
 	public Problem(String pt, String ca) {
@@ -26,6 +39,7 @@ public class Problem {
 		correctAnswer = ca;
 		wrongAnswers = null;
 		selectedAnswer = "";
+		countingImage = null;
 	}
 	
 	public Problem() {
@@ -33,6 +47,7 @@ public class Problem {
 		correctAnswer = "";
 		wrongAnswers = null;
 		selectedAnswer = "";
+		countingImage = null;
 	}
 	
 	public boolean checkAnswer() {
@@ -56,6 +71,10 @@ public class Problem {
 		return selectedAnswer;
 	}
 	
+	public Image getCountingImage() {
+		return countingImage;
+	}
+	
 	public void setProblemText(String pt) {
 		problemText = pt;;
 	}
@@ -70,5 +89,9 @@ public class Problem {
 	
 	public void setSelectedAnswer(String sa) {
 		selectedAnswer = sa;
+	}
+	
+	public void setCountingImage(Image ci) {
+		countingImage = ci;
 	}
 }
