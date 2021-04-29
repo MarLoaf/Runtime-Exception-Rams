@@ -280,6 +280,7 @@ public class ProblemScreen implements Screen {
 		back.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
+				parent.problemNumber = 0; //TODO if resume functionality is back in, this has to be removed
 				parent.changeScreen(Tutor.HOME);
 			}
 		});
