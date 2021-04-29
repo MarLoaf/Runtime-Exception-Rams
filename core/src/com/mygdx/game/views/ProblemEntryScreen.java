@@ -115,7 +115,9 @@ public class ProblemEntryScreen implements Screen {
 		table.add(back).uniformX().pad(5).padBottom(270);
 		table.row();
 		table.add();
-		table.add(new Label("You're about to begin " + parent.gradeSelection + " " + parent.topicSelection + " " + parent.lessonSelection, skin, "noBackground")).colspan(2).fillX().uniformX().pad(5);
+		if (parent.lessonSelection.equals("Exam")) table.add(new Label("You're about to begin " + parent.gradeSelection + " " + parent.lessonSelection + ", this includes all topics for " + parent.gradeSelection, skin, "noBackground")).colspan(2).fillX().uniformX().pad(5);
+		else if (parent.lessonSelection.equals("Test")) table.add(new Label("You're about to begin " + parent.gradeSelection + " " + parent.topicSelection + " " + parent.lessonSelection, skin, "noBackground")).colspan(2).fillX().uniformX().pad(5);
+		else table.add(new Label("You're about to begin " + parent.gradeSelection + " " + parent.topicSelection + " " + parent.lessonSelection + ", this is not going to give you an achievement", skin, "noBackground")).colspan(2).fillX().uniformX().pad(5);
 		table.row();
 		table.add();
 		table.add(descriptionLine2).colspan(2).fillX().uniformX().pad(5);

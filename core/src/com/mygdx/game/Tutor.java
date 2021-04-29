@@ -263,9 +263,80 @@ public class Tutor extends Game {
 	
 	public void generateProblems() {
 		problems.clear();
-		for(int i=0; i<5; i++) {
-			//generates 5 problems
-			problems.add(problemGenerator(gradeSelection, topicSelection));
+		//practice 10
+		//test 10
+		//exam 5 per topic
+		if (lessonSelection.equals("Exam")) {
+			//exam is all topics in the grade
+			if(gradeSelection.equals("Kindergarten")) {
+				for(int i=0; i<5; i++) {
+					problems.add(problemGenerator(gradeSelection, "Counting"));
+				}
+				for(int i=0; i<5; i++) {
+					problems.add(problemGenerator(gradeSelection, "Operations"));
+				}
+				for(int i=0; i<5; i++) {
+					problems.add(problemGenerator(gradeSelection, "Numbers"));
+				}
+				for(int i=0; i<5; i++) {
+					problems.add(problemGenerator(gradeSelection, "Measurements"));
+				}
+			}
+			else if(gradeSelection.equals("1st Grade")) {
+				for(int i=0; i<5; i++) {
+					problems.add(problemGenerator(gradeSelection, "Operations"));
+				}
+				for(int i=0; i<5; i++) {
+					problems.add(problemGenerator(gradeSelection, "Numbers"));
+				}
+				for(int i=0; i<5; i++) {
+					problems.add(problemGenerator(gradeSelection, "Measurements"));
+				}
+			}
+			else if(gradeSelection.equals("2nd Grade")) {
+				for(int i=0; i<5; i++) {
+					problems.add(problemGenerator(gradeSelection, "Operations"));
+				}
+				for(int i=0; i<5; i++) {
+					problems.add(problemGenerator(gradeSelection, "Numbers"));
+				}
+				for(int i=0; i<5; i++) {
+					problems.add(problemGenerator(gradeSelection, "Measurements"));
+				}
+			}
+			else if(gradeSelection.equals("3rd Grade")) {
+				for(int i=0; i<5; i++) {
+					problems.add(problemGenerator(gradeSelection, "Operations"));
+				}
+				for(int i=0; i<5; i++) {
+					problems.add(problemGenerator(gradeSelection, "Numbers"));
+				}
+				for(int i=0; i<5; i++) {
+					problems.add(problemGenerator(gradeSelection, "Fractions"));
+				}
+				for(int i=0; i<5; i++) {
+					problems.add(problemGenerator(gradeSelection, "Measurements"));
+				}
+			}
+			else if(gradeSelection.equals("4th Grade")) {
+				for(int i=0; i<5; i++) {
+					problems.add(problemGenerator(gradeSelection, "Operations"));
+				}
+				for(int i=0; i<5; i++) {
+					problems.add(problemGenerator(gradeSelection, "Numbers"));
+				}
+				for(int i=0; i<5; i++) {
+					problems.add(problemGenerator(gradeSelection, "Fractions"));
+				}
+				for(int i=0; i<5; i++) {
+					problems.add(problemGenerator(gradeSelection, "Measurements"));
+				}
+			}
+		}else {
+			//practice and tests are all 1 topic
+			for(int i=0; i<10; i++) {
+				problems.add(problemGenerator(gradeSelection, topicSelection));
+			}
 		}
 	}
 	
