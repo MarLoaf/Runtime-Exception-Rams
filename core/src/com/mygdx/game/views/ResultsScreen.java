@@ -133,17 +133,17 @@ public class ResultsScreen implements Screen {
 		if (parent.answerCounter == parent.problems.size()-2) {
 			if (parent.lessonSelection.equals("Exam")) parent.currentUser.gainAchievement(parent.gradeSelection, parent.lessonSelection, 1);
 			else if(parent.lessonSelection.equals("Test")) parent.currentUser.gainAchievement(parent.gradeSelection, parent.topicSelection, 1);
-			table.add(Bronze).colspan(2).uniformX();
+			if (!parent.lessonSelection.equals("Practice")) table.add(Bronze).colspan(2).uniformX();
 		}else if (parent.answerCounter == parent.problems.size()-1) {
 			if (parent.lessonSelection.equals("Exam")) parent.currentUser.gainAchievement(parent.gradeSelection, parent.lessonSelection, 2);
 			else if(parent.lessonSelection.equals("Test"))  parent.currentUser.gainAchievement(parent.gradeSelection, parent.topicSelection, 2);
-			table.add(Silver).colspan(2).uniformX();
+			if (!parent.lessonSelection.equals("Practice")) table.add(Silver).colspan(2).uniformX();
 		}else if (parent.answerCounter == parent.problems.size()) {
 			if (parent.lessonSelection.equals("Exam")) parent.currentUser.gainAchievement(parent.gradeSelection, parent.lessonSelection, 3);
 			else if(parent.lessonSelection.equals("Test"))  parent.currentUser.gainAchievement(parent.gradeSelection, parent.topicSelection, 3);
-			table.add(Gold).colspan(2).uniformX();
+			if (!parent.lessonSelection.equals("Practice")) table.add(Gold).colspan(2).uniformX();
 		}else {
-			table.add(NoMedal).colspan(2).uniformX();
+			if (!parent.lessonSelection.equals("Practice")) table.add(NoMedal).colspan(2).uniformX();
 		}
 		parent.updateAccountSecure(parent.currentUser);
 		table.row();
