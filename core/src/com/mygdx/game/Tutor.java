@@ -341,7 +341,29 @@ public class Tutor extends Game {
 	}
 	
 	public Problem problemGenerator(String grade, String topic) {
-		Problem randProblem = new Problem();
+		switch(topic) {
+		case "Counting":
+			return generateCountingProblem();
+		case "Operations":
+			return generateOperationsProblem(grade);
+		case "Numbers":
+			return generateNumbersProblem(grade);
+		case "Measurements":
+			return generateMeasurementsProblem(grade);
+		case "Fractions":
+			return generateFractionsProblem(grade);
+		}
+		return new Problem();
+	}
+	
+	private Problem generateCountingProblem() {
+		//no parameters since this is always Kindergarten
+		Problem countingProblem = new Problem();
+		return countingProblem;
+	}
+	
+	private Problem generateOperationsProblem(String grade) {
+		Problem operationsProblem = new Problem();
 		int numberRange = 10;
 		int operationRange = 2;
 		Random random = new Random();
@@ -495,12 +517,27 @@ public class Tutor extends Game {
 		randNumber = random.nextInt(2);
 		if(randNumber == 0) {
 			//multiple choice
-			randProblem = new Problem(problemText, correctAnswer, wrongAnswers);
+			operationsProblem = new Problem(problemText, correctAnswer, wrongAnswers);
 		}else {
 			//not multiple choice
-			randProblem = new Problem(problemText, correctAnswer);
+			operationsProblem = new Problem(problemText, correctAnswer);
 		}
-		return randProblem;
+		return operationsProblem;
+	}
+	
+	private Problem generateNumbersProblem(String grade) {
+		Problem numbersProblem = new Problem();
+		return numbersProblem;
+	}
+	
+	private Problem generateMeasurementsProblem(String grade) {
+		Problem measurementsProblem = new Problem();
+		return measurementsProblem;
+	}
+	
+	private Problem generateFractionsProblem(String grade) {
+		Problem fractionsProblem = new Problem();
+		return fractionsProblem;
 	}
 	
 	private ArrayList<Integer> findDivisors(int x) {
