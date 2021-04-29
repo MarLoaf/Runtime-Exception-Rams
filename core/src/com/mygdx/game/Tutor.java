@@ -474,7 +474,7 @@ public class Tutor extends Game {
 		if(randNumber == 0 && number1!=0 && number2!=0) {
 			//word problem (doesn't allow operands to be 0 because then the word problem seems weird)
 			String[] names = new String[] {"John", "Sarah", "Alex", "Mario", "Alexa", "Mario", "Mark", "Maria"};
-			String[] objects = new String[] {"apple", "orange", "lemon", "coin"};
+			String[] objects = new String[] {"apple", "orange", "lemon"};
 			String name1 = "";
 			randNumber = random.nextInt(names.length);
 			name1 = names[randNumber];
