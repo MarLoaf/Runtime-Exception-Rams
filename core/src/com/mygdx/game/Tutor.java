@@ -967,11 +967,11 @@ public class Tutor extends Game {
 				randNumber = random.nextInt(10);
 				number2num = randNumber;
 			}
-			if ((number1num/number1den)==(number2num/number2den)) {
+			if ((Double.valueOf(number1num)/Double.valueOf(number1den))==(Double.valueOf(number2num)/Double.valueOf(number2den))) {
 				correctAnswer = "=";
 				wrongAnswers[0] = ">";
 				wrongAnswers[1] = "<";
-			}else if ((number1num/number1den)>(number2num/number2den)) {
+			}else if ((Double.valueOf(number1num)/Double.valueOf(number1den))>(Double.valueOf(number2num)/Double.valueOf(number2den))) {
 				correctAnswer = ">";
 				wrongAnswers[0] = "=";
 				wrongAnswers[1] = "<";
