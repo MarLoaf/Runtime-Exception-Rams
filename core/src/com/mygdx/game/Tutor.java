@@ -907,7 +907,7 @@ public class Tutor extends Game {
 					correctAnswer = "right";
 					wa[0] = "left";
 					
-				return problem(problemText, correctAnswer, wa, measurementImage1, measurementImage2);
+				return measurementsProblem = new Problem(problemText, correctAnswer, wa, measurementImage1, measurementImage2);
 			}
 			break;
 		case "1st Grade":
@@ -923,6 +923,8 @@ public class Tutor extends Game {
 			typesOfProblems = 2;
 			break;
 		}
+		return measurementsProblem;
+	}
 	
 	private Problem generateFractionsProblem(String grade) {
 		Problem fractionsProblem = new Problem();
