@@ -928,22 +928,27 @@ public class Tutor extends Game {
 	
 	private Problem generateFractionsProblem(String grade) {
 		Problem fractionsProblem = new Problem();
-		//TODO make fractions problem generator - can be based off of operations generator but with fractions
+		//TODO add image version
 		Random random = new Random();
 		int randNumber = 0;
 		String problemText = "";
 		String correctAnswer = "";
 		String wrongAnswers[] = new String[3];
+		int denominators[] = new int[0];
 		int number1num = 0;
 		int number1den = 1;
 		String operator = "";
 		int number2num = 0;
 		int number2den = 1;
+		int answernum = 0;
+		int answerden = 0;
+		int wrongAnswersInts[] = new int[3];
+		int numberRange = 100;
 		switch(grade) {
 		case "3rd Grade":
 			//comparing fractions, only denominators 2, 3, 4, 6, 8
 			wrongAnswers = new String[2];
-			int denominators[] = new int[] {2,3,4,6,8};
+			denominators = new int[] {2,3,4,6,8};
 			//same numerator or denominator
 			randNumber = random.nextInt(2);
 			if(randNumber == 0) {
@@ -983,6 +988,47 @@ public class Tutor extends Game {
 			break;
 		case "4th Grade":
 			//fraction operations
+			denominators = new int[] {2,3,4,6,8,10,12,100};
+			number1den = random.nextInt(denominators.length);
+			number2den = number1den;
+			answerden = number1den;
+			randNumber = random.nextInt(2);
+			switch(randNumber) {
+			case 0:
+				//addition
+				operator = "+";
+				answernum = random.nextInt(numberRange)+1;
+				number1num = random.nextInt(answernum);
+				number2num = answernum-number1num;
+				randNumber = answernum;
+				for (int i=0; i<3; i++) {
+					while(randNumber==answernum||randNumber==wrongAnswersInts[0]||randNumber==wrongAnswersInts[1]||randNumber==wrongAnswersInts[2]) {
+						randNumber = random.nextInt(numberRange)+1;
+					}
+					wrongAnswersInts[i]=randNumber;
+					randNumber = answernum;
+				}
+				break;
+			case 1:
+				//subtraction
+				operator = "-";
+				number1num = random.nextInt(numberRange)+1;
+				number2num = random.nextInt(number1num);
+				answernum = number1num-number2num;
+				randNumber = answernum;
+				for (int i=0; i<3; i++) {
+					while(randNumber==answernum||randNumber==wrongAnswersInts[0]||randNumber==wrongAnswersInts[1]||randNumber==wrongAnswersInts[2]) {
+						randNumber = random.nextInt(numberRange)+1;
+					}
+					wrongAnswersInts[i]=randNumber;
+					randNumber = answernum;
+				}
+				break;
+			}
+			correctAnswer = answernum + "/" + answerden;
+			wrongAnswers = new String[] {wrongAnswersInts[0] + "/" + answerden, "" + wrongAnswersInts[1] + "/" + answerden, "" + wrongAnswersInts[2] + "/" + answerden};
+			problemText = number1num + "/" + number1den +" " + operator + " " + number2num + "/" + number2den;
+			fractionsProblem = new Problem(problemText, correctAnswer, wrongAnswers);
 			break;
 		}
 		return fractionsProblem;

@@ -131,8 +131,7 @@ public class TutorialScreen implements Screen {
 		table.add();
 		table.row();
 		table.add();
-		table.add(additionalHelp).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5).padBottom(100);
-		table.add(askTeacher).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5).padBottom(100);
+		table.add(additionalHelp).fillX().uniformX().pad(5).colspan(2).width(Gdx.graphics.getWidth()/5);
 		//adding button functionality
 		back.addListener(exitPopup);
 		video.addListener(videoPopup);
