@@ -213,10 +213,13 @@ public class ProblemScreen implements Screen {
 					table.add(answers.remove(n)).pad(5).fillX().uniformX();
 				}
 			}else {
-				//only 2 multiplechoice options
-				for(int i=answers.size(); i>0; i--) {
-					n = (int)Math.floor(Math.random()*i);
-					table.add(answers.remove(n)).pad(5).fillX().uniformX().colspan(2);
+				//only 2 multiplechoice options - measurement comparison problem
+				if (parent.problems.get(parent.problemNumber).getCorrectAnswer().equals("right")) {
+					table.add(wrongAnswer0).pad(5).fillX().uniformX().colspan(2);
+					table.add(rightAnswer).pad(5).fillX().uniformX().colspan(2);
+				}else {
+					table.add(rightAnswer).pad(5).fillX().uniformX().colspan(2);
+					table.add(wrongAnswer0).pad(5).fillX().uniformX().colspan(2);
 				}
 			}
 		}else {
