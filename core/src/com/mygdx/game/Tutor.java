@@ -1,6 +1,7 @@
 package com.mygdx.game;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Base64;
 import java.util.Random;
 
@@ -541,6 +542,7 @@ public class Tutor extends Game {
 		int answer = 0;
 		int wrongAnswersInts[] = new int[3];
 		ArrayList<Integer> possibleNumbers;
+		boolean goodNumbers = false;
 		switch(grade) {
 		case "Kindergarten":
 			numberRange = 10;
@@ -600,6 +602,15 @@ public class Tutor extends Game {
 			operator = "x";
 			answer = random.nextInt(numberRange)+1;
 			possibleNumbers = findDivisors(answer);
+			while (!goodNumbers) {
+				answer = random.nextInt(numberRange)+1;
+				possibleNumbers = findDivisors(answer);
+				possibleNumbers.removeAll(Arrays.asList(1));
+				possibleNumbers.removeAll(Arrays.asList(answer));
+				if (possibleNumbers.size()>1) {
+					goodNumbers = true;
+				}
+			}
 			randNumber = random.nextInt(possibleNumbers.size());
 			number1 = possibleNumbers.remove(randNumber);
 			number2 = answer/number1;
@@ -617,6 +628,14 @@ public class Tutor extends Game {
 			operator = "/";
 			number1 = random.nextInt(numberRange)+1;
 			possibleNumbers = findDivisors(number1);
+			while (!goodNumbers) {
+				number1 = random.nextInt(numberRange)+1;
+				possibleNumbers = findDivisors(number1);
+				possibleNumbers.removeAll(Arrays.asList(1));
+				if (possibleNumbers.size()>1) {
+					goodNumbers = true;
+				}
+			}
 			randNumber = random.nextInt(possibleNumbers.size());
 			number2 = possibleNumbers.remove(randNumber);
 			answer = number1/number2;
@@ -637,8 +656,14 @@ public class Tutor extends Game {
 			String[] names = new String[] {"John", "Sarah", "Alex", "Mario", "Alexa", "Mario", "Mark", "Maria"};
 			String[] objects = new String[] {"apple", "orange", "lemon"};
 			String name1 = "";
+			String pronoun1 = "he";
+			String pronoun2 = "his";
 			randNumber = random.nextInt(names.length);
 			name1 = names[randNumber];
+			if (name1.equals("Sarah")||name1.equals("Alexa")||name1.equals("Maria")) {
+				pronoun1 = "she";
+				pronoun2 = "her";
+			}
 			String name2 = name1;
 			while (name1.equals(name2)) {
 				randNumber = random.nextInt(names.length);
@@ -665,10 +690,10 @@ public class Tutor extends Game {
 				problemText = name1 + " has " + number1 + " " + object1 + ", " + name2 + " took away " + number2 + " " + object2 + ", how many " + objectPlural + " does " + name1 + " have left?";
 				break;
 			case "x":
-				problemText = number1 + " " + operator + " " + number2;//TODO add word problem for multiplication
+				problemText = number1 + " friends give " + name1 + " " + number2 + " " + objectPlural + ", how many " + objectPlural + " does " + name1 + " have now?";
 				break;
 			case "/":
-				problemText = number1 + " " + operator + " " + number2;//TODO add word problem for division
+				problemText = name1 + " has " + number1 + " " + objectPlural + ", " + pronoun1 + " split the " + objectPlural + " between " + number2 + " of " + pronoun2 + " friends, how many " + objectPlural + " do " + pronoun2 + " friends have now?";
 				break;
 			}
 		}else {
@@ -690,7 +715,6 @@ public class Tutor extends Game {
 	}
 	
 	private Problem generateNumbersProblem(String grade) {
-		//TODO make numbers problem generator - factoring
 		Problem numbersProblem = new Problem();
 		int numberRange = 10;
 		Random random = new Random();
@@ -759,7 +783,7 @@ public class Tutor extends Game {
 		randNumber = answer;
 		for (int i=0; i<3; i++) {
 			while(randNumber==answer||randNumber==wrongAnswersInts[0]||randNumber==wrongAnswersInts[1]||randNumber==wrongAnswersInts[2]) {
-				randNumber = random.nextInt(numberRange);
+				randNumber = random.nextInt(numberRange/factorInt);
 			}
 			wrongAnswersInts[i]=randNumber;
 			randNumber = answer;
