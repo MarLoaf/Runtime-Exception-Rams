@@ -372,7 +372,6 @@ public class Tutor extends Game {
 		Random random = new Random();
 		int randNumber = random.nextInt(numberRange-1)+1; //random number from 1 to 9
 		int randObject = random.nextInt(3); //random number from 0 to 2
-		randObject = 0;//TODO remove when orange and lemon images are available
 		switch (randObject) {
 		case 0:
 			//apples
