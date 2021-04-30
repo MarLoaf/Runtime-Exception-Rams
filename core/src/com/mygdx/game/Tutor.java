@@ -805,9 +805,122 @@ public class Tutor extends Game {
 	
 	private Problem generateMeasurementsProblem(String grade) {
 		Problem measurementsProblem = new Problem();
-		//TODO make measurements problem generator - Mario will do this
-		return measurementsProblem;
-	}
+		
+		int typesOfProblems = 0;
+		Random rand = new Random();
+		int randProblemChooser = 0;
+		int randImageChooser = 0;
+		Image measurementImage1 = new Image(new Texture(Gdx.files.internal("")));	//TODO need images to fill
+		int measurment1 = 0;
+		Image measurementImage2 = new Image(new Texture(Gdx.files.internal("")));	//TODO need car images, building images, people, etc
+		int measurment2 = 0;
+		int prevImage = 0;
+		boolean selectedImage = false;
+		String problemText = "";
+		String correctAnswer = "";
+		
+		switch(grade) {
+		case "Kindergarten":
+			
+			randProblemChooser = rand.nextInt(4);
+			
+			switch(randProblemChooser) {
+			case 0:
+				//generates "is this long or short" problems
+				problemText = "Which car is longer?";
+				randImageChooser = rand.nextInt(5)+1;
+				
+				for (int i = 0; i < 2; i++) {
+					while(randImageChooser == prevImage) {
+						randImageChooser = rand.nextInt(4)+1;
+					}
+					switch (randImageChooser) {
+					case 1:
+						if (selectedImage) {
+							Image measurementImage2 = new Image(new Texture(Gdx.files.internal(""))); //TODO fill image 
+							measurment2 = 1;
+							break;
+						} else {
+							Image measurementImage1 = new Image(new Texture(Gdx.files.internal(""))); //TODO fill image 
+							prevImage = 1;
+							selectedImage = true;
+							measurment1 = 1;
+							break;
+						}
+					case 2:
+						if (selectedImage) {
+							Image measurementImage2 = new Image(new Texture(Gdx.files.internal(""))); //TODO fill image 
+							measurment2 = 2;
+							break;
+						} else {
+							Image measurementImage1 = new Image(new Texture(Gdx.files.internal(""))); //TODO fill image 
+							prevImage = 2;
+							selectedImage = true;
+							measurment1 = 2;
+							break;
+						}
+					case 3:
+						if (selectedImage) {
+							Image measurementImage2 = new Image(new Texture(Gdx.files.internal(""))); //TODO fill image 
+							measurment2 = 3;
+							break;
+						} else {
+							Image measurementImage1 = new Image(new Texture(Gdx.files.internal(""))); //TODO fill image 
+							prevImage = 3;
+							selectedImage = true;
+							measurment1 = 3;
+							break;
+						}
+					case 4:
+						if (selectedImage) {
+							Image measurementImage2 = new Image(new Texture(Gdx.files.internal(""))); //TODO fill image 
+							measurment2 = 4;
+							break;
+						} else {
+							Image measurementImage1 = new Image(new Texture(Gdx.files.internal(""))); //TODO fill image 
+							prevImage = 4;
+							selectedImage = true;
+							measurment1 = 4;
+							break;
+						}
+					case 5:
+						if (selectedImage) {
+							Image measurementImage2 = new Image(new Texture(Gdx.files.internal(""))); //TODO fill image 
+							measurment2 = 5;
+							break;
+						} else {
+							Image measurementImage1 = new Image(new Texture(Gdx.files.internal(""))); //TODO fill image 
+							prevImage = 5;
+							selectedImage = true;
+							measurment1 = 5;
+							break;
+						}
+					}
+					
+				}
+			if (measurment1 > measurment2)
+				correctAnswer = Integer.toString(1);
+			else
+				correctAnswer = Integer.toString(2);
+			
+			
+				
+				
+			}
+			break;
+		case "1st Grade":
+			typesOfProblems = 3;
+			break;
+		case "2nd Grade":
+			typesOfProblems = 3;
+			break;
+		case "3rd Grade":
+			typesOfProblems = 3;
+			break;
+		case "4th Grade": 
+			typesOfProblems = 2;
+			break;
+		}
 	
 	private Problem generateFractionsProblem(String grade) {
 		Problem fractionsProblem = new Problem();
