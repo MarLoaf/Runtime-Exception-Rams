@@ -150,8 +150,10 @@ public class ProblemScreen implements Screen {
 			if(parent.problems.get(parent.problemNumber).getSelectedAnswer().equals(parent.problems.get(parent.problemNumber).getWrongAnswers()[0])) wrongAnswer0.setChecked(true);
 			wrongAnswer1.setText(parent.problems.get(parent.problemNumber).getWrongAnswers()[1]);
 			if(parent.problems.get(parent.problemNumber).getSelectedAnswer().equals(parent.problems.get(parent.problemNumber).getWrongAnswers()[1])) wrongAnswer1.setChecked(true);
-			wrongAnswer2.setText(parent.problems.get(parent.problemNumber).getWrongAnswers()[2]);
-			if(parent.problems.get(parent.problemNumber).getSelectedAnswer().equals(parent.problems.get(parent.problemNumber).getWrongAnswers()[2])) wrongAnswer2.setChecked(true);
+			if(parent.problems.get(parent.problemNumber).getWrongAnswers().length==3) {
+				wrongAnswer2.setText(parent.problems.get(parent.problemNumber).getWrongAnswers()[2]);
+				if(parent.problems.get(parent.problemNumber).getSelectedAnswer().equals(parent.problems.get(parent.problemNumber).getWrongAnswers()[2])) wrongAnswer2.setChecked(true);
+			}
 		}
 		TextTooltip exitPopup = new TextTooltip(" Back ", skin);
 		exitPopup.setInstant(true);
@@ -183,9 +185,19 @@ public class ProblemScreen implements Screen {
 			answers.add(rightAnswer);
 			answers.add(wrongAnswer0);
 			answers.add(wrongAnswer1);
-			answers.add(wrongAnswer2);
-			for(int i=4; i>0; i--) {
-				n = (int)Math.floor(Math.random()*i);
+			if(parent.problems.get(parent.problemNumber).getWrongAnswers().length==3) {
+				answers.add(wrongAnswer2);
+				for(int i=answers.size(); i>0; i--) {
+					n = (int)Math.floor(Math.random()*i);
+					table.add(answers.remove(n)).pad(5).fillX().uniformX();
+				}
+			}else {
+				//for 3 possible answers (fraction comparison)
+				n = (int)Math.floor(Math.random()*answers.size());
+				table.add(answers.remove(n)).pad(5).fillX().uniformX();
+				n = (int)Math.floor(Math.random()*answers.size());
+				table.add(answers.remove(n)).pad(5).fillX().uniformX().colspan(2);
+				n = (int)Math.floor(Math.random()*answers.size());
 				table.add(answers.remove(n)).pad(5).fillX().uniformX();
 			}
 		}else {

@@ -12,14 +12,18 @@ public class Problem {
 	private String selectedAnswer;
 	private Image countingImage;
 	private String countingObject;
+	private Image measurementImage1;
+	private Image measurementImage2;
 	
-	public Problem(String pt, String ca, String wa[], String sa, Image ci, String co) {
+	public Problem(String pt, String ca, String wa[], Image mi1, Image mi2) {
 		problemText = pt;
 		correctAnswer = ca;
 		wrongAnswers = wa;
-		selectedAnswer = sa;
-		countingImage = ci;
-		countingObject = co;
+		selectedAnswer = "";
+		countingImage = null;
+		countingObject = null;
+		measurementImage1 = mi1;
+		measurementImage2 = mi2;
 	}
 	
 	public Problem(String pt, String ca, String wa[], Image ci, String co) {
@@ -29,33 +33,8 @@ public class Problem {
 		selectedAnswer = "";
 		countingImage = ci;
 		countingObject = co;
-	}
-	
-	public Problem(String pt, String ca, String wa[], String sa) {
-		problemText = pt;
-		correctAnswer = ca;
-		wrongAnswers = wa;
-		selectedAnswer = sa;
-		countingImage = null;
-		countingObject = null;
-	}
-	
-	public Problem(String pt, String ca, String wa[]) {
-		problemText = pt;
-		correctAnswer = ca;
-		wrongAnswers = wa;
-		selectedAnswer = "";
-		countingImage = null;
-		countingObject = null;
-	}
-	
-	public Problem(String pt, String ca) {
-		problemText = pt;
-		correctAnswer = ca;
-		wrongAnswers = null;
-		selectedAnswer = "";
-		countingImage = null;
-		countingObject = null;
+		measurementImage1 = null;
+		measurementImage2 = null;
 	}
 	
 	public Problem(String pt, String ca, Image ci, String co) {
@@ -65,6 +44,30 @@ public class Problem {
 		selectedAnswer = "";
 		countingImage = ci;
 		countingObject = co;
+		measurementImage1 = null;
+		measurementImage2 = null;
+	}
+	
+	public Problem(String pt, String ca, String wa[]) {
+		problemText = pt;
+		correctAnswer = ca;
+		wrongAnswers = wa;
+		selectedAnswer = "";
+		countingImage = null;
+		countingObject = null;
+		measurementImage1 = null;
+		measurementImage2 = null;
+	}
+	
+	public Problem(String pt, String ca) {
+		problemText = pt;
+		correctAnswer = ca;
+		wrongAnswers = null;
+		selectedAnswer = "";
+		countingImage = null;
+		countingObject = null;
+		measurementImage1 = null;
+		measurementImage2 = null;
 	}
 	
 	public Problem() {
@@ -74,6 +77,8 @@ public class Problem {
 		selectedAnswer = "";
 		countingImage = null;
 		countingObject = null;
+		measurementImage1 = null;
+		measurementImage2 = null;
 	}
 	
 	public boolean checkAnswer() {
@@ -146,6 +151,14 @@ public class Problem {
 		return countingObject;
 	}
 	
+	public Image getMeasurementImage1() {
+		return measurementImage1;
+	}
+	
+	public Image getMeasurementImage2() {
+		return measurementImage2;
+	}
+	
 	public void setProblemText(String pt) {
 		problemText = pt;;
 	}
@@ -168,5 +181,13 @@ public class Problem {
 	
 	public void setCountingObject(String co) {
 		countingObject = co;
+	}
+	
+	public void setMeasurementImage1(Image mi1) {
+		measurementImage1 = mi1;
+	}
+	
+	public void setMeasurementImage2(Image mi2) {
+		measurementImage2 = mi2;
 	}
 }

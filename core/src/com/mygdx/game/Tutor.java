@@ -13,6 +13,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.scenes.scene2d.ui.CheckBox;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.mygdx.game.views.AchievementsScreen;
 import com.mygdx.game.views.CreateAccountScreen;
@@ -925,6 +926,138 @@ public class Tutor extends Game {
 	private Problem generateFractionsProblem(String grade) {
 		Problem fractionsProblem = new Problem();
 		//TODO make fractions problem generator - can be based off of operations generator but with fractions
+		int numberRange = 10;
+		int operationRange = 2;
+		Random random = new Random();
+		int randNumber = 0;
+		String problemText = "";
+		String correctAnswer = "";
+		String wrongAnswers[] = new String[3];
+		int number1num = 0;
+		int number1den = 1;
+		String operator = "";
+		int number2num = 0;
+		int number2den = 1;
+		int wrongAnswersInts[] = new int[3];
+		ArrayList<Integer> possibleNumbers;
+		boolean goodNumbers = false;
+		switch(grade) {
+		case "3rd Grade":
+			//comparing fractions, only denominators 2, 3, 4, 6, 8
+			wrongAnswers = new String[2];
+			int denominators[] = new int[] {2,3,4,6,8};
+			//same numerator or denominator
+			randNumber = random.nextInt(2);
+			if(randNumber == 0) {
+				//numerator
+				randNumber = random.nextInt(10);
+				number1num = randNumber;
+				number2num = randNumber;
+				randNumber = random.nextInt(denominators.length);
+				number1den = denominators[randNumber];
+				randNumber = random.nextInt(denominators.length);
+				number2den = denominators[randNumber];
+			}else {
+				//denominator
+				randNumber = random.nextInt(denominators.length);
+				number1den = denominators[randNumber];
+				number2den = denominators[randNumber];
+				randNumber = random.nextInt(10);
+				number1num = randNumber;
+				randNumber = random.nextInt(10);
+				number2num = randNumber;
+			}
+			if ((number1num/number1den)==(number2num/number2den)) {
+				correctAnswer = "=";
+				wrongAnswers[0] = ">";
+				wrongAnswers[1] = "<";
+			}else if ((number1num/number1den)>(number2num/number2den)) {
+				correctAnswer = ">";
+				wrongAnswers[0] = "=";
+				wrongAnswers[1] = "<";
+			}else {
+				correctAnswer = "<";
+				wrongAnswers[0] = ">";
+				wrongAnswers[1] = "=";
+			}
+			fractionsProblem = new Problem(problemText, correctAnswer, wrongAnswers);
+			break;
+		/*case "4th Grade":
+			numberRange = 100;
+			operationRange = 3;
+			randNumber = random.nextInt(operationRange);
+			switch(randNumber) {
+			case 0:
+				//addition
+				operator = "+";
+				answer = random.nextInt(numberRange)+1;
+				number1 = random.nextInt(answer);
+				number2 = answer-number1;
+				randNumber = answer;
+				for (int i=0; i<3; i++) {
+					while(randNumber==answer||randNumber==wrongAnswersInts[0]||randNumber==wrongAnswersInts[1]||randNumber==wrongAnswersInts[2]) {
+						randNumber = random.nextInt(numberRange)+1;
+					}
+					wrongAnswersInts[i]=randNumber;
+					randNumber = answer;
+				}
+				break;
+			case 1:
+				//subtraction
+				operator = "-";
+				number1 = random.nextInt(numberRange)+1;
+				number2 = random.nextInt(number1);
+				answer = number1-number2;
+				randNumber = answer;
+				for (int i=0; i<3; i++) {
+					while(randNumber==answer||randNumber==wrongAnswersInts[0]||randNumber==wrongAnswersInts[1]||randNumber==wrongAnswersInts[2]) {
+						randNumber = random.nextInt(numberRange)+1;
+					}
+					wrongAnswersInts[i]=randNumber;
+					randNumber = answer;
+				}
+				break;
+			case 2:
+				//multiplication
+				operator = "x";
+				answer = random.nextInt(numberRange)+1;
+				possibleNumbers = findDivisors(answer);
+				while (!goodNumbers) {
+					answer = random.nextInt(numberRange)+1;
+					possibleNumbers = findDivisors(answer);
+					possibleNumbers.removeAll(Arrays.asList(1));
+					possibleNumbers.removeAll(Arrays.asList(answer));
+					if (possibleNumbers.size()>1) {
+						goodNumbers = true;
+					}
+				}
+				randNumber = random.nextInt(possibleNumbers.size());
+				number1 = possibleNumbers.remove(randNumber);
+				number2 = answer/number1;
+				randNumber = answer;
+				for (int i=0; i<3; i++) {
+					while(randNumber==answer||randNumber==wrongAnswersInts[0]||randNumber==wrongAnswersInts[1]||randNumber==wrongAnswersInts[2]) {
+						randNumber = random.nextInt(numberRange)+1;
+					}
+					wrongAnswersInts[i]=randNumber;
+					randNumber = answer;
+				}
+				break;
+			}
+			problemText = number1 + " " + operator + " " + number2;
+			correctAnswer = "" + answer;
+			wrongAnswers = new String[] {"" + wrongAnswersInts[0], "" + wrongAnswersInts[1], "" + wrongAnswersInts[2]};
+			//multiple choice or not
+			randNumber = random.nextInt(2);
+			if(randNumber == 0) {
+				//multiple choice
+				fractionsProblem = new Problem(problemText, correctAnswer, wrongAnswers);
+			}else {
+				//not multiple choice
+				fractionsProblem = new Problem(problemText, correctAnswer);
+			}
+			break;*/
+		}
 		return fractionsProblem;
 	}
 	
