@@ -980,6 +980,7 @@ public class Tutor extends Game {
 				wrongAnswers[0] = ">";
 				wrongAnswers[1] = "=";
 			}
+			problemText = "Compare the fractions: " + number1num + "/" + number1den + " ? " + number2num + "/" + number2den;
 			fractionsProblem = new Problem(problemText, correctAnswer, wrongAnswers);
 			break;
 		/*case "4th Grade":
