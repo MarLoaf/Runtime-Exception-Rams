@@ -819,6 +819,7 @@ public class Tutor extends Game {
 		boolean selectedImage = false;
 		String problemText = "";
 		String correctAnswer = "";
+		String[] wa = new String[1];
 		
 		switch(grade) {
 		case "Kindergarten":
@@ -899,14 +900,14 @@ public class Tutor extends Game {
 					}
 					
 				}
-			if (measurment1 > measurment2)
-				correctAnswer = Integer.toString(1);
-			else
-				correctAnswer = Integer.toString(2);
-			
-			
-				
-				
+				if (measurment1 > measurment2) {
+					correctAnswer = "left";
+					wa[0] = "right";
+				} else
+					correctAnswer = "right";
+					wa[0] = "left";
+					
+				return problem(problemText, correctAnswer, wa, measurementImage1, measurementImage2);
 			}
 			break;
 		case "1st Grade":
