@@ -968,11 +968,11 @@ public class Tutor extends Game {
 				randNumber = random.nextInt(10);
 				number2num = randNumber;
 			}
-			if ((number1num/number1den)==(number2num/number2den)) {
+			if ((Double.valueOf(number1num)/Double.valueOf(number1den))==(Double.valueOf(number2num)/Double.valueOf(number2den))) {
 				correctAnswer = "=";
 				wrongAnswers[0] = ">";
 				wrongAnswers[1] = "<";
-			}else if ((number1num/number1den)>(number2num/number2den)) {
+			}else if ((Double.valueOf(number1num)/Double.valueOf(number1den))>(Double.valueOf(number2num)/Double.valueOf(number2den))) {
 				correctAnswer = ">";
 				wrongAnswers[0] = "=";
 				wrongAnswers[1] = "<";
@@ -981,83 +981,11 @@ public class Tutor extends Game {
 				wrongAnswers[0] = ">";
 				wrongAnswers[1] = "=";
 			}
+			problemText = "Compare the fractions: " + number1num + "/" + number1den + " ? " + number2num + "/" + number2den;
 			fractionsProblem = new Problem(problemText, correctAnswer, wrongAnswers);
 			break;
-		/*case "4th Grade":
-			numberRange = 100;
-			operationRange = 3;
-			randNumber = random.nextInt(operationRange);
-			switch(randNumber) {
-			case 0:
-				//addition
-				operator = "+";
-				answer = random.nextInt(numberRange)+1;
-				number1 = random.nextInt(answer);
-				number2 = answer-number1;
-				randNumber = answer;
-				for (int i=0; i<3; i++) {
-					while(randNumber==answer||randNumber==wrongAnswersInts[0]||randNumber==wrongAnswersInts[1]||randNumber==wrongAnswersInts[2]) {
-						randNumber = random.nextInt(numberRange)+1;
-					}
-					wrongAnswersInts[i]=randNumber;
-					randNumber = answer;
-				}
-				break;
-			case 1:
-				//subtraction
-				operator = "-";
-				number1 = random.nextInt(numberRange)+1;
-				number2 = random.nextInt(number1);
-				answer = number1-number2;
-				randNumber = answer;
-				for (int i=0; i<3; i++) {
-					while(randNumber==answer||randNumber==wrongAnswersInts[0]||randNumber==wrongAnswersInts[1]||randNumber==wrongAnswersInts[2]) {
-						randNumber = random.nextInt(numberRange)+1;
-					}
-					wrongAnswersInts[i]=randNumber;
-					randNumber = answer;
-				}
-				break;
-			case 2:
-				//multiplication
-				operator = "x";
-				answer = random.nextInt(numberRange)+1;
-				possibleNumbers = findDivisors(answer);
-				while (!goodNumbers) {
-					answer = random.nextInt(numberRange)+1;
-					possibleNumbers = findDivisors(answer);
-					possibleNumbers.removeAll(Arrays.asList(1));
-					possibleNumbers.removeAll(Arrays.asList(answer));
-					if (possibleNumbers.size()>1) {
-						goodNumbers = true;
-					}
-				}
-				randNumber = random.nextInt(possibleNumbers.size());
-				number1 = possibleNumbers.remove(randNumber);
-				number2 = answer/number1;
-				randNumber = answer;
-				for (int i=0; i<3; i++) {
-					while(randNumber==answer||randNumber==wrongAnswersInts[0]||randNumber==wrongAnswersInts[1]||randNumber==wrongAnswersInts[2]) {
-						randNumber = random.nextInt(numberRange)+1;
-					}
-					wrongAnswersInts[i]=randNumber;
-					randNumber = answer;
-				}
-				break;
-			}
-			problemText = number1 + " " + operator + " " + number2;
-			correctAnswer = "" + answer;
-			wrongAnswers = new String[] {"" + wrongAnswersInts[0], "" + wrongAnswersInts[1], "" + wrongAnswersInts[2]};
-			//multiple choice or not
-			randNumber = random.nextInt(2);
-			if(randNumber == 0) {
-				//multiple choice
-				fractionsProblem = new Problem(problemText, correctAnswer, wrongAnswers);
-			}else {
-				//not multiple choice
-				fractionsProblem = new Problem(problemText, correctAnswer);
-			}
-			break;*/
+		case "4th Grade":
+			break;
 		}
 		return fractionsProblem;
 	}
