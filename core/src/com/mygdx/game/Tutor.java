@@ -690,8 +690,91 @@ public class Tutor extends Game {
 	}
 	
 	private Problem generateNumbersProblem(String grade) {
-		Problem numbersProblem = new Problem();
 		//TODO make numbers problem generator - factoring
+		Problem numbersProblem = new Problem();
+		int numberRange = 10;
+		Random random = new Random();
+		int randNumber = 0;
+		String problemText = "";
+		String correctAnswer = "";
+		String wrongAnswers[] = new String[3];
+		int number = 0;
+		String factor = "ones";
+		int factorInt = 1;
+		int answer = 0;
+		int wrongAnswersInts[] = new int[3];
+		String factors[] = new String[] {"ones", "tens", "hundreds", "thousands", "millions"};
+		switch(grade) {
+		case "Kindergarten":
+			numberRange = 10;
+			break;
+		case "1st Grade":
+			numberRange = 100;
+			break;
+		case "2nd Grade":
+			numberRange = 1000;
+			break;
+		case "3rd Grade":
+			numberRange = 10000;
+			break;
+		case "4th Grade":
+			numberRange = 10000000;
+			break;
+		}
+		number = random.nextInt(numberRange);
+		if (number<10) {
+			factor = factors[0];
+		}else if (number<100) {
+			randNumber = random.nextInt(2);
+			factor = factors[randNumber];
+		}else if (number<1000) {
+			randNumber = random.nextInt(3);
+			factor = factors[randNumber];
+		}else if (number<1000000) {
+			randNumber = random.nextInt(4);
+			factor = factors[randNumber];
+		}else if (number<10000000) {
+			randNumber = random.nextInt(5);
+			factor = factors[randNumber];
+		}
+		switch (factor) {
+		case "ones":
+			factorInt = 1;
+			break;
+		case "tens":
+			factorInt = 10;
+			break;
+		case "hundreds":
+			factorInt = 100;
+			break;
+		case "thousands":
+			factorInt = 1000;
+			break;
+		case "millions":
+			factorInt = 1000000;
+			break;
+		}
+		problemText = "How many " + factor + " fit into " + number + "?";
+		answer = number/factorInt;
+		randNumber = answer;
+		for (int i=0; i<3; i++) {
+			while(randNumber==answer||randNumber==wrongAnswersInts[0]||randNumber==wrongAnswersInts[1]||randNumber==wrongAnswersInts[2]) {
+				randNumber = random.nextInt(numberRange);
+			}
+			wrongAnswersInts[i]=randNumber;
+			randNumber = answer;
+		}
+		correctAnswer = "" + answer;
+		wrongAnswers = new String[] {"" + wrongAnswersInts[0], "" + wrongAnswersInts[1], "" + wrongAnswersInts[2]};
+		//multiple choice or not
+		randNumber = random.nextInt(2);
+		if(randNumber == 0) {
+			//multiple choice
+			numbersProblem = new Problem(problemText, correctAnswer, wrongAnswers);
+		}else {
+			//not multiple choice
+			numbersProblem = new Problem(problemText, correctAnswer);
+		}
 		return numbersProblem;
 	}
 	
