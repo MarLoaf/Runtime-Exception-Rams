@@ -715,6 +715,7 @@ public class Tutor extends Game {
 	}
 	
 	private Problem generateNumbersProblem(String grade) {
+		//factoring problem
 		Problem numbersProblem = new Problem();
 		int numberRange = 10;
 		Random random = new Random();
