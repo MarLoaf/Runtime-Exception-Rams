@@ -38,6 +38,8 @@ public class ProblemScreen implements Screen {
 	private SpriteBatch batch;
 	private Texture backgroundTexture;
 	private Image countingProblemImage;
+	private Image measurementProblemImage1;
+	private Image measurementProblemImage2;
     private Label problem;
 	private TextField answer;
 	private CheckBox rightAnswer;
@@ -116,6 +118,9 @@ public class ProblemScreen implements Screen {
 		userInfo.setAlignment(Align.center);
 		if (parent.problems.get(parent.problemNumber).getCountingImage()!=null) {
 			countingProblemImage = parent.problems.get(parent.problemNumber).getCountingImage();
+		}else if (parent.problems.get(parent.problemNumber).getMeasurementImage1()!=null) {
+			measurementProblemImage1 = parent.problems.get(parent.problemNumber).getMeasurementImage1();
+			measurementProblemImage1 = parent.problems.get(parent.problemNumber).getMeasurementImage2();
 		}
         problem = new Label("", skin, "noBackground");
         problem.setText(parent.problems.get(parent.problemNumber).getProblemText());
@@ -148,8 +153,10 @@ public class ProblemScreen implements Screen {
 		if (parent.problems.get(parent.problemNumber).getWrongAnswers()!=null) {
 			wrongAnswer0.setText(parent.problems.get(parent.problemNumber).getWrongAnswers()[0]);
 			if(parent.problems.get(parent.problemNumber).getSelectedAnswer().equals(parent.problems.get(parent.problemNumber).getWrongAnswers()[0])) wrongAnswer0.setChecked(true);
-			wrongAnswer1.setText(parent.problems.get(parent.problemNumber).getWrongAnswers()[1]);
-			if(parent.problems.get(parent.problemNumber).getSelectedAnswer().equals(parent.problems.get(parent.problemNumber).getWrongAnswers()[1])) wrongAnswer1.setChecked(true);
+			if(parent.problems.get(parent.problemNumber).getWrongAnswers().length>1) {
+				wrongAnswer1.setText(parent.problems.get(parent.problemNumber).getWrongAnswers()[1]);
+				if(parent.problems.get(parent.problemNumber).getSelectedAnswer().equals(parent.problems.get(parent.problemNumber).getWrongAnswers()[1])) wrongAnswer1.setChecked(true);
+			}
 			if(parent.problems.get(parent.problemNumber).getWrongAnswers().length==3) {
 				wrongAnswer2.setText(parent.problems.get(parent.problemNumber).getWrongAnswers()[2]);
 				if(parent.problems.get(parent.problemNumber).getSelectedAnswer().equals(parent.problems.get(parent.problemNumber).getWrongAnswers()[2])) wrongAnswer2.setChecked(true);
@@ -160,7 +167,7 @@ public class ProblemScreen implements Screen {
         //layout
 		table.top();
 		table.row();
-		if (parent.problems.get(parent.problemNumber).getCountingImage()!=null) {
+		if (parent.problems.get(parent.problemNumber).getCountingImage()!=null||parent.problems.get(parent.problemNumber).getMeasurementImage1()!=null) {
 			table.add(currentAssignment).fillX().uniformX().pad(5).padBottom(25).width(Gdx.graphics.getWidth()/5);
 			table.add().fillX().uniformX().pad(5).padBottom(25).width(Gdx.graphics.getWidth()/5);
 			table.add(userInfo).fillX().uniformX().pad(5).padBottom(25).width(Gdx.graphics.getWidth()/5);
@@ -174,6 +181,10 @@ public class ProblemScreen implements Screen {
 		if (parent.problems.get(parent.problemNumber).getCountingImage()!=null) {
 			table.row();
 			table.add(countingProblemImage).colspan(4).uniformX();
+		}else if (parent.problems.get(parent.problemNumber).getMeasurementImage1()!=null) {
+			table.row();
+			table.add(measurementProblemImage1).colspan(2).uniformX();
+			table.add(measurementProblemImage2).colspan(2).uniformX();
 		}
 		table.row();
 		table.add();
@@ -184,21 +195,32 @@ public class ProblemScreen implements Screen {
 			int n;
 			answers.add(rightAnswer);
 			answers.add(wrongAnswer0);
-			answers.add(wrongAnswer1);
-			if(parent.problems.get(parent.problemNumber).getWrongAnswers().length==3) {
-				answers.add(wrongAnswer2);
-				for(int i=answers.size(); i>0; i--) {
-					n = (int)Math.floor(Math.random()*i);
+			if(parent.problems.get(parent.problemNumber).getWrongAnswers().length>1) {
+				answers.add(wrongAnswer1);
+				if(parent.problems.get(parent.problemNumber).getWrongAnswers().length==3) {
+					answers.add(wrongAnswer2);
+					for(int i=answers.size(); i>0; i--) {
+						n = (int)Math.floor(Math.random()*i);
+						table.add(answers.remove(n)).pad(5).fillX().uniformX();
+					}
+				}else {
+					//for 3 possible answers (fraction comparison)
+					n = (int)Math.floor(Math.random()*answers.size());
+					table.add(answers.remove(n)).pad(5).fillX().uniformX();
+					n = (int)Math.floor(Math.random()*answers.size());
+					table.add(answers.remove(n)).pad(5).fillX().uniformX().colspan(2);
+					n = (int)Math.floor(Math.random()*answers.size());
 					table.add(answers.remove(n)).pad(5).fillX().uniformX();
 				}
 			}else {
-				//for 3 possible answers (fraction comparison)
-				n = (int)Math.floor(Math.random()*answers.size());
-				table.add(answers.remove(n)).pad(5).fillX().uniformX();
-				n = (int)Math.floor(Math.random()*answers.size());
-				table.add(answers.remove(n)).pad(5).fillX().uniformX().colspan(2);
-				n = (int)Math.floor(Math.random()*answers.size());
-				table.add(answers.remove(n)).pad(5).fillX().uniformX();
+				//only 2 multiplechoice options - measurement comparison problem
+				if (parent.problems.get(parent.problemNumber).getCorrectAnswer().equals("right")) {
+					table.add(wrongAnswer0).pad(5).fillX().uniformX().colspan(2);
+					table.add(rightAnswer).pad(5).fillX().uniformX().colspan(2);
+				}else {
+					table.add(rightAnswer).pad(5).fillX().uniformX().colspan(2);
+					table.add(wrongAnswer0).pad(5).fillX().uniformX().colspan(2);
+				}
 			}
 		}else {
 			table.row();

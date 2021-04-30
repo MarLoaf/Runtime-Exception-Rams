@@ -929,8 +929,6 @@ public class Tutor extends Game {
 	private Problem generateFractionsProblem(String grade) {
 		Problem fractionsProblem = new Problem();
 		//TODO make fractions problem generator - can be based off of operations generator but with fractions
-		int numberRange = 10;
-		int operationRange = 2;
 		Random random = new Random();
 		int randNumber = 0;
 		String problemText = "";
@@ -941,9 +939,6 @@ public class Tutor extends Game {
 		String operator = "";
 		int number2num = 0;
 		int number2den = 1;
-		int wrongAnswersInts[] = new int[3];
-		ArrayList<Integer> possibleNumbers;
-		boolean goodNumbers = false;
 		switch(grade) {
 		case "3rd Grade":
 			//comparing fractions, only denominators 2, 3, 4, 6, 8
@@ -987,6 +982,7 @@ public class Tutor extends Game {
 			fractionsProblem = new Problem(problemText, correctAnswer, wrongAnswers);
 			break;
 		case "4th Grade":
+			//fraction operations
 			break;
 		}
 		return fractionsProblem;
