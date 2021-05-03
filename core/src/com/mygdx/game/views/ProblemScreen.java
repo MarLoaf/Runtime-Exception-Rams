@@ -55,7 +55,7 @@ public class ProblemScreen implements Screen {
 		stage = new Stage(new ScreenViewport());
 		stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1/30f));
 		stage.draw();
-		userInfoMessage = "Student: " + parent.currentUser.getFullName();
+		userInfoMessage = parent.currentUser.getFullName();
 	}
 
 	@Override

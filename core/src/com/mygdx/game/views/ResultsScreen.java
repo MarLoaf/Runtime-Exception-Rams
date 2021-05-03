@@ -43,7 +43,7 @@ public class ResultsScreen implements Screen {
 		stage = new Stage(new ScreenViewport());
 		stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1/30f));
 		stage.draw();
-		userInfoMessage = "Student: " + parent.currentUser.getFullName();
+		userInfoMessage = parent.currentUser.getFullName();
 		if(parent.answerCounter>0) message = "You got " + parent.answerCounter + " problems correct!";
 		else if(parent.lessonSelection.equals("Exam")) message = "You should review " + parent.gradeSelection + " and try again.";
 		else message = "You should review " + parent.topicSelection + " and try again.";

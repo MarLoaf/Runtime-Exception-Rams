@@ -45,7 +45,7 @@ public class TutorialScreen implements Screen {
 		stage = new Stage(new ScreenViewport());
 		stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1/30f));
 		stage.draw();
-		userInfoMessage = "Student: " + parent.currentUser.getFullName();
+		userInfoMessage = parent.currentUser.getFullName();
 		tutorialMessage = parent.gradeSelection + " " + parent.topicSelection;
 	}
 
