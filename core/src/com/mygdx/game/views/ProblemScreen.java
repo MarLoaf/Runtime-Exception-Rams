@@ -56,6 +56,8 @@ public class ProblemScreen implements Screen {
 		stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1/30f));
 		stage.draw();
 		userInfoMessage = "Student: " + parent.currentUser.getFullName();
+		System.out.println(parent.problems.get(parent.problemNumber).getCorrectAnswer());
+		System.out.println(parent.problems.get(parent.problemNumber).getWrongAnswers()[0]);
 	}
 
 	@Override
@@ -120,7 +122,7 @@ public class ProblemScreen implements Screen {
 			countingProblemImage = parent.problems.get(parent.problemNumber).getCountingImage();
 		}else if (parent.problems.get(parent.problemNumber).getMeasurementImage1()!=null) {
 			measurementProblemImage1 = parent.problems.get(parent.problemNumber).getMeasurementImage1();
-			measurementProblemImage1 = parent.problems.get(parent.problemNumber).getMeasurementImage2();
+			measurementProblemImage2 = parent.problems.get(parent.problemNumber).getMeasurementImage2();
 		}
         problem = new Label("", skin, "noBackground");
         problem.setText(parent.problems.get(parent.problemNumber).getProblemText());
@@ -214,13 +216,8 @@ public class ProblemScreen implements Screen {
 				}
 			}else {
 				//only 2 multiplechoice options - measurement comparison problem
-				if (parent.problems.get(parent.problemNumber).getCorrectAnswer().equals("right")) {
-					table.add(wrongAnswer0).pad(5).fillX().uniformX().colspan(2);
-					table.add(rightAnswer).pad(5).fillX().uniformX().colspan(2);
-				}else {
-					table.add(rightAnswer).pad(5).fillX().uniformX().colspan(2);
-					table.add(wrongAnswer0).pad(5).fillX().uniformX().colspan(2);
-				}
+				table.add(rightAnswer).pad(5).fillX().uniformX().colspan(2);
+				table.add(wrongAnswer0).pad(5).fillX().uniformX().colspan(2);
 			}
 		}else {
 			table.row();
