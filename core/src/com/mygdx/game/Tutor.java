@@ -824,10 +824,10 @@ public class Tutor extends Game {
 		switch(grade) {
 		case "Kindergarten":
 			
-			randProblemChooser = rand.nextInt(5);		//4 types of subproblems
+			randProblemChooser = rand.nextInt(4)+1;		//4 types of subproblems
 			
 			switch(randProblemChooser) {
-			case 0:
+			case 1:
 				//generates "Which car is longer questions"
 				problemText = "Which car is longer?";
 				randImageChooser = rand.nextInt(5)+1;
@@ -915,7 +915,7 @@ public class Tutor extends Game {
 				//The problem screen is only displaying measurementImage2, not measurementImage1, also the choices at the bottom of the screen vary by correct answer.
 				
 				
-			case 1: 
+			case 2: 
 				//generates "Which car is shorter questions"
 				problemText = "Which car is shorter?";
 				randImageChooser = rand.nextInt(5)+1;
@@ -999,7 +999,7 @@ public class Tutor extends Game {
 				return measurementsProblem = new Problem(problemText, correctAnswer, wa, measurementImage1, measurementImage2);
 				
 				
-			case 2: 
+			case 3: 
 				//generates "Which image is heavier" questions for weight"
 				problemText = "What weighs more?";
 				randImageChooser = rand.nextInt(5)+1;
