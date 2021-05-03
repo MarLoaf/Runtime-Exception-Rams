@@ -214,8 +214,13 @@ public class ProblemScreen implements Screen {
 				}
 			}else {
 				//only 2 multiplechoice options - measurement comparison problem
-				table.add(rightAnswer).pad(5).fillX().uniformX().colspan(2);
-				table.add(wrongAnswer0).pad(5).fillX().uniformX().colspan(2);
+				if (parent.problems.get(parent.problemNumber).getCorrectAnswer().equals("right")) {
+					table.add(wrongAnswer0).pad(5).fillX().uniformX().colspan(2);
+					table.add(rightAnswer).pad(5).fillX().uniformX().colspan(2);
+				}else {
+					table.add(rightAnswer).pad(5).fillX().uniformX().colspan(2);
+					table.add(wrongAnswer0).pad(5).fillX().uniformX().colspan(2);
+				}
 			}
 		}else {
 			table.row();
