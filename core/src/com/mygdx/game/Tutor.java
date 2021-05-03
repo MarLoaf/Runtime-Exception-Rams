@@ -811,9 +811,9 @@ public class Tutor extends Game {
 		Random rand = new Random();
 		int randProblemChooser = 0;
 		int randImageChooser = 0;
-		Image measurementImage1 = new Image(new Texture(Gdx.files.internal("")));	//TODO need images to fill
+		Image measurementImage1 = new Image(new Texture(Gdx.files.internal("images/Test1.png")));	//TODO need images to fill
 		int measurment1 = 0;
-		Image measurementImage2 = new Image(new Texture(Gdx.files.internal("")));	//TODO need car images, building images, people, etc
+		Image measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Test1.png")));	//TODO need car images, building images, people, etc
 		int measurment2 = 0;
 		int prevImage = 0;
 		boolean selectedImage = false;
@@ -824,11 +824,11 @@ public class Tutor extends Game {
 		switch(grade) {
 		case "Kindergarten":
 			
-			randProblemChooser = rand.nextInt(4);
+			randProblemChooser = rand.nextInt(5);		//4 types of subproblems
 			
 			switch(randProblemChooser) {
 			case 0:
-				//generates "is this long or short" problems
+				//generates "Which car is longer questions"
 				problemText = "Which car is longer?";
 				randImageChooser = rand.nextInt(5)+1;
 				
@@ -838,60 +838,60 @@ public class Tutor extends Game {
 					}
 					switch (randImageChooser) {
 					case 1:
-						if (selectedImage) {
-							measurementImage2 = new Image(new Texture(Gdx.files.internal(""))); //TODO fill image 
+						if (selectedImage && prevImage != 1) {
+							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Test1.png"))); //TODO fill image 
 							measurment2 = 1;
 							break;
 						} else {
-							measurementImage1 = new Image(new Texture(Gdx.files.internal(""))); //TODO fill image 
+							measurementImage1 = new Image(new Texture(Gdx.files.internal("images/Test1.png"))); //TODO fill image 
 							prevImage = 1;
 							selectedImage = true;
 							measurment1 = 1;
 							break;
 						}
 					case 2:
-						if (selectedImage) {
-							measurementImage2 = new Image(new Texture(Gdx.files.internal(""))); //TODO fill image 
+						if (selectedImage && prevImage != 2) {
+							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Test2.png"))); //TODO fill image 
 							measurment2 = 2;
 							break;
 						} else {
-							measurementImage1 = new Image(new Texture(Gdx.files.internal(""))); //TODO fill image 
+							measurementImage1 = new Image(new Texture(Gdx.files.internal("images/Test2.png"))); //TODO fill image 
 							prevImage = 2;
 							selectedImage = true;
 							measurment1 = 2;
 							break;
 						}
 					case 3:
-						if (selectedImage) {
-							measurementImage2 = new Image(new Texture(Gdx.files.internal(""))); //TODO fill image 
+						if (selectedImage && prevImage != 3) {
+							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Test3.png"))); //TODO fill image 
 							measurment2 = 3;
 							break;
 						} else {
-							measurementImage1 = new Image(new Texture(Gdx.files.internal(""))); //TODO fill image 
+							measurementImage1 = new Image(new Texture(Gdx.files.internal("images/Test3.png"))); //TODO fill image 
 							prevImage = 3;
 							selectedImage = true;
 							measurment1 = 3;
 							break;
 						}
 					case 4:
-						if (selectedImage) {
-							measurementImage2 = new Image(new Texture(Gdx.files.internal(""))); //TODO fill image 
+						if (selectedImage && prevImage != 4) {
+							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Test4.png"))); //TODO fill image 
 							measurment2 = 4;
 							break;
 						} else {
-							measurementImage1 = new Image(new Texture(Gdx.files.internal(""))); //TODO fill image 
+							measurementImage1 = new Image(new Texture(Gdx.files.internal("images/Test4.png"))); //TODO fill image 
 							prevImage = 4;
 							selectedImage = true;
 							measurment1 = 4;
 							break;
 						}
 					case 5:
-						if (selectedImage) {
-							measurementImage2 = new Image(new Texture(Gdx.files.internal(""))); //TODO fill image 
+						if (selectedImage && prevImage != 5) {
+							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Test5.png"))); //TODO fill image 
 							measurment2 = 5;
 							break;
 						} else {
-							measurementImage1 = new Image(new Texture(Gdx.files.internal(""))); //TODO fill image 
+							measurementImage1 = new Image(new Texture(Gdx.files.internal("images/Test5.png"))); //TODO fill image 
 							prevImage = 5;
 							selectedImage = true;
 							measurment1 = 5;
@@ -907,11 +907,272 @@ public class Tutor extends Game {
 					correctAnswer = "right";
 					wa[0] = "left";
 					
+				//System.out.println("Measurement 1 is: " + measurment1 + ", Measurement 2 is: " + measurment2 + ", the correct answer is: " + correctAnswer);
 				return measurementsProblem = new Problem(problemText, correctAnswer, wa, measurementImage1, measurementImage2);
+				
+				//The problem screen is only displaying measurementImage2, not measurementImage1, also the choices at the bottom of the screen vary by correct answer.
+				
+				
+			case 1: 
+				//generates "Which car is shorter questions"
+				problemText = "Which car is shorter?";
+				randImageChooser = rand.nextInt(5)+1;
+				
+				for (int i = 0; i < 2; i++) {
+					while(randImageChooser == prevImage) {
+						randImageChooser = rand.nextInt(4)+1;
+					}
+					switch (randImageChooser) {
+					case 1:
+						if (selectedImage) {
+							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Test1.png"))); //TODO fill image 
+							measurment2 = 1;
+							break;
+						} else {
+							measurementImage1 = new Image(new Texture(Gdx.files.internal("images/Test1.png"))); //TODO fill image 
+							prevImage = 1;
+							selectedImage = true;
+							measurment1 = 1;
+							break;
+						}
+					case 2:
+						if (selectedImage) {
+							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Test2.png"))); //TODO fill image 
+							measurment2 = 2;
+							break;
+						} else {
+							measurementImage1 = new Image(new Texture(Gdx.files.internal("images/Test2.png"))); //TODO fill image 
+							prevImage = 2;
+							selectedImage = true;
+							measurment1 = 2;
+							break;
+						}
+					case 3:
+						if (selectedImage) {
+							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Test3.png"))); //TODO fill image 
+							measurment2 = 3;
+							break;
+						} else {
+							measurementImage1 = new Image(new Texture(Gdx.files.internal("images/Test3.png"))); //TODO fill image 
+							prevImage = 3;
+							selectedImage = true;
+							measurment1 = 3;
+							break;
+						}
+					case 4:
+						if (selectedImage) {
+							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Test4.png"))); //TODO fill image 
+							measurment2 = 4;
+							break;
+						} else {
+							measurementImage1 = new Image(new Texture(Gdx.files.internal("images/Test4.png"))); //TODO fill image 
+							prevImage = 4;
+							selectedImage = true;
+							measurment1 = 4;
+							break;
+						}
+					case 5:
+						if (selectedImage) {
+							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Test5.png"))); //TODO fill image 
+							measurment2 = 5;
+							break;
+						} else {
+							measurementImage1 = new Image(new Texture(Gdx.files.internal("images/Test5.png"))); //TODO fill image 
+							prevImage = 5;
+							selectedImage = true;
+							measurment1 = 5;
+							break;
+						}
+					}
+					
+				}
+				if (measurment1 < measurment2) {
+					correctAnswer = "left";
+					wa[0] = "right";
+				} else
+					correctAnswer = "right";
+					wa[0] = "left";
+					
+				//System.out.println("Measurement 1 is: " + measurment1 + ", Measurement 2 is: " + measurment2 + ", the correct answer is: " + correctAnswer);
+				return measurementsProblem = new Problem(problemText, correctAnswer, wa, measurementImage1, measurementImage2);
+				
+				
+			case 2: 
+				//generates "Which image is heavier" questions for weight"
+				problemText = "What weighs more?";
+				randImageChooser = rand.nextInt(5)+1;
+				
+				for (int i = 0; i < 2; i++) {
+					while(randImageChooser == prevImage) {
+						randImageChooser = rand.nextInt(4)+1;
+					}
+					switch (randImageChooser) {
+					case 1:
+						if (selectedImage) {
+							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Test1.png"))); //TODO fill image 
+							measurment2 = 1;
+							break;
+						} else {
+							measurementImage1 = new Image(new Texture(Gdx.files.internal("images/Test1.png"))); //TODO fill image 
+							prevImage = 1;
+							selectedImage = true;
+							measurment1 = 1;
+							break;
+						}
+					case 2:
+						if (selectedImage) {
+							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Test2.png"))); //TODO fill image 
+							measurment2 = 2;
+							break;
+						} else {
+							measurementImage1 = new Image(new Texture(Gdx.files.internal("images/Test2.png"))); //TODO fill image 
+							prevImage = 2;
+							selectedImage = true;
+							measurment1 = 2;
+							break;
+						}
+					case 3:
+						if (selectedImage) {
+							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Test3.png"))); //TODO fill image 
+							measurment2 = 3;
+							break;
+						} else {
+							measurementImage1 = new Image(new Texture(Gdx.files.internal("images/Test3.png"))); //TODO fill image 
+							prevImage = 3;
+							selectedImage = true;
+							measurment1 = 3;
+							break;
+						}
+					case 4:
+						if (selectedImage) {
+							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Test4.png"))); //TODO fill image 
+							measurment2 = 4;
+							break;
+						} else {
+							measurementImage1 = new Image(new Texture(Gdx.files.internal("images/Test4.png"))); //TODO fill image 
+							prevImage = 4;
+							selectedImage = true;
+							measurment1 = 4;
+							break;
+						}
+					case 5:
+						if (selectedImage) {
+							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Test5.png"))); //TODO fill image 
+							measurment2 = 5;
+							break;
+						} else {
+							measurementImage1 = new Image(new Texture(Gdx.files.internal("images/Test5.png"))); //TODO fill image 
+							prevImage = 5;
+							selectedImage = true;
+							measurment1 = 5;
+							break;
+						}
+					}
+					
+				}
+				if (measurment1 > measurment2) {
+					correctAnswer = "left";
+					wa[0] = "right";
+				} else
+					correctAnswer = "right";
+					wa[0] = "left";
+					
+				//System.out.println("Measurement 1 is: " + measurment1 + ", Measurement 2 is: " + measurment2 + ", the correct answer is: " + correctAnswer);
+				return measurementsProblem = new Problem(problemText, correctAnswer, wa, measurementImage1, measurementImage2);
+				
+			case 4: 
+				//generates "Which image weighs less? questions"
+				problemText = "What weighs less?";
+				randImageChooser = rand.nextInt(5)+1;
+				
+				for (int i = 0; i < 2; i++) {
+					while(randImageChooser == prevImage) {
+						randImageChooser = rand.nextInt(4)+1;
+					}
+					switch (randImageChooser) {
+					case 1:
+						if (selectedImage) {
+							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Test1.png"))); //TODO fill image 
+							measurment2 = 1;
+							break;
+						} else {
+							measurementImage1 = new Image(new Texture(Gdx.files.internal("images/Test1.png"))); //TODO fill image 
+							prevImage = 1;
+							selectedImage = true;
+							measurment1 = 1;
+							break;
+						}
+					case 2:
+						if (selectedImage) {
+							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Test2.png"))); //TODO fill image 
+							measurment2 = 2;
+							break;
+						} else {
+							measurementImage1 = new Image(new Texture(Gdx.files.internal("images/Test2.png"))); //TODO fill image 
+							prevImage = 2;
+							selectedImage = true;
+							measurment1 = 2;
+							break;
+						}
+					case 3:
+						if (selectedImage) {
+							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Test3.png"))); //TODO fill image 
+							measurment2 = 3;
+							break;
+						} else {
+							measurementImage1 = new Image(new Texture(Gdx.files.internal("images/Test3.png"))); //TODO fill image 
+							prevImage = 3;
+							selectedImage = true;
+							measurment1 = 3;
+							break;
+						}
+					case 4:
+						if (selectedImage) {
+							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Test4.png"))); //TODO fill image 
+							measurment2 = 4;
+							break;
+						} else {
+							measurementImage1 = new Image(new Texture(Gdx.files.internal("images/Test4.png"))); //TODO fill image 
+							prevImage = 4;
+							selectedImage = true;
+							measurment1 = 4;
+							break;
+						}
+					case 5:
+						if (selectedImage) {
+							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Test5.png"))); //TODO fill image 
+							measurment2 = 5;
+							break;
+						} else {
+							measurementImage1 = new Image(new Texture(Gdx.files.internal("images/Test5.png"))); //TODO fill image 
+							prevImage = 5;
+							selectedImage = true;
+							measurment1 = 5;
+							break;
+						}
+					}
+					
+				}
+				if (measurment1 < measurment2) {
+					correctAnswer = "left";
+					wa[0] = "right";
+				} else
+					correctAnswer = "right";
+					wa[0] = "left";
+					
+				//System.out.println("Measurement 1 is: " + measurment1 + ", Measurement 2 is: " + measurment2 + ", the correct answer is: " + correctAnswer);
+				return measurementsProblem = new Problem(problemText, correctAnswer, wa, measurementImage1, measurementImage2);
+				
 			}
 			break;
 		case "1st Grade":
-			typesOfProblems = 3;
+			randProblemChooser = rand.nextInt(5);
+			
+			
+			
+			
+			
+			
 			break;
 		case "2nd Grade":
 			typesOfProblems = 3;
