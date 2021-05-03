@@ -898,14 +898,16 @@ public class Tutor extends Game {
 							break;
 						}
 					}
+					randImageChooser = rand.nextInt(4)+1;
 					
 				}
 				if (measurment1 > measurment2) {
 					correctAnswer = "left";
 					wa[0] = "right";
-				} else
+				} else {
 					correctAnswer = "right";
 					wa[0] = "left";
+				}
 					
 				//System.out.println("Measurement 1 is: " + measurment1 + ", Measurement 2 is: " + measurment2 + ", the correct answer is: " + correctAnswer);
 				return measurementsProblem = new Problem(problemText, correctAnswer, wa, measurementImage1, measurementImage2);
@@ -924,7 +926,7 @@ public class Tutor extends Game {
 					}
 					switch (randImageChooser) {
 					case 1:
-						if (selectedImage) {
+						if (selectedImage && prevImage != 1) {
 							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Test1.png"))); //TODO fill image 
 							measurment2 = 1;
 							break;
@@ -936,7 +938,7 @@ public class Tutor extends Game {
 							break;
 						}
 					case 2:
-						if (selectedImage) {
+						if (selectedImage && prevImage != 2) {
 							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Test2.png"))); //TODO fill image 
 							measurment2 = 2;
 							break;
@@ -948,7 +950,7 @@ public class Tutor extends Game {
 							break;
 						}
 					case 3:
-						if (selectedImage) {
+						if (selectedImage && prevImage != 3) {
 							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Test3.png"))); //TODO fill image 
 							measurment2 = 3;
 							break;
@@ -960,7 +962,7 @@ public class Tutor extends Game {
 							break;
 						}
 					case 4:
-						if (selectedImage) {
+						if (selectedImage && prevImage != 4) {
 							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Test4.png"))); //TODO fill image 
 							measurment2 = 4;
 							break;
@@ -972,7 +974,7 @@ public class Tutor extends Game {
 							break;
 						}
 					case 5:
-						if (selectedImage) {
+						if (selectedImage && prevImage != 5) {
 							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Test5.png"))); //TODO fill image 
 							measurment2 = 5;
 							break;
@@ -984,15 +986,15 @@ public class Tutor extends Game {
 							break;
 						}
 					}
-					
+					randImageChooser = rand.nextInt(4)+1;
 				}
 				if (measurment1 < measurment2) {
 					correctAnswer = "left";
 					wa[0] = "right";
-				} else
+				} else {
 					correctAnswer = "right";
 					wa[0] = "left";
-					
+				}
 				//System.out.println("Measurement 1 is: " + measurment1 + ", Measurement 2 is: " + measurment2 + ", the correct answer is: " + correctAnswer);
 				return measurementsProblem = new Problem(problemText, correctAnswer, wa, measurementImage1, measurementImage2);
 				
@@ -1008,7 +1010,7 @@ public class Tutor extends Game {
 					}
 					switch (randImageChooser) {
 					case 1:
-						if (selectedImage) {
+						if (selectedImage && prevImage != 1) {
 							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Test1.png"))); //TODO fill image 
 							measurment2 = 1;
 							break;
@@ -1020,7 +1022,7 @@ public class Tutor extends Game {
 							break;
 						}
 					case 2:
-						if (selectedImage) {
+						if (selectedImage && prevImage != 2) {
 							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Test2.png"))); //TODO fill image 
 							measurment2 = 2;
 							break;
@@ -1032,7 +1034,7 @@ public class Tutor extends Game {
 							break;
 						}
 					case 3:
-						if (selectedImage) {
+						if (selectedImage && prevImage != 3) {
 							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Test3.png"))); //TODO fill image 
 							measurment2 = 3;
 							break;
@@ -1044,7 +1046,7 @@ public class Tutor extends Game {
 							break;
 						}
 					case 4:
-						if (selectedImage) {
+						if (selectedImage && prevImage != 4) {
 							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Test4.png"))); //TODO fill image 
 							measurment2 = 4;
 							break;
@@ -1056,7 +1058,7 @@ public class Tutor extends Game {
 							break;
 						}
 					case 5:
-						if (selectedImage) {
+						if (selectedImage && prevImage != 5) {
 							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Test5.png"))); //TODO fill image 
 							measurment2 = 5;
 							break;
@@ -1068,15 +1070,16 @@ public class Tutor extends Game {
 							break;
 						}
 					}
+					randImageChooser = rand.nextInt(4)+1;
 					
 				}
 				if (measurment1 > measurment2) {
 					correctAnswer = "left";
 					wa[0] = "right";
-				} else
+				} else {
 					correctAnswer = "right";
 					wa[0] = "left";
-					
+				}
 				//System.out.println("Measurement 1 is: " + measurment1 + ", Measurement 2 is: " + measurment2 + ", the correct answer is: " + correctAnswer);
 				return measurementsProblem = new Problem(problemText, correctAnswer, wa, measurementImage1, measurementImage2);
 				
@@ -1151,15 +1154,16 @@ public class Tutor extends Game {
 							break;
 						}
 					}
+					randImageChooser = rand.nextInt(4)+1;
 					
 				}
 				if (measurment1 < measurment2) {
 					correctAnswer = "left";
 					wa[0] = "right";
-				} else
+				} else {
 					correctAnswer = "right";
 					wa[0] = "left";
-					
+				}	
 				//System.out.println("Measurement 1 is: " + measurment1 + ", Measurement 2 is: " + measurment2 + ", the correct answer is: " + correctAnswer);
 				return measurementsProblem = new Problem(problemText, correctAnswer, wa, measurementImage1, measurementImage2);
 				
@@ -1168,7 +1172,7 @@ public class Tutor extends Game {
 		case "1st Grade":
 			randProblemChooser = rand.nextInt(5);
 			
-			
+			//switch
 			
 			
 			
