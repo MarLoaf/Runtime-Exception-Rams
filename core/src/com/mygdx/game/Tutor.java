@@ -1400,6 +1400,26 @@ public class Tutor extends Game {
 			switch(randProblemChooser) {
 			case 1:
 				
+				problemText = "What time does the clock show?";
+				randProblemChooser = rand.nextInt(5)+1;
+				
+				switch (randImageChooser) {
+				case 1:
+					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/1Weight.png")));
+					break;
+				case 2:
+					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/1Weight.png")));
+					break;
+				case 3:
+					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/1Weight.png")));
+					break;
+				case 4:
+					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/1Weight.png")));
+					break;
+				case 5:
+					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/1Weight.png")));
+					break;
+				}
 			}
 			
 			
