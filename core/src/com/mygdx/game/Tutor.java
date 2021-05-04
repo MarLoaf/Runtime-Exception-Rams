@@ -811,9 +811,9 @@ public class Tutor extends Game {
 		Random rand = new Random();
 		int randProblemChooser = 0;
 		int randImageChooser = 0;
-		Image measurementImage1 = new Image(new Texture(Gdx.files.internal("images/Test1.png")));	//TODO need images to fill
+		Image measurementImage1 = new Image(new Texture(Gdx.files.internal("images/1Car.png")));	//TODO need images to fill
 		int measurment1 = 0;
-		Image measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Test1.png")));	//TODO need car images, building images, people, etc
+		Image measurementImage2 = new Image(new Texture(Gdx.files.internal("images/2Car.png")));	//TODO need car images, building images, people, etc
 		int measurment2 = 0;
 		int prevImage = 0;
 		boolean selectedImage = false;
