@@ -924,11 +924,11 @@ public class Tutor extends Game {
 					switch (randImageChooser) {
 					case 1:
 						if (selectedImage && prevImage != 1) {
-							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/1Car.png"))); //TODO fill image 
+							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/1Car.png")));
 							measurment2 = 1;
 							break;
 						} else {
-							measurementImage1 = new Image(new Texture(Gdx.files.internal("images/1Car.png"))); //TODO fill image 
+							measurementImage1 = new Image(new Texture(Gdx.files.internal("images/1Car.png"))); 
 							prevImage = 1;
 							selectedImage = true;
 							measurment1 = 1;
@@ -936,11 +936,11 @@ public class Tutor extends Game {
 						}
 					case 2:
 						if (selectedImage && prevImage != 2) {
-							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/2Car.png"))); //TODO fill image 
+							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/2Car.png")));  
 							measurment2 = 2;
 							break;
 						} else {
-							measurementImage1 = new Image(new Texture(Gdx.files.internal("images/2Car.png"))); //TODO fill image 
+							measurementImage1 = new Image(new Texture(Gdx.files.internal("images/2Car.png"))); 
 							prevImage = 2;
 							selectedImage = true;
 							measurment1 = 2;
@@ -948,11 +948,11 @@ public class Tutor extends Game {
 						}
 					case 3:
 						if (selectedImage && prevImage != 3) {
-							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/3Car.png"))); //TODO fill image 
+							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/3Car.png"))); 
 							measurment2 = 3;
 							break;
 						} else {
-							measurementImage1 = new Image(new Texture(Gdx.files.internal("images/3Car.png"))); //TODO fill image 
+							measurementImage1 = new Image(new Texture(Gdx.files.internal("images/3Car.png"))); 
 							prevImage = 3;
 							selectedImage = true;
 							measurment1 = 3;
@@ -960,11 +960,11 @@ public class Tutor extends Game {
 						}
 					case 4:
 						if (selectedImage && prevImage != 4) {
-							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/4Car.png"))); //TODO fill image 
+							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/4Car.png"))); 
 							measurment2 = 4;
 							break;
 						} else {
-							measurementImage1 = new Image(new Texture(Gdx.files.internal("images/4Car.png"))); //TODO fill image 
+							measurementImage1 = new Image(new Texture(Gdx.files.internal("images/4Car.png"))); 
 							prevImage = 4;
 							selectedImage = true;
 							measurment1 = 4;
@@ -972,11 +972,11 @@ public class Tutor extends Game {
 						}
 					case 5:
 						if (selectedImage && prevImage != 5) {
-							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/5Car.png"))); //TODO fill image 
+							measurementImage2 = new Image(new Texture(Gdx.files.internal("images/5Car.png"))); 
 							measurment2 = 5;
 							break;
 						} else {
-							measurementImage1 = new Image(new Texture(Gdx.files.internal("images/5Car.png"))); //TODO fill image 
+							measurementImage1 = new Image(new Texture(Gdx.files.internal("images/5Car.png")));
 							prevImage = 5;
 							selectedImage = true;
 							measurment1 = 5;
