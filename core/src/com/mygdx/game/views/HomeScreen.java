@@ -117,17 +117,20 @@ public class HomeScreen implements Screen {
 		userInfo.setText(userInfoMessage);
 		userInfo.setAlignment(Align.center);
 		Button logout = new Button(skin, "Exit"); //creates button with the "exit door"
-		Label latestAchievements = new Label("Latest Achivements:", skin); //creates a label with a purple background
+		Label latestAchievements = new Label("Latest Treasures:", skin); //creates a label with a purple background
 		latestAchievements.setAlignment(Align.center);
-		Label greatestAchievements = new Label("Greatest Achievements:", skin);
+		Label greatestAchievements = new Label("Greatest Treasures:", skin);
 		greatestAchievements.setAlignment(Align.center);
-		ImageTextButton achiemeventsButton = new ImageTextButton("My Achievements", skin); //creates a blue button (blue is default when no color is specified)
+		//ImageTextButton achiemeventsButton = new ImageTextButton("My Achievements", skin); //creates a blue button (blue is default when no color is specified)
+		Button achiemeventsButton = new Button(skin, "Treasure");
 		TextTooltip exitPopup = new TextTooltip(" Log out ", skin);
 		exitPopup.setInstant(true);
+		TextTooltip treasurePopup = new TextTooltip(" My treasures ", skin);
+		treasurePopup.setInstant(true);
 		//layout:
 		table.top();
 		table.row();
-		table.add(achiemeventsButton).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
+		table.add(achiemeventsButton).uniformX().pad(5).padBottom(100);
 		table.add();
 		table.add(userInfo).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
 		table.add(logout).uniformX().pad(5).padBottom(100);
@@ -176,6 +179,7 @@ public class HomeScreen implements Screen {
 		if(parent.problemNumber==0) begin.addListener(beginPopup);
 		else begin.addListener(continuePopup);
 		logout.addListener(exitPopup);
+		achiemeventsButton.addListener(treasurePopup);
 		gradeSelectBox.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {

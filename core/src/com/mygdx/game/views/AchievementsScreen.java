@@ -101,7 +101,7 @@ public class AchievementsScreen implements Screen {
 		stage.addActor(topBarTable);
 		stage.addActor(table);
 		//creating different buttons/textfields/labels
-		Label achiemeventsLabel = new Label("My Achievements", skin);
+		Label achiemeventsLabel = new Label("My Treasures", skin);
 		achiemeventsLabel.setAlignment(Align.center);
 		Label userInfo = new Label("", skin);
 		userInfo.setText(userInfoMessage);

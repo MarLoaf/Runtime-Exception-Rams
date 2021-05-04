@@ -105,8 +105,8 @@ public class ProblemEntryScreen implements Screen {
 		descriptionLine1.setAlignment(Align.center);
 		descriptionLine1.setWrap(true);
 		if (parent.lessonSelection.equals("Exam")) descriptionLine1.setText("You're about to begin " + parent.gradeSelection + " " + parent.lessonSelection + ", this includes all topics for " + parent.gradeSelection);
-		else if (parent.lessonSelection.equals("Test")) descriptionLine1.setText("You're about to begin " + parent.gradeSelection + " " + parent.topicSelection + " " + parent.lessonSelection + ", this will give you an achievement, if you do well");
-		else descriptionLine1.setText("You're about to begin " + parent.gradeSelection + " " + parent.topicSelection + " " + parent.lessonSelection + ", this is not going to give you an achievement");
+		else if (parent.lessonSelection.equals("Test")) descriptionLine1.setText("You're about to begin " + parent.gradeSelection + " " + parent.topicSelection + " " + parent.lessonSelection + ", this will give you a treasure, if you do well");
+		else descriptionLine1.setText("You're about to begin " + parent.gradeSelection + " " + parent.topicSelection + " " + parent.lessonSelection + ", this is not going to give you a treasure, it's just for practice");
         Label descriptionLine2 = new Label("click Begin to start", skin, "noBackground");
         descriptionLine2.setAlignment(Align.center);
 		ImageTextButton begin = new ImageTextButton("Begin", skin, "green");

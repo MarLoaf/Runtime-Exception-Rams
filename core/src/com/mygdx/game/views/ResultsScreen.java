@@ -45,8 +45,8 @@ public class ResultsScreen implements Screen {
 		stage.draw();
 		userInfoMessage = parent.currentUser.getFullName();
 		if(parent.answerCounter>0) message = "You got " + parent.answerCounter + " problems correct!";
-		else if(parent.lessonSelection.equals("Exam")) message = "You should review " + parent.gradeSelection + " and try again.";
-		else message = "You should review " + parent.topicSelection + " and try again.";
+		else if(parent.lessonSelection.equals("Exam")) message = "You should review " + parent.gradeSelection + " and try again to collect the treasure.";
+		else message = "You should review " + parent.topicSelection + " and try again to collect the treasure.";
 	}
 
 	@Override
