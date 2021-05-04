@@ -1254,27 +1254,63 @@ public class Tutor extends Game {
 				fractionsProblem = new Problem(problemText, correctAnswer, wrongAnswers);
 			}else {
 				//image fraction comparison
+				Image comparisonImage1 = new Image(new Texture(Gdx.files.internal("images/Pizza1over2.png")));
+				Image comparisonImage2 = new Image(new Texture(Gdx.files.internal("images/Pizza1over2.png")));
 				wrongAnswers = new String[2];
 				denominators = new int[] {2,3,4,6,8};
 				randNumber = random.nextInt(denominators.length);
 				number1den = denominators[randNumber];
 				randNumber = random.nextInt(denominators.length);
 				number2den = denominators[randNumber];
-				if ((Double.valueOf(number1num)/Double.valueOf(number1den))==(Double.valueOf(number2num)/Double.valueOf(number2den))) {
-					correctAnswer = "=";
-					wrongAnswers[0] = ">";
-					wrongAnswers[1] = "<";
-				}else if ((Double.valueOf(number1num)/Double.valueOf(number1den))>(Double.valueOf(number2num)/Double.valueOf(number2den))) {
-					correctAnswer = ">";
-					wrongAnswers[0] = "=";
-					wrongAnswers[1] = "<";
-				}else {
-					correctAnswer = "<";
-					wrongAnswers[0] = ">";
-					wrongAnswers[1] = "=";
+				switch(number1den) {
+				case 2:
+					comparisonImage1 = new Image(new Texture(Gdx.files.internal("images/Pizza1over2.png")));
+					break;
+				case 3:
+					comparisonImage1 = new Image(new Texture(Gdx.files.internal("images/Pizza1over3.png")));
+					break;
+				case 4:
+					comparisonImage1 = new Image(new Texture(Gdx.files.internal("images/Pizza1over4.png")));
+					break;
+				case 6:
+					comparisonImage1 = new Image(new Texture(Gdx.files.internal("images/Pizza1over6.png")));
+					break;
+				case 8:
+					comparisonImage1 = new Image(new Texture(Gdx.files.internal("images/Pizza1over8.png")));
+					break;
 				}
-				problemText = "Compare the fractions: " + number1num + "/" + number1den + " ? " + number2num + "/" + number2den;
-				fractionsProblem = new Problem(problemText, correctAnswer, wrongAnswers);
+				switch(number2den) {
+				case 2:
+					comparisonImage2 = new Image(new Texture(Gdx.files.internal("images/Pizza1over2.png")));
+					break;
+				case 3:
+					comparisonImage2 = new Image(new Texture(Gdx.files.internal("images/Pizza1over3.png")));
+					break;
+				case 4:
+					comparisonImage2 = new Image(new Texture(Gdx.files.internal("images/Pizza1over4.png")));
+					break;
+				case 6:
+					comparisonImage2 = new Image(new Texture(Gdx.files.internal("images/Pizza1over6.png")));
+					break;
+				case 8:
+					comparisonImage2 = new Image(new Texture(Gdx.files.internal("images/Pizza1over8.png")));
+					break;
+				}
+				if ((Double.valueOf(1)/Double.valueOf(number1den))==(Double.valueOf(1)/Double.valueOf(number2den))) {
+					correctAnswer = "They are the same";
+					wrongAnswers[0] = "Left";
+					wrongAnswers[1] = "Right";
+				}else if ((Double.valueOf(1)/Double.valueOf(number1den))>(Double.valueOf(1)/Double.valueOf(number2den))) {
+					correctAnswer = "Left";
+					wrongAnswers[0] = "They are the same";
+					wrongAnswers[1] = "Right";
+				}else {
+					correctAnswer = "Right";
+					wrongAnswers[0] = "Left";
+					wrongAnswers[1] = "They are the same";
+				}
+				problemText = "Which slice is bigger?";
+				fractionsProblem = new Problem(problemText, correctAnswer, wrongAnswers, comparisonImage1, comparisonImage2);
 			}
 			break;
 		case "4th Grade":
