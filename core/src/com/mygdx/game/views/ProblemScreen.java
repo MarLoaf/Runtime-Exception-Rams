@@ -40,6 +40,7 @@ public class ProblemScreen implements Screen {
 	private Image countingProblemImage;
 	private Image measurementProblemImage1;
 	private Image measurementProblemImage2;
+	private Label operator;
     private Label problem;
 	private TextField answer;
 	private CheckBox rightAnswer;
@@ -116,12 +117,17 @@ public class ProblemScreen implements Screen {
 		Label userInfo = new Label("", skin);
 		userInfo.setText(userInfoMessage);
 		userInfo.setAlignment(Align.center);
+        operator = new Label("", skin, "noBackground");
 		if (parent.problems.get(parent.problemNumber).getCountingImage()!=null) {
 			countingProblemImage = parent.problems.get(parent.problemNumber).getCountingImage();
 		}else if (parent.problems.get(parent.problemNumber).getComparisonImage1()!=null) {
 			measurementProblemImage1 = parent.problems.get(parent.problemNumber).getComparisonImage1();
 			measurementProblemImage2 = parent.problems.get(parent.problemNumber).getComparisonImage2();
 		}
+		if (parent.problems.get(parent.problemNumber).getOperator()!=null) {
+			operator.setText(parent.problems.get(parent.problemNumber).getOperator());
+		}
+        operator.setAlignment(Align.center);
         problem = new Label("", skin, "noBackground");
         problem.setText(parent.problems.get(parent.problemNumber).getProblemText());
         problem.setAlignment(Align.center);
@@ -181,10 +187,17 @@ public class ProblemScreen implements Screen {
 		if (parent.problems.get(parent.problemNumber).getCountingImage()!=null) {
 			table.row();
 			table.add(countingProblemImage).colspan(4).uniformX();
-		}else if (parent.problems.get(parent.problemNumber).getComparisonImage1()!=null) {
+		}else if (parent.problems.get(parent.problemNumber).getComparisonImage1()!=null&&parent.problems.get(parent.problemNumber).getOperator()==null) {
 			table.row();
 			table.add(measurementProblemImage1).colspan(2).uniformX();
 			table.add(measurementProblemImage2).colspan(2).uniformX();
+		}else if (parent.problems.get(parent.problemNumber).getComparisonImage1()!=null&&parent.problems.get(parent.problemNumber).getOperator()!=null) {
+			table.row();
+			Table insideTable = new Table();
+			insideTable.add(measurementProblemImage1).uniformX();
+			insideTable.add(operator).uniformX();
+			insideTable.add(measurementProblemImage2).uniformX();
+			table.add(insideTable).colspan(4);
 		}
 		table.row();
 		table.add();

@@ -543,9 +543,11 @@ public class Tutor extends Game {
 		int wrongAnswersInts[] = new int[3];
 		ArrayList<Integer> possibleNumbers;
 		boolean goodNumbers = false;
+		Image comparisonImage1 = new Image(new Texture(Gdx.files.internal("images/1Apple.png")));
+		Image comparisonImage2 = new Image(new Texture(Gdx.files.internal("images/1Apple.png")));
 		switch(grade) {
 		case "Kindergarten":
-			numberRange = 10;
+			numberRange = 9; //and no 0
 			operationRange = 2;
 			break;
 		case "1st Grade":
@@ -570,31 +572,59 @@ public class Tutor extends Game {
 		case 0:
 			//addition
 			operator = "+";
-			answer = random.nextInt(numberRange)+1;
-			number1 = random.nextInt(answer);
-			number2 = answer-number1;
-			randNumber = answer;
-			for (int i=0; i<3; i++) {
-				while(randNumber==answer||randNumber==wrongAnswersInts[0]||randNumber==wrongAnswersInts[1]||randNumber==wrongAnswersInts[2]) {
-					randNumber = random.nextInt(numberRange)+1;
-				}
-				wrongAnswersInts[i]=randNumber;
+			if (grade=="Kindergarten") {
+				answer = random.nextInt(numberRange-1)+2;
+				number1 = random.nextInt(answer-1)+1;
+				number2 = answer-number1;
 				randNumber = answer;
+				for (int i=0; i<3; i++) {
+					while(randNumber==answer||randNumber==wrongAnswersInts[0]||randNumber==wrongAnswersInts[1]||randNumber==wrongAnswersInts[2]) {
+						randNumber = random.nextInt(numberRange-1)+2;
+					}
+					wrongAnswersInts[i]=randNumber;
+					randNumber = answer;
+				}
+			}else {
+				answer = random.nextInt(numberRange)+1;
+				number1 = random.nextInt(answer);
+				number2 = answer-number1;
+				randNumber = answer;
+				for (int i=0; i<3; i++) {
+					while(randNumber==answer||randNumber==wrongAnswersInts[0]||randNumber==wrongAnswersInts[1]||randNumber==wrongAnswersInts[2]) {
+						randNumber = random.nextInt(numberRange)+1;
+					}
+					wrongAnswersInts[i]=randNumber;
+					randNumber = answer;
+				}
 			}
 			break;
 		case 1:
 			//subtraction
 			operator = "-";
-			number1 = random.nextInt(numberRange)+1;
-			number2 = random.nextInt(number1);
-			answer = number1-number2;
-			randNumber = answer;
-			for (int i=0; i<3; i++) {
-				while(randNumber==answer||randNumber==wrongAnswersInts[0]||randNumber==wrongAnswersInts[1]||randNumber==wrongAnswersInts[2]) {
-					randNumber = random.nextInt(numberRange)+1;
-				}
-				wrongAnswersInts[i]=randNumber;
+			if (grade=="Kindergarten") {
+				number1 = random.nextInt(numberRange-1)+2;
+				number2 = random.nextInt(number1-1)+1;
+				answer = number1-number2;
 				randNumber = answer;
+				for (int i=0; i<3; i++) {
+					while(randNumber==answer||randNumber==wrongAnswersInts[0]||randNumber==wrongAnswersInts[1]||randNumber==wrongAnswersInts[2]) {
+						randNumber = random.nextInt(numberRange-1)+2;
+					}
+					wrongAnswersInts[i]=randNumber;
+					randNumber = answer;
+				}
+			}else {
+				number1 = random.nextInt(numberRange)+1;
+				number2 = random.nextInt(number1);
+				answer = number1-number2;
+				randNumber = answer;
+				for (int i=0; i<3; i++) {
+					while(randNumber==answer||randNumber==wrongAnswersInts[0]||randNumber==wrongAnswersInts[1]||randNumber==wrongAnswersInts[2]) {
+						randNumber = random.nextInt(numberRange)+1;
+					}
+					wrongAnswersInts[i]=randNumber;
+					randNumber = answer;
+				}
 			}
 			break;
 		case 2:
@@ -648,6 +678,195 @@ public class Tutor extends Game {
 				randNumber = answer;
 			}
 			break;
+		}
+		if(grade=="Kindergarten") {
+			//adding images
+			int randObject = random.nextInt(3);
+			switch(randObject) {
+			case 0:
+				//apples
+				switch(number1) {
+				case 1:
+					comparisonImage1 = new Image(new Texture(Gdx.files.internal("images/1Apple.png")));
+					break;
+				case 2:
+					comparisonImage1 = new Image(new Texture(Gdx.files.internal("images/2Apple.png")));
+					break;
+				case 3:
+					comparisonImage1 = new Image(new Texture(Gdx.files.internal("images/3Apple.png")));
+					break;
+				case 4:
+					comparisonImage1 = new Image(new Texture(Gdx.files.internal("images/4Apple.png")));
+					break;
+				case 5:
+					comparisonImage1 = new Image(new Texture(Gdx.files.internal("images/5Apple.png")));
+					break;
+				case 6:
+					comparisonImage1 = new Image(new Texture(Gdx.files.internal("images/6Apple.png")));
+					break;
+				case 7:
+					comparisonImage1 = new Image(new Texture(Gdx.files.internal("images/7Apple.png")));
+					break;
+				case 8:
+					comparisonImage1 = new Image(new Texture(Gdx.files.internal("images/8Apple.png")));
+					break;
+				case 9:
+					comparisonImage1 = new Image(new Texture(Gdx.files.internal("images/9Apple.png")));
+					break;
+				}
+				switch(number2) {
+				case 1:
+					comparisonImage2 = new Image(new Texture(Gdx.files.internal("images/1Apple.png")));
+					break;
+				case 2:
+					comparisonImage2 = new Image(new Texture(Gdx.files.internal("images/2Apple.png")));
+					break;
+				case 3:
+					comparisonImage2 = new Image(new Texture(Gdx.files.internal("images/3Apple.png")));
+					break;
+				case 4:
+					comparisonImage2 = new Image(new Texture(Gdx.files.internal("images/4Apple.png")));
+					break;
+				case 5:
+					comparisonImage2 = new Image(new Texture(Gdx.files.internal("images/5Apple.png")));
+					break;
+				case 6:
+					comparisonImage2 = new Image(new Texture(Gdx.files.internal("images/6Apple.png")));
+					break;
+				case 7:
+					comparisonImage2 = new Image(new Texture(Gdx.files.internal("images/7Apple.png")));
+					break;
+				case 8:
+					comparisonImage2 = new Image(new Texture(Gdx.files.internal("images/8Apple.png")));
+					break;
+				case 9:
+					comparisonImage2 = new Image(new Texture(Gdx.files.internal("images/9Apple.png")));
+					break;
+				}
+				break;
+			case 1:
+				//oranges
+				switch(number1) {
+				case 1:
+					comparisonImage1 = new Image(new Texture(Gdx.files.internal("images/1Orange.png")));
+					break;
+				case 2:
+					comparisonImage1 = new Image(new Texture(Gdx.files.internal("images/2Orange.png")));
+					break;
+				case 3:
+					comparisonImage1 = new Image(new Texture(Gdx.files.internal("images/3Orange.png")));
+					break;
+				case 4:
+					comparisonImage1 = new Image(new Texture(Gdx.files.internal("images/4Orange.png")));
+					break;
+				case 5:
+					comparisonImage1 = new Image(new Texture(Gdx.files.internal("images/5Orange.png")));
+					break;
+				case 6:
+					comparisonImage1 = new Image(new Texture(Gdx.files.internal("images/6Orange.png")));
+					break;
+				case 7:
+					comparisonImage1 = new Image(new Texture(Gdx.files.internal("images/7Orange.png")));
+					break;
+				case 8:
+					comparisonImage1 = new Image(new Texture(Gdx.files.internal("images/8Orange.png")));
+					break;
+				case 9:
+					comparisonImage1 = new Image(new Texture(Gdx.files.internal("images/9Orange.png")));
+					break;
+				}
+				switch(number2) {
+				case 1:
+					comparisonImage2 = new Image(new Texture(Gdx.files.internal("images/1Orange.png")));
+					break;
+				case 2:
+					comparisonImage2 = new Image(new Texture(Gdx.files.internal("images/2Orange.png")));
+					break;
+				case 3:
+					comparisonImage2 = new Image(new Texture(Gdx.files.internal("images/3Orange.png")));
+					break;
+				case 4:
+					comparisonImage2 = new Image(new Texture(Gdx.files.internal("images/4Orange.png")));
+					break;
+				case 5:
+					comparisonImage2 = new Image(new Texture(Gdx.files.internal("images/5Orange.png")));
+					break;
+				case 6:
+					comparisonImage2 = new Image(new Texture(Gdx.files.internal("images/6Orange.png")));
+					break;
+				case 7:
+					comparisonImage2 = new Image(new Texture(Gdx.files.internal("images/7Orange.png")));
+					break;
+				case 8:
+					comparisonImage2 = new Image(new Texture(Gdx.files.internal("images/8Orange.png")));
+					break;
+				case 9:
+					comparisonImage2 = new Image(new Texture(Gdx.files.internal("images/9Orange.png")));
+					break;
+				}
+				break;
+			case 2:
+				//lemons
+				switch(number1) {
+				case 1:
+					comparisonImage1 = new Image(new Texture(Gdx.files.internal("images/1Lemon.png")));
+					break;
+				case 2:
+					comparisonImage1 = new Image(new Texture(Gdx.files.internal("images/2Lemon.png")));
+					break;
+				case 3:
+					comparisonImage1 = new Image(new Texture(Gdx.files.internal("images/3Lemon.png")));
+					break;
+				case 4:
+					comparisonImage1 = new Image(new Texture(Gdx.files.internal("images/4Lemon.png")));
+					break;
+				case 5:
+					comparisonImage1 = new Image(new Texture(Gdx.files.internal("images/5Lemon.png")));
+					break;
+				case 6:
+					comparisonImage1 = new Image(new Texture(Gdx.files.internal("images/6Lemon.png")));
+					break;
+				case 7:
+					comparisonImage1 = new Image(new Texture(Gdx.files.internal("images/7Lemon.png")));
+					break;
+				case 8:
+					comparisonImage1 = new Image(new Texture(Gdx.files.internal("images/8Lemon.png")));
+					break;
+				case 9:
+					comparisonImage1 = new Image(new Texture(Gdx.files.internal("images/9Lemon.png")));
+					break;
+				}
+				switch(number2) {
+				case 1:
+					comparisonImage2 = new Image(new Texture(Gdx.files.internal("images/1Lemon.png")));
+					break;
+				case 2:
+					comparisonImage2 = new Image(new Texture(Gdx.files.internal("images/2Lemon.png")));
+					break;
+				case 3:
+					comparisonImage2 = new Image(new Texture(Gdx.files.internal("images/3Lemon.png")));
+					break;
+				case 4:
+					comparisonImage2 = new Image(new Texture(Gdx.files.internal("images/4Lemon.png")));
+					break;
+				case 5:
+					comparisonImage2 = new Image(new Texture(Gdx.files.internal("images/5Lemon.png")));
+					break;
+				case 6:
+					comparisonImage2 = new Image(new Texture(Gdx.files.internal("images/6Lemon.png")));
+					break;
+				case 7:
+					comparisonImage2 = new Image(new Texture(Gdx.files.internal("images/7Lemon.png")));
+					break;
+				case 8:
+					comparisonImage2 = new Image(new Texture(Gdx.files.internal("images/8Lemon.png")));
+					break;
+				case 9:
+					comparisonImage2 = new Image(new Texture(Gdx.files.internal("images/9Lemon.png")));
+					break;
+				}
+				break;
+			}
 		}
 		//word problem or not
 		randNumber = random.nextInt(2);
@@ -706,10 +925,20 @@ public class Tutor extends Game {
 		randNumber = random.nextInt(2);
 		if(randNumber == 0) {
 			//multiple choice
-			operationsProblem = new Problem(problemText, correctAnswer, wrongAnswers);
+			if (grade=="Kindergarten") {
+				problemText = "";
+				operationsProblem = new Problem(problemText, correctAnswer, wrongAnswers, comparisonImage1, comparisonImage2, operator);
+			}else {
+				operationsProblem = new Problem(problemText, correctAnswer, wrongAnswers);
+			}
 		}else {
 			//not multiple choice
-			operationsProblem = new Problem(problemText, correctAnswer);
+			if (grade=="Kindergarten") {
+				problemText = "";
+				operationsProblem = new Problem(problemText, correctAnswer, comparisonImage1, comparisonImage2, operator);
+			}else {
+				operationsProblem = new Problem(problemText, correctAnswer);
+			}
 		}
 		return operationsProblem;
 	}

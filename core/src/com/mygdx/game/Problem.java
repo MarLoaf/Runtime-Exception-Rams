@@ -12,6 +12,33 @@ public class Problem {
 	private String countingObject;
 	private Image comparisonImage1;
 	private Image comparisonImage2;
+	private String operator;
+	
+	public Problem(String pt, String ca, String wa[], Image ci1, Image ci2, String o) {
+		//multiple choice image operation problem
+		problemText = pt;
+		correctAnswer = ca;
+		wrongAnswers = wa;
+		selectedAnswer = "";
+		countingImage = null;
+		countingObject = null;
+		comparisonImage1 = ci1;
+		comparisonImage2 = ci2;
+		operator = o;
+	}
+	
+	public Problem(String pt, String ca, Image ci1, Image ci2, String o) {
+		//image operation problem
+		problemText = pt;
+		correctAnswer = ca;
+		wrongAnswers = null;
+		selectedAnswer = "";
+		countingImage = null;
+		countingObject = null;
+		comparisonImage1 = ci1;
+		comparisonImage2 = ci2;
+		operator = o;
+	}
 	
 	public Problem(String pt, String ca, String wa[], Image ci1, Image ci2) {
 		//measurement or image fraction problem
@@ -23,6 +50,7 @@ public class Problem {
 		countingObject = null;
 		comparisonImage1 = ci1;
 		comparisonImage2 = ci2;
+		operator = null;
 	}
 	
 	public Problem(String pt, String ca, String wa[], Image ci, String co) {
@@ -35,6 +63,7 @@ public class Problem {
 		countingObject = co;
 		comparisonImage1 = null;
 		comparisonImage2 = null;
+		operator = null;
 	}
 	
 	public Problem(String pt, String ca, Image ci, String co) {
@@ -47,6 +76,7 @@ public class Problem {
 		countingObject = co;
 		comparisonImage1 = null;
 		comparisonImage2 = null;
+		operator = null;
 	}
 	
 	public Problem(String pt, String ca, String wa[]) {
@@ -59,6 +89,7 @@ public class Problem {
 		countingObject = null;
 		comparisonImage1 = null;
 		comparisonImage2 = null;
+		operator = null;
 	}
 	
 	public Problem(String pt, String ca) {
@@ -71,6 +102,7 @@ public class Problem {
 		countingObject = null;
 		comparisonImage1 = null;
 		comparisonImage2 = null;
+		operator = null;
 	}
 	
 	public Problem() {
@@ -83,6 +115,7 @@ public class Problem {
 		countingObject = null;
 		comparisonImage1 = null;
 		comparisonImage2 = null;
+		operator = null;
 	}
 	
 	public boolean checkAnswer() {
@@ -122,6 +155,10 @@ public class Problem {
 		return comparisonImage2;
 	}
 	
+	public String getOperator() {
+		return operator;
+	}
+	
 	public void setProblemText(String pt) {
 		problemText = pt;;
 	}
@@ -152,5 +189,9 @@ public class Problem {
 	
 	public void setComparisonImage2(Image ci2) {
 		comparisonImage2 = ci2;
+	}
+	
+	public void setOperator(String o) {
+		operator = o;
 	}
 }
