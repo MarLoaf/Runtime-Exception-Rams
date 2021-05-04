@@ -12,73 +12,79 @@ public class Problem {
 	private String selectedAnswer;
 	private Image countingImage;
 	private String countingObject;
-	private Image measurementImage1;
-	private Image measurementImage2;
+	private Image comparisonImage1;
+	private Image comparisonImage2;
 	
-	public Problem(String pt, String ca, String wa[], Image mi1, Image mi2) {
+	public Problem(String pt, String ca, String wa[], Image ci1, Image ci2) {
+		//measurement or image fraction problem
 		problemText = pt;
 		correctAnswer = ca;
 		wrongAnswers = wa;
 		selectedAnswer = "";
 		countingImage = null;
 		countingObject = null;
-		measurementImage1 = mi1;
-		measurementImage2 = mi2;
+		comparisonImage1 = ci1;
+		comparisonImage2 = ci2;
 	}
 	
 	public Problem(String pt, String ca, String wa[], Image ci, String co) {
+		//multiple choice counting problem
 		problemText = pt;
 		correctAnswer = ca;
 		wrongAnswers = wa;
 		selectedAnswer = "";
 		countingImage = ci;
 		countingObject = co;
-		measurementImage1 = null;
-		measurementImage2 = null;
+		comparisonImage1 = null;
+		comparisonImage2 = null;
 	}
 	
 	public Problem(String pt, String ca, Image ci, String co) {
+		//counting problem
 		problemText = pt;
 		correctAnswer = ca;
 		wrongAnswers = null;
 		selectedAnswer = "";
 		countingImage = ci;
 		countingObject = co;
-		measurementImage1 = null;
-		measurementImage2 = null;
+		comparisonImage1 = null;
+		comparisonImage2 = null;
 	}
 	
 	public Problem(String pt, String ca, String wa[]) {
+		//multiple choice problem
 		problemText = pt;
 		correctAnswer = ca;
 		wrongAnswers = wa;
 		selectedAnswer = "";
 		countingImage = null;
 		countingObject = null;
-		measurementImage1 = null;
-		measurementImage2 = null;
+		comparisonImage1 = null;
+		comparisonImage2 = null;
 	}
 	
 	public Problem(String pt, String ca) {
+		//problem
 		problemText = pt;
 		correctAnswer = ca;
 		wrongAnswers = null;
 		selectedAnswer = "";
 		countingImage = null;
 		countingObject = null;
-		measurementImage1 = null;
-		measurementImage2 = null;
+		comparisonImage1 = null;
+		comparisonImage2 = null;
 	}
 	
 	public Problem() {
+		//generic constructor with no fields
 		problemText = "";
 		correctAnswer = "";
 		wrongAnswers = null;
 		selectedAnswer = "";
 		countingImage = null;
 		countingObject = null;
-		measurementImage1 = null;
-		measurementImage2 = null;
+		comparisonImage1 = null;
+		comparisonImage2 = null;
 	}
 	
 	public boolean checkAnswer() {
@@ -151,12 +157,12 @@ public class Problem {
 		return countingObject;
 	}
 	
-	public Image getMeasurementImage1() {
-		return measurementImage1;
+	public Image getComparisonImage1() {
+		return comparisonImage1;
 	}
 	
-	public Image getMeasurementImage2() {
-		return measurementImage2;
+	public Image getComparisonImage2() {
+		return comparisonImage2;
 	}
 	
 	public void setProblemText(String pt) {
@@ -183,11 +189,11 @@ public class Problem {
 		countingObject = co;
 	}
 	
-	public void setMeasurementImage1(Image mi1) {
-		measurementImage1 = mi1;
+	public void setComparisonImage1(Image ci1) {
+		comparisonImage1 = ci1;
 	}
 	
-	public void setMeasurementImage2(Image mi2) {
-		measurementImage2 = mi2;
+	public void setComparisonImage2(Image ci2) {
+		comparisonImage2 = ci2;
 	}
 }

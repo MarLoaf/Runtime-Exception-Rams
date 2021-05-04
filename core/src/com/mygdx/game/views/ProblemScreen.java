@@ -55,7 +55,7 @@ public class ProblemScreen implements Screen {
 		stage = new Stage(new ScreenViewport());
 		stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1/30f));
 		stage.draw();
-		userInfoMessage = "Student: " + parent.currentUser.getFullName();
+		userInfoMessage = parent.currentUser.getFullName();
 	}
 
 	@Override
@@ -118,9 +118,9 @@ public class ProblemScreen implements Screen {
 		userInfo.setAlignment(Align.center);
 		if (parent.problems.get(parent.problemNumber).getCountingImage()!=null) {
 			countingProblemImage = parent.problems.get(parent.problemNumber).getCountingImage();
-		}else if (parent.problems.get(parent.problemNumber).getMeasurementImage1()!=null) {
-			measurementProblemImage1 = parent.problems.get(parent.problemNumber).getMeasurementImage1();
-			measurementProblemImage2 = parent.problems.get(parent.problemNumber).getMeasurementImage2();
+		}else if (parent.problems.get(parent.problemNumber).getComparisonImage1()!=null) {
+			measurementProblemImage1 = parent.problems.get(parent.problemNumber).getComparisonImage1();
+			measurementProblemImage2 = parent.problems.get(parent.problemNumber).getComparisonImage2();
 		}
         problem = new Label("", skin, "noBackground");
         problem.setText(parent.problems.get(parent.problemNumber).getProblemText());
@@ -167,7 +167,7 @@ public class ProblemScreen implements Screen {
         //layout
 		table.top();
 		table.row();
-		if (parent.problems.get(parent.problemNumber).getCountingImage()!=null||parent.problems.get(parent.problemNumber).getMeasurementImage1()!=null) {
+		if (parent.problems.get(parent.problemNumber).getCountingImage()!=null||parent.problems.get(parent.problemNumber).getComparisonImage1()!=null) {
 			table.add(currentAssignment).fillX().uniformX().pad(5).padBottom(25).width(Gdx.graphics.getWidth()/5);
 			table.add().fillX().uniformX().pad(5).padBottom(25).width(Gdx.graphics.getWidth()/5);
 			table.add(userInfo).fillX().uniformX().pad(5).padBottom(25).width(Gdx.graphics.getWidth()/5);
@@ -181,7 +181,7 @@ public class ProblemScreen implements Screen {
 		if (parent.problems.get(parent.problemNumber).getCountingImage()!=null) {
 			table.row();
 			table.add(countingProblemImage).colspan(4).uniformX();
-		}else if (parent.problems.get(parent.problemNumber).getMeasurementImage1()!=null) {
+		}else if (parent.problems.get(parent.problemNumber).getComparisonImage1()!=null) {
 			table.row();
 			table.add(measurementProblemImage1).colspan(2).uniformX();
 			table.add(measurementProblemImage2).colspan(2).uniformX();

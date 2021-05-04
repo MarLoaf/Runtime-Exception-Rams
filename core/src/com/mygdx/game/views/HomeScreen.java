@@ -43,7 +43,7 @@ public class HomeScreen implements Screen {
 		stage = new Stage(new ScreenViewport());
 		stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1/30f));
 		stage.draw();
-		userInfoMessage = "Student: " + parent.currentUser.getFullName();
+		userInfoMessage = parent.currentUser.getFullName();
 	}
 
 	@Override
@@ -137,8 +137,8 @@ public class HomeScreen implements Screen {
 		table.add(lessonSelectBox).fillX().uniformX().pad(5).padBottom(100).width(Gdx.graphics.getWidth()/5);
 		table.add(begin).uniformX().pad(5).padBottom(100);
 		table.row();
-		table.add(latestAchievements).colspan(2).width(Gdx.graphics.getWidth()/5).align(Align.center);
-		table.add(greatestAchievements).colspan(2).width(Gdx.graphics.getWidth()/5).align(Align.center);
+		table.add(latestAchievements).colspan(2).align(Align.center);
+		table.add(greatestAchievements).colspan(2).align(Align.center);
 		table.row();
 		if(!parent.currentUser.getLatestAchievements()[0].equals("none")) generateAchievementVisual(table, skin, parent.currentUser.getLatestAchievements()[0], parent.currentUser.getLatestAchievements()[1], parent.currentUser.getAchievement(parent.currentUser.getLatestAchievements()[0], parent.currentUser.getLatestAchievements()[1]));
 		else {
