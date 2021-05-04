@@ -13,7 +13,6 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.scenes.scene2d.ui.CheckBox;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.mygdx.game.views.AchievementsScreen;
 import com.mygdx.game.views.CreateAccountScreen;
@@ -1193,7 +1192,6 @@ public class Tutor extends Game {
 	
 	private Problem generateFractionsProblem(String grade) {
 		Problem fractionsProblem = new Problem();
-		//TODO add image version
 		Random random = new Random();
 		int randNumber = 0;
 		String problemText = "";
