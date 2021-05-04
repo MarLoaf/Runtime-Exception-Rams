@@ -590,8 +590,8 @@ public class Tutor extends Game {
 				number2 = answer-number1;
 				randNumber = answer;
 				for (int i=0; i<3; i++) {
-					while(randNumber==answer||randNumber==wrongAnswersInts[0]||randNumber==wrongAnswersInts[1]||randNumber==wrongAnswersInts[2]) {
-						randNumber = random.nextInt(numberRange)+1;
+					while(randNumber==answer||randNumber==wrongAnswersInts[0]||randNumber==wrongAnswersInts[1]||randNumber==wrongAnswersInts[2]||randNumber>=numberRange||randNumber<0) {
+						randNumber = random.nextInt(19)-9+answer;
 					}
 					wrongAnswersInts[i]=randNumber;
 					randNumber = answer;
@@ -619,8 +619,8 @@ public class Tutor extends Game {
 				answer = number1-number2;
 				randNumber = answer;
 				for (int i=0; i<3; i++) {
-					while(randNumber==answer||randNumber==wrongAnswersInts[0]||randNumber==wrongAnswersInts[1]||randNumber==wrongAnswersInts[2]) {
-						randNumber = random.nextInt(numberRange)+1;
+					while(randNumber==answer||randNumber==wrongAnswersInts[0]||randNumber==wrongAnswersInts[1]||randNumber==wrongAnswersInts[2]||randNumber>=numberRange||randNumber<0) {
+						randNumber = random.nextInt(19)-9+answer;
 					}
 					wrongAnswersInts[i]=randNumber;
 					randNumber = answer;
@@ -646,8 +646,8 @@ public class Tutor extends Game {
 			number2 = answer/number1;
 			randNumber = answer;
 			for (int i=0; i<3; i++) {
-				while(randNumber==answer||randNumber==wrongAnswersInts[0]||randNumber==wrongAnswersInts[1]||randNumber==wrongAnswersInts[2]) {
-					randNumber = random.nextInt(numberRange)+1;
+				while(randNumber==answer||randNumber==wrongAnswersInts[0]||randNumber==wrongAnswersInts[1]||randNumber==wrongAnswersInts[2]||randNumber>=numberRange||randNumber<0) {
+					randNumber = random.nextInt(19)-9+answer;
 				}
 				wrongAnswersInts[i]=randNumber;
 				randNumber = answer;
@@ -671,8 +671,8 @@ public class Tutor extends Game {
 			answer = number1/number2;
 			randNumber = answer;
 			for (int i=0; i<3; i++) {
-				while(randNumber==answer||randNumber==wrongAnswersInts[0]||randNumber==wrongAnswersInts[1]||randNumber==wrongAnswersInts[2]) {
-					randNumber = random.nextInt(numberRange)+1;
+				while(randNumber==answer||randNumber==wrongAnswersInts[0]||randNumber==wrongAnswersInts[1]||randNumber==wrongAnswersInts[2]||randNumber>=numberRange||randNumber<0) {
+					randNumber = random.nextInt(19)-9+answer;
 				}
 				wrongAnswersInts[i]=randNumber;
 				randNumber = answer;
@@ -1012,8 +1012,8 @@ public class Tutor extends Game {
 		answer = number/factorInt;
 		randNumber = answer;
 		for (int i=0; i<3; i++) {
-			while(randNumber==answer||randNumber==wrongAnswersInts[0]||randNumber==wrongAnswersInts[1]||randNumber==wrongAnswersInts[2]) {
-				randNumber = random.nextInt(numberRange/factorInt);
+			while(randNumber==answer||randNumber==wrongAnswersInts[0]||randNumber==wrongAnswersInts[1]||randNumber==wrongAnswersInts[2]||randNumber>=numberRange||randNumber<0) {
+				randNumber = random.nextInt(19)-9+answer;
 			}
 			wrongAnswersInts[i]=randNumber;
 			randNumber = answer;
@@ -1556,8 +1556,8 @@ public class Tutor extends Game {
 				number2num = answernum-number1num;
 				randNumber = answernum;
 				for (int i=0; i<3; i++) {
-					while(randNumber==answernum||randNumber==wrongAnswersInts[0]||randNumber==wrongAnswersInts[1]||randNumber==wrongAnswersInts[2]) {
-						randNumber = random.nextInt(numberRange)+1;
+					while(randNumber==answernum||randNumber==wrongAnswersInts[0]||randNumber==wrongAnswersInts[1]||randNumber==wrongAnswersInts[2]||randNumber>=numberRange||randNumber<0) {
+						randNumber = random.nextInt(19)-9+answernum;
 					}
 					wrongAnswersInts[i]=randNumber;
 					randNumber = answernum;
@@ -1571,8 +1571,8 @@ public class Tutor extends Game {
 				answernum = number1num-number2num;
 				randNumber = answernum;
 				for (int i=0; i<3; i++) {
-					while(randNumber==answernum||randNumber==wrongAnswersInts[0]||randNumber==wrongAnswersInts[1]||randNumber==wrongAnswersInts[2]) {
-						randNumber = random.nextInt(numberRange)+1;
+					while(randNumber==answernum||randNumber==wrongAnswersInts[0]||randNumber==wrongAnswersInts[1]||randNumber==wrongAnswersInts[2]||randNumber>=numberRange||randNumber<0) {
+						randNumber = random.nextInt(19)-9+answernum;
 					}
 					wrongAnswersInts[i]=randNumber;
 					randNumber = answernum;

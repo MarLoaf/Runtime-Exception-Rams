@@ -131,6 +131,7 @@ public class ProblemScreen implements Screen {
         problem = new Label("", skin, "noBackground");
         problem.setText(parent.problems.get(parent.problemNumber).getProblemText());
         problem.setAlignment(Align.center);
+        problem.setWrap(true);
 		answer = new TextField(parent.problems.get(parent.problemNumber).getSelectedAnswer(), skin);
 		answer.setMessageText("Answer...");
 		answer.setAlignment(Align.center);
@@ -200,10 +201,9 @@ public class ProblemScreen implements Screen {
 			table.add(insideTable).colspan(4);
 		}
 		table.row();
-		table.add();
-		table.add(problem).colspan(2).fillX().uniformX().width(Gdx.graphics.getWidth()/4);
+		table.add(problem).colspan(4).fillX().uniformX().width(Gdx.graphics.getWidth()/2);
+		table.row();
 		if (parent.problems.get(parent.problemNumber).getWrongAnswers()!=null) {
-			table.row();
 			ArrayList<CheckBox> answers = new ArrayList<CheckBox>(4);
 			int n;
 			answers.add(rightAnswer);
@@ -236,7 +236,6 @@ public class ProblemScreen implements Screen {
 				}
 			}
 		}else {
-			table.row();
 			table.add();
 			table.add(answer).colspan(2).pad(5).fillX().uniformX().width(Gdx.graphics.getWidth()/4);
 		}

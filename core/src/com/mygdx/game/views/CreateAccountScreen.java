@@ -132,14 +132,15 @@ public class CreateAccountScreen implements Screen {
 		TextTooltip exitPopup = new TextTooltip(" Back ", skin);
 		exitPopup.setInstant(true);
 		Label rules = new Label(" Username and Password have to be at least 5 characters long. No fields should include dots or commas ",skin, "noBackground");
+		rules.setWrap(true);
 		//layout:
 		table.top();
 		table.row();
-		table.add().fillX().uniformX().pad(5).padBottom(25).width(Gdx.graphics.getWidth()/5);
-		table.add(createAccountLabel).colspan(2).fillX().uniformX().pad(5).padBottom(25).width(Gdx.graphics.getWidth()/5);
-		table.add(back).uniformX().pad(5).padBottom(25);
+		table.add().fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add(createAccountLabel).colspan(2).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		table.add(back).uniformX().pad(5);
 		table.row();
-		table.add(rules).pad(5).colspan(4);
+		table.add(rules).pad(5).colspan(4).width(Gdx.graphics.getWidth()/2);
 		table.row();
 		table.add();
 		table.add(usernameLabel).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
