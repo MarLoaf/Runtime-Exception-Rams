@@ -1193,7 +1193,6 @@ public class Tutor extends Game {
 	
 	private Problem generateFractionsProblem(String grade) {
 		Problem fractionsProblem = new Problem();
-		//TODO add image version
 		Random random = new Random();
 		int randNumber = 0;
 		String problemText = "";
