@@ -102,7 +102,7 @@ public class ResultsScreen implements Screen {
 		table.setFillParent(true);
 		stage.addActor(table);
 		//creating actors
-		Label currentAssignment = new Label(parent.gradeSelection + " " + parent.topicSelection, skin);
+		Label currentAssignment = new Label(parent.gradeSelection + " " + parent.topicSelection, skin, "noBackground");
 		currentAssignment.setAlignment(Align.center);
 		Label userInfo = new Label("", skin);
 		userInfo.setText(userInfoMessage);
