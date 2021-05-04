@@ -101,8 +101,7 @@ public class AchievementsScreen implements Screen {
 		stage.addActor(topBarTable);
 		stage.addActor(table);
 		//creating different buttons/textfields/labels
-		Label achiemeventsLabel = new Label("My Treasures", skin);
-		achiemeventsLabel.setAlignment(Align.center);
+		Image treasureIcon = new Image(new Texture(Gdx.files.internal("images/Treasure.png")));
 		Label userInfo = new Label("", skin);
 		userInfo.setText(userInfoMessage);
 		userInfo.setAlignment(Align.center);
@@ -112,7 +111,7 @@ public class AchievementsScreen implements Screen {
 		//layout:
 		topBarTable.top();
 		topBarTable.row();
-		topBarTable.add(achiemeventsLabel).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
+		topBarTable.add(treasureIcon).uniformX().pad(5);
 		topBarTable.add().fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		topBarTable.add(userInfo).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		topBarTable.add(back).uniformX().pad(5);

@@ -126,8 +126,7 @@ public class ResultsScreen implements Screen {
 		table.add(userInfo).fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
 		table.add(back).uniformX().pad(5).padBottom(270);
 		table.row();
-		table.add();
-		table.add(resultText).colspan(2).pad(5).fillX().uniformX();
+		table.add(resultText).colspan(4).pad(5).fillX().uniformX();
 		table.row();
 		table.add();
 		if (parent.answerCounter == parent.problems.size()-2) {
