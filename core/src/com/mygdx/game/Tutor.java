@@ -1211,45 +1211,71 @@ public class Tutor extends Game {
 		int numberRange = 100;
 		switch(grade) {
 		case "3rd Grade":
-			//comparing fractions, only denominators 2, 3, 4, 6, 8
-			wrongAnswers = new String[2];
-			denominators = new int[] {2,3,4,6,8};
-			//same numerator or denominator
 			randNumber = random.nextInt(2);
 			if(randNumber == 0) {
-				//numerator
-				randNumber = random.nextInt(10);
-				number1num = randNumber;
-				number2num = randNumber;
+				//comparing fractions, only denominators 2, 3, 4, 6, 8
+				wrongAnswers = new String[2];
+				denominators = new int[] {2,3,4,6,8};
+				//same numerator or denominator
+				randNumber = random.nextInt(2);
+				if(randNumber == 0) {
+					//numerator
+					randNumber = random.nextInt(10);
+					number1num = randNumber;
+					number2num = randNumber;
+					randNumber = random.nextInt(denominators.length);
+					number1den = denominators[randNumber];
+					randNumber = random.nextInt(denominators.length);
+					number2den = denominators[randNumber];
+				}else {
+					//denominator
+					randNumber = random.nextInt(denominators.length);
+					number1den = denominators[randNumber];
+					number2den = denominators[randNumber];
+					randNumber = random.nextInt(10);
+					number1num = randNumber;
+					randNumber = random.nextInt(10);
+					number2num = randNumber;
+				}
+				if ((Double.valueOf(number1num)/Double.valueOf(number1den))==(Double.valueOf(number2num)/Double.valueOf(number2den))) {
+					correctAnswer = "=";
+					wrongAnswers[0] = ">";
+					wrongAnswers[1] = "<";
+				}else if ((Double.valueOf(number1num)/Double.valueOf(number1den))>(Double.valueOf(number2num)/Double.valueOf(number2den))) {
+					correctAnswer = ">";
+					wrongAnswers[0] = "=";
+					wrongAnswers[1] = "<";
+				}else {
+					correctAnswer = "<";
+					wrongAnswers[0] = ">";
+					wrongAnswers[1] = "=";
+				}
+				problemText = "Compare the fractions: " + number1num + "/" + number1den + " ? " + number2num + "/" + number2den;
+				fractionsProblem = new Problem(problemText, correctAnswer, wrongAnswers);
+			}else {
+				//image fraction comparison
+				wrongAnswers = new String[2];
+				denominators = new int[] {2,3,4,6,8};
 				randNumber = random.nextInt(denominators.length);
 				number1den = denominators[randNumber];
 				randNumber = random.nextInt(denominators.length);
 				number2den = denominators[randNumber];
-			}else {
-				//denominator
-				randNumber = random.nextInt(denominators.length);
-				number1den = denominators[randNumber];
-				number2den = denominators[randNumber];
-				randNumber = random.nextInt(10);
-				number1num = randNumber;
-				randNumber = random.nextInt(10);
-				number2num = randNumber;
+				if ((Double.valueOf(number1num)/Double.valueOf(number1den))==(Double.valueOf(number2num)/Double.valueOf(number2den))) {
+					correctAnswer = "=";
+					wrongAnswers[0] = ">";
+					wrongAnswers[1] = "<";
+				}else if ((Double.valueOf(number1num)/Double.valueOf(number1den))>(Double.valueOf(number2num)/Double.valueOf(number2den))) {
+					correctAnswer = ">";
+					wrongAnswers[0] = "=";
+					wrongAnswers[1] = "<";
+				}else {
+					correctAnswer = "<";
+					wrongAnswers[0] = ">";
+					wrongAnswers[1] = "=";
+				}
+				problemText = "Compare the fractions: " + number1num + "/" + number1den + " ? " + number2num + "/" + number2den;
+				fractionsProblem = new Problem(problemText, correctAnswer, wrongAnswers);
 			}
-			if ((Double.valueOf(number1num)/Double.valueOf(number1den))==(Double.valueOf(number2num)/Double.valueOf(number2den))) {
-				correctAnswer = "=";
-				wrongAnswers[0] = ">";
-				wrongAnswers[1] = "<";
-			}else if ((Double.valueOf(number1num)/Double.valueOf(number1den))>(Double.valueOf(number2num)/Double.valueOf(number2den))) {
-				correctAnswer = ">";
-				wrongAnswers[0] = "=";
-				wrongAnswers[1] = "<";
-			}else {
-				correctAnswer = "<";
-				wrongAnswers[0] = ">";
-				wrongAnswers[1] = "=";
-			}
-			problemText = "Compare the fractions: " + number1num + "/" + number1den + " ? " + number2num + "/" + number2den;
-			fractionsProblem = new Problem(problemText, correctAnswer, wrongAnswers);
 			break;
 		case "4th Grade":
 			//fraction operations
