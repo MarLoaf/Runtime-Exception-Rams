@@ -131,7 +131,7 @@ public class CreateAccountScreen implements Screen {
 		secretQuestionPopup.setInstant(true);
 		TextTooltip exitPopup = new TextTooltip(" Back ", skin);
 		exitPopup.setInstant(true);
-		Label rules = new Label(" Username and Password have to be at least 5 characters long. No fields should include dots or commas ",skin);
+		Label rules = new Label(" Username and Password have to be at least 5 characters long. No fields should include dots or commas ",skin, "noBackground");
 		//layout:
 		table.top();
 		table.row();

@@ -104,7 +104,7 @@ public class ProblemEntryScreen implements Screen {
 		Label descriptionLine1 = new Label("", skin, "noBackground");
 		descriptionLine1.setAlignment(Align.center);
 		if (parent.lessonSelection.equals("Exam")) descriptionLine1.setText("You're about to begin " + parent.gradeSelection + " " + parent.lessonSelection + ", this includes all topics for " + parent.gradeSelection);
-		else if (parent.lessonSelection.equals("Test")) descriptionLine1.setText("You're about to begin " + parent.gradeSelection + " " + parent.topicSelection + " " + parent.lessonSelection);
+		else if (parent.lessonSelection.equals("Test")) descriptionLine1.setText("You're about to begin " + parent.gradeSelection + " " + parent.topicSelection + " " + parent.lessonSelection + ", this will give you an achievement, if you do well");
 		else descriptionLine1.setText("You're about to begin " + parent.gradeSelection + " " + parent.topicSelection + " " + parent.lessonSelection + ", this is not going to give you an achievement");
         Label descriptionLine2 = new Label("click Begin to start", skin, "noBackground");
         descriptionLine2.setAlignment(Align.center);
@@ -120,9 +120,7 @@ public class ProblemEntryScreen implements Screen {
 		table.add(userInfo).fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
 		table.add(back).uniformX().pad(5).padBottom(270);
 		table.row();
-		if (parent.lessonSelection.equals("Exam")) table.add(descriptionLine1).colspan(4).fillX().uniformX().pad(5);
-		else if (parent.lessonSelection.equals("Test")) table.add(descriptionLine1).colspan(4).fillX().uniformX().pad(5);
-		else table.add(descriptionLine1).colspan(4).fillX().uniformX().pad(5);
+		table.add(descriptionLine1).colspan(4).pad(5).width(3*Gdx.graphics.getWidth()/5);
 		table.row();
 		table.add();
 		table.add(descriptionLine2).colspan(2).fillX().uniformX().pad(5);
