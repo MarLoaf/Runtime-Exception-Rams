@@ -117,7 +117,7 @@ public class ProblemScreen implements Screen {
 		Label userInfo = new Label("", skin);
 		userInfo.setText(userInfoMessage);
 		userInfo.setAlignment(Align.center);
-        operator = new Label("", skin, "noBackground");
+        operator = new Label("", skin, "large");
 		if (parent.problems.get(parent.problemNumber).getCountingImage()!=null) {
 			countingProblemImage = parent.problems.get(parent.problemNumber).getCountingImage();
 		}else if (parent.problems.get(parent.problemNumber).getComparisonImage1()!=null) {

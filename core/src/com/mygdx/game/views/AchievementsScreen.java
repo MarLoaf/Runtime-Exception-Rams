@@ -116,37 +116,37 @@ public class AchievementsScreen implements Screen {
 		topBarTable.add(userInfo).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/5);
 		topBarTable.add(back).uniformX().pad(5);
 		table.row();
-		generateAchievementVisual(table, skin, "Kindergarten", parent.currentUser.getkindergartenExam());
-		generateAchievementVisual(table, skin, "1st Grade", parent.currentUser.getGrade1Exam());
-		generateAchievementVisual(table, skin, "2nd Grade", parent.currentUser.getGrade2Exam());
-		generateAchievementVisual(table, skin, "3rd Grade", parent.currentUser.getGrade3Exam());
-		generateAchievementVisual(table, skin, "4th Grade", parent.currentUser.getGrade4Exam());
-		table.row();
-		generateAchievementVisual(table, skin, "Counting", parent.currentUser.getkindergartenCounting());
-		generateAchievementVisual(table, skin, "Operations", parent.currentUser.getGrade1Operations());
-		generateAchievementVisual(table, skin, "Operations", parent.currentUser.getGrade2Operations());
-		generateAchievementVisual(table, skin, "Operations", parent.currentUser.getGrade3Operations());
-		generateAchievementVisual(table, skin, "Operations", parent.currentUser.getGrade4Operations());
-		table.row();
-		generateAchievementVisual(table, skin, "Operations", parent.currentUser.getkindergartenOperations());
-		generateAchievementVisual(table, skin, "Numbers", parent.currentUser.getGrade1Numbers());
-		generateAchievementVisual(table, skin, "Numbers", parent.currentUser.getGrade2Numbers());
-		generateAchievementVisual(table, skin, "Numbers", parent.currentUser.getGrade3Numbers());
-		generateAchievementVisual(table, skin, "Numbers", parent.currentUser.getGrade4Numbers());
-		table.row();
-		generateAchievementVisual(table, skin, "Numbers", parent.currentUser.getkindergartenNumbers());
-		generateAchievementVisual(table, skin, "Measurements", parent.currentUser.getGrade1Measurements());
-		generateAchievementVisual(table, skin, "Measurements", parent.currentUser.getGrade2Measurements());
-		generateAchievementVisual(table, skin, "Fractions", parent.currentUser.getGrade3Fractions());
-		generateAchievementVisual(table, skin, "Fractions", parent.currentUser.getGrade4Fractions());
-		table.row();
-		generateAchievementVisual(table, skin, "Measurements", parent.currentUser.getkindergartenMeasurements());
-		table.add().uniformX().pad(5);
-		table.add().uniformX().pad(5).width(Gdx.graphics.getWidth()/11);
-		table.add().uniformX().pad(5);
-		table.add().uniformX().pad(5).width(Gdx.graphics.getWidth()/11);
-		generateAchievementVisual(table, skin, "Measurements", parent.currentUser.getGrade3Measurements());
-		generateAchievementVisual(table, skin, "Measurements", parent.currentUser.getGrade4Measurements());
+		Table insideTable = new Table();
+		generateAchievementVisual(insideTable, skin, "Kindergarten", parent.currentUser.getkindergartenExam());
+		generateAchievementVisual(insideTable, skin, "1st Grade", parent.currentUser.getGrade1Exam());
+		generateAchievementVisual(insideTable, skin, "2nd Grade", parent.currentUser.getGrade2Exam());
+		generateAchievementVisual(insideTable, skin, "3rd Grade", parent.currentUser.getGrade3Exam());
+		generateAchievementVisual(insideTable, skin, "4th Grade", parent.currentUser.getGrade4Exam());
+		insideTable.row();
+		generateAchievementVisual(insideTable, skin, "Counting", parent.currentUser.getkindergartenCounting());
+		generateAchievementVisual(insideTable, skin, "Operations", parent.currentUser.getGrade1Operations());
+		generateAchievementVisual(insideTable, skin, "Operations", parent.currentUser.getGrade2Operations());
+		generateAchievementVisual(insideTable, skin, "Operations", parent.currentUser.getGrade3Operations());
+		generateAchievementVisual(insideTable, skin, "Operations", parent.currentUser.getGrade4Operations());
+		insideTable.row();
+		generateAchievementVisual(insideTable, skin, "Operations", parent.currentUser.getkindergartenOperations());
+		generateAchievementVisual(insideTable, skin, "Numbers", parent.currentUser.getGrade1Numbers());
+		generateAchievementVisual(insideTable, skin, "Numbers", parent.currentUser.getGrade2Numbers());
+		generateAchievementVisual(insideTable, skin, "Numbers", parent.currentUser.getGrade3Numbers());
+		generateAchievementVisual(insideTable, skin, "Numbers", parent.currentUser.getGrade4Numbers());
+		insideTable.row();
+		generateAchievementVisual(insideTable, skin, "Numbers", parent.currentUser.getkindergartenNumbers());
+		generateAchievementVisual(insideTable, skin, "Measurements", parent.currentUser.getGrade1Measurements());
+		generateAchievementVisual(insideTable, skin, "Measurements", parent.currentUser.getGrade2Measurements());
+		generateAchievementVisual(insideTable, skin, "Fractions", parent.currentUser.getGrade3Fractions());
+		generateAchievementVisual(insideTable, skin, "Fractions", parent.currentUser.getGrade4Fractions());
+		insideTable.row();
+		generateAchievementVisual(insideTable, skin, "Measurements", parent.currentUser.getkindergartenMeasurements());
+		generateAchievementVisual(insideTable, skin, "", 4);
+		generateAchievementVisual(insideTable, skin, "", 4);
+		generateAchievementVisual(insideTable, skin, "Measurements", parent.currentUser.getGrade3Measurements());
+		generateAchievementVisual(insideTable, skin, "Measurements", parent.currentUser.getGrade4Measurements());
+		table.add(insideTable).colspan(4);
 		//adding button functionality
 		back.addListener(exitPopup);
 		back.addListener(new ChangeListener() {
@@ -199,21 +199,28 @@ public class AchievementsScreen implements Screen {
 	
 	private void generateAchievementVisual(Table table, Skin skin, String name, int a) {
 		//adds an achievement picture + label to the table
+		//empty cell takes name "" and a=4
+		Table achievementCell = new Table();
 		switch(a) {
 		case 0:
-			table.add(new Image(new Texture(Gdx.files.internal("images/NoMedal.png")))).uniformX().pad(5).align(Align.right);
+			achievementCell.add(new Image(new Texture(Gdx.files.internal("images/NoMedal.png")))).uniform().pad(5).align(Align.right);
 			break;
 		case 1:
-			table.add(new Image(new Texture(Gdx.files.internal("images/Bronze.png")))).uniformX().pad(5).align(Align.right);
+			achievementCell.add(new Image(new Texture(Gdx.files.internal("images/Bronze.png")))).uniform().pad(5).align(Align.right);
 			break;
 		case 2:
-			table.add(new Image(new Texture(Gdx.files.internal("images/Silver.png")))).uniformX().pad(5).align(Align.right);
+			achievementCell.add(new Image(new Texture(Gdx.files.internal("images/Silver.png")))).uniform().pad(5).align(Align.right);
 			break;
 		case 3:
-			table.add(new Image(new Texture(Gdx.files.internal("images/Gold.png")))).uniformX().pad(5).align(Align.right);
+			achievementCell.add(new Image(new Texture(Gdx.files.internal("images/Gold.png")))).uniform().pad(5).align(Align.right);
+			break;
+		case 4:
+			//for empty cells
+			achievementCell.add().uniform().pad(5).align(Align.right);
 			break;
 		}
-		table.add(new Label(name, skin, "noBackground")).fillX().uniformX().pad(5).width(Gdx.graphics.getWidth()/11).align(Align.left);
+		achievementCell.add(new Label(name, skin, "smallNoBackground")).uniform().align(Align.left);
+		table.add(achievementCell);
 	}
 
 }
