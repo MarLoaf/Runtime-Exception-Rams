@@ -946,6 +946,8 @@ public class Tutor extends Game {
 	private Problem generateNumbersProblem(String grade) {
 		//factoring problem
 		Problem numbersProblem = new Problem();
+		Image kindergartenImage1 = new Image(new Texture(Gdx.files.internal("images/1Apple.png")));
+		Image kindergartenImage2 = new Image(new Texture(Gdx.files.internal("images/1Apple.png")));
 		int numberRange = 10;
 		Random random = new Random();
 		int randNumber = 0;
@@ -975,7 +977,8 @@ public class Tutor extends Game {
 			numberRange = 10000000;
 			break;
 		}
-		number = random.nextInt(numberRange);
+		if (grade=="Kindergarten") number = random.nextInt(numberRange-2)+1;
+		else number = random.nextInt(numberRange);
 		if (number<10) {
 			factor = factors[0];
 		}else if (number<100) {
@@ -1008,6 +1011,110 @@ public class Tutor extends Game {
 			factorInt = 1000000;
 			break;
 		}
+		if (grade=="Kindergarten") {
+			randNumber = random.nextInt(3);
+			switch(randNumber) {
+			case 0:
+				//apples
+				kindergartenImage1 = new Image(new Texture(Gdx.files.internal("images/1Apple.png")));
+				switch(number) {
+				case 1:
+					kindergartenImage2 = new Image(new Texture(Gdx.files.internal("images/1Apple.png")));
+					break;
+				case 2:
+					kindergartenImage2 = new Image(new Texture(Gdx.files.internal("images/2Apple.png")));
+					break;
+				case 3:
+					kindergartenImage2 = new Image(new Texture(Gdx.files.internal("images/3Apple.png")));
+					break;
+				case 4:
+					kindergartenImage2 = new Image(new Texture(Gdx.files.internal("images/4Apple.png")));
+					break;
+				case 5:
+					kindergartenImage2 = new Image(new Texture(Gdx.files.internal("images/5Apple.png")));
+					break;
+				case 6:
+					kindergartenImage2 = new Image(new Texture(Gdx.files.internal("images/6Apple.png")));
+					break;
+				case 7:
+					kindergartenImage2 = new Image(new Texture(Gdx.files.internal("images/7Apple.png")));
+					break;
+				case 8:
+					kindergartenImage2 = new Image(new Texture(Gdx.files.internal("images/8Apple.png")));
+					break;
+				case 9:
+					kindergartenImage2 = new Image(new Texture(Gdx.files.internal("images/9Apple.png")));
+					break;
+				}
+				break;
+			case 1:
+				//oranges
+				kindergartenImage1 = new Image(new Texture(Gdx.files.internal("images/1Orange.png")));
+				switch(number) {
+				case 1:
+					kindergartenImage2 = new Image(new Texture(Gdx.files.internal("images/1Orange.png")));
+					break;
+				case 2:
+					kindergartenImage2 = new Image(new Texture(Gdx.files.internal("images/2Orange.png")));
+					break;
+				case 3:
+					kindergartenImage2 = new Image(new Texture(Gdx.files.internal("images/3Orange.png")));
+					break;
+				case 4:
+					kindergartenImage2 = new Image(new Texture(Gdx.files.internal("images/4Orange.png")));
+					break;
+				case 5:
+					kindergartenImage2 = new Image(new Texture(Gdx.files.internal("images/5Orange.png")));
+					break;
+				case 6:
+					kindergartenImage2 = new Image(new Texture(Gdx.files.internal("images/6Orange.png")));
+					break;
+				case 7:
+					kindergartenImage2 = new Image(new Texture(Gdx.files.internal("images/7Orange.png")));
+					break;
+				case 8:
+					kindergartenImage2 = new Image(new Texture(Gdx.files.internal("images/8Orange.png")));
+					break;
+				case 9:
+					kindergartenImage2 = new Image(new Texture(Gdx.files.internal("images/9Orange.png")));
+					break;
+				}
+				break;
+			case 2:
+				//lemons
+				kindergartenImage1 = new Image(new Texture(Gdx.files.internal("images/1Lemon.png")));
+				switch(number) {
+				case 1:
+					kindergartenImage2 = new Image(new Texture(Gdx.files.internal("images/1Lemon.png")));
+					break;
+				case 2:
+					kindergartenImage2 = new Image(new Texture(Gdx.files.internal("images/2Lemon.png")));
+					break;
+				case 3:
+					kindergartenImage2 = new Image(new Texture(Gdx.files.internal("images/3Lemon.png")));
+					break;
+				case 4:
+					kindergartenImage2 = new Image(new Texture(Gdx.files.internal("images/4Lemon.png")));
+					break;
+				case 5:
+					kindergartenImage2 = new Image(new Texture(Gdx.files.internal("images/5Lemon.png")));
+					break;
+				case 6:
+					kindergartenImage2 = new Image(new Texture(Gdx.files.internal("images/6Lemon.png")));
+					break;
+				case 7:
+					kindergartenImage2 = new Image(new Texture(Gdx.files.internal("images/7Lemon.png")));
+					break;
+				case 8:
+					kindergartenImage2 = new Image(new Texture(Gdx.files.internal("images/8Lemon.png")));
+					break;
+				case 9:
+					kindergartenImage2 = new Image(new Texture(Gdx.files.internal("images/9Lemon.png")));
+					break;
+				}
+				break;
+			}
+		}
 		problemText = "How many " + factor + " fit into " + number + "?";
 		answer = number/factorInt;
 		randNumber = answer;
@@ -1019,7 +1126,9 @@ public class Tutor extends Game {
 			randNumber = answer;
 		}
 		correctAnswer = "" + answer;
+		System.out.println("Answer: " + correctAnswer + " Left: " + factorInt + " Right: " + number);
 		wrongAnswers = new String[] {"" + wrongAnswersInts[0], "" + wrongAnswersInts[1], "" + wrongAnswersInts[2]};
+		if(grade=="Kindergarten") return new Problem("", correctAnswer, wrongAnswers, kindergartenImage1, kindergartenImage2);
 		//multiple choice or not
 		randNumber = random.nextInt(2);
 		if(randNumber == 0) {

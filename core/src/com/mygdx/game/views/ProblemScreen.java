@@ -127,6 +127,12 @@ public class ProblemScreen implements Screen {
 		if (parent.problems.get(parent.problemNumber).getOperator()!=null) {
 			operator.setText(parent.problems.get(parent.problemNumber).getOperator());
 		}
+		Label kindergartenNumbersLabel1 = new Label("How many", skin, "noBackground");
+		kindergartenNumbersLabel1.setAlignment(Align.center);
+		Label kindergartenNumbersLabel2 = new Label("in", skin, "noBackground");
+		kindergartenNumbersLabel2.setAlignment(Align.center);
+		Label kindergartenNumbersLabel3 = new Label("?", skin, "noBackground");
+		kindergartenNumbersLabel3.setAlignment(Align.center);
         operator.setAlignment(Align.center);
         problem = new Label("", skin, "noBackground");
         problem.setText(parent.problems.get(parent.problemNumber).getProblemText());
@@ -185,15 +191,23 @@ public class ProblemScreen implements Screen {
 			table.add(userInfo).fillX().uniformX().pad(5).padBottom(270).width(Gdx.graphics.getWidth()/5);
 			table.add(back).uniformX().pad(5).padBottom(270);
 		}
+		table.row();
 		if (parent.problems.get(parent.problemNumber).getCountingImage()!=null) {
-			table.row();
 			table.add(countingProblemImage).colspan(4).uniformX();
 		}else if (parent.problems.get(parent.problemNumber).getComparisonImage1()!=null&&parent.problems.get(parent.problemNumber).getOperator()==null) {
-			table.row();
+			if(parent.gradeSelection.equals("Kindergarten")&&parent.topicSelection.equals("Numbers")) {
+				Table insideTable = new Table();
+				insideTable.add(kindergartenNumbersLabel1).uniformX();
+				insideTable.add(measurementProblemImage1);
+				insideTable.add(kindergartenNumbersLabel2).uniformX();
+				insideTable.add(measurementProblemImage2);
+				insideTable.add(kindergartenNumbersLabel3).uniformX();
+				table.add(insideTable).colspan(4);
+			}else {
 			table.add(measurementProblemImage1).colspan(2).uniformX();
 			table.add(measurementProblemImage2).colspan(2).uniformX();
+			}
 		}else if (parent.problems.get(parent.problemNumber).getComparisonImage1()!=null&&parent.problems.get(parent.problemNumber).getOperator()!=null) {
-			table.row();
 			Table insideTable = new Table();
 			insideTable.add(measurementProblemImage1).uniformX();
 			insideTable.add(operator).uniformX();
