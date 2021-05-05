@@ -1395,48 +1395,397 @@ public class Tutor extends Game {
 			}
 			break;
 		case "1st Grade":
-			randProblemChooser = rand.nextInt(4)+1;
+			randProblemChooser = rand.nextInt(2)+1;	
 			
 			switch(randProblemChooser) {
 			case 1:
 				
 				problemText = "What time does the clock show?";
-				randProblemChooser = rand.nextInt(5)+1;
+				randImageChooser = rand.nextInt(10)+1;
 				
 				switch (randImageChooser) {
 				case 1:
-					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/1Weight.png")));
+					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/1Analog.png")));
+					correctAnswer = "1:00";
 					break;
 				case 2:
-					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/1Weight.png")));
+					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/3Analog.png")));
+					correctAnswer = "3:00";
 					break;
 				case 3:
-					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/1Weight.png")));
+					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/630Analog.png")));
+					correctAnswer = "6:30";
 					break;
 				case 4:
-					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/1Weight.png")));
+					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/830Analog.png")));
+					correctAnswer = "8:30";
 					break;
 				case 5:
-					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/1Weight.png")));
+					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/9Analog.png")));
+					correctAnswer = "9:00";
+					break;
+				case 6:
+					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/10Digital.png")));
+					correctAnswer = "10:00";
+					break;
+				case 7:
+					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/130Digital.png")));
+					correctAnswer = "1:30";
+					break;
+				case 8:
+					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/530Digital.png")));
+					correctAnswer = "5:30";
+					break;
+				case 9:
+					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/7Digital.png")));
+					correctAnswer = "7:00";
+					break;
+				case 10:
+					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/930Digital.png")));
+					correctAnswer = "9:30";
+					break;
+				}
+			case 2:
+				randImageChooser = rand.nextInt(4)+1;
+				
+				switch(randImageChooser) {
+				case 1:
+					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/Penny.png")));
+					problemText = "How many cents is a penny worth?";
+					correctAnswer = "1";
+					break;
+				case 2:
+					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/Nickel.png")));
+					problemText = "How many cents is a nickel worth?";
+					correctAnswer = "5";
+					break;
+				case 3:
+					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/Dime.png")));
+					problemText = "How many cents is a dime worth?";
+					correctAnswer = "10";
+					break;
+				case 4:
+					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/Quarter.png")));
+					problemText = "How many cents is a quarter worth?";
+					correctAnswer = "25";
 					break;
 				}
 			}
-			
-			
-			
-			
-			break;
+			return measurementsProblem = new Problem(problemText, correctAnswer, measurementImage1, null);
+				
 		case "2nd Grade":
-			typesOfProblems = 3;
-			break;
+			randProblemChooser = rand.nextInt(3)+1;	
+			
+			switch(randProblemChooser) {
+			case 1:
+				int range = 100;
+				
+				randProblemChooser = rand.nextInt(4)+1;
+				measurment1 = rand.nextInt(range+1);
+				measurment2 = rand.nextInt(range+1);
+				
+				while (measurment2 >= measurment1)
+					measurment2 = rand.nextInt(range+1);
+				
+				switch(randProblemChooser) {
+				case 1:
+					correctAnswer = Integer.toString(measurment1 - measurment2);
+					problemText = "" + measurment1 + " inches " + " - " + measurment2 + " inches " + "is?";
+					break;
+				case 2:
+					correctAnswer = Integer.toString(measurment1 + measurment2);
+					problemText = "" + measurment1 + " inches " + " + " + measurment2 + " inches " + "is?";
+					break;
+				case 3:
+					correctAnswer = Integer.toString(measurment2);
+					problemText = "" + measurment1 + " inches " + " -  __ " + " inches " + "is " + (measurment1 - measurment2) + " inches";
+					break;
+				case 4:
+					correctAnswer = Integer.toString(measurment2);
+					problemText = "" + measurment1 + " inches " + " +  __ " + " inches " + "is " + (measurment1 + measurment2) + " inches";
+					break;
+				}
+				case 2:
+					range = 100;
+					
+					randProblemChooser = rand.nextInt(4)+1;
+					measurment1 = rand.nextInt(range+1);
+					measurment2 = rand.nextInt(range+1);
+					
+					while (measurment2 >= measurment1)
+						measurment2 = rand.nextInt(range+1);
+					
+					switch(randProblemChooser) {
+					case 1:
+						correctAnswer = Integer.toString(measurment1 - measurment2);
+						problemText = "" + measurment1 + " pounds " + " - " + measurment2 + " pounds " + "is?";
+						break;
+					case 2:
+						correctAnswer = Integer.toString(measurment1 + measurment2);
+						problemText = "" + measurment1 + " pounds " + " + " + measurment2 + " pounds " + "is?";
+						break;
+					case 3:
+						correctAnswer = Integer.toString(measurment2);
+						problemText = "" + measurment1 + " pounds " + " -  __ " + " pounds " + "is " + (measurment1 - measurment2) + " pounds";
+						break;
+					case 4:
+						correctAnswer = Integer.toString(measurment2);
+						problemText = "" + measurment1 + " pounds " + " +  __ " + " pounds " + "is " + (measurment1 + measurment2) + " pounds";
+						break;
+					}
+				case 3:
+					randProblemChooser = rand.nextInt(4)+1;
+					
+					switch(randProblemChooser) {
+					case 1:
+						correctAnswer = Integer.toString(60);
+						problemText = "How many seconds are in 1 minute?";
+						break;
+					case 2:
+						correctAnswer = Integer.toString(60);
+						problemText = "How many minutes are in 1 hour?";
+						break;
+					case 3:
+						correctAnswer = Integer.toString(24);
+						problemText = "How many hours are in 1 day?";
+						break;
+					case 4:
+						correctAnswer = Integer.toString(7);
+						problemText = "How many days are in 1 week?";
+						break;
+					}
+				}
 		case "3rd Grade":
-			typesOfProblems = 3;
-			break;
+			
+			randProblemChooser = rand.nextInt(3)+1;	
+			
+			switch(randProblemChooser) {
+			case 1:
+				int range = 100;
+				
+				randProblemChooser = rand.nextInt(8)+1;
+				measurment1 = rand.nextInt(range+1);
+				measurment2 = rand.nextInt(range+1);
+				
+				while (measurment2 >= measurment1)
+					measurment2 = rand.nextInt(range+1);
+				
+				switch(randProblemChooser) {
+				case 1:
+					correctAnswer = Integer.toString(measurment1 - measurment2);
+					problemText = "" + measurment1 + " meters " + " - " + measurment2 + " meters " + "is?";
+					break;
+				case 2:
+					correctAnswer = Integer.toString(measurment1 + measurment2);
+					problemText = "" + measurment1 + " meters " + " + " + measurment2 + " meters " + "is?";
+					break;
+				case 3:
+					correctAnswer = Integer.toString(measurment2);
+					problemText = "" + measurment1 + " meters " + " -  __ " + " meters " + "is " + (measurment1 - measurment2) + " meters";
+					break;
+				case 4:
+					correctAnswer = Integer.toString(measurment2);
+					problemText = "" + measurment1 + " meters " + " +  __ " + " meters " + "is " + (measurment1 + measurment2) + " meters";
+				case 5:
+					correctAnswer = Integer.toString(measurment1 * measurment2);
+					problemText = "" + measurment1 + " meters " + " x " + measurment2 + " meters " + "is?";
+					break;
+				case 6:
+					correctAnswer = Integer.toString(measurment1 / measurment2);
+					problemText = "" + measurment1 + " meters " + " + " + measurment2 + " meters " + "is?";
+					break;
+				case 7:
+					correctAnswer = Integer.toString(measurment2);
+					problemText = "" + measurment1 + " meters " + " *  __ " + " meters " + "is " + (measurment1 * measurment2) + " meters";
+					break;
+				case 8:
+					correctAnswer = Integer.toString(measurment2);
+					problemText = "" + measurment1 + " meters " + " /  __ " + " meters " + "is " + (measurment1 / measurment2) + " meters";
+					break;
+				}
+				case 2:
+					range = 100;
+					
+					randProblemChooser = rand.nextInt(8)+1;
+					measurment1 = rand.nextInt(range+1);
+					measurment2 = rand.nextInt(range+1);
+					
+					while (measurment2 >= measurment1)
+						measurment2 = rand.nextInt(range+1);
+					
+					switch(randProblemChooser) {
+					case 1:
+						correctAnswer = Integer.toString(measurment1 - measurment2);
+						problemText = "" + measurment1 + " grams " + " - " + measurment2 + " grams " + "is?";
+						break;
+					case 2:
+						correctAnswer = Integer.toString(measurment1 + measurment2);
+						problemText = "" + measurment1 + " grams " + " + " + measurment2 + " grams " + "is?";
+						break;
+					case 3:
+						correctAnswer = Integer.toString(measurment2);
+						problemText = "" + measurment1 + " grams " + " -  __ " + " grams " + "is " + (measurment1 - measurment2) + " grams";
+						break;
+					case 4:
+						correctAnswer = Integer.toString(measurment2);
+						problemText = "" + measurment1 + " grams " + " +  __ " + " grams " + "is " + (measurment1 + measurment2) + " grams";
+						break;
+					case 5:
+						correctAnswer = Integer.toString(measurment1 * measurment2);
+						problemText = "" + measurment1 + " grams " + " x " + measurment2 + " grams " + "is?";
+						break;
+					case 6:
+						correctAnswer = Integer.toString(measurment1 / measurment2);
+						problemText = "" + measurment1 + " grams " + " + " + measurment2 + " grams " + "is?";
+						break;
+					case 7:
+						correctAnswer = Integer.toString(measurment2);
+						problemText = "" + measurment1 + " grams " + " *  __ " + " grams " + "is " + (measurment1 * measurment2) + " grams";
+						break;
+					case 8:
+						correctAnswer = Integer.toString(measurment2);
+						problemText = "" + measurment1 + " grams " + " /  __ " + " grams " + "is " + (measurment1 / measurment2) + " grams";
+						break;
+					}
+				case 3:
+					range = 100;
+					randProblemChooser = rand.nextInt(4)+1;
+					measurment1 = rand.nextInt(range+1);
+					
+					switch(randProblemChooser) {
+					case 1:
+						correctAnswer = Integer.toString((60 * measurment1));
+						problemText = "How many seconds are in " + measurment1 + " minute(s)?";
+						break;
+					case 2:
+						correctAnswer = Integer.toString((60 * measurment1));
+						problemText = "How many minutes are in " + measurment1 + " hour(s)?";
+						break;
+					case 3:
+						correctAnswer = Integer.toString((24 * measurment1));
+						problemText = "How many hours are in " + measurment1 + " day(s)?";
+						break;
+					case 4:
+						correctAnswer = Integer.toString((7 * measurment1));
+						problemText = "How many days are in " + measurment1 + " week(s)?";
+						break;
+					}
+				}
 		case "4th Grade": 
-			typesOfProblems = 2;
-			break;
+
+			randProblemChooser = rand.nextInt(3)+1;	
+			
+			switch(randProblemChooser) {
+			case 1:
+				int range = 100;
+				
+				randProblemChooser = rand.nextInt(8)+1;
+				measurment1 = rand.nextInt(range+1);
+				measurment2 = rand.nextInt(range+1);
+				
+				while (measurment2 >= measurment1)
+					measurment2 = rand.nextInt(range+1);
+				
+				switch(randProblemChooser) {
+				case 1:
+					correctAnswer = Integer.toString((100 * (measurment1 - measurment2)));
+					problemText = "" + measurment1 + " meters " + " - " + measurment2 + " meters " + "is how many centimeters?";
+					break;
+				case 2:
+					correctAnswer = Integer.toString((100 * (measurment1 + measurment2)));
+					problemText = "" + measurment1 + " meters " + " + " + measurment2 + " meters " + "is how many centimeters?";
+					break;
+				case 3:
+					correctAnswer = Integer.toString(measurment2);
+					problemText = "" + measurment1 + " meters " + " -  __ " + " meters " + "is " + (100 * (measurment1 - measurment2)) + " meters";
+					break;
+				case 4:
+					correctAnswer = Integer.toString(measurment2);
+					problemText = "" + measurment1 + " meters " + " +  __ " + " meters " + "is " + (100 * (measurment1 + measurment2)) + " meters";
+				case 5:
+					correctAnswer = Integer.toString(100 * (measurment1 * measurment2));
+					problemText = "" + measurment1 + " meters " + " x " + measurment2 + " meters " + "is how many centimeters?";
+					break;
+				case 6:
+					correctAnswer = Integer.toString(100 * (measurment1 / measurment2));
+					problemText = "" + measurment1 + " meters " + " + " + measurment2 + " meters " + "is is how many centimeters?";
+					break;
+				case 7:
+					correctAnswer = Integer.toString(measurment2);
+					problemText = "" + measurment1 + " meters " + " *  __ " + " meters " + "is " + (100 * (measurment1 * measurment2)) + " meters";
+					break;
+				case 8:
+					correctAnswer = Integer.toString(measurment2);
+					problemText = "" + measurment1 + " meters " + " /  __ " + " meters " + "is " + (100 * (measurment1 / measurment2)) + " meters";
+					break;
+				}
+			case 2:
+				range = 100;
+				
+				randProblemChooser = rand.nextInt(8)+1;
+				measurment1 = rand.nextInt(range+1);
+				measurment2 = rand.nextInt(range+1);
+				
+				while (measurment2 >= measurment1)
+					measurment2 = rand.nextInt(range+1);
+				
+				switch(randProblemChooser) {
+				case 1:
+					correctAnswer = Integer.toString((measurment1 - measurment2) / 100);
+					problemText = "" + measurment1 + " grams " + " - " + measurment2 + " grams " + "is how many kilograms?";
+					break;
+				case 2:
+					correctAnswer = Integer.toString((measurment1 + measurment2) / 100);
+					problemText = "" + measurment1 + " grams " + " + " + measurment2 + " grams " + "is how many kilograms?";
+					break;
+				case 3:
+					correctAnswer = Integer.toString((16 * measurment2));
+					problemText = "" + measurment1 + " pounds " + " -  __ " + " pounds " + "is " + (measurment1 - measurment2) + " ounces";
+					break;
+				case 4:
+					correctAnswer = Integer.toString((16 * measurment2));
+					problemText = "" + measurment1 + " pounds " + " +  __ " + " pounds " + "is " + (measurment1 + measurment2) + " ounces";
+					break;
+				case 5:
+					correctAnswer = Integer.toString((16 * (measurment1 * measurment2)));
+					problemText = "" + measurment1 + " ounces " + " x " + measurment2 + " ounces " + "is how many ounces?";
+					break;
+				case 6:
+					correctAnswer = Integer.toString((16 * (measurment1 / measurment2)));
+					problemText = "" + measurment1 + " ounces " + " + " + measurment2 + " ounces " + "is how many ounces?";
+					break;
+				case 7:
+					correctAnswer = Integer.toString(measurment2);
+					problemText = "" + measurment1 + " milliliters " + " *  __ " + " milliliters " + "is " + ((measurment1 * measurment2) / 1000) + " liters";
+					break;
+				case 8:
+					correctAnswer = Double.toString(measurment2);
+					problemText = "" + measurment1 + " milliliters " + " /  __ " + " milliliters " + "is " + ((measurment1 / measurment2) / 1000) + " liters";
+					break;
+				}
+			case 3:
+				range = 180;
+				randProblemChooser = rand.nextInt(4)+1;
+				measurment1 = rand.nextInt(range+1);
+				
+				if (measurment1 > 90) {
+					correctAnswer = "Obtuse";
+					problemText = "An angle of size " + measurment1 + " is what?";
+					break;
+				}
+				else if (measurment1 == 90) {
+					correctAnswer = "Right";
+					problemText = "An angle of size " + measurment1 + " is what?";
+					break;
+				}
+				else if (measurment1 < 90) {
+					correctAnswer = "Acute";
+					problemText = "An angle of size " + measurment1 + " is what?";
+					break;
+				}
+			}
 		}
-		return measurementsProblem;
+		return measurementsProblem = new Problem(problemText, correctAnswer);
 	}
 	
 	private Problem generateFractionsProblem(String grade) {
