@@ -1592,7 +1592,6 @@ public class Tutor extends Game {
 					break;
 				}
 				return measurementsProblem = new Problem(problemText, correctAnswer, measurementImage1, null);
-				break;
 			case 2:
 				randProblemChooser = rand.nextInt();
 			}
