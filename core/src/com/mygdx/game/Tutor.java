@@ -1514,11 +1514,11 @@ public class Tutor extends Game {
 				
 				switch (randImageChooser) {
 				case 1:
-					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/1Analog.png")));
+					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/100Analog.png")));
 					correctAnswer = "1:00";
 					break;
 				case 2:
-					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/3Analog.png")));
+					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/300Analog.png")));
 					correctAnswer = "3:00";
 					break;
 				case 3:
@@ -1530,11 +1530,11 @@ public class Tutor extends Game {
 					correctAnswer = "8:30";
 					break;
 				case 5:
-					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/9Analog.png")));
+					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/900Analog.png")));
 					correctAnswer = "9:00";
 					break;
 				case 6:
-					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/10Digital.png")));
+					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/1000Digital.png")));
 					correctAnswer = "10:00";
 					break;
 				case 7:
@@ -1546,7 +1546,7 @@ public class Tutor extends Game {
 					correctAnswer = "5:30";
 					break;
 				case 9:
-					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/7Digital.png")));
+					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/700Digital.png")));
 					correctAnswer = "7:00";
 					break;
 				case 10:
