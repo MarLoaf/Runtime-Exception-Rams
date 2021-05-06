@@ -1591,13 +1591,10 @@ public class Tutor extends Game {
 					correctAnswer = "25";
 					break;
 				}
-<<<<<<< Updated upstream
 				return measurementsProblem = new Problem(problemText, correctAnswer, measurementImage1, null);
-=======
 				break;
 			case 2:
 				randProblemChooser = rand.nextInt();
->>>>>>> Stashed changes
 			}
 			break;
 		case "2nd Grade":
