@@ -13,6 +13,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.scenes.scene2d.ui.CheckBox;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.mygdx.game.views.AchievementsScreen;
 import com.mygdx.game.views.CreateAccountScreen;
@@ -1155,6 +1156,7 @@ public class Tutor extends Game {
 		String problemText = "";
 		String correctAnswer = "";
 		String[] wa = new String[1];
+		String[] multipleWA = new String[3];
 		int range = 100;
 		switch(grade) {
 		case "Kindergarten":
@@ -1506,6 +1508,16 @@ public class Tutor extends Game {
 			switch(randProblemChooser) {
 			case 0:
 				problemText = "What time does the clock show?";
+				ArrayList<String> possibleAnswers = new ArrayList<String>(0);
+				possibleAnswers.add("1:00");
+				possibleAnswers.add("3:00");
+				possibleAnswers.add("6:30");
+				possibleAnswers.add("8:30");
+				possibleAnswers.add("9:30");
+				possibleAnswers.add("10:00");
+				possibleAnswers.add("1:30");
+				possibleAnswers.add("5:30");
+				possibleAnswers.add("7:00");
 				randImageChooser = rand.nextInt(10)+1;
 				switch (randImageChooser) {
 				case 1:
@@ -1549,7 +1561,12 @@ public class Tutor extends Game {
 					correctAnswer = "9:30";
 					break;
 				}
-				break;
+				int randomAnswer = 0;
+				for(int i=0; i<3; i++) {
+					randomAnswer = rand.nextInt(possibleAnswers.size());
+					multipleWA[i] = possibleAnswers.remove(randomAnswer);
+				}
+				return measurementsProblem = new Problem(problemText, correctAnswer, multipleWA, measurementImage1);
 			case 1:
 				randImageChooser = rand.nextInt(4)+1;
 				switch(randImageChooser) {
@@ -1574,9 +1591,9 @@ public class Tutor extends Game {
 					correctAnswer = "25";
 					break;
 				}
-				break;
+				return measurementsProblem = new Problem(problemText, correctAnswer, measurementImage1, null);
 			}
-			return measurementsProblem = new Problem(problemText, correctAnswer, measurementImage1, null);
+			break;
 		case "2nd Grade":
 			randProblemChooser = rand.nextInt(3);
 			switch(randProblemChooser) {
@@ -1650,6 +1667,7 @@ public class Tutor extends Game {
 				}
 				break;
 			}
+			break;
 		case "3rd Grade":
 			randProblemChooser = rand.nextInt(3)+1;
 			switch(randProblemChooser) {
@@ -1756,6 +1774,7 @@ public class Tutor extends Game {
 				}
 				break;
 			}
+			break;
 		case "4th Grade":
 			randProblemChooser = rand.nextInt(3)+1;
 			switch(randProblemChooser) {

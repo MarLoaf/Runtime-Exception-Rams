@@ -13,6 +13,19 @@ public class Problem {
 	private Image comparisonImage1;
 	private Image comparisonImage2;
 	private String operator;
+
+	public Problem(String pt, String ca, String wa[], Image ci) {
+		//time problem
+		problemText = pt;
+		correctAnswer = ca;
+		wrongAnswers = wa;
+		selectedAnswer = "";
+		countingImage = ci;
+		countingObject = null;
+		comparisonImage1 = null;
+		comparisonImage2 = null;
+		operator = null;
+	}
 	
 	public Problem(String pt, String ca, String wa[], Image ci1, Image ci2, String o) {
 		//multiple choice image operation problem
