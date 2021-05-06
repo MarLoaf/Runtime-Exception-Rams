@@ -1156,6 +1156,7 @@ public class Tutor extends Game {
 		String problemText = "";
 		String correctAnswer = "";
 		String[] wa = new String[1];
+		String[] angleWA = new String[2];
 		String[] multipleWA = new String[3];
 		int range = 100;
 		switch(grade) {
@@ -1867,16 +1868,22 @@ public class Tutor extends Game {
 				if (measurment1 > 90) {
 					correctAnswer = "Obtuse";
 					problemText = "An angle of size " + measurment1 + " is what?";
+					angleWA[0]="Right";
+					angleWA[1]="Acute";
 				}
 				else if (measurment1 == 90) {
 					correctAnswer = "Right";
 					problemText = "An angle of size " + measurment1 + " is what?";
+					angleWA[0]="Obtuse";
+					angleWA[1]="Acute";
 				}
 				else if (measurment1 < 90) {
 					correctAnswer = "Acute";
 					problemText = "An angle of size " + measurment1 + " is what?";
+					angleWA[0]="Right";
+					angleWA[1]="Obtuse";
 				}
-				break;
+				return measurementsProblem = new Problem(problemText, correctAnswer, angleWA);
 			}
 		}
 		return measurementsProblem = new Problem(problemText, correctAnswer);
