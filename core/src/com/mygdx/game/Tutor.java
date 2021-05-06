@@ -1578,9 +1578,9 @@ public class Tutor extends Game {
 			}
 			return measurementsProblem = new Problem(problemText, correctAnswer, measurementImage1, null);
 		case "2nd Grade":
-			randProblemChooser = rand.nextInt(3)+1;
+			randProblemChooser = rand.nextInt(3);
 			switch(randProblemChooser) {
-			case 1:
+			case 0:
 				int range = 100;
 				randProblemChooser = rand.nextInt(4)+1;
 				measurment1 = rand.nextInt(range+1);
@@ -1607,7 +1607,7 @@ public class Tutor extends Game {
 					break;
 				}
 				break;
-			case 2:
+			case 1:
 				range = 100;
 				randProblemChooser = rand.nextInt(4)+1;
 				measurment1 = rand.nextInt(range+1);
@@ -1634,7 +1634,7 @@ public class Tutor extends Game {
 					break;
 				}
 				break;
-			case 3:
+			case 2:
 				randProblemChooser = rand.nextInt(4)+1;
 				switch(randProblemChooser) {
 				case 1:
