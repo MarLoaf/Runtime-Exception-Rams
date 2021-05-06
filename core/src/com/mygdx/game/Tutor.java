@@ -1143,14 +1143,12 @@ public class Tutor extends Game {
 	
 	private Problem generateMeasurementsProblem(String grade) {
 		Problem measurementsProblem = new Problem();
-		
-		int typesOfProblems = 0;
 		Random rand = new Random();
 		int randProblemChooser = 0;
 		int randImageChooser = 0;
-		Image measurementImage1 = new Image(new Texture(Gdx.files.internal("images/1Car.png")));	//TODO need images to fill
+		Image measurementImage1 = new Image(new Texture(Gdx.files.internal("images/1Car.png")));
 		int measurment1 = 0;
-		Image measurementImage2 = new Image(new Texture(Gdx.files.internal("images/2Car.png")));	//TODO need car images, building images, people, etc
+		Image measurementImage2 = new Image(new Texture(Gdx.files.internal("images/2Car.png")));
 		int measurment2 = 0;
 		int prevImage = 0;
 		boolean selectedImage = false;
@@ -1504,14 +1502,11 @@ public class Tutor extends Game {
 			}
 			break;
 		case "1st Grade":
-			randProblemChooser = rand.nextInt(2)+1;	
-			
+			randProblemChooser = rand.nextInt(2);
 			switch(randProblemChooser) {
-			case 1:
-				
+			case 0:
 				problemText = "What time does the clock show?";
 				randImageChooser = rand.nextInt(10)+1;
-				
 				switch (randImageChooser) {
 				case 1:
 					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/100Analog.png")));
@@ -1530,8 +1525,8 @@ public class Tutor extends Game {
 					correctAnswer = "8:30";
 					break;
 				case 5:
-					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/900Analog.png")));
-					correctAnswer = "9:00";
+					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/930Analog.png")));
+					correctAnswer = "9:30";
 					break;
 				case 6:
 					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/1000Digital.png")));
@@ -1554,9 +1549,9 @@ public class Tutor extends Game {
 					correctAnswer = "9:30";
 					break;
 				}
-			case 2:
+				break;
+			case 1:
 				randImageChooser = rand.nextInt(4)+1;
-				
 				switch(randImageChooser) {
 				case 1:
 					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/Penny.png")));
@@ -1579,9 +1574,9 @@ public class Tutor extends Game {
 					correctAnswer = "25";
 					break;
 				}
+				break;
 			}
-			return measurementsProblem = new Problem(problemText, correctAnswer, measurementImage1, null);
-				
+			return measurementsProblem = new Problem(problemText, correctAnswer, measurementImage1, null);	
 		case "2nd Grade":
 			randProblemChooser = rand.nextInt(3)+1;	
 			
