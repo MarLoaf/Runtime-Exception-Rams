@@ -1578,16 +1578,13 @@ public class Tutor extends Game {
 			}
 			return measurementsProblem = new Problem(problemText, correctAnswer, measurementImage1, null);
 		case "2nd Grade":
-			randProblemChooser = rand.nextInt(3)+1;	
-			
+			randProblemChooser = rand.nextInt(3)+1;
 			switch(randProblemChooser) {
 			case 1:
 				int range = 100;
-				
 				randProblemChooser = rand.nextInt(4)+1;
 				measurment1 = rand.nextInt(range+1);
 				measurment2 = rand.nextInt(range+1);
-				
 				while (measurment2 >= measurment1)
 					measurment2 = rand.nextInt(range+1);
 				
@@ -1609,56 +1606,56 @@ public class Tutor extends Game {
 					problemText = "" + measurment1 + " inches " + " +  __ " + " inches " + "is " + (measurment1 + measurment2) + " inches";
 					break;
 				}
-				case 2:
-					range = 100;
-					
-					randProblemChooser = rand.nextInt(4)+1;
-					measurment1 = rand.nextInt(range+1);
+				break;
+			case 2:
+				range = 100;
+				randProblemChooser = rand.nextInt(4)+1;
+				measurment1 = rand.nextInt(range+1);
+				measurment2 = rand.nextInt(range+1);
+				while (measurment2 >= measurment1)
 					measurment2 = rand.nextInt(range+1);
-					
-					while (measurment2 >= measurment1)
-						measurment2 = rand.nextInt(range+1);
-					
-					switch(randProblemChooser) {
-					case 1:
-						correctAnswer = Integer.toString(measurment1 - measurment2);
-						problemText = "" + measurment1 + " pounds " + " - " + measurment2 + " pounds " + "is?";
-						break;
-					case 2:
-						correctAnswer = Integer.toString(measurment1 + measurment2);
-						problemText = "" + measurment1 + " pounds " + " + " + measurment2 + " pounds " + "is?";
-						break;
-					case 3:
-						correctAnswer = Integer.toString(measurment2);
-						problemText = "" + measurment1 + " pounds " + " -  __ " + " pounds " + "is " + (measurment1 - measurment2) + " pounds";
-						break;
-					case 4:
-						correctAnswer = Integer.toString(measurment2);
-						problemText = "" + measurment1 + " pounds " + " +  __ " + " pounds " + "is " + (measurment1 + measurment2) + " pounds";
-						break;
-					}
+				
+				switch(randProblemChooser) {
+				case 1:
+					correctAnswer = Integer.toString(measurment1 - measurment2);
+					problemText = "" + measurment1 + " pounds " + " - " + measurment2 + " pounds " + "is?";
+					break;
+				case 2:
+					correctAnswer = Integer.toString(measurment1 + measurment2);
+					problemText = "" + measurment1 + " pounds " + " + " + measurment2 + " pounds " + "is?";
+					break;
 				case 3:
-					randProblemChooser = rand.nextInt(4)+1;
-					
-					switch(randProblemChooser) {
-					case 1:
-						correctAnswer = Integer.toString(60);
-						problemText = "How many seconds are in 1 minute?";
-						break;
-					case 2:
-						correctAnswer = Integer.toString(60);
-						problemText = "How many minutes are in 1 hour?";
-						break;
-					case 3:
-						correctAnswer = Integer.toString(24);
-						problemText = "How many hours are in 1 day?";
-						break;
-					case 4:
-						correctAnswer = Integer.toString(7);
-						problemText = "How many days are in 1 week?";
-						break;
-					}
+					correctAnswer = Integer.toString(measurment2);
+					problemText = "" + measurment1 + " pounds " + " -  __ " + " pounds " + "is " + (measurment1 - measurment2) + " pounds";
+					break;
+				case 4:
+					correctAnswer = Integer.toString(measurment2);
+					problemText = "" + measurment1 + " pounds " + " +  __ " + " pounds " + "is " + (measurment1 + measurment2) + " pounds";
+					break;
 				}
+				break;
+			case 3:
+				randProblemChooser = rand.nextInt(4)+1;
+				switch(randProblemChooser) {
+				case 1:
+					correctAnswer = Integer.toString(60);
+					problemText = "How many seconds are in 1 minute?";
+					break;
+				case 2:
+					correctAnswer = Integer.toString(60);
+					problemText = "How many minutes are in 1 hour?";
+					break;
+				case 3:
+					correctAnswer = Integer.toString(24);
+					problemText = "How many hours are in 1 day?";
+					break;
+				case 4:
+					correctAnswer = Integer.toString(7);
+					problemText = "How many days are in 1 week?";
+					break;
+				}
+				break;
+			}
 		case "3rd Grade":
 			
 			randProblemChooser = rand.nextInt(3)+1;	
