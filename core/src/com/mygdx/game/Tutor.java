@@ -1576,7 +1576,7 @@ public class Tutor extends Game {
 				}
 				break;
 			}
-			return measurementsProblem = new Problem(problemText, correctAnswer, measurementImage1, null);	
+			return measurementsProblem = new Problem(problemText, correctAnswer, measurementImage1, null);
 		case "2nd Grade":
 			randProblemChooser = rand.nextInt(3)+1;	
 			
