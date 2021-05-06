@@ -1583,7 +1583,7 @@ public class Tutor extends Game {
 			case 0:
 				range = 100;
 				randProblemChooser = rand.nextInt(4)+1;
-				measurment1 = rand.nextInt(range)+1;
+				measurment1 = rand.nextInt(range-1)+2;
 				measurment2 = rand.nextInt(measurment1-2)+1;
 				switch(randProblemChooser) {
 				case 1:
@@ -1607,7 +1607,7 @@ public class Tutor extends Game {
 			case 1:
 				range = 100;
 				randProblemChooser = rand.nextInt(4)+1;
-				measurment1 = rand.nextInt(range)+1;
+				measurment1 = rand.nextInt(range-1)+2;
 				measurment2 = rand.nextInt(measurment1-2)+1;
 				switch(randProblemChooser) {
 				case 1:
@@ -1656,7 +1656,7 @@ public class Tutor extends Game {
 			case 1:
 				range = 100;
 				randProblemChooser = rand.nextInt(8)+1;
-				measurment1 = rand.nextInt(range)+1;
+				measurment1 = rand.nextInt(range-1)+2;
 				measurment2 = rand.nextInt(measurment1-2)+1;
 				switch(randProblemChooser) {
 				case 1:
@@ -1695,7 +1695,7 @@ public class Tutor extends Game {
 			case 2:
 				range = 100;
 				randProblemChooser = rand.nextInt(8)+1;
-				measurment1 = rand.nextInt(range)+1;
+				measurment1 = rand.nextInt(range-1)+2;
 				measurment2 = rand.nextInt(measurment1-2)+1;
 				switch(randProblemChooser) {
 				case 1:
@@ -1762,7 +1762,7 @@ public class Tutor extends Game {
 			case 1:
 				range = 100;
 				randProblemChooser = rand.nextInt(8)+1;
-				measurment1 = rand.nextInt(range)+1;
+				measurment1 = rand.nextInt(range-1)+2;
 				measurment2 = rand.nextInt(measurment1-2)+1;
 				switch(randProblemChooser) {
 				case 1:
@@ -1802,7 +1802,7 @@ public class Tutor extends Game {
 				range = 100;
 				
 				randProblemChooser = rand.nextInt(8)+1;
-				measurment1 = rand.nextInt(range)+1;
+				measurment1 = rand.nextInt(range-1)+2;
 				measurment2 = rand.nextInt(measurment1-2)+1;
 				switch(randProblemChooser) {
 				case 1:
