@@ -1594,13 +1594,13 @@ public class Tutor extends Game {
 				}
 				return measurementsProblem = new Problem(problemText, correctAnswer, measurementImage1, null);
 			case 2:
-				randProblemChooser = rand.nextInt(5);
+				randProblemChooser = rand.nextInt(4);
 				
 				switch(randProblemChooser) {
 				case 0:
 					measurment1 = 1;
 					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/Penny.png")));
-					randProblemChooser = rand.nextInt(5);
+					randProblemChooser = rand.nextInt(4);
 					switch(randProblemChooser) {
 					case 0:
 						measurment2 = 1;
@@ -1631,7 +1631,7 @@ public class Tutor extends Game {
 				case 1:
 					measurment1 = 5;
 					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/Nickel.png")));
-					randProblemChooser = rand.nextInt(5);
+					randProblemChooser = rand.nextInt(4);
 					switch(randProblemChooser) {
 					case 0:
 						measurment2 = 1;
@@ -1662,7 +1662,7 @@ public class Tutor extends Game {
 				case 2:
 					measurment1 = 10;
 					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/Dime.png")));
-					randProblemChooser = rand.nextInt(5);
+					randProblemChooser = rand.nextInt(4);
 					switch(randProblemChooser) {
 					case 0:
 						measurment2 = 1;
@@ -1693,7 +1693,7 @@ public class Tutor extends Game {
 				case 3:
 					measurment1 = 25;
 					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/Quarter.png")));
-					randProblemChooser = rand.nextInt(5);
+					randProblemChooser = rand.nextInt(4);
 					switch(randProblemChooser) {
 					case 0:
 						measurment2 = 1;
