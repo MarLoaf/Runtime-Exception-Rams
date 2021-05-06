@@ -1594,7 +1594,136 @@ public class Tutor extends Game {
 				}
 				return measurementsProblem = new Problem(problemText, correctAnswer, measurementImage1, null);
 			case 2:
-				randProblemChooser = rand.nextInt();
+				randProblemChooser = rand.nextInt(5);
+				
+				switch(randProblemChooser) {
+				case 0:
+					measurment1 = 1;
+					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/Penny.png")));
+					randProblemChooser = rand.nextInt(5);
+					switch(randProblemChooser) {
+					case 0:
+						measurment2 = 1;
+						measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Penny.png")));
+						problemText = "1 penny + 1 penny is how many cents?";
+						correctAnswer = "2";
+						break;
+					case 1:
+						measurment2 = 5;
+						measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Nickel.png")));
+						problemText = "1 penny + 1 nickel is how many cents?";
+						correctAnswer = "6";
+						break;
+					case 2:
+						measurment2 = 10;
+						measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Dime.png")));
+						problemText = "1 penny + 1 dime is how many cents?";
+						correctAnswer = "11";
+						break;
+					case 3:
+						measurment2 = 25;
+						measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Quarter.png")));
+						problemText = "1 penny + 1 quarter is how many cents?";
+						correctAnswer = "26";
+						break;
+					}
+					break;
+				case 1:
+					measurment1 = 5;
+					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/Nickel.png")));
+					randProblemChooser = rand.nextInt(5);
+					switch(randProblemChooser) {
+					case 0:
+						measurment2 = 1;
+						measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Penny.png")));
+						problemText = "1 nickel + 1 penny is how many cents?";
+						correctAnswer = "6";
+						break;
+					case 1:
+						measurment2 = 5;
+						measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Nickel.png")));
+						problemText = "1 nickel + 1 nickel is how many cents?";
+						correctAnswer = "10";
+						break;
+					case 2:
+						measurment2 = 10;
+						measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Dime.png")));
+						problemText = "1 nickel + 1 dime is how many cents?";
+						correctAnswer = "15";
+						break;
+					case 3:
+						measurment2 = 25;
+						measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Quarter.png")));
+						problemText = "1 nickel + 1 quarter is how many cents?";
+						correctAnswer = "30";
+						break;
+					}
+					break;
+				case 2:
+					measurment1 = 10;
+					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/Dime.png")));
+					randProblemChooser = rand.nextInt(5);
+					switch(randProblemChooser) {
+					case 0:
+						measurment2 = 1;
+						measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Penny.png")));
+						problemText = "1 dime + 1 penny is how many cents?";
+						correctAnswer = "11";
+						break;
+					case 1:
+						measurment2 = 5;
+						measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Nickel.png")));
+						problemText = "1 dime + 1 nickel is how many cents?";
+						correctAnswer = "15";
+						break;
+					case 2:
+						measurment2 = 10;
+						measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Dime.png")));
+						problemText = "1 dime + 1 dime is how many cents?";
+						correctAnswer = "20";
+						break;
+					case 3:
+						measurment2 = 25;
+						measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Quarter.png")));
+						problemText = "1 dime + 1 quarter is how many cents?";
+						correctAnswer = "35";
+						break;
+					}
+					break;
+				case 3:
+					measurment1 = 25;
+					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/Quarter.png")));
+					randProblemChooser = rand.nextInt(5);
+					switch(randProblemChooser) {
+					case 0:
+						measurment2 = 1;
+						measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Penny.png")));
+						problemText = "1 quarter + 1 penny is how many cents?";
+						correctAnswer = "26";
+						break;
+					case 1:
+						measurment2 = 5;
+						measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Nickel.png")));
+						problemText = "1 quarter + 1 nickel is how many cents?";
+						correctAnswer = "30";
+						break;
+					case 2:
+						measurment2 = 10;
+						measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Dime.png")));
+						problemText = "1 quarter + 1 dime is how many cents?";
+						correctAnswer = "35";
+						break;
+					case 3:
+						measurment2 = 25;
+						measurementImage2 = new Image(new Texture(Gdx.files.internal("images/Quarter.png")));
+						problemText = "1 quarter + 1 quarter is how many cents?";
+						correctAnswer = "50";
+						break;
+					}
+					break;
+				}
+		
+				return measurementsProblem = new Problem(problemText, correctAnswer, measurementImage1, measurementImage2, null);
 			}
 			break;
 		case "2nd Grade":
