@@ -1504,7 +1504,7 @@ public class Tutor extends Game {
 			}
 			break;
 		case "1st Grade":
-			randProblemChooser = rand.nextInt(2);
+			randProblemChooser = rand.nextInt(3);
 			switch(randProblemChooser) {
 			case 0:
 				problemText = "What time does the clock show?";
@@ -1591,7 +1591,13 @@ public class Tutor extends Game {
 					correctAnswer = "25";
 					break;
 				}
+<<<<<<< Updated upstream
 				return measurementsProblem = new Problem(problemText, correctAnswer, measurementImage1, null);
+=======
+				break;
+			case 2:
+				randProblemChooser = rand.nextInt();
+>>>>>>> Stashed changes
 			}
 			break;
 		case "2nd Grade":
@@ -1794,11 +1800,11 @@ public class Tutor extends Game {
 					break;
 				case 3:
 					correctAnswer = Integer.toString(measurment2);
-					problemText = "" + measurment1 + " meters " + " -  __ " + " meters " + "is " + (100 * (measurment1 - measurment2)) + " meters";
+					problemText = "" + measurment1 + " meters " + " -  __ " + " meters " + "is " + (100 * (measurment1 - measurment2)) + " centimeters";
 					break;
 				case 4:
 					correctAnswer = Integer.toString(measurment2);
-					problemText = "" + measurment1 + " meters " + " +  __ " + " meters " + "is " + (100 * (measurment1 + measurment2)) + " meters";
+					problemText = "" + measurment1 + " meters " + " +  __ " + " meters " + "is " + (100 * (measurment1 + measurment2)) + " centimeters";
 				case 5:
 					correctAnswer = Integer.toString(100 * (measurment1 * measurment2));
 					problemText = "" + measurment1 + " meters " + " x " + measurment2 + " meters " + "is how many centimeters?";
@@ -1809,7 +1815,7 @@ public class Tutor extends Game {
 					break;
 				case 7:
 					correctAnswer = Integer.toString(measurment2);
-					problemText = "" + measurment1 + " meters " + " *  __ " + " meters " + "is " + (100 * (measurment1 * measurment2)) + " meters";
+					problemText = "" + measurment1 + " meters " + " x  __ " + " meters " + "is " + (100 * (measurment1 * measurment2)) + " meters";
 					break;
 				case 8:
 					correctAnswer = Integer.toString(measurment2);
@@ -1825,12 +1831,12 @@ public class Tutor extends Game {
 				measurment2 = rand.nextInt(measurment1-2)+1;
 				switch(randProblemChooser) {
 				case 1:
-					correctAnswer = Integer.toString((measurment1 - measurment2) / 100);
-					problemText = "" + measurment1 + " grams " + " - " + measurment2 + " grams " + "is how many kilograms?";
+					correctAnswer = Integer.toString((measurment1 - measurment2) * 1000);
+					problemText = "" + measurment1 + " kilograms " + " - " + measurment2 + " kilograms " + "is how many grams?";
 					break;
 				case 2:
-					correctAnswer = Integer.toString((measurment1 + measurment2) / 100);
-					problemText = "" + measurment1 + " grams " + " + " + measurment2 + " grams " + "is how many kilograms?";
+					correctAnswer = Integer.toString((measurment1 + measurment2) * 1000);
+					problemText = "" + measurment1 + " kilograms " + " + " + measurment2 + " kilograms " + "is how many grams";
 					break;
 				case 3:
 					correctAnswer = Integer.toString((16 * measurment2));
@@ -1850,11 +1856,11 @@ public class Tutor extends Game {
 					break;
 				case 7:
 					correctAnswer = Integer.toString(measurment2);
-					problemText = "" + measurment1 + " milliliters " + " *  __ " + " milliliters " + "is " + ((measurment1 * measurment2) / 1000) + " liters";
+					problemText = "" + measurment1 + " liter " + " x  __ " + " liter " + "is " + ((measurment1 * measurment2) * 1000) + " milliliters";
 					break;
 				case 8:
 					correctAnswer = Double.toString(measurment2);
-					problemText = "" + measurment1 + " milliliters " + " /  __ " + " milliliters " + "is " + ((measurment1 / measurment2) / 1000) + " liters";
+					problemText = "" + measurment1 + " liter " + " /  __ " + " liter " + "is " + ((measurment1 / measurment2) * 1000) + " milliliters";
 					break;
 				}
 				break;
