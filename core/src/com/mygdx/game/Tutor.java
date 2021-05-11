@@ -1733,7 +1733,7 @@ public class Tutor extends Game {
 				range = 100;
 				randProblemChooser = rand.nextInt(4)+1;
 				measurment1 = rand.nextInt(range-1)+2;
-				measurment2 = rand.nextInt(measurment1-2)+1;
+				measurment2 = rand.nextInt(measurment1-1);
 				switch(randProblemChooser) {
 				case 1:
 					correctAnswer = Integer.toString(measurment1 - measurment2);
@@ -1757,7 +1757,7 @@ public class Tutor extends Game {
 				range = 100;
 				randProblemChooser = rand.nextInt(4)+1;
 				measurment1 = rand.nextInt(range-1)+2;
-				measurment2 = rand.nextInt(measurment1-2)+1;
+				measurment2 = rand.nextInt(measurment1-1);
 				switch(randProblemChooser) {
 				case 1:
 					correctAnswer = Integer.toString(measurment1 - measurment2);
@@ -1807,7 +1807,7 @@ public class Tutor extends Game {
 				range = 100;
 				randProblemChooser = rand.nextInt(8)+1;
 				measurment1 = rand.nextInt(range-1)+2;
-				measurment2 = rand.nextInt(measurment1-2)+1;
+				measurment2 = rand.nextInt(measurment1-1);
 				switch(randProblemChooser) {
 				case 1:
 					correctAnswer = Integer.toString(measurment1 - measurment2);
@@ -1846,7 +1846,7 @@ public class Tutor extends Game {
 				range = 100;
 				randProblemChooser = rand.nextInt(8)+1;
 				measurment1 = rand.nextInt(range-1)+2;
-				measurment2 = rand.nextInt(measurment1-2)+1;
+				measurment2 = rand.nextInt(measurment1-1);
 				switch(randProblemChooser) {
 				case 1:
 					correctAnswer = Integer.toString(measurment1 - measurment2);
@@ -1914,7 +1914,7 @@ public class Tutor extends Game {
 				range = 100;
 				randProblemChooser = rand.nextInt(8)+1;
 				measurment1 = rand.nextInt(range-1)+2;
-				measurment2 = rand.nextInt(measurment1-2)+1;
+				measurment2 = rand.nextInt(measurment1-1);
 				switch(randProblemChooser) {
 				case 1:
 					correctAnswer = Integer.toString((100 * (measurment1 - measurment2)));
@@ -1954,7 +1954,7 @@ public class Tutor extends Game {
 				
 				randProblemChooser = rand.nextInt(8)+1;
 				measurment1 = rand.nextInt(range-1)+2;
-				measurment2 = rand.nextInt(measurment1-2)+1;
+				measurment2 = rand.nextInt(measurment1-1);
 				switch(randProblemChooser) {
 				case 1:
 					correctAnswer = Integer.toString((measurment1 - measurment2) * 1000);
