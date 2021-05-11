@@ -564,7 +564,7 @@ public class Tutor extends Game {
 			operationRange = 4;
 			break;
 		case "4th Grade":
-			numberRange = 1000000;
+			numberRange = 10000;
 			operationRange = 4;
 			break;
 		}
