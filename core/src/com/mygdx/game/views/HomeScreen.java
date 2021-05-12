@@ -105,7 +105,7 @@ public class HomeScreen implements Screen {
 		topicSelectBox.setItems("Counting", "Operations", "Numbers", "Measurements");
 		topicSelectBox.setAlignment(Align.center);
 		final SelectBox<String> lessonSelectBox = new SelectBox<String>(skin);
-		lessonSelectBox.setItems("Practice", "Test", "Exam", "Tutorial");
+		lessonSelectBox.setItems("Test", "Exam", "Tutorial"); //this used to have a practice option, but it became useless with time, now a test can be used as practice
 		lessonSelectBox.setAlignment(Align.center);
 		Button begin = new Button(skin, "ArrowRight"); //creates an arrow button pointing to the right
 		TextTooltip beginPopup = new TextTooltip(" Begin ", skin);
