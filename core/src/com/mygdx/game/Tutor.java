@@ -1513,7 +1513,7 @@ public class Tutor extends Game {
 				possibleAnswers.add("3:00");
 				possibleAnswers.add("6:30");
 				possibleAnswers.add("8:30");
-				possibleAnswers.add("9:30");
+				possibleAnswers.add("9:00");
 				possibleAnswers.add("10:00");
 				possibleAnswers.add("1:30");
 				possibleAnswers.add("5:30");
@@ -1537,8 +1537,8 @@ public class Tutor extends Game {
 					correctAnswer = "8:30";
 					break;
 				case 5:
-					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/930Analog.png")));
-					correctAnswer = "9:30";
+					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/900Analog.png")));
+					correctAnswer = "9:00";
 					break;
 				case 6:
 					measurementImage1 = new Image(new Texture(Gdx.files.internal("images/1000Digital.png")));
@@ -1564,7 +1564,7 @@ public class Tutor extends Game {
 				int randomAnswer = 0;
 				for(int i=0; i<3; i++) {
 					randomAnswer = rand.nextInt(possibleAnswers.size());
-					while(possibleAnswers.get(randomAnswer)==correctAnswer) {
+					while(possibleAnswers.get(randomAnswer).equals(correctAnswer)) {
 						randomAnswer = rand.nextInt(possibleAnswers.size());
 					}
 					multipleWA[i] = possibleAnswers.remove(randomAnswer);
