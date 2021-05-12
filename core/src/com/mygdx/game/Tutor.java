@@ -1514,6 +1514,7 @@ public class Tutor extends Game {
 				possibleAnswers.add("6:30");
 				possibleAnswers.add("8:30");
 				possibleAnswers.add("9:00");
+				possibleAnswers.add("9:30");
 				possibleAnswers.add("10:00");
 				possibleAnswers.add("1:30");
 				possibleAnswers.add("5:30");
