@@ -1564,6 +1564,9 @@ public class Tutor extends Game {
 				int randomAnswer = 0;
 				for(int i=0; i<3; i++) {
 					randomAnswer = rand.nextInt(possibleAnswers.size());
+					while(possibleAnswers.get(randomAnswer)==correctAnswer) {
+						randomAnswer = rand.nextInt(possibleAnswers.size());
+					}
 					multipleWA[i] = possibleAnswers.remove(randomAnswer);
 				}
 				return measurementsProblem = new Problem(problemText, correctAnswer, multipleWA, measurementImage1);
