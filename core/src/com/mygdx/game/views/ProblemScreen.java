@@ -113,6 +113,7 @@ public class ProblemScreen implements Screen {
 		stage.addActor(table);
 		//creating actors
 		Label currentAssignment = new Label(parent.gradeSelection + " " + parent.topicSelection, skin, "noBackground");
+		if (parent.lessonSelection.equals("Exam")) currentAssignment.setText(parent.gradeSelection + " " + "Exam");
 		currentAssignment.setAlignment(Align.center);
 		Label userInfo = new Label("", skin);
 		userInfo.setText(userInfoMessage);
