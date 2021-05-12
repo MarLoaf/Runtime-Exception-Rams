@@ -1126,7 +1126,6 @@ public class Tutor extends Game {
 			randNumber = answer;
 		}
 		correctAnswer = "" + answer;
-		System.out.println("Answer: " + correctAnswer + " Left: " + factorInt + " Right: " + number);
 		wrongAnswers = new String[] {"" + wrongAnswersInts[0], "" + wrongAnswersInts[1], "" + wrongAnswersInts[2]};
 		if(grade=="Kindergarten") return new Problem("", correctAnswer, wrongAnswers, kindergartenImage1, kindergartenImage2);
 		//multiple choice or not
