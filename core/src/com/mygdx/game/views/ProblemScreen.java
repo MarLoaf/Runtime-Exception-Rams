@@ -118,7 +118,6 @@ public class ProblemScreen implements Screen {
 		Label userInfo = new Label("", skin);
 		userInfo.setText(userInfoMessage);
 		userInfo.setAlignment(Align.center);
-        operator = new Label("", skin, "large");
 		if (parent.problems.get(parent.problemNumber).getCountingImage()!=null) {
 			countingProblemImage = parent.problems.get(parent.problemNumber).getCountingImage();
 		}else if (parent.problems.get(parent.problemNumber).getComparisonImage1()!=null) {
@@ -126,7 +125,9 @@ public class ProblemScreen implements Screen {
 			measurementProblemImage2 = parent.problems.get(parent.problemNumber).getComparisonImage2();
 		}
 		if (parent.problems.get(parent.problemNumber).getOperator()!=null) {
+	        operator = new Label("", skin, "large");
 			operator.setText(parent.problems.get(parent.problemNumber).getOperator());
+	        operator.setAlignment(Align.center);
 		}
 		Label kindergartenNumbersLabel1 = new Label("How many", skin, "noBackground");
 		kindergartenNumbersLabel1.setAlignment(Align.center);
@@ -134,7 +135,6 @@ public class ProblemScreen implements Screen {
 		kindergartenNumbersLabel2.setAlignment(Align.center);
 		Label kindergartenNumbersLabel3 = new Label("?", skin, "noBackground");
 		kindergartenNumbersLabel3.setAlignment(Align.center);
-        operator.setAlignment(Align.center);
         problem = new Label("", skin, "noBackground");
         problem.setText(parent.problems.get(parent.problemNumber).getProblemText());
         problem.setAlignment(Align.center);
@@ -196,7 +196,7 @@ public class ProblemScreen implements Screen {
 		if (parent.problems.get(parent.problemNumber).getCountingImage()!=null) {
 			table.add(countingProblemImage).colspan(4).uniformX();
 		}else if (parent.problems.get(parent.problemNumber).getComparisonImage1()!=null&&parent.problems.get(parent.problemNumber).getOperator()==null) {
-			if(parent.gradeSelection.equals("Kindergarten")&&parent.topicSelection.equals("Numbers")) {
+			if(parent.gradeSelection.equals("Kindergarten")&&measurementProblemImage1!=null&&operator==null&&!parent.problems.get(parent.problemNumber).getCorrectAnswer().equals("right")&&!parent.problems.get(parent.problemNumber).getCorrectAnswer().equals("left")) {
 				Table insideTable = new Table();
 				insideTable.add(kindergartenNumbersLabel1).uniformX();
 				insideTable.add(measurementProblemImage1);
